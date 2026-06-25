@@ -1,0 +1,301 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../services/api/src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserStatus {
+  NORMAL
+  RESTRICTED
+  BLACKLISTED
+}
+
+enum AdminRole {
+  OPS
+  SUPER_ADMIN
+}
+
+enum RestaurantStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum ActivityStatus {
+  DRAFT
+  PUBLISHED
+  REGISTRATION_OPEN
+  LOCKING
+  GROUPED
+  GROUP_FAILED
+  ADDRESS_UNLOCKED
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAYMENT_FAILED
+  CLOSED
+  PAID_PENDING_GROUP
+  GROUPED
+  GROUP_FAILED
+  REFUND_REQUESTED
+  REFUND_REVIEWING
+  REFUNDING
+  REFUNDED
+  CANCELED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+enum RefundStatus {
+  REVIEWING
+  REFUNDING
+  SUCCEEDED
+  FAILED
+  REJECTED
+}
+
+enum TableGroupStatus {
+  PENDING_CONFIRMATION
+  CONFIRMED
+  CANCELED
+}
+
+enum ReportStatus {
+  OPEN
+  RESOLVED
+  REJECTED
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+model User {
+  id             String          @id @default(cuid())
+  wechatOpenid   String          @unique
+  wechatUnionid  String?
+  phone          String?
+  status         UserStatus      @default(NORMAL)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  profile        UserProfile?
+  consents       ConsentRecord[]
+  orders         Order[]
+  reports        Report[]
+  blacklistEntry Blacklist?
+  notifications  Notification[]
+}
+
+model UserProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  preferredAreas      String[]
+  availableTimes      String[]
+  tastePreferences    String[]
+  dietaryRestrictions String[]
+  budgetRange         String
+  tableVibe           String
+  note                String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ConsentRecord {
+  id               String   @id @default(cuid())
+  userId           String
+  agreementVersion String
+  source           String
+  createdAt        DateTime @default(now())
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, agreementVersion])
+}
+
+model AdminUser {
+  id        String     @id @default(cuid())
+  username  String     @unique
+  role      AdminRole
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  audits    AuditLog[]
+}
+
+model Restaurant {
+  id           String           @id @default(cuid())
+  name         String
+  district     String
+  businessArea String
+  address      String
+  contactName  String
+  contactPhone String
+  budgetCents  Int
+  cuisineTags  String[]
+  capacity     Int
+  status       RestaurantStatus @default(ACTIVE)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  activities   Activity[]
+}
+
+model Activity {
+  id                String        @id @default(cuid())
+  restaurantId      String
+  title             String
+  theme             String
+  description       String
+  district          String
+  businessArea      String
+  startsAt          DateTime
+  endsAt            DateTime
+  registrationEndsAt DateTime
+  serviceFeeCents   Int
+  mealFeeIncluded   Boolean       @default(false)
+  mealFeePolicyText String
+  minSize           Int           @default(4)
+  targetSize        Int           @default(6)
+  maxSize           Int           @default(8)
+  capacity          Int
+  status            ActivityStatus @default(DRAFT)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  restaurant        Restaurant    @relation(fields: [restaurantId], references: [id])
+  orders            Order[]
+  tableGroups       TableGroup[]
+
+  @@index([status, startsAt])
+}
+
+model Order {
+  id              String       @id @default(cuid())
+  userId          String
+  activityId      String
+  amountCents     Int
+  status          OrderStatus  @default(PENDING_PAYMENT)
+  agreementVersion String
+  profileSnapshot Json?
+  inventoryLockedUntil DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  user            User         @relation(fields: [userId], references: [id])
+  activity        Activity     @relation(fields: [activityId], references: [id])
+  payments        Payment[]
+  refunds         Refund[]
+  reports         Report[]
+  tableMembers    TableMember[]
+
+  @@unique([userId, activityId])
+  @@index([status])
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  orderId        String
+  amountCents    Int
+  status         PaymentStatus @default(PENDING)
+  channel        String        @default("mock")
+  channelTradeNo String?       @unique
+  callbackNonce  String?       @unique
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  order          Order         @relation(fields: [orderId], references: [id])
+
+  @@index([orderId, status])
+}
+
+model Refund {
+  id              String       @id @default(cuid())
+  orderId         String
+  amountCents     Int
+  status          RefundStatus @default(REVIEWING)
+  reason          String
+  requestedBy     String
+  channelRefundNo String?      @unique
+  callbackNonce   String?      @unique
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  order           Order        @relation(fields: [orderId], references: [id])
+
+  @@index([orderId, status])
+}
+
+model TableGroup {
+  id          String           @id @default(cuid())
+  activityId  String
+  status      TableGroupStatus @default(PENDING_CONFIRMATION)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  activity    Activity         @relation(fields: [activityId], references: [id])
+  members     TableMember[]
+}
+
+model TableMember {
+  id           String     @id @default(cuid())
+  tableGroupId String
+  orderId      String
+  createdAt    DateTime   @default(now())
+  tableGroup   TableGroup @relation(fields: [tableGroupId], references: [id], onDelete: Cascade)
+  order        Order      @relation(fields: [orderId], references: [id])
+
+  @@unique([tableGroupId, orderId])
+}
+
+model Report {
+  id        String       @id @default(cuid())
+  userId    String
+  orderId   String
+  type      String
+  content   String
+  status    ReportStatus @default(OPEN)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  user      User         @relation(fields: [userId], references: [id])
+  order     Order        @relation(fields: [orderId], references: [id])
+}
+
+model Blacklist {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  reason    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id        String     @id @default(cuid())
+  actorId   String?
+  actorRole AdminRole?
+  action    String
+  targetType String
+  targetId  String
+  reason    String?
+  metadata  Json?
+  createdAt DateTime   @default(now())
+  actor     AdminUser? @relation(fields: [actorId], references: [id])
+
+  @@index([targetType, targetId])
+}
+
+model Notification {
+  id        String             @id @default(cuid())
+  userId    String
+  type      String
+  status    NotificationStatus @default(PENDING)
+  payload   Json?
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
