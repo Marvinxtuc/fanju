@@ -3,6 +3,7 @@ dist/
 coverage/
 services/api/src/generated/
 .turbo/
+.superpowers/
 .env
 .env.*
 !.env.example

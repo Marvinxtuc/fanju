@@ -23,33 +23,57 @@ export default function OrderDetailPage(): JSX.Element {
 
   return (
     <View className="page page-order-detail">
-      <Text className="eyebrow">订单详情</Text>
-      <Text className="title">{order ? `订单 ${order.id}` : "暂无订单"}</Text>
-      <Text className="summary">订单金额由服务端计算；当前使用 mock 支付。</Text>
+      <View className="detail-header">
+        <Text className="eyebrow">到店小票</Text>
+        <Text className="title">{order ? "饭局已入票" : "暂无饭票"}</Text>
+        <Text className="summary">订单金额由服务端计算；当前使用 mock 支付，不接生产真实支付。</Text>
+      </View>
 
-      {error ? <Text>错误：{error}</Text> : null}
+      {error ? <Text className="error-text">错误：{error}</Text> : null}
 
-      <View className="detail-block">
-        <Text className="block-title">费用</Text>
-        <Text>服务费/订位费：{order ? order.amountCents / 100 : "-"} 元</Text>
-        <Text>餐费：到店自理</Text>
+      <View className="ticket-card">
+        <View className="ticket-row">
+          <View>
+            <Text className="ticket-label">ORDER</Text>
+            <Text className="meal-card__title">{order?.id ?? "暂无订单"}</Text>
+          </View>
+          <Text className="stamp stamp--green">{order?.status ?? "-"}</Text>
+        </View>
+        <View className="ticket-divider" />
+        <Text className="muted">服务费/订位费</Text>
+        <Text className="amount">{order ? `¥${order.amountCents / 100}` : "-"}</Text>
+        <Text className="muted">餐费到店自理</Text>
       </View>
 
       <View className="detail-block">
-        <Text className="block-title">状态</Text>
-        <Text>{order?.status ?? "-"}</Text>
-        <Text>{order?.activity.title ?? "-"}</Text>
-        <Text>商户：{order?.activity.restaurantName ?? "成团后展示"}</Text>
-        <Text>地址：{order?.activity.address ?? "活动前 24 小时展示"}</Text>
+        <Text className="block-title">解锁信息</Text>
+        <View className="menu-line">
+          <Text>饭局</Text>
+          <Text className="muted">{order?.activity.title ?? "-"}</Text>
+        </View>
+        <View className="menu-line">
+          <Text>商户</Text>
+          <Text className="muted">{order?.activity.restaurantName ?? "成团后展示"}</Text>
+        </View>
+        <View className="menu-line">
+          <Text>地址</Text>
+          <Text className="muted">{order?.activity.address ?? "活动前 24 小时展示"}</Text>
+        </View>
       </View>
 
       <View className="detail-block">
         <Text className="block-title">取消规则</Text>
-        <Text>T-24 前取消进入运营快速审核，审核通过后按测试退款流程处理。</Text>
+        <Text className="summary">T-24 前取消进入运营快速审核，审核通过后按测试退款流程处理。</Text>
       </View>
 
-      <Button onClick={() => void load()}>刷新订单</Button>
-      <Button onClick={() => navigateTo({ url: "/pages/home/index" })}>返回活动列表</Button>
+      <View className="action-bar">
+        <Button className="button-primary" onClick={() => void load()}>
+          刷新饭票
+        </Button>
+        <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/home/index" })}>
+          返回饭局列表
+        </Button>
+      </View>
     </View>
   );
 }
