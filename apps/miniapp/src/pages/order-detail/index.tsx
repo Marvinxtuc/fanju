@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Text, View } from "@tarojs/components";
 import { navigateTo } from "@tarojs/taro";
 
-import { getLastOrder, type OrderDetail } from "../../api.js";
+import { getLastOrder, type OrderDetail } from "../../api";
 
 export default function OrderDetailPage(): JSX.Element {
   const [order, setOrder] = useState<OrderDetail | null>(null);

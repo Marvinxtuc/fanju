@@ -4,6 +4,7 @@ import {
   PrismaClient,
   RefundStatus,
 } from "./generated/prisma/client.js";
+import { createCipheriv, createSign, generateKeyPairSync, randomBytes } from "node:crypto";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
 import { buildApp } from "./app.js";
@@ -18,6 +19,9 @@ const prisma = new PrismaClient({
 
 const describeDb = process.env.RUN_DB_TESTS === "1" ? describe : describe.skip;
 const testRunPrefix = `api_db_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+const { privateKey: callbackPrivateKey, publicKey: callbackPublicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+const callbackFixtureKey = "0123456789abcdef0123456789abcdef";
+const callbackNowSeconds = 1_800_000_000;
 
 describeDb("api mock MVP flow", () => {
   let app: Awaited<ReturnType<typeof buildApp>>;
@@ -94,6 +98,91 @@ describeDb("api mock MVP flow", () => {
     expect(paymentAuditCount).toBe(1);
   });
 
+  it("applies a signed payment callback once and rejects the route while real pay is disabled", async () => {
+    const disabled = await app.inject({ method: "POST", url: "/api/wechat/pay/notify", payload: {} });
+    expect(disabled.statusCode).toBe(404);
+
+    const adminToken = await loginAdmin("callback-ops");
+    const userToken = await loginUser("callback-buyer");
+    await bindPhone(userToken, "13800138000");
+    const orderId = await createPendingOrder(userToken, await createOpenActivity(adminToken));
+    const payment = await createMockPayment(userToken, orderId);
+    const wechatApp = await buildApp({
+      prisma,
+      providerEnv: wechatCallbackEnv(),
+      wechatPayNotificationConfig: {
+        apiV3Key: ["0123456789abcdef", "0123456789abcdef"].join(""),
+        platformCertificate: callbackPublicKey,
+        now: () => callbackNowSeconds * 1000,
+      },
+    });
+    try {
+      const fixture = signedWechatCallback({
+        out_trade_no: payment.merchantOrderNo,
+        transaction_id: "test_channel_trade_callback_001",
+        trade_state: "SUCCESS",
+        amount: { total: payment.amountCents },
+      });
+      const first = await wechatApp.inject({ method: "POST", url: "/api/wechat/pay/notify", headers: fixture.headers, payload: fixture.body });
+      expect(first.statusCode).toBe(200);
+      expect(first.json()).toMatchObject({ code: "SUCCESS", idempotent: false });
+      const second = await wechatApp.inject({ method: "POST", url: "/api/wechat/pay/notify", headers: fixture.headers, payload: fixture.body });
+      expect(second.statusCode).toBe(200);
+      expect(second.json()).toMatchObject({ code: "SUCCESS", idempotent: true });
+      await expectOrderStatus(orderId, OrderStatus.PAID_PENDING_GROUP);
+    } finally {
+      await wechatApp.close();
+    }
+  });
+
+  it("applies a signed refund callback once after ops approval", async () => {
+    const adminToken = await loginAdmin("refund-callback-ops");
+    const userToken = await loginUser("refund-callback-buyer");
+    await bindPhone(userToken, "13800138000");
+    const orderId = await createPaidOrder(userToken, await createOpenActivity(adminToken));
+    const cancel = await app.inject({
+      method: "POST",
+      url: `/api/orders/${orderId}/cancel`,
+      headers: auth(userToken),
+      payload: { reason: "测试退款回调" },
+    });
+    expect(cancel.statusCode).toBe(200);
+    const refund = cancel.json().refund;
+    const approve = await app.inject({
+      method: "POST",
+      url: `/api/ops/refunds/${refund.id}/approve`,
+      headers: auth(adminToken),
+      payload: { reason: "测试审核通过" },
+    });
+    expect(approve.statusCode).toBe(200);
+    const wechatApp = await buildApp({
+      prisma,
+      providerEnv: wechatCallbackEnv(),
+      wechatPayNotificationConfig: {
+        apiV3Key: ["0123456789abcdef", "0123456789abcdef"].join(""),
+        platformCertificate: callbackPublicKey,
+        now: () => callbackNowSeconds * 1000,
+      },
+    });
+    try {
+      const fixture = signedWechatCallback({
+        out_refund_no: refund.merchantRefundNo,
+        refund_id: "test_channel_refund_callback_001",
+        refund_status: "SUCCESS",
+        amount: { refund: refund.amountCents },
+      });
+      const first = await wechatApp.inject({ method: "POST", url: "/api/wechat/refund/notify", headers: fixture.headers, payload: fixture.body });
+      expect(first.statusCode).toBe(200);
+      expect(first.json()).toMatchObject({ code: "SUCCESS", idempotent: false });
+      const second = await wechatApp.inject({ method: "POST", url: "/api/wechat/refund/notify", headers: fixture.headers, payload: fixture.body });
+      expect(second.statusCode).toBe(200);
+      expect(second.json()).toMatchObject({ code: "SUCCESS", idempotent: true });
+      await expectOrderStatus(orderId, OrderStatus.REFUNDED);
+    } finally {
+      await wechatApp.close();
+    }
+  });
+
   it("uses wechat auth provider results to create idempotent users", async () => {
     const wechatApp = await buildApp({
       prisma,
@@ -115,19 +204,19 @@ describeDb("api mock MVP flow", () => {
       },
     });
     try {
-      const first = await wechatApp.inject({
-        method: "POST",
-        url: "/api/mock/wechat-login",
-        payload: { code: "same-login-code" },
-      });
-      expect(first.statusCode).toBe(200);
-      const second = await wechatApp.inject({
-        method: "POST",
-        url: "/api/mock/wechat-login",
-        payload: { code: "same-login-code" },
-      });
-      expect(second.statusCode).toBe(200);
-      expect(second.json().user.id).toBe(first.json().user.id);
+      const concurrentLogins = await Promise.all(
+        Array.from({ length: 3 }, () =>
+          wechatApp.inject({
+            method: "POST",
+            url: "/api/mock/wechat-login",
+            payload: { code: "same-login-code" },
+          }),
+        ),
+      );
+      expect(concurrentLogins.every((response) => response.statusCode === 200)).toBe(true);
+      const userIds = new Set(concurrentLogins.map((response) => response.json().user.id));
+      expect(userIds.size).toBe(1);
+      const [firstUserId] = userIds;
 
       const different = await wechatApp.inject({
         method: "POST",
@@ -135,7 +224,7 @@ describeDb("api mock MVP flow", () => {
         payload: { code: "different-login-code" },
       });
       expect(different.statusCode).toBe(200);
-      expect(different.json().user.id).not.toBe(first.json().user.id);
+      expect(different.json().user.id).not.toBe(firstUserId);
 
       const beforeErrorCount = await prisma.user.count({
         where: { wechatOpenid: { startsWith: `mock_openid_${testRunPrefix}_wechat_` } },
@@ -357,7 +446,7 @@ describeDb("api mock MVP flow", () => {
   it("rejects expired registration, duplicate active orders, and capacity overflow", async () => {
     const adminToken = await loginAdmin("capacity-ops");
     const expiredActivityId = await createOpenActivity(adminToken, {
-      registrationEndsAt: "2026-01-01T00:00:00.000Z",
+      registrationEndsAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
     });
     await expectOrderCreateStatus(expiredActivityId, "expired-user", 409);
     await expectOrderCount(expiredActivityId, 0);
@@ -863,6 +952,10 @@ function activityPayload(
   restaurantId: string,
   overrides: Record<string, unknown> = {},
 ): Record<string, unknown> {
+  const startsAt = new Date(Date.now() + 48 * 60 * 60 * 1000);
+  const endsAt = new Date(startsAt.getTime() + 2 * 60 * 60 * 1000);
+  const registrationEndsAt = new Date(startsAt.getTime() - 24 * 60 * 60 * 1000);
+
   return {
     restaurantId,
     title: scoped("周末兴趣餐桌"),
@@ -870,9 +963,9 @@ function activityPayload(
     description: "两小时餐厅体验，费用为服务费/订位费，餐费到店自理。",
     district: "徐汇",
     businessArea: "衡山路",
-    startsAt: "2026-07-10T12:00:00.000Z",
-    endsAt: "2026-07-10T14:00:00.000Z",
-    registrationEndsAt: "2026-07-09T12:00:00.000Z",
+    startsAt: startsAt.toISOString(),
+    endsAt: endsAt.toISOString(),
+    registrationEndsAt: registrationEndsAt.toISOString(),
     serviceFeeCents: 9900,
     mealFeeIncluded: false,
     mealFeePolicyText: "票价仅为服务费/订位费，不包含全部餐费。",
@@ -884,6 +977,43 @@ function activityPayload(
 
 function auth(token: string): Record<string, string> {
   return { authorization: `Bearer ${token}` };
+}
+
+function wechatCallbackEnv() {
+  return {
+    PAYMENT_PROVIDER: "wechat",
+    REFUND_PROVIDER: "wechat",
+    FEATURE_REAL_WECHAT_PAY: "true",
+    WECHAT_PAY_ENABLED: "true",
+    WECHAT_PAY_MCH_ID: "test_mch_id",
+    WECHAT_PAY_API_V3_KEY: "test_api_v3_key",
+    WECHAT_PAY_PRIVATE_KEY_PATH: "/tmp/test-key.pem",
+    WECHAT_PAY_CERT_SERIAL_NO: "test_cert_serial",
+    WECHAT_PAY_PLATFORM_CERT_PATH: "/tmp/test-platform-cert.pem",
+    WECHAT_PAY_CALLBACK_URL: "https://example.invalid/pay",
+    WECHAT_REFUND_CALLBACK_URL: "https://example.invalid/refund",
+  };
+}
+
+function signedWechatCallback(resource: Record<string, unknown>) {
+  const nonce = randomBytes(12).toString("base64url").slice(0, 12);
+  const associatedData = "transaction";
+  const cipher = createCipheriv("aes-256-gcm", Buffer.from(callbackFixtureKey), Buffer.from(nonce));
+  cipher.setAAD(Buffer.from(associatedData));
+  const ciphertext = Buffer.concat([cipher.update(JSON.stringify(resource), "utf8"), cipher.final(), cipher.getAuthTag()]).toString("base64");
+  const body = JSON.stringify({ resource: { associated_data: associatedData, nonce, ciphertext } });
+  const signer = createSign("RSA-SHA256");
+  signer.update(`${callbackNowSeconds}\ncallback-notification-nonce\n${body}\n`);
+  signer.end();
+  return {
+    body,
+    headers: {
+      "content-type": "application/json",
+      "wechatpay-timestamp": String(callbackNowSeconds),
+      "wechatpay-nonce": "callback-notification-nonce",
+      "wechatpay-signature": signer.sign(callbackPrivateKey, "base64"),
+    },
+  };
 }
 
 function scoped(value: string): string {

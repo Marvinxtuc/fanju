@@ -12,7 +12,3 @@ export default defineAppConfig({
     backgroundTextStyle: "dark"
   }
 });
-
-function defineAppConfig<TConfig extends Record<string, unknown>>(config: TConfig): TConfig {
-  return config;
-}

@@ -6,7 +6,7 @@ import {
   bindPhoneWithWechatCode,
   ensureMockUser,
   loginWithWechatProvider,
-} from "../../api.js";
+} from "../../api";
 
 export default function MockAuthPage(): JSX.Element {
   const [message, setMessage] = useState("未登录");

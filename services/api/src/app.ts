@@ -1,4 +1,5 @@
 import cors from "@fastify/cors";
+import { readFileSync } from "node:fs";
 import {
   ActivityStatus,
   OrderStatus,
@@ -21,6 +22,11 @@ import {
   ProviderUnavailableError,
   type ProviderEnv,
 } from "./providers.js";
+import {
+  verifyPaymentNotification,
+  verifyRefundNotification,
+  type WechatPayNotificationConfig,
+} from "./wechat-pay.js";
 
 const phoneSchema = z.string().regex(/^\+?\d{8,15}$/);
 
@@ -28,16 +34,35 @@ export interface BuildAppOptions {
   prisma?: PrismaClient;
   providerEnv?: ProviderEnv;
   providerHttpClient?: ProviderHttpClient;
+  wechatPayNotificationConfig?: WechatPayNotificationConfig;
 }
 
 export async function buildApp(options: BuildAppOptions = {}) {
   const db = options.prisma ?? defaultPrisma;
-  const providers = createWechatProviders(options.providerEnv, {
+  const providerEnv = options.providerEnv ?? process.env;
+  const providers = createWechatProviders(providerEnv, {
     ...(options.providerHttpClient === undefined
       ? {}
       : { httpClient: options.providerHttpClient }),
   });
   const app = Fastify({ logger: true });
+  const callbackBodies = new WeakMap<object, string>();
+
+  app.addHook("preParsing", (request, _reply, payload, done) => {
+    if (
+      request.url === "/api/wechat/pay/notify" ||
+      request.url === "/api/wechat/refund/notify"
+    ) {
+      const chunks: Buffer[] = [];
+      payload.on("data", (chunk: Buffer | string) => {
+        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+      });
+      payload.on("end", () => {
+        callbackBodies.set(request, Buffer.concat(chunks).toString("utf8"));
+      });
+    }
+    done(null, payload);
+  });
 
   await app.register(cors, { origin: true });
   await registerAuth(app);
@@ -82,19 +107,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
   app.post("/api/mock/wechat-login", async (request) => {
     const body = z.object({ code: z.string().min(1) }).parse(request.body);
     const identity = await providers.auth.exchangeLoginCode({ code: body.code });
-    const user = await db.user.upsert({
-      where: { wechatOpenid: identity.openid },
-      update:
-        identity.unionid === undefined
-          ? {}
-          : { wechatUnionid: identity.unionid },
-      create: {
-        wechatOpenid: identity.openid,
-        ...(identity.unionid === undefined
-          ? {}
-          : { wechatUnionid: identity.unionid }),
-      },
-    });
+    const user = await upsertWechatUser(db, identity);
     const token = app.jwt.sign({ sub: user.id, role: "USER" });
 
     return {
@@ -712,7 +725,135 @@ export async function buildApp(options: BuildAppOptions = {}) {
     return { refund: updated };
   });
 
+  app.post("/api/wechat/pay/notify", async (request, reply) => {
+    if (!realWechatPayEnabled(providerEnv, providers.payment.mode)) {
+      return reply.code(404).send({ error: "Not found" });
+    }
+    const rawBody = callbackBodies.get(request);
+    if (!rawBody) return reply.code(400).send({ error: "Missing raw callback body" });
+    const callback = verifyPaymentNotification(
+      rawBody,
+      request.headers,
+      options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv),
+    );
+    const payment = await db.payment.findUnique({
+      where: { merchantOrderNo: callback.merchantOrderNo },
+      include: { order: true },
+    });
+    if (!payment || payment.amountCents !== callback.amountCents || payment.order.amountCents !== callback.amountCents) {
+      return reply.code(409).send({ error: "Payment callback does not match a pending order" });
+    }
+    const decision = canApplyPaymentSuccess(payment.status, payment.order.status);
+    if (decision === "idempotent") {
+      if (payment.channelTradeNo !== callback.channelTradeNo || payment.callbackNonce !== callback.callbackNonce) {
+        return reply.code(409).send({ error: "Payment callback conflicts with completed payment" });
+      }
+      return { code: "SUCCESS", idempotent: true };
+    }
+    if (decision === "reject") {
+      await db.auditLog.create({
+        data: { action: "payment.callback.rejected", targetType: "Payment", targetId: payment.id, reason: "Payment callback reached a non-pending order" },
+      });
+      return reply.code(409).send({ error: "Payment callback is not applicable" });
+    }
+    await db.$transaction(async (tx) => {
+      await tx.payment.update({
+        where: { id: payment.id },
+        data: { status: PaymentStatus.SUCCEEDED, channelTradeNo: callback.channelTradeNo, callbackNonce: callback.callbackNonce },
+      });
+      await tx.order.update({ where: { id: payment.orderId }, data: { status: OrderStatus.PAID_PENDING_GROUP } });
+      await tx.auditLog.create({
+        data: { action: "payment.callback.succeeded", targetType: "Payment", targetId: payment.id, metadata: { orderId: payment.orderId, fromOrderStatus: payment.order.status, toOrderStatus: OrderStatus.PAID_PENDING_GROUP } },
+      });
+    });
+    return { code: "SUCCESS", idempotent: false };
+  });
+
+  app.post("/api/wechat/refund/notify", async (request, reply) => {
+    if (!realWechatPayEnabled(providerEnv, providers.refund.mode)) {
+      return reply.code(404).send({ error: "Not found" });
+    }
+    const rawBody = callbackBodies.get(request);
+    if (!rawBody) return reply.code(400).send({ error: "Missing raw callback body" });
+    const callback = verifyRefundNotification(
+      rawBody,
+      request.headers,
+      options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv),
+    );
+    const refund = await db.refund.findUnique({
+      where: { merchantRefundNo: callback.merchantRefundNo },
+      include: { order: true },
+    });
+    if (!refund || refund.amountCents !== callback.amountCents) {
+      return reply.code(409).send({ error: "Refund callback does not match a pending refund" });
+    }
+    const decision = canApplyRefundCallback(refund.status, refund.order.status);
+    if (decision === "idempotent") {
+      if (refund.channelRefundNo !== callback.channelRefundNo || refund.callbackNonce !== callback.callbackNonce) {
+        return reply.code(409).send({ error: "Refund callback conflicts with completed refund" });
+      }
+      return { code: "SUCCESS", idempotent: true };
+    }
+    if (decision === "reject") {
+      await db.auditLog.create({
+        data: { action: "refund.callback.rejected", targetType: "Refund", targetId: refund.id, reason: "Refund callback reached a non-refunding order" },
+      });
+      return reply.code(409).send({ error: "Refund callback is not applicable" });
+    }
+    await db.$transaction(async (tx) => {
+      await tx.refund.update({
+        where: { id: refund.id },
+        data: { status: RefundStatus.SUCCEEDED, channelRefundNo: callback.channelRefundNo, callbackNonce: callback.callbackNonce },
+      });
+      await tx.order.update({ where: { id: refund.orderId }, data: { status: OrderStatus.REFUNDED } });
+      await tx.auditLog.create({
+        data: { action: "refund.callback.succeeded", targetType: "Refund", targetId: refund.id, metadata: { orderId: refund.orderId, fromOrderStatus: refund.order.status, toOrderStatus: OrderStatus.REFUNDED } },
+      });
+    });
+    return { code: "SUCCESS", idempotent: false };
+  });
+
   return app;
+}
+
+function realWechatPayEnabled(env: ProviderEnv, mode: "mock" | "wechat"): boolean {
+  return mode === "wechat" && env.FEATURE_REAL_WECHAT_PAY === "true";
+}
+
+function notificationConfigFromEnv(env: ProviderEnv): WechatPayNotificationConfig {
+  const apiV3Key = env.WECHAT_PAY_API_V3_KEY;
+  const certificatePath = env.WECHAT_PAY_PLATFORM_CERT_PATH;
+  if (!apiV3Key || !certificatePath) {
+    throw new ProviderConfigError("Missing WeChat Pay notification verification configuration");
+  }
+  return { apiV3Key, platformCertificate: readFileSync(certificatePath, "utf8") };
+}
+
+async function upsertWechatUser(
+  db: PrismaClient,
+  identity: { openid: string; unionid?: string },
+) {
+  const update = identity.unionid === undefined ? {} : { wechatUnionid: identity.unionid };
+  try {
+    return await db.user.upsert({
+      where: { wechatOpenid: identity.openid },
+      update,
+      create: { wechatOpenid: identity.openid, ...update },
+    });
+  } catch (error) {
+    if ((error as { code?: unknown }).code !== "P2002") {
+      throw error;
+    }
+
+    const existing = await db.user.findUnique({ where: { wechatOpenid: identity.openid } });
+    if (existing === null) {
+      throw error;
+    }
+    if (identity.unionid === undefined || existing.wechatUnionid === identity.unionid) {
+      return existing;
+    }
+    return db.user.update({ where: { id: existing.id }, data: update });
+  }
 }
 
 const publicActivitySelect = {

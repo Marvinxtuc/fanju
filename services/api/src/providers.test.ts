@@ -210,6 +210,7 @@ describe("wechat provider configuration", () => {
       WECHAT_PAY_API_V3_KEY: "test_api_v3_key",
       WECHAT_PAY_PRIVATE_KEY_PATH: "/tmp/test-wechat-pay-key.pem",
       WECHAT_PAY_CERT_SERIAL_NO: "test_cert_serial",
+      WECHAT_PAY_PLATFORM_CERT_PATH: "/tmp/test-wechat-pay-platform-cert.pem",
       WECHAT_PAY_CALLBACK_URL: "https://example.invalid/pay",
       WECHAT_REFUND_CALLBACK_URL: "https://example.invalid/refund",
     });

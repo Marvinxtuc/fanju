@@ -204,9 +204,11 @@ model Order {
 model Payment {
   id             String        @id @default(cuid())
   orderId        String
+  merchantOrderNo String        @unique @default(cuid())
   amountCents    Int
   status         PaymentStatus @default(PENDING)
   channel        String        @default("mock")
+  prepayId       String?       @unique
   channelTradeNo String?       @unique
   callbackNonce  String?       @unique
   createdAt      DateTime      @default(now())
@@ -219,6 +221,7 @@ model Payment {
 model Refund {
   id              String       @id @default(cuid())
   orderId         String
+  merchantRefundNo String      @unique @default(cuid())
   amountCents     Int
   status          RefundStatus @default(REVIEWING)
   reason          String

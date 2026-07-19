@@ -1,6 +1,8 @@
 import Taro from "@tarojs/taro";
 
-const API_BASE_URL = "http://localhost:3000";
+declare const __FANJU_API_BASE_URL__: string;
+
+const API_BASE_URL = __FANJU_API_BASE_URL__;
 const TOKEN_KEY = "timeleft_mock_token";
 const LAST_ORDER_ID_KEY = "timeleft_last_order_id";
 

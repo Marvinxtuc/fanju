@@ -6,7 +6,7 @@ import {
   createAndPayOrder,
   getActivity,
   type ActivitySummary,
-} from "../../api.js";
+} from "../../api";
 
 const checklist = ["确认活动时间", "阅读取消规则", "费用为服务费/订位费"];
 const menuLines: Array<[string, string]> = [

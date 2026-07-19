@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, ScrollView, Text, View } from "@tarojs/components";
 import { navigateTo } from "@tarojs/taro";
 
-import { listActivities, type ActivitySummary } from "../../api.js";
+import { listActivities, type ActivitySummary } from "../../api";
 
 const filters = ["今晚", "明天", "周末", "新店", "火锅", "日料", "Brunch", "低预算"];
 
@@ -23,6 +23,16 @@ export default function HomePage(): JSX.Element {
     }
   }
 
+  function openFirstActivity(): void {
+    const firstActivity = activities[0];
+    if (!firstActivity) {
+      setError("暂无可报名活动");
+      return;
+    }
+
+    void navigateTo({ url: `/pages/activity-detail/index?id=${firstActivity.id}` });
+  }
+
   return (
     <ScrollView className="page page-home" scrollY>
       <View className="brand-hero">
@@ -36,8 +46,12 @@ export default function HomePage(): JSX.Element {
         </View>
 
         <View className="hero-actions">
-          <Button className="button-primary">加入饭局</Button>
-          <Button className="button-secondary">开一桌</Button>
+          <Button className="button-primary" onClick={openFirstActivity}>
+            加入饭局
+          </Button>
+          <Button className="button-secondary" onClick={openFirstActivity}>
+            查看饭局
+          </Button>
         </View>
 
         <View className="chip-row">
@@ -60,7 +74,6 @@ export default function HomePage(): JSX.Element {
                 <Text className="meal-card__time">{activity.startsAt}</Text>
                 <Text className="meal-card__title">{activity.title}</Text>
               </View>
-              <Text className="stamp stamp--red">2 席</Text>
             </View>
             <Text className="meal-card__meta">
               {activity.district} · {activity.businessArea}
