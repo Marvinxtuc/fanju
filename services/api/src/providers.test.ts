@@ -1,3 +1,4 @@
+import { generateKeyPairSync } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import { createWechatProviders, ProviderConfigError } from "./providers.js";
 
@@ -201,11 +202,83 @@ describe("wechat provider configuration", () => {
     );
   });
 
-  it("does not silently succeed when wechat payment provider is configured", async () => {
+  it("creates a signed JSAPI payment request without trusting a client amount", async () => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    const calls: Array<{ url: string; method: string; body?: unknown; headers?: Record<string, string> }> = [];
+    const providers = createWechatProviders(
+      wechatPayEnv(),
+      {
+        readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
+        httpClient: async (request) => {
+          calls.push(request);
+          return { prepay_id: "wx_prepay_001" };
+        },
+      },
+    );
+
+    const payment = await providers.payment.createPayment({
+      merchantOrderNo: "order_001",
+      amountCents: 9900,
+      openid: "openid_001",
+    });
+
+    expect(payment).toMatchObject({ channel: "wechat", prepayId: "wx_prepay_001" });
+    expect(payment.paymentParams).toMatchObject({ appId: "wx_test_app_id", package: "prepay_id=wx_prepay_001", signType: "RSA" });
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toMatchObject({
+      url: "https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi",
+      method: "POST",
+      body: {
+        appid: "wx_test_app_id",
+        mchid: "test_mch_id",
+        out_trade_no: "order_001",
+        amount: { total: 9900, currency: "CNY" },
+        payer: { openid: "openid_001" },
+      },
+    });
+    expect(calls[0]?.headers?.authorization).toContain("WECHATPAY2-SHA256-RSA2048");
+    expect(calls[0]?.headers?.authorization).not.toContain("test_api_v3_key");
+  });
+
+  it("creates a signed refund request using local refund and payment references", async () => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    const calls: Array<{ url: string; method: string; body?: unknown; headers?: Record<string, string> }> = [];
+    const providers = createWechatProviders(
+      wechatPayEnv(),
+      {
+        readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
+        httpClient: async (request) => {
+          calls.push(request);
+          return { refund_id: "wx_refund_001" };
+        },
+      },
+    );
+
+    const refund = await providers.refund.createRefund({
+      merchantRefundNo: "refund_001",
+      merchantOrderNo: "order_001",
+      amountCents: 9900,
+    });
+
+    expect(refund).toEqual({ channel: "wechat", channelRefundNo: "wx_refund_001" });
+    expect(calls[0]).toMatchObject({
+      url: "https://api.mch.weixin.qq.com/v3/refund/domestic/refunds",
+      method: "POST",
+      body: {
+        out_refund_no: "refund_001",
+        out_trade_no: "order_001",
+        amount: { refund: 9900, total: 9900, currency: "CNY" },
+      },
+    });
+    expect(calls[0]?.headers?.authorization).toContain("WECHATPAY2-SHA256-RSA2048");
+  });
+
+  it("does not silently succeed when wechat payment provider is configured without a channel response", async () => {
     const providers = createWechatProviders({
       PAYMENT_PROVIDER: "wechat",
       REFUND_PROVIDER: "wechat",
       WECHAT_PAY_ENABLED: "true",
+      WECHAT_MINIAPP_APP_ID: "wx_test_app_id",
       WECHAT_PAY_MCH_ID: "test_mch_id",
       WECHAT_PAY_API_V3_KEY: "test_api_v3_key",
       WECHAT_PAY_PRIVATE_KEY_PATH: "/tmp/test-wechat-pay-key.pem",
@@ -217,11 +290,23 @@ describe("wechat provider configuration", () => {
 
     expect(providers.payment.mode).toBe("wechat");
     expect(providers.refund.mode).toBe("wechat");
-    await expect(
-      providers.payment.createPayment({ orderId: "order", amountCents: 9900 }),
-    ).rejects.toThrow(/WeChat payment provider is not implemented/);
-    await expect(
-      providers.refund.applySuccessCallback({ refundId: "refund" }),
-    ).rejects.toThrow(/WeChat refund callback provider is not implemented/);
+    await expect(providers.payment.createPayment({ merchantOrderNo: "order", amountCents: 9900, openid: "openid" })).rejects.toThrow();
+    await expect(providers.refund.createRefund({ merchantRefundNo: "refund", merchantOrderNo: "order", amountCents: 9900 })).rejects.toThrow();
   });
 });
+
+function wechatPayEnv() {
+  return {
+    PAYMENT_PROVIDER: "wechat",
+    REFUND_PROVIDER: "wechat",
+    WECHAT_PAY_ENABLED: "true",
+    WECHAT_MINIAPP_APP_ID: "wx_test_app_id",
+    WECHAT_PAY_MCH_ID: "test_mch_id",
+    WECHAT_PAY_API_V3_KEY: "test_api_v3_key",
+    WECHAT_PAY_PRIVATE_KEY_PATH: "/tmp/test-wechat-pay-key.pem",
+    WECHAT_PAY_CERT_SERIAL_NO: "test_cert_serial",
+    WECHAT_PAY_PLATFORM_CERT_PATH: "/tmp/test-wechat-pay-platform-cert.pem",
+    WECHAT_PAY_CALLBACK_URL: "https://example.invalid/pay",
+    WECHAT_REFUND_CALLBACK_URL: "https://example.invalid/refund",
+  };
+}

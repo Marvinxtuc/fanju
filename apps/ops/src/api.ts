@@ -13,7 +13,29 @@ export interface OpsActivity {
   title: string;
   status: string;
   startsAt: string;
+  endsAt: string;
+  registrationEndsAt: string;
+  minSize: number;
   serviceFeeCents: number;
+}
+
+export interface OpsTableCandidate {
+  order: { id: string; status: string; createdAt: string };
+  profile: {
+    preferredAreas: string[];
+    availableTimes: string[];
+    tastePreferences: string[];
+    dietaryRestrictions: string[];
+    budgetRange: string;
+    tableVibe: string;
+    acceptableTableSizes: number[];
+  } | null;
+}
+
+export interface OpsTableGroup {
+  id: string;
+  status: string;
+  orderIds: string[];
 }
 
 export interface OpsOrder {
@@ -41,11 +63,41 @@ export interface OpsAuditLog {
   createdAt: string;
 }
 
+export interface OpsReport {
+  id: string;
+  type: string;
+  content: string;
+  status: "OPEN" | "RESOLVED" | "REJECTED";
+  createdAt: string;
+  order: { id: string; status: string; activityTitle: string };
+}
+
+export interface OpsReview {
+  id: string;
+  score: number;
+  tags: string[];
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
+  order: { id: string; activityTitle: string };
+}
+
+export interface OpsBlacklistEntry {
+  id: string;
+  userId: string;
+  reason: string;
+  createdAt: string;
+  user: { phone: string | null; status: string };
+}
+
 export interface OpsData {
   restaurants: OpsRestaurant[];
   activities: OpsActivity[];
   orders: OpsOrder[];
   refunds: OpsRefund[];
+  reports: OpsReport[];
+  reviews: OpsReview[];
+  blacklist: OpsBlacklistEntry[];
   auditLogs: OpsAuditLog[];
 }
 
@@ -58,11 +110,14 @@ export async function loginOps(): Promise<string> {
 }
 
 export async function loadOpsData(token: string): Promise<OpsData> {
-  const [restaurants, activities, orders, refunds, auditLogs] = await Promise.all([
+  const [restaurants, activities, orders, refunds, reports, reviews, blacklist, auditLogs] = await Promise.all([
     apiRequest<{ restaurants: OpsRestaurant[] }>("/api/ops/restaurants", authOptions(token)),
     apiRequest<{ activities: OpsActivity[] }>("/api/ops/activities", authOptions(token)),
     apiRequest<{ orders: OpsOrder[] }>("/api/ops/orders", authOptions(token)),
     apiRequest<{ refunds: OpsRefund[] }>("/api/ops/refunds", authOptions(token)),
+    apiRequest<{ reports: OpsReport[] }>("/api/ops/reports", authOptions(token)),
+    apiRequest<{ reviews: OpsReview[] }>("/api/ops/reviews", authOptions(token)),
+    apiRequest<{ entries: OpsBlacklistEntry[] }>("/api/ops/blacklist", authOptions(token)),
     apiRequest<{ auditLogs: OpsAuditLog[] }>("/api/ops/audit-logs", authOptions(token)),
   ]);
 
@@ -71,8 +126,19 @@ export async function loadOpsData(token: string): Promise<OpsData> {
     activities: activities.activities,
     orders: orders.orders,
     refunds: refunds.refunds,
+    reports: reports.reports,
+    reviews: reviews.reviews,
+    blacklist: blacklist.entries,
     auditLogs: auditLogs.auditLogs,
   };
+}
+
+export async function addBlacklistEntry(token: string, userId: string, reason: string): Promise<{ idempotent: boolean }> {
+  return apiRequest("/api/ops/blacklist", {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+    body: JSON.stringify({ userId, reason }),
+  });
 }
 
 export async function approveRefund(token: string, refundId: string): Promise<void> {
@@ -86,6 +152,75 @@ export async function approveRefund(token: string, refundId: string): Promise<vo
   });
 }
 
+export async function resolveReport(token: string, reportId: string, status: "RESOLVED" | "REJECTED", reason: string): Promise<void> {
+  await apiRequest(`/api/ops/reports/${reportId}/resolve`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+    body: JSON.stringify({ status, reason }),
+  });
+}
+
+export async function loadTableCandidates(token: string, activityId: string): Promise<{ candidates: OpsTableCandidate[]; tableGroups: OpsTableGroup[] }> {
+  return apiRequest<{ candidates: OpsTableCandidate[]; tableGroups: OpsTableGroup[] }>(
+    `/api/ops/activities/${activityId}/table-candidates`,
+    authOptions(token),
+  );
+}
+
+export async function draftTableGroups(
+  token: string,
+  activityId: string,
+): Promise<{ idempotent: boolean; tableGroups: OpsTableGroup[] }> {
+  return apiRequest(`/api/ops/activities/${activityId}/table-groups/draft`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}
+
+export async function confirmTableGroups(
+  token: string,
+  activityId: string,
+): Promise<{ idempotent: boolean; activityStatus: string }> {
+  return apiRequest(`/api/ops/activities/${activityId}/table-groups/confirm`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}
+
+export async function adjustTableGroups(
+  token: string,
+  activityId: string,
+  tableGroups: Array<{ orderIds: string[] }>,
+): Promise<{ tableGroups: OpsTableGroup[] }> {
+  return apiRequest(`/api/ops/activities/${activityId}/table-groups`, {
+    method: "PUT",
+    headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
+    body: JSON.stringify({ tableGroups }),
+  });
+}
+
+export async function markGroupFailed(token: string, activityId: string, reason: string): Promise<{ idempotent: boolean; activityStatus: string; affectedOrderCount?: number }> {
+  return apiRequest(`/api/ops/activities/${activityId}/mark-group-failed`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+    body: JSON.stringify({ reason }),
+  });
+}
+
+export async function startActivity(token: string, activityId: string): Promise<{ idempotent: boolean; activityStatus: string }> {
+  return apiRequest(`/api/ops/activities/${activityId}/start`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}
+
+export async function completeActivity(token: string, activityId: string): Promise<{ idempotent: boolean; activityStatus: string; completedOrderCount: number }> {
+  return apiRequest(`/api/ops/activities/${activityId}/complete`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}
+
 function authOptions(token: string): RequestInit {
   return { headers: { authorization: `Bearer ${token}` } };
 }
@@ -95,7 +230,7 @@ async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T
     ...options,
     headers: {
       ...(options.headers ?? {}),
-      "content-type": "application/json",
+      ...(options.body === undefined ? {} : { "content-type": "application/json" }),
     },
   });
   const data = (await response.json().catch(() => ({}))) as { error?: string };

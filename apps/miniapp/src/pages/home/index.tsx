@@ -49,8 +49,8 @@ export default function HomePage(): JSX.Element {
           <Button className="button-primary" onClick={openFirstActivity}>
             加入饭局
           </Button>
-          <Button className="button-secondary" onClick={openFirstActivity}>
-            查看饭局
+          <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/profile/index" })}>
+            填写偏好
           </Button>
         </View>
 

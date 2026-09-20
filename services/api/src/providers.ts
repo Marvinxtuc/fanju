@@ -1,3 +1,6 @@
+import { createSign, randomUUID } from "node:crypto";
+import { readFileSync } from "node:fs";
+
 export type ProviderMode = "mock" | "wechat";
 
 export interface ProviderEnv {
@@ -8,6 +11,7 @@ export interface ProviderHttpRequest {
   url: string;
   method?: "GET" | "POST";
   body?: unknown;
+  headers?: Record<string, string>;
 }
 
 export type ProviderHttpClient = (
@@ -16,6 +20,7 @@ export type ProviderHttpClient = (
 
 export interface ProviderOptions {
   httpClient?: ProviderHttpClient;
+  readFile?: (path: string) => string;
 }
 
 export interface AuthProvider {
@@ -41,10 +46,13 @@ export interface PhoneProvider {
 export interface PaymentProvider {
   mode: ProviderMode;
   createPayment(input: {
-    orderId: string;
+    merchantOrderNo: string;
     amountCents: number;
+    openid: string;
   }): Promise<{
     channel: string;
+    prepayId?: string;
+    paymentParams?: WechatMiniProgramPaymentParams;
   }>;
   applySuccessCallback(input: { paymentId: string }): Promise<{
     channelTradeNo: string;
@@ -54,6 +62,14 @@ export interface PaymentProvider {
 
 export interface RefundProvider {
   mode: ProviderMode;
+  createRefund(input: {
+    merchantRefundNo: string;
+    merchantOrderNo: string;
+    amountCents: number;
+  }): Promise<{
+    channel: string;
+    channelRefundNo?: string;
+  }>;
   applySuccessCallback(input: { refundId: string }): Promise<{
     channelRefundNo: string;
     callbackNonce: string;
@@ -61,6 +77,15 @@ export interface RefundProvider {
   applyFailureCallback(input: { refundId: string; reason: string }): Promise<{
     failureReason: string;
   }>;
+}
+
+export interface WechatMiniProgramPaymentParams {
+  appId: string;
+  timeStamp: string;
+  nonceStr: string;
+  package: string;
+  signType: "RSA";
+  paySign: string;
 }
 
 export interface WechatProviders {
@@ -109,6 +134,7 @@ export function createWechatProviders(
     assertWechatPayConfig(env);
   }
   const httpClient = options.httpClient ?? fetchJson;
+  const readFile = options.readFile ?? ((path: string) => readFileSync(path, "utf8"));
 
   return {
     auth:
@@ -120,9 +146,9 @@ export function createWechatProviders(
         ? new MockPhoneProvider()
         : new WechatPhoneProvider(env, httpClient),
     payment:
-      paymentMode === "mock" ? new MockPaymentProvider() : new WechatPaymentProvider(),
+      paymentMode === "mock" ? new MockPaymentProvider() : new WechatPaymentProvider(env, httpClient, readFile),
     refund:
-      refundMode === "mock" ? new MockRefundProvider() : new WechatRefundProvider(),
+      refundMode === "mock" ? new MockRefundProvider() : new WechatRefundProvider(env, httpClient, readFile),
   };
 }
 
@@ -167,6 +193,7 @@ function assertWechatPayConfig(env: ProviderEnv): void {
   const enabled = env.WECHAT_PAY_ENABLED === "true";
   const required = [
     "WECHAT_PAY_MCH_ID",
+    "WECHAT_MINIAPP_APP_ID",
     "WECHAT_PAY_API_V3_KEY",
     "WECHAT_PAY_PRIVATE_KEY_PATH",
     "WECHAT_PAY_CERT_SERIAL_NO",
@@ -342,10 +369,32 @@ class MockPaymentProvider implements PaymentProvider {
 class WechatPaymentProvider implements PaymentProvider {
   readonly mode = "wechat" as const;
 
-  async createPayment(): Promise<{ channel: string }> {
-    throw new ProviderUnavailableError(
-      "WeChat payment provider is not implemented in M3.0",
-    );
+  constructor(
+    private readonly env: ProviderEnv,
+    private readonly httpClient: ProviderHttpClient,
+    private readonly readFile: (path: string) => string,
+  ) {}
+
+  async createPayment(input: {
+    merchantOrderNo: string;
+    amountCents: number;
+    openid: string;
+  }): Promise<{ channel: string; prepayId: string; paymentParams: WechatMiniProgramPaymentParams }> {
+    assertPositiveAmount(input.amountCents);
+    const appId = requireConfigValue(this.env, "WECHAT_MINIAPP_APP_ID");
+    const body = {
+      appid: appId,
+      mchid: requireConfigValue(this.env, "WECHAT_PAY_MCH_ID"),
+      description: "餐厅兴趣体验服务费",
+      out_trade_no: input.merchantOrderNo,
+      notify_url: requireConfigValue(this.env, "WECHAT_PAY_CALLBACK_URL"),
+      amount: { total: input.amountCents, currency: "CNY" },
+      payer: { openid: input.openid },
+    };
+    const response = asRecord(await this.httpClient(signedWechatPayRequest(this.env, this.readFile, "/v3/pay/transactions/jsapi", body)));
+    const prepayId = requiredResponseString(response, "prepay_id", "payment");
+    const paymentParams = createMiniProgramPaymentParams(appId, prepayId, this.privateKey());
+    return { channel: "wechat", prepayId, paymentParams };
   }
 
   async applySuccessCallback(): Promise<{
@@ -356,10 +405,18 @@ class WechatPaymentProvider implements PaymentProvider {
       "WeChat payment callback provider is not implemented in M3.0",
     );
   }
+
+  private privateKey(): string {
+    return this.readFile(requireConfigValue(this.env, "WECHAT_PAY_PRIVATE_KEY_PATH"));
+  }
 }
 
 class MockRefundProvider implements RefundProvider {
   readonly mode = "mock" as const;
+
+  async createRefund() {
+    return { channel: "mock" };
+  }
 
   async applySuccessCallback(input: { refundId: string }) {
     return {
@@ -375,6 +432,29 @@ class MockRefundProvider implements RefundProvider {
 
 class WechatRefundProvider implements RefundProvider {
   readonly mode = "wechat" as const;
+
+  constructor(
+    private readonly env: ProviderEnv,
+    private readonly httpClient: ProviderHttpClient,
+    private readonly readFile: (path: string) => string,
+  ) {}
+
+  async createRefund(input: {
+    merchantRefundNo: string;
+    merchantOrderNo: string;
+    amountCents: number;
+  }): Promise<{ channel: string; channelRefundNo?: string }> {
+    assertPositiveAmount(input.amountCents);
+    const body = {
+      out_refund_no: input.merchantRefundNo,
+      out_trade_no: input.merchantOrderNo,
+      notify_url: requireConfigValue(this.env, "WECHAT_REFUND_CALLBACK_URL"),
+      amount: { refund: input.amountCents, total: input.amountCents, currency: "CNY" },
+    };
+    const response = asRecord(await this.httpClient(signedWechatPayRequest(this.env, this.readFile, "/v3/refund/domestic/refunds", body)));
+    const channelRefundNo = optionalResponseString(response, "refund_id", "refund");
+    return { channel: "wechat", ...(channelRefundNo === undefined ? {} : { channelRefundNo }) };
+  }
 
   async applySuccessCallback(): Promise<{
     channelRefundNo: string;
@@ -392,6 +472,67 @@ class WechatRefundProvider implements RefundProvider {
   }
 }
 
+function signedWechatPayRequest(
+  env: ProviderEnv,
+  readFile: (path: string) => string,
+  path: string,
+  body: Record<string, unknown>,
+): ProviderHttpRequest {
+  const timestamp = String(Math.floor(Date.now() / 1000));
+  const nonce = randomUUID().replace(/-/g, "");
+  const rawBody = JSON.stringify(body);
+  const privateKey = readFile(requireConfigValue(env, "WECHAT_PAY_PRIVATE_KEY_PATH"));
+  const signer = createSign("RSA-SHA256");
+  signer.update(`POST\n${path}\n${timestamp}\n${nonce}\n${rawBody}\n`);
+  signer.end();
+  const signature = signer.sign(privateKey, "base64");
+  const mchid = requireConfigValue(env, "WECHAT_PAY_MCH_ID");
+  const serialNo = requireConfigValue(env, "WECHAT_PAY_CERT_SERIAL_NO");
+  return {
+    url: `https://api.mch.weixin.qq.com${path}`,
+    method: "POST",
+    body,
+    headers: {
+      authorization: `WECHATPAY2-SHA256-RSA2048 mchid=\"${mchid}\",nonce_str=\"${nonce}\",timestamp=\"${timestamp}\",serial_no=\"${serialNo}\",signature=\"${signature}\"`,
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+  };
+}
+
+function createMiniProgramPaymentParams(appId: string, prepayId: string, privateKey: string): WechatMiniProgramPaymentParams {
+  const timeStamp = String(Math.floor(Date.now() / 1000));
+  const nonceStr = randomUUID().replace(/-/g, "");
+  const packageValue = `prepay_id=${prepayId}`;
+  const signer = createSign("RSA-SHA256");
+  signer.update(`${appId}\n${timeStamp}\n${nonceStr}\n${packageValue}\n`);
+  signer.end();
+  return { appId, timeStamp, nonceStr, package: packageValue, signType: "RSA", paySign: signer.sign(privateKey, "base64") };
+}
+
+function assertPositiveAmount(amountCents: number): void {
+  if (!Number.isSafeInteger(amountCents) || amountCents <= 0) {
+    throw new ProviderUnavailableError("WeChat payment amount must be a positive integer");
+  }
+}
+
+function requiredResponseString(value: Record<string, unknown>, key: string, operation: string): string {
+  const result = value[key];
+  if (typeof result !== "string" || result.length === 0) {
+    throw new ProviderUnavailableError(`WeChat ${operation} response missing ${key}`);
+  }
+  return result;
+}
+
+function optionalResponseString(value: Record<string, unknown>, key: string, operation: string): string | undefined {
+  const result = value[key];
+  if (result === undefined) return undefined;
+  if (typeof result !== "string" || result.length === 0) {
+    throw new ProviderUnavailableError(`WeChat ${operation} response has invalid ${key}`);
+  }
+  return result;
+}
+
 function requireConfigValue(env: ProviderEnv, key: string): string {
   const value = env[key];
   if (!value) {
@@ -403,9 +544,10 @@ function requireConfigValue(env: ProviderEnv, key: string): string {
 async function fetchJson(request: ProviderHttpRequest): Promise<unknown> {
   const method = request.method ?? "GET";
   const init: RequestInit = { method };
+  if (request.headers !== undefined) init.headers = request.headers;
   if (request.body !== undefined) {
     init.body = JSON.stringify(request.body);
-    init.headers = { "content-type": "application/json" };
+    init.headers = { ...request.headers, "content-type": "application/json" };
   }
   const response = await fetch(request.url, init);
   if (!response.ok) {

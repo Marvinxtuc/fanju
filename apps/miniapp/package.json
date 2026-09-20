@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "taro build --type weapp --watch",
     "build": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

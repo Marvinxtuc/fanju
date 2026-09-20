@@ -26,6 +26,20 @@ const callbackNowSeconds = 1_800_000_000;
 describeDb("api mock MVP flow", () => {
   let app: Awaited<ReturnType<typeof buildApp>>;
 
+  it("allows the operations console to preflight manual table-group adjustments", async () => {
+    const response = await appInject({
+      method: "OPTIONS",
+      url: "/api/ops/activities/activity-1/table-groups",
+      headers: {
+        origin: "http://127.0.0.1:5173",
+        "access-control-request-method": "PUT",
+      },
+    });
+
+    expect(response.statusCode).toBe(204);
+    expect(response.headers["access-control-allow-methods"]).toContain("PUT");
+  });
+
   beforeAll(async () => {
     await cleanupTestData();
     app = await buildApp({ prisma });
@@ -46,6 +60,7 @@ describeDb("api mock MVP flow", () => {
     const adminToken = await loginAdmin("ops-user");
     const userToken = await loginUser("buyer-1");
     await bindPhone(userToken, "13800138000");
+    await confirmAgreement(userToken);
     const activityId = await createOpenActivity(adminToken);
 
     const orderResponse = await app.inject({
@@ -96,6 +111,67 @@ describeDb("api mock MVP flow", () => {
       },
     });
     expect(paymentAuditCount).toBe(1);
+  });
+
+  it("requires the order owner to confirm the current agreement before creating an order", async () => {
+    const adminToken = await loginAdmin("agreement-ops");
+    const userToken = await loginUser("agreement-user");
+    await bindPhone(userToken, "13500209999");
+    const activityId = await createOpenActivity(adminToken);
+
+    const withoutAgreement = await appInject({
+      method: "POST",
+      url: "/api/orders",
+      headers: auth(userToken),
+      payload: { activityId, agreementVersion: "v1" },
+    });
+    expect(withoutAgreement.statusCode).toBe(409);
+    expect(withoutAgreement.json().error).toBe("Agreement confirmation required");
+
+    const confirmation = await appInject({
+      method: "POST",
+      url: "/api/consents",
+      headers: auth(userToken),
+      payload: { agreementVersion: "v1", source: "miniapp-registration" },
+    });
+    expect(confirmation.statusCode).toBe(200);
+
+    const withAgreement = await appInject({
+      method: "POST",
+      url: "/api/orders",
+      headers: auth(userToken),
+      payload: { activityId, agreementVersion: "v1" },
+    });
+    expect(withAgreement.statusCode).toBe(200);
+  });
+
+  it("stores a complete profile for its owner and rejects incomplete submissions", async () => {
+    const userToken = await loginUser("profile-owner");
+    const initial = await app.inject({ method: "GET", url: "/api/profile", headers: auth(userToken) });
+    expect(initial.statusCode).toBe(200);
+    expect(initial.json().profile).toBeNull();
+
+    const invalid = await app.inject({
+      method: "PUT",
+      url: "/api/profile",
+      headers: auth(userToken),
+      payload: { preferredAreas: ["徐汇"] },
+    });
+    expect(invalid.statusCode).toBe(400);
+
+    const saved = await app.inject({
+      method: "PUT",
+      url: "/api/profile",
+      headers: auth(userToken),
+      payload: profilePayload(),
+    });
+    expect(saved.statusCode).toBe(200);
+    expect(saved.json().profile).toMatchObject(profilePayload());
+
+    const otherToken = await loginUser("profile-other");
+    const other = await app.inject({ method: "GET", url: "/api/profile", headers: auth(otherToken) });
+    expect(other.statusCode).toBe(200);
+    expect(other.json().profile).toBeNull();
   });
 
   it("applies a signed payment callback once and rejects the route while real pay is disabled", async () => {
@@ -410,6 +486,79 @@ describeDb("api mock MVP flow", () => {
     expect(response.statusCode).toBe(404);
   });
 
+  it("unlocks order information in stages without exposing the address early", async () => {
+    const adminToken = await loginAdmin("address-unlock-ops");
+    const userToken = await loginUser("address-unlock-user");
+    await bindPhone(userToken, "13500135120");
+    const activityId = await createOpenActivity(adminToken);
+    const orderId = await createPaidOrder(userToken, activityId);
+
+    const beforeGrouping = await app.inject({
+      method: "GET",
+      url: `/api/orders/${orderId}`,
+      headers: auth(userToken),
+    });
+    expect(beforeGrouping.statusCode).toBe(200);
+    expect(beforeGrouping.json().order).toMatchObject({
+      visibility: "basic",
+      activity: { restaurantName: null, address: null },
+    });
+
+    await prisma.$transaction([
+      prisma.activity.update({ where: { id: activityId }, data: { status: ActivityStatus.GROUPED } }),
+      prisma.order.update({ where: { id: orderId }, data: { status: OrderStatus.GROUPED } }),
+    ]);
+    const afterGrouping = await app.inject({
+      method: "GET",
+      url: `/api/orders/${orderId}`,
+      headers: auth(userToken),
+    });
+    expect(afterGrouping.statusCode).toBe(200);
+    expect(afterGrouping.json().order).toMatchObject({
+      visibility: "restaurant",
+      activity: { restaurantName: scoped("梧桐小馆"), address: null },
+    });
+
+    await prisma.activity.update({
+      where: { id: activityId },
+      data: { startsAt: new Date(Date.now() + 23 * 60 * 60 * 1000) },
+    });
+    const atT24 = await app.inject({
+      method: "GET",
+      url: `/api/orders/${orderId}`,
+      headers: auth(userToken),
+    });
+    expect(atT24.statusCode).toBe(200);
+    expect(atT24.json().order).toMatchObject({
+      visibility: "address",
+      activity: { restaurantName: scoped("梧桐小馆"), address: "衡山路 100 号" },
+    });
+  });
+
+  it("lets a user report only their completed order and records ops resolution", async () => {
+    const adminToken = await loginAdmin("report-ops");
+    const userToken = await loginUser("report-user");
+    const otherToken = await loginUser("report-other");
+    await bindPhone(userToken, "13500135121");
+    const activityId = await createOpenActivity(adminToken);
+    const orderId = await createPaidOrder(userToken, activityId);
+    const early = await app.inject({ method: "POST", url: `/api/orders/${orderId}/reports`, headers: auth(userToken), payload: { type: "现场异常", content: "尚未结束" } });
+    expect(early.statusCode).toBe(409);
+    await prisma.activity.update({ where: { id: activityId }, data: { endsAt: new Date(Date.now() - 60 * 60 * 1000) } });
+    const forbidden = await app.inject({ method: "POST", url: `/api/orders/${orderId}/reports`, headers: auth(otherToken), payload: { type: "现场异常", content: "无权提交" } });
+    expect(forbidden.statusCode).toBe(404);
+    const submitted = await app.inject({ method: "POST", url: `/api/orders/${orderId}/reports`, headers: auth(userToken), payload: { type: "现场异常", content: "需要运营跟进" } });
+    expect(submitted.statusCode).toBe(200);
+    const reportId = submitted.json().report.id;
+    const list = await app.inject({ method: "GET", url: "/api/ops/reports", headers: auth(adminToken) });
+    expect(list.statusCode).toBe(200);
+    expect(list.json().reports.some((report: { id: string }) => report.id === reportId)).toBe(true);
+    const resolved = await app.inject({ method: "POST", url: `/api/ops/reports/${reportId}/resolve`, headers: auth(adminToken), payload: { status: "RESOLVED", reason: "已处理" } });
+    expect(resolved.statusCode).toBe(200);
+    expect(resolved.json().report.status).toBe("RESOLVED");
+    expect(await prisma.auditLog.count({ where: { action: "report.resolved", targetId: reportId } })).toBe(1);
+  });
+
   it("enforces activity status gates when creating orders", async () => {
     const adminToken = await loginAdmin("activity-gates");
     const draftActivityId = await createOpenActivity(adminToken, {
@@ -623,7 +772,7 @@ describeDb("api mock MVP flow", () => {
     expect(originalRefund.status).toBe(RefundStatus.SUCCEEDED);
   });
 
-  it("validates table size configuration without adding grouping endpoints", async () => {
+  it("validates table size configuration", async () => {
     const adminToken = await loginAdmin("table-rule-ops");
     const restaurantId = await createRestaurant(adminToken);
 
@@ -654,6 +803,321 @@ describeDb("api mock MVP flow", () => {
       }),
     });
     expect(manualFourToEight.statusCode).toBe(200);
+  });
+
+  it("lets ops preview paid grouping candidates, draft tables idempotently, and confirm them", async () => {
+    const adminToken = await loginAdmin("table-grouping-ops");
+    const activityId = await createOpenActivity(adminToken);
+    const userTokens: string[] = [];
+
+    for (let index = 0; index < 6; index += 1) {
+      const userToken = await loginUser(`table-grouping-user-${index}`);
+      userTokens.push(userToken);
+      await bindPhone(userToken, `13600136${String(index).padStart(3, "0")}`);
+      const profileResponse = await app.inject({
+        method: "PUT",
+        url: "/api/profile",
+        headers: auth(userToken),
+        payload: profilePayload(),
+      });
+      expect(profileResponse.statusCode).toBe(200);
+      await createPaidOrder(userToken, activityId);
+    }
+
+    const forbiddenPreview = await app.inject({
+      method: "GET",
+      url: `/api/ops/activities/${activityId}/table-candidates`,
+      headers: auth(userTokens[0]!),
+    });
+    expect(forbiddenPreview.statusCode).toBe(403);
+
+    const preview = await app.inject({
+      method: "GET",
+      url: `/api/ops/activities/${activityId}/table-candidates`,
+      headers: auth(adminToken),
+    });
+    expect(preview.statusCode).toBe(200);
+    expect(preview.json().candidates).toHaveLength(6);
+    expect(preview.json().candidates[0]).toMatchObject({
+      order: { status: "PAID_PENDING_GROUP" },
+      profile: {
+        preferredAreas: ["徐汇", "静安"],
+        acceptableTableSizes: [4, 6],
+      },
+    });
+    expect(JSON.stringify(preview.json())).not.toContain("13600136");
+    expect(JSON.stringify(preview.json())).not.toContain("wechatOpenid");
+    expect(JSON.stringify(preview.json())).not.toContain("靠近地铁即可");
+
+    const draft = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/table-groups/draft`,
+      headers: auth(adminToken),
+    });
+    expect(draft.statusCode).toBe(200);
+    expect(draft.json()).toMatchObject({
+      idempotent: false,
+      decision: { canForm: true, tableSizes: [6], unassignedCount: 0 },
+    });
+    expect(draft.json().tableGroups).toHaveLength(1);
+
+    const repeatedDraft = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/table-groups/draft`,
+      headers: auth(adminToken),
+    });
+    expect(repeatedDraft.statusCode).toBe(200);
+    expect(repeatedDraft.json().idempotent).toBe(true);
+    expect(await prisma.tableGroup.count({ where: { activityId } })).toBe(1);
+    expect(await prisma.tableMember.count({ where: { tableGroup: { activityId } } })).toBe(6);
+    await expectActivityStatus(activityId, ActivityStatus.LOCKING);
+
+    const confirmed = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/table-groups/confirm`,
+      headers: auth(adminToken),
+    });
+    expect(confirmed.statusCode).toBe(200);
+    expect(confirmed.json()).toMatchObject({ idempotent: false, activityStatus: "GROUPED", notificationQueued: true });
+    await expectActivityStatus(activityId, ActivityStatus.GROUPED);
+    expect(await prisma.order.count({ where: { activityId, status: OrderStatus.GROUPED } })).toBe(6);
+    expect(await prisma.tableGroup.count({ where: { activityId, status: "CONFIRMED" } })).toBe(1);
+    expect(await prisma.auditLog.count({
+      where: { action: "table-groups.confirmed", targetId: activityId },
+    })).toBe(1);
+    expect(await prisma.notification.count({
+      where: { type: "GROUP_CONFIRMED", status: "SENT", user: { orders: { some: { activityId } } } },
+    })).toBe(6);
+    const inbox = await app.inject({ method: "GET", url: "/api/notifications", headers: auth(userTokens[0]!) });
+    expect(inbox.statusCode).toBe(200);
+    expect(inbox.json().notifications).toHaveLength(1);
+    expect(inbox.json().notifications[0]).toMatchObject({ type: "GROUP_CONFIRMED", status: "SENT", payload: { title: "饭局已成团" } });
+  });
+
+  it("lets ops manually rearrange a locking table draft without adding or dropping paid orders", async () => {
+    const adminToken = await loginAdmin("table-grouping-adjust-ops");
+    const activityId = await createOpenActivity(adminToken, { targetSize: 8, maxSize: 8 });
+    const orderIds: string[] = [];
+
+    for (let index = 0; index < 8; index += 1) {
+      const userToken = await loginUser(`table-grouping-adjust-user-${index}`);
+      await bindPhone(userToken, `13600137${String(index).padStart(3, "0")}`);
+      orderIds.push(await createPaidOrder(userToken, activityId));
+    }
+
+    const draft = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/table-groups/draft`,
+      headers: auth(adminToken),
+    });
+    expect(draft.statusCode).toBe(200);
+
+    const adjusted = await app.inject({
+      method: "PUT",
+      url: `/api/ops/activities/${activityId}/table-groups`,
+      headers: auth(adminToken),
+      payload: { tableGroups: [{ orderIds: orderIds.slice(0, 4) }, { orderIds: orderIds.slice(4) }] },
+    });
+    expect(adjusted.statusCode).toBe(200);
+    expect(adjusted.json().tableGroups.map((group: { orderIds: string[] }) => group.orderIds)).toEqual([
+      orderIds.slice(0, 4),
+      orderIds.slice(4),
+    ]);
+    expect(await prisma.tableGroup.count({ where: { activityId, status: "PENDING_CONFIRMATION" } })).toBe(2);
+    expect(await prisma.auditLog.count({ where: { action: "table-groups.adjusted", targetId: activityId } })).toBe(1);
+
+    const reopened = await app.inject({
+      method: "GET",
+      url: `/api/ops/activities/${activityId}/table-candidates`,
+      headers: auth(adminToken),
+    });
+    expect(reopened.statusCode).toBe(200);
+    expect(reopened.json().tableGroups.map((group: { orderIds: string[] }) => group.orderIds)).toEqual([
+      orderIds.slice(0, 4),
+      orderIds.slice(4),
+    ]);
+
+    const dropsAnOrder = await app.inject({
+      method: "PUT",
+      url: `/api/ops/activities/${activityId}/table-groups`,
+      headers: auth(adminToken),
+      payload: { tableGroups: [{ orderIds: orderIds.slice(0, 4) }] },
+    });
+    expect(dropsAnOrder.statusCode).toBe(400);
+  });
+
+  it("rejects a grouping draft when fewer than four paid orders are eligible", async () => {
+    const adminToken = await loginAdmin("table-grouping-minimum-ops");
+    const activityId = await createOpenActivity(adminToken);
+
+    for (let index = 0; index < 3; index += 1) {
+      const userToken = await loginUser(`table-grouping-minimum-user-${index}`);
+      await bindPhone(userToken, `13700137${String(index).padStart(3, "0")}`);
+      await createPaidOrder(userToken, activityId);
+    }
+
+    const draft = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/table-groups/draft`,
+      headers: auth(adminToken),
+    });
+    expect(draft.statusCode).toBe(409);
+    expect(draft.json()).toMatchObject({
+      error: "Not enough paid orders to form valid tables",
+      decision: { canForm: false, reason: "below_minimum", unassignedCount: 3 },
+    });
+    expect(await prisma.tableGroup.count({ where: { activityId } })).toBe(0);
+    await expectActivityStatus(activityId, ActivityStatus.REGISTRATION_OPEN);
+  });
+
+  it("lets ops mark an undersized activity as group failed after registration closes without creating refunds", async () => {
+    const adminToken = await loginAdmin("group-failure-ops");
+    const activityId = await createOpenActivity(adminToken);
+    const orderIds: string[] = [];
+    for (let index = 0; index < 3; index += 1) {
+      const userToken = await loginUser(`group-failure-user-${index}`);
+      await bindPhone(userToken, `13700138${String(index).padStart(3, "0")}`);
+      orderIds.push(await createPaidOrder(userToken, activityId));
+    }
+    await prisma.activity.update({
+      where: { id: activityId },
+      data: { registrationEndsAt: new Date(Date.now() - 60 * 60 * 1000) },
+    });
+
+    const forbidden = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/mark-group-failed`,
+      headers: auth(await loginUser("group-failure-forbidden")),
+      payload: { reason: "报名截止后人数不足" },
+    });
+    expect(forbidden.statusCode).toBe(403);
+
+    const marked = await app.inject({
+      method: "POST",
+      url: `/api/ops/activities/${activityId}/mark-group-failed`,
+      headers: auth(adminToken),
+      payload: { reason: "报名截止后人数不足" },
+    });
+    expect(marked.statusCode).toBe(200);
+    expect(marked.json()).toMatchObject({ idempotent: false, activityStatus: "GROUP_FAILED", affectedOrderCount: 3, notificationQueued: true });
+    await expectActivityStatus(activityId, ActivityStatus.GROUP_FAILED);
+    expect(await prisma.order.count({ where: { id: { in: orderIds }, status: OrderStatus.GROUP_FAILED } })).toBe(3);
+    expect(await prisma.refund.count({ where: { orderId: { in: orderIds } } })).toBe(0);
+    expect(await prisma.notification.count({
+      where: { type: "GROUP_FAILED", status: "SENT", user: { orders: { some: { id: { in: orderIds } } } } },
+    })).toBe(3);
+    expect(await prisma.auditLog.findFirst({ where: { action: "activity.group_failed", targetId: activityId, reason: "报名截止后人数不足" } })).not.toBeNull();
+
+    const repeated = await app.inject({ method: "POST", url: `/api/ops/activities/${activityId}/mark-group-failed`, headers: auth(adminToken), payload: { reason: "重复请求" } });
+    expect(repeated.statusCode).toBe(200);
+    expect(repeated.json().idempotent).toBe(true);
+  });
+
+  it("lets ops add a blacklist entry, blocks new registration, and requires super admin to remove it", async () => {
+    const opsToken = await loginAdmin("blacklist-ops");
+    const superAdminToken = await loginAdmin("blacklist-super", "SUPER_ADMIN");
+    const userToken = await loginUser("blacklist-user");
+    await bindPhone(userToken, "13500135090");
+    const userId = userTokenPayload(userToken).sub;
+    const activityId = await createOpenActivity(opsToken);
+
+    const added = await app.inject({
+      method: "POST",
+      url: "/api/ops/blacklist",
+      headers: auth(opsToken),
+      payload: { userId, reason: "多次扰乱活动秩序" },
+    });
+    expect(added.statusCode).toBe(200);
+    expect(added.json().idempotent).toBe(false);
+    expect(await prisma.user.findUniqueOrThrow({ where: { id: userId } })).toMatchObject({ status: "BLACKLISTED" });
+
+    const registration = await createOrder(userToken, activityId);
+    expect(registration.statusCode).toBe(403);
+    expect(registration.json().error).toBe("User cannot register");
+    const listed = await app.inject({ method: "GET", url: "/api/ops/blacklist", headers: auth(opsToken) });
+    expect(listed.statusCode).toBe(200);
+    expect(listed.json().entries).toEqual(expect.arrayContaining([expect.objectContaining({ userId, reason: "多次扰乱活动秩序" })]));
+
+    const forbiddenRemove = await app.inject({ method: "DELETE", url: `/api/ops/blacklist/${userId}`, headers: auth(opsToken), payload: { reason: "无权解除" } });
+    expect(forbiddenRemove.statusCode).toBe(403);
+    const removed = await app.inject({ method: "DELETE", url: `/api/ops/blacklist/${userId}`, headers: auth(superAdminToken), payload: { reason: "复核后解除" } });
+    expect(removed.statusCode).toBe(200);
+    expect(await prisma.user.findUniqueOrThrow({ where: { id: userId } })).toMatchObject({ status: "NORMAL" });
+    expect(await prisma.auditLog.count({ where: { targetId: userId, action: { in: ["blacklist.added", "blacklist.removed"] } } })).toBe(2);
+  });
+
+  it("lets an order owner create or update a completed-order review and rejects other order states", async () => {
+    const adminToken = await loginAdmin("review-ops");
+    const ownerToken = await loginUser("review-owner");
+    const otherUserToken = await loginUser("review-other-user");
+    await bindPhone(ownerToken, "13500135091");
+    await bindPhone(otherUserToken, "13500135092");
+    const completedOrderId = await createPaidOrder(ownerToken, await createOpenActivity(adminToken));
+    await prisma.order.update({ where: { id: completedOrderId }, data: { status: OrderStatus.COMPLETED } });
+
+    const created = await app.inject({
+      method: "PUT",
+      url: `/api/orders/${completedOrderId}/review`,
+      headers: auth(ownerToken),
+      payload: { score: 5, tags: ["餐厅氛围", "组织顺畅"], content: "体验不错" },
+    });
+    expect(created.statusCode).toBe(200);
+    expect(created.json().review).toMatchObject({ score: 5, tags: ["餐厅氛围", "组织顺畅"], content: "体验不错" });
+
+    const updated = await app.inject({
+      method: "PUT",
+      url: `/api/orders/${completedOrderId}/review`,
+      headers: auth(ownerToken),
+      payload: { score: 4, tags: ["菜品"], content: "已更新" },
+    });
+    expect(updated.statusCode).toBe(200);
+    expect(await prisma.review.count({ where: { orderId: completedOrderId } })).toBe(1);
+    expect(await prisma.review.findUniqueOrThrow({ where: { orderId: completedOrderId } })).toMatchObject({ score: 4, tags: ["菜品"], content: "已更新" });
+
+    const forbidden = await app.inject({ method: "PUT", url: `/api/orders/${completedOrderId}/review`, headers: auth(otherUserToken), payload: { score: 5, tags: [], content: "越权" } });
+    expect(forbidden.statusCode).toBe(404);
+    const pendingOrderId = await createPendingOrder(ownerToken, await createOpenActivity(adminToken));
+    const pending = await app.inject({ method: "PUT", url: `/api/orders/${pendingOrderId}/review`, headers: auth(ownerToken), payload: { score: 5, tags: [], content: "尚未结束" } });
+    expect(pending.statusCode).toBe(409);
+    const canceledOrderId = await createPendingOrder(ownerToken, await createOpenActivity(adminToken));
+    await prisma.order.update({ where: { id: canceledOrderId }, data: { status: OrderStatus.CANCELED } });
+    const canceled = await app.inject({ method: "PUT", url: `/api/orders/${canceledOrderId}/review`, headers: auth(ownerToken), payload: { score: 5, tags: [], content: "已取消" } });
+    expect(canceled.statusCode).toBe(409);
+    const refundedOrderId = await createPendingOrder(ownerToken, await createOpenActivity(adminToken));
+    await prisma.order.update({ where: { id: refundedOrderId }, data: { status: OrderStatus.REFUNDED } });
+    const refunded = await app.inject({ method: "PUT", url: `/api/orders/${refundedOrderId}/review`, headers: auth(ownerToken), payload: { score: 5, tags: [], content: "已退款" } });
+    expect(refunded.statusCode).toBe(409);
+
+    const opsList = await app.inject({ method: "GET", url: "/api/ops/reviews", headers: auth(adminToken) });
+    expect(opsList.statusCode).toBe(200);
+    expect(opsList.json().reviews).toEqual(expect.arrayContaining([expect.objectContaining({ order: expect.objectContaining({ id: completedOrderId }), score: 4 })]));
+  });
+
+  it("lets ops manually start and complete a past grouped activity, then unlocks the review path", async () => {
+    const opsToken = await loginAdmin("activity-completion-ops");
+    const userToken = await loginUser("activity-completion-user");
+    await bindPhone(userToken, "13500135093");
+    const activityId = await createOpenActivity(opsToken);
+    const orderId = await createPaidOrder(userToken, activityId);
+    await prisma.activity.update({
+      where: { id: activityId },
+      data: { status: ActivityStatus.GROUPED, startsAt: new Date(Date.now() - 2 * 60 * 60 * 1000), endsAt: new Date(Date.now() - 60 * 60 * 1000) },
+    });
+    await prisma.order.update({ where: { id: orderId }, data: { status: OrderStatus.GROUPED } });
+
+    const userStart = await app.inject({ method: "POST", url: `/api/ops/activities/${activityId}/start`, headers: auth(userToken) });
+    expect(userStart.statusCode).toBe(403);
+    const started = await app.inject({ method: "POST", url: `/api/ops/activities/${activityId}/start`, headers: auth(opsToken) });
+    expect(started.statusCode).toBe(200);
+    expect(started.json()).toMatchObject({ idempotent: false, activityStatus: "IN_PROGRESS" });
+    const completed = await app.inject({ method: "POST", url: `/api/ops/activities/${activityId}/complete`, headers: auth(opsToken) });
+    expect(completed.statusCode).toBe(200);
+    expect(completed.json()).toMatchObject({ idempotent: false, activityStatus: "COMPLETED", completedOrderCount: 1 });
+    await expectActivityStatus(activityId, ActivityStatus.COMPLETED);
+    expect(await prisma.order.findUniqueOrThrow({ where: { id: orderId } })).toMatchObject({ status: OrderStatus.COMPLETED });
+    expect(await prisma.auditLog.count({ where: { targetId: activityId, action: { in: ["activity.started", "activity.completed"] } } })).toBe(2);
+    const review = await app.inject({ method: "PUT", url: `/api/orders/${orderId}/review`, headers: auth(userToken), payload: { score: 5, tags: ["完成"], content: "可以评价" } });
+    expect(review.statusCode).toBe(200);
   });
 
   it("serves minimal ops list endpoints for restaurants, activities, orders, refunds, and audits", async () => {
@@ -763,6 +1227,7 @@ async function cleanupTestData(): Promise<void> {
     },
   });
   await prisma.blacklist.deleteMany({ where: { userId: { in: userIds } } });
+  await prisma.review.deleteMany({ where: { OR: [{ userId: { in: userIds } }, { orderId: { in: orderIds } }] } });
   await prisma.report.deleteMany({
     where: {
       OR: [{ userId: { in: userIds } }, { orderId: { in: orderIds } }],
@@ -788,14 +1253,20 @@ async function cleanupTestData(): Promise<void> {
   await prisma.adminUser.deleteMany({ where: { id: { in: adminIds } } });
 }
 
-async function loginAdmin(username: string): Promise<string> {
+async function loginAdmin(username: string, role: "OPS" | "SUPER_ADMIN" = "OPS"): Promise<string> {
   const response = await appInject({
     method: "POST",
     url: "/api/mock/admin-login",
-    payload: { username: scoped(username), role: "OPS" },
+    payload: { username: scoped(username), role },
   });
   expect(response.statusCode).toBe(200);
   return response.json().token;
+}
+
+function userTokenPayload(token: string): { sub: string } {
+  const payload = token.split(".")[1];
+  if (!payload) throw new Error("Invalid user token");
+  return JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as { sub: string };
 }
 
 async function loginUser(code: string): Promise<string> {
@@ -855,6 +1326,7 @@ async function createOpenActivity(
 }
 
 async function createOrder(userToken: string, activityId: string) {
+  await confirmAgreement(userToken);
   return appInject({
     method: "POST",
     url: "/api/orders",
@@ -865,6 +1337,16 @@ async function createOrder(userToken: string, activityId: string) {
       amountCents: 1,
     },
   });
+}
+
+async function confirmAgreement(token: string, agreementVersion = "v1"): Promise<void> {
+  const response = await appInject({
+    method: "POST",
+    url: "/api/consents",
+    headers: auth(token),
+    payload: { agreementVersion, source: "test" },
+  });
+  expect(response.statusCode).toBe(200);
 }
 
 async function createPendingOrder(userToken: string, activityId: string): Promise<string> {
@@ -918,6 +1400,11 @@ async function expectOrderCount(activityId: string, expectedCount: number): Prom
 async function expectOrderStatus(orderId: string, status: OrderStatus): Promise<void> {
   const order = await prisma.order.findUniqueOrThrow({ where: { id: orderId } });
   expect(order.status).toBe(status);
+}
+
+async function expectActivityStatus(activityId: string, status: ActivityStatus): Promise<void> {
+  const activity = await prisma.activity.findUniqueOrThrow({ where: { id: activityId } });
+  expect(activity.status).toBe(status);
 }
 
 async function cancelApproveAndRefund(
@@ -979,12 +1466,26 @@ function auth(token: string): Record<string, string> {
   return { authorization: `Bearer ${token}` };
 }
 
+function profilePayload() {
+  return {
+    preferredAreas: ["徐汇", "静安"],
+    availableTimes: ["周六晚"],
+    tastePreferences: ["本帮菜"],
+    dietaryRestrictions: ["无"],
+    budgetRange: "150-250",
+    tableVibe: "轻松聊天",
+    acceptableTableSizes: [4, 6],
+    note: "靠近地铁即可",
+  };
+}
+
 function wechatCallbackEnv() {
   return {
     PAYMENT_PROVIDER: "wechat",
     REFUND_PROVIDER: "wechat",
     FEATURE_REAL_WECHAT_PAY: "true",
     WECHAT_PAY_ENABLED: "true",
+    WECHAT_MINIAPP_APP_ID: "wx_test_app_id",
     WECHAT_PAY_MCH_ID: "test_mch_id",
     WECHAT_PAY_API_V3_KEY: "test_api_v3_key",
     WECHAT_PAY_PRIVATE_KEY_PATH: "/tmp/test-key.pem",

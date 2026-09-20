@@ -122,7 +122,7 @@ button {
 
 .ops-dashboard {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
   margin: 18px 0;
 }
@@ -338,6 +338,146 @@ button {
 .ticket-facts strong {
   color: #ff6b2c;
   font-size: 22px;
+}
+
+.grouping-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px dashed #ff6b2c;
+  border-radius: 20px;
+  background: #fffaf2;
+}
+
+.grouping-summary,
+.grouping-actions,
+.grouping-draft {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.group-adjustment-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.group-adjustment-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 72px;
+  margin: 6px 0 10px;
+  padding: 8px;
+  border: 1px solid #e6c9ad;
+  border-radius: 8px;
+  background: #fffdf8;
+  color: inherit;
+  font: inherit;
+}
+
+.grouping-summary {
+  color: #7a4e2d;
+}
+
+.grouping-summary strong {
+  color: #ff6b2c;
+  font-size: 24px;
+}
+
+.candidate-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.candidate-card,
+.grouping-draft {
+  padding: 10px 12px;
+  border: 1px solid #eedfcc;
+  border-radius: 12px;
+  background: #fffbf5;
+  color: #7a4e2d;
+}
+
+.candidate-card {
+  display: grid;
+  gap: 4px;
+}
+
+.candidate-card strong,
+.grouping-draft strong {
+  color: #1f1a17;
+}
+
+.grouping-draft {
+  margin-bottom: 14px;
+}
+
+.group-failure-panel {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid rgba(233, 75, 53, 0.45);
+  border-radius: 12px;
+  background: rgba(233, 75, 53, 0.06);
+  color: #7a4e2d;
+}
+
+.group-failure-panel strong {
+  color: #b73526;
+}
+
+.blacklist-panel,
+.blacklist-form {
+  display: grid;
+  gap: 14px;
+}
+
+.blacklist-form {
+  margin-bottom: 18px;
+  padding: 14px;
+  border: 1px dashed #e94b35;
+  border-radius: 16px;
+  background: rgba(233, 75, 53, 0.05);
+}
+
+.blacklist-form p {
+  margin: 0;
+  color: #7a4e2d;
+}
+
+.report-content {
+  margin: 14px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff4e6;
+  color: #1f1a17;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.report-reason {
+  min-width: min(100%, 260px);
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid #eedfcc;
+  border-radius: 999px;
+  padding: 0 14px;
+  background: #fffbf5;
+  color: #1f1a17;
+}
+
+.ops-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .subheading {

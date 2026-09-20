@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Button, Text, View } from "@tarojs/components";
+import { Button, Switch, Text, View } from "@tarojs/components";
 import Taro, { navigateTo } from "@tarojs/taro";
 
 import {
+  confirmAgreement,
   createAndPayOrder,
   getActivity,
+  hasAuthenticatedSession,
   type ActivitySummary,
 } from "../../api";
 
@@ -19,6 +21,7 @@ export default function ActivityDetailPage(): JSX.Element {
   const activityId = Taro.getCurrentInstance().router?.params.id ?? "";
   const [activity, setActivity] = useState<ActivitySummary | null>(null);
   const [error, setError] = useState("");
+  const [agreementAccepted, setAgreementAccepted] = useState(false);
 
   useEffect(() => {
     async function load(): Promise<void> {
@@ -33,12 +36,28 @@ export default function ActivityDetailPage(): JSX.Element {
   }, [activityId]);
 
   async function handleCreateOrder(): Promise<void> {
+    if (!agreementAccepted) {
+      setError("请先确认活动规则、退款规则、用户协议和隐私说明");
+      return;
+    }
+    if (!hasAuthenticatedSession()) {
+      setError("请先完成登录和手机号授权");
+      await navigateTo({ url: "/pages/mock-auth/index" });
+      return;
+    }
     try {
       setError("");
+      await confirmAgreement("v1");
       await createAndPayOrder(activityId);
       await navigateTo({ url: "/pages/order-detail/index" });
     } catch (orderError) {
-      setError(orderError instanceof Error ? orderError.message : "报名或测试支付失败");
+      const message = orderError instanceof Error ? orderError.message : "报名或测试支付失败";
+      if (message === "Phone binding required") {
+        setError("请先完成手机号授权");
+        await navigateTo({ url: "/pages/mock-auth/index" });
+        return;
+      }
+      setError(message);
     }
   }
 
@@ -99,6 +118,10 @@ export default function ActivityDetailPage(): JSX.Element {
             {item}
           </Text>
         ))}
+        <View className="agreement-row">
+          <Switch checked={agreementAccepted} color="#ff6b2c" onChange={(event) => setAgreementAccepted(event.detail.value)} />
+          <Text>我已阅读并同意活动规则、退款规则、用户协议和隐私说明（v1）</Text>
+        </View>
       </View>
 
       <View className="safe-card">
@@ -108,7 +131,7 @@ export default function ActivityDetailPage(): JSX.Element {
 
       <View className="action-bar">
         <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/mock-auth/index" })}>
-          身份测试入口
+          登录与手机号授权
         </Button>
         <Button className="button-primary" onClick={() => void handleCreateOrder()}>
           支付服务费，加入饭局

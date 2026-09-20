@@ -338,6 +338,11 @@ async function loginBoundUser(
   const token = (await login.json()).token as string;
   const bind = await request(baseUrl, "POST", "/api/mock/phone", token, { phone });
   assertStatus("phone bind succeeds", bind.status, 200);
+  const consent = await request(baseUrl, "POST", "/api/consents", token, {
+    agreementVersion: "v1",
+    source: "state-machine-probe",
+  });
+  assertStatus("agreement confirmation succeeds", consent.status, 200);
   return token;
 }
 

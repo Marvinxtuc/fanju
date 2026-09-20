@@ -104,6 +104,16 @@
   line-height: 44px;
 }
 
+.agreement-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  color: #5d4037;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .button-primary {
   border: 1px solid #ff6b2c;
   background: #ff6b2c;
@@ -295,6 +305,21 @@
   padding: 16px;
 }
 
+.form-label {
+  display: block;
+  margin: 14px 0 6px;
+  color: #7a4e2d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field-error {
+  display: block;
+  margin-top: 6px;
+  color: #b73526;
+  font-size: 12px;
+}
+
 .block-title {
   display: block;
   margin-bottom: 12px;
@@ -412,4 +437,45 @@
   background: rgba(233, 75, 53, 0.1);
   color: #b73526;
   font-size: 13px;
+}
+
+.report-input,
+.report-textarea {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  border: 1px solid #eedfcc;
+  border-radius: 14px;
+  padding: 12px;
+  background: #fffaf2;
+  color: #1f1a17;
+  font-size: 15px;
+}
+
+.report-textarea {
+  min-height: 110px;
+  margin-top: 12px;
+}
+
+.success-text {
+  display: block;
+  margin: 12px 0;
+  color: #0c6d3b;
+  font-size: 13px;
+}
+
+.notification-card {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed #eedfcc;
+  border-radius: 14px;
+  background: #fffaf2;
+}
+
+.notification-card__title {
+  color: #1f1a17;
+  font-size: 15px;
+  font-weight: 800;
 }

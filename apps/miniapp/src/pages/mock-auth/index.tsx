@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button, Text, View } from "@tarojs/components";
-import { navigateTo } from "@tarojs/taro";
+import { navigateBack } from "@tarojs/taro";
 
 import {
   bindPhoneWithWechatCode,
   ensureMockUser,
   loginWithWechatProvider,
 } from "../../api";
+import { formatClientError } from "./client-error";
 
 export default function MockAuthPage(): JSX.Element {
   const [message, setMessage] = useState("未登录");
@@ -16,7 +17,7 @@ export default function MockAuthPage(): JSX.Element {
       await ensureMockUser();
       setMessage("Mock 登录和手机号已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Mock 登录失败");
+      setMessage(formatClientError(error, "Mock 登录失败"));
     }
   }
 
@@ -25,7 +26,7 @@ export default function MockAuthPage(): JSX.Element {
       await loginWithWechatProvider();
       setMessage("微信登录已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "微信登录失败");
+      setMessage(formatClientError(error, "微信登录失败"));
     }
   }
 
@@ -39,7 +40,7 @@ export default function MockAuthPage(): JSX.Element {
       await bindPhoneWithWechatCode(detail.code);
       setMessage("手机号授权已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "手机号授权失败");
+      setMessage(formatClientError(error, "手机号授权失败"));
     }
   }
 
@@ -68,11 +69,15 @@ export default function MockAuthPage(): JSX.Element {
         <Button className="button-secondary" onClick={() => void handleWechatLogin()}>
           微信登录
         </Button>
-        <Button className="button-secondary" openType="getPhoneNumber" onGetPhoneNumber={(event) => void handlePhoneAuth(event)}>
+        <Button
+          className="button-secondary"
+          openType="getPhoneNumber|agreePrivacyAuthorization"
+          onGetPhoneNumber={(event) => void handlePhoneAuth(event)}
+        >
           手机号授权
         </Button>
-        <Button className="button-quiet" onClick={() => navigateTo({ url: "/pages/order-detail/index" })}>
-          继续到饭票
+        <Button className="button-quiet" onClick={() => navigateBack()}>
+          返回报名页
         </Button>
       </View>
     </View>
