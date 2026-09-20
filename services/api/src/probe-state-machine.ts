@@ -55,7 +55,7 @@ async function main(): Promise<void> {
 
 async function probeExpiredRegistration(context: ProbeContext): Promise<void> {
   const activityId = await createActivity(context, {
-    registrationEndsAt: "2026-01-01T00:00:00.000Z",
+    registrationEndsAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
   });
   const userToken = await loginBoundUser(context.baseUrl, "expired", "13500200001");
   const response = await request(context.baseUrl, "POST", "/api/orders", userToken, {
@@ -264,6 +264,9 @@ async function createActivity(
   context: ProbeContext,
   overrides: Record<string, unknown> = {},
 ): Promise<string> {
+  const startsAt = new Date(Date.now() + 48 * 60 * 60 * 1000);
+  const endsAt = new Date(startsAt.getTime() + 2 * 60 * 60 * 1000);
+  const registrationEndsAt = new Date(startsAt.getTime() - 24 * 60 * 60 * 1000);
   const restaurantId = await createRestaurant(context);
   const response = await request(
     context.baseUrl,
@@ -277,9 +280,9 @@ async function createActivity(
       description: "两小时餐厅体验，费用为服务费/订位费，餐费到店自理。",
       district: "徐汇",
       businessArea: "衡山路",
-      startsAt: "2026-07-10T12:00:00.000Z",
-      endsAt: "2026-07-10T14:00:00.000Z",
-      registrationEndsAt: "2026-07-09T12:00:00.000Z",
+      startsAt: startsAt.toISOString(),
+      endsAt: endsAt.toISOString(),
+      registrationEndsAt: registrationEndsAt.toISOString(),
       serviceFeeCents: 9900,
       mealFeeIncluded: false,
       mealFeePolicyText: "票价仅为服务费/订位费，不包含全部餐费。",
@@ -335,6 +338,11 @@ async function loginBoundUser(
   const token = (await login.json()).token as string;
   const bind = await request(baseUrl, "POST", "/api/mock/phone", token, { phone });
   assertStatus("phone bind succeeds", bind.status, 200);
+  const consent = await request(baseUrl, "POST", "/api/consents", token, {
+    agreementVersion: "v1",
+    source: "state-machine-probe",
+  });
+  assertStatus("agreement confirmation succeeds", consent.status, 200);
   return token;
 }
 

@@ -1,5 +1,7 @@
 import { View } from "@tarojs/components";
 
+import "./app.css";
+
 type MiniappProps = {
   children?: JSX.Element;
 };

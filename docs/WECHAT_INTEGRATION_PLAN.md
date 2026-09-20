@@ -2,9 +2,13 @@
 
 ## 状态
 
-当前状态：M3.1.1-B 本机安全注入配置后的真实微信身份手工联调待执行。
+当前状态：M3.1.1-B 真实微信登录与手机号授权手工联调已通过。M3.2 已具备测试商户下单、退款申请与回调安全代码：支付与退款默认仍为 mock，且未发起真实扣款或退款。
 
-本文件定义微信能力接入边界。M3.1 已实现真实微信登录与手机号授权 provider 路径。M3.1.1-A 已完成联调准备与门禁固化；M3.1.1-B 才执行真实微信登录和手机号授权网络联调。不实现真实微信支付或真实微信退款。本 repo 不提交真实 `.env`、secret、token、商户号、证书、APIv3 密钥、openid、session_key、手机号明文或真实用户数据。
+## 排期优先级
+
+支付与退款相关工作排在当前 MVP 其余功能之后。保留既有 mock 和本地测试覆盖，但暂停测试商户配置、安全注入、外部回调联调、网络请求和任何资金动作；只有其他已排期工作完成并获得新的明确授权后才恢复。
+
+本文件定义微信能力接入边界。M3.1 已实现真实微信登录与手机号授权 provider 路径。M3.1.1-A 已完成联调准备与门禁固化；M3.1.1-B 已完成真实微信登录和手机号授权网络联调。M3.2 已实现测试商户所需的请求签名、签名验签、报文解密、金额核对和状态机回流；不开启生产支付或生产退款。本 repo 不提交真实 `.env`、secret、token、商户号、证书、APIv3 密钥、openid、session_key、手机号明文或真实用户数据。
 
 ## 目标
 
@@ -22,9 +26,10 @@ API 服务内 provider 分为：
 - `PhoneProvider`
   - `resolvePhone({ phone?, code? }) -> { provider, phone, phoneNumber, countryCode?, purePhoneNumber? }`
 - `PaymentProvider`
-  - `createPayment({ orderId, amountCents }) -> { channel }`
+  - `createPayment({ merchantOrderNo, amountCents, openid }) -> { channel, prepayId?, paymentParams? }`
   - `applySuccessCallback({ paymentId }) -> { channelTradeNo, callbackNonce }`
 - `RefundProvider`
+  - `createRefund({ merchantRefundNo, merchantOrderNo, amountCents }) -> { channel, channelRefundNo? }`
   - `applySuccessCallback({ refundId }) -> { channelRefundNo, callbackNonce }`
   - `applyFailureCallback({ refundId, reason }) -> { failureReason }`
 

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button, Text, View } from "@tarojs/components";
-import { navigateTo } from "@tarojs/taro";
+import { navigateBack } from "@tarojs/taro";
 
 import {
   bindPhoneWithWechatCode,
   ensureMockUser,
   loginWithWechatProvider,
-} from "../../api.js";
+} from "../../api";
+import { formatClientError } from "./client-error";
 
 export default function MockAuthPage(): JSX.Element {
   const [message, setMessage] = useState("未登录");
@@ -16,7 +17,7 @@ export default function MockAuthPage(): JSX.Element {
       await ensureMockUser();
       setMessage("Mock 登录和手机号已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Mock 登录失败");
+      setMessage(formatClientError(error, "Mock 登录失败"));
     }
   }
 
@@ -25,7 +26,7 @@ export default function MockAuthPage(): JSX.Element {
       await loginWithWechatProvider();
       setMessage("微信登录已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "微信登录失败");
+      setMessage(formatClientError(error, "微信登录失败"));
     }
   }
 
@@ -39,27 +40,46 @@ export default function MockAuthPage(): JSX.Element {
       await bindPhoneWithWechatCode(detail.code);
       setMessage("手机号授权已完成");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "手机号授权失败");
+      setMessage(formatClientError(error, "手机号授权失败"));
     }
   }
 
   return (
     <View className="page page-mock-auth">
-      <Text className="eyebrow">测试能力</Text>
-      <Text className="title">Mock 登录与手机号授权</Text>
-      <Text className="summary">本页保留本地 mock 入口，并提供微信登录与手机号授权最小入口。</Text>
+      <View className="detail-header">
+        <Text className="eyebrow">测试能力</Text>
+        <Text className="title">身份小票</Text>
+        <Text className="summary">本页保留本地 mock 入口，并提供微信登录与手机号授权最小入口。</Text>
+      </View>
 
       <View className="detail-block">
         <Text className="block-title">模拟状态</Text>
-        <Text>{message}</Text>
+        <Text className="stamp stamp--green">{message}</Text>
       </View>
 
-      <Button onClick={() => void handleLogin()}>执行 Mock 登录</Button>
-      <Button onClick={() => void handleWechatLogin()}>微信登录</Button>
-      <Button openType="getPhoneNumber" onGetPhoneNumber={(event) => void handlePhoneAuth(event)}>
-        手机号授权
-      </Button>
-      <Button onClick={() => navigateTo({ url: "/pages/order-detail/index" })}>继续到订单详情</Button>
+      <View className="safe-card">
+        <Text className="safe-card__title">联调边界</Text>
+        <Text className="summary">真实 AppSecret 和手机号样本不得写入 repo；失败路径不得 fallback 到 mock。</Text>
+      </View>
+
+      <View className="action-bar">
+        <Button className="button-primary" onClick={() => void handleLogin()}>
+          执行 Mock 登录
+        </Button>
+        <Button className="button-secondary" onClick={() => void handleWechatLogin()}>
+          微信登录
+        </Button>
+        <Button
+          className="button-secondary"
+          openType="getPhoneNumber|agreePrivacyAuthorization"
+          onGetPhoneNumber={(event) => void handlePhoneAuth(event)}
+        >
+          手机号授权
+        </Button>
+        <Button className="button-quiet" onClick={() => navigateBack()}>
+          返回报名页
+        </Button>
+      </View>
     </View>
   );
 }
