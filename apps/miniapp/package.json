@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "taro build --type weapp --watch",
-    "build": "tsc -p tsconfig.json --noEmit",
+    "build": "NODE_ENV=production taro build --type weapp",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

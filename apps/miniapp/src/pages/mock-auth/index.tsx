@@ -5,6 +5,7 @@ import { navigateBack } from "@tarojs/taro";
 import {
   bindPhoneWithWechatCode,
   ensureMockUser,
+  demoModeEnabled,
   loginWithWechatProvider,
 } from "../../api";
 import { formatClientError } from "./client-error";
@@ -47,25 +48,20 @@ export default function MockAuthPage(): JSX.Element {
   return (
     <View className="page page-mock-auth">
       <View className="detail-header">
-        <Text className="eyebrow">测试能力</Text>
+        <Text className="eyebrow">账号授权</Text>
         <Text className="title">身份小票</Text>
-        <Text className="summary">本页保留本地 mock 入口，并提供微信登录与手机号授权最小入口。</Text>
+        <Text className="summary">登录并授权手机号后，可继续填写报名资料。</Text>
       </View>
 
       <View className="detail-block">
-        <Text className="block-title">模拟状态</Text>
+        <Text className="block-title">授权状态</Text>
         <Text className="stamp stamp--green">{message}</Text>
       </View>
 
-      <View className="safe-card">
-        <Text className="safe-card__title">联调边界</Text>
-        <Text className="summary">真实 AppSecret 和手机号样本不得写入 repo；失败路径不得 fallback 到 mock。</Text>
-      </View>
-
       <View className="action-bar">
-        <Button className="button-primary" onClick={() => void handleLogin()}>
-          执行 Mock 登录
-        </Button>
+        {demoModeEnabled ? <Button className="button-primary" onClick={() => void handleLogin()}>
+          本地演示登录
+        </Button> : null}
         <Button className="button-secondary" onClick={() => void handleWechatLogin()}>
           微信登录
         </Button>

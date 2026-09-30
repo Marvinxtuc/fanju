@@ -46,6 +46,7 @@ export default function HomePage(): JSX.Element {
         </View>
 
         <View className="hero-actions">
+          <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/order-list/index" })}>我的订单</Button>
           <Button className="button-primary" onClick={openFirstActivity}>
             加入饭局
           </Button>

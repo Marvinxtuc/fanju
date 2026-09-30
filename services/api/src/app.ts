@@ -1,10 +1,23 @@
+import { recoverPrepay, publishPrepay } from "./funding/prepay.js";
+import { persistTrustedEvent } from "./events/inbox.js";
+import { openCase } from "./jobs/queue.js";
+import { checkReadiness, hasCompleteBillCoverage } from "./jobs/heartbeat.js";
+import { resolveVerifiedCase } from "./reconciliation/cases.js";
+import { createHash, X509Certificate } from "node:crypto";
+import { bindingFor, ensurePaymentIntent } from "./funding/intents.js";
+import { applyPaymentEvidence, lockOrder } from "./funding/receipts.js";
+import { reserveRefund, confirmRefund, recordRefundFailure } from "./funding/refunds.js";
+import { PersistentMockChannel } from "./funding/mock-channel.js";
+import { expireOrder, markOrderState, scheduleExpiration } from "./orders/inventory.js";
+import { currentCandidates, draftFormation, adjustFormation, confirmFormation, createDecisionRefundDuties, queueDecisionNotifications } from "./orders/formation.js";
+import { currentAgreement } from "./orders/agreement.js";
+import { assertBillScopeBinding, canStartRealPayment, validateRuntimeMode, localDemoEnabled } from "./config.js";
 import cors from "@fastify/cors";
 import { readFileSync } from "node:fs";
 import {
   ActivityStatus,
   OrderStatus,
   PaymentStatus,
-  NotificationStatus,
   ReportStatus,
   RefundStatus,
   type PrismaClient,
@@ -15,12 +28,14 @@ import {
   assertVisibleCopyAllowed,
   calculateOrderAmountCents,
   evaluateTableFormation,
+  evaluateRefundDecision,
   type ActivityStatus as SharedActivityStatus,
   type OrderStatus as SharedOrderStatus,
 } from "@timeleft-shanghai/shared";
 import Fastify from "fastify";
 import { z, ZodError } from "zod";
-import { registerAuth, requireOps, requireSuperAdmin, requireUser } from "./auth.js";
+import { registerAdminLogin } from "./admin-auth.js";
+import { signSession, registerAuth, requireOps, requireSuperAdmin, requireUser } from "./auth.js";
 import { prisma as defaultPrisma } from "./prisma.js";
 import {
   createWechatProviders,
@@ -47,12 +62,18 @@ export interface BuildAppOptions {
 export async function buildApp(options: BuildAppOptions = {}) {
   const db = options.prisma ?? defaultPrisma;
   const providerEnv = options.providerEnv ?? process.env;
+  const demoEnabled = localDemoEnabled(providerEnv);
   const providers = createWechatProviders(providerEnv, {
     ...(options.providerHttpClient === undefined
       ? {}
       : { httpClient: options.providerHttpClient }),
   });
-  const app = Fastify({ logger: true });
+  validateRuntimeMode(providerEnv, providers);
+  const paymentBinding = bindingFor(providerEnv, providers.payment.mode);
+  assertBillScopeBinding(providerEnv, paymentBinding.merchantScope);
+  const mockChannel = new PersistentMockChannel(db);
+  const caseOwner = providerEnv.FINANCIAL_CASE_OWNER?.trim() || "local-review-required";
+  const app = Fastify({ logger: true, bodyLimit: 262144 });
   const callbackBodies = new WeakMap<object, string>();
 
   app.addHook("preParsing", (request, _reply, payload, done) => {
@@ -61,18 +82,24 @@ export async function buildApp(options: BuildAppOptions = {}) {
       request.url === "/api/wechat/refund/notify"
     ) {
       const chunks: Buffer[] = [];
+      let receivedBytes = 0;
       payload.on("data", (chunk: Buffer | string) => {
-        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+        receivedBytes += Buffer.byteLength(chunk);
+        if (receivedBytes <= 262144) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
       });
       payload.on("end", () => {
-        callbackBodies.set(request, Buffer.concat(chunks).toString("utf8"));
+        if (receivedBytes <= 262144) callbackBodies.set(request, Buffer.concat(chunks).toString("utf8"));
       });
     }
     done(null, payload);
   });
 
-  await app.register(cors, { origin: true, methods: ["GET", "HEAD", "POST", "PUT"] });
-  await registerAuth(app);
+  const allowedOpsOrigins = new Set((providerEnv.OPS_ALLOWED_ORIGINS?.trim() || (providerEnv.NODE_ENV === "production" ? "" : "http://localhost:5173,http://127.0.0.1:5173"))
+    .split(",").map(origin => origin.trim()).filter(Boolean));
+  await app.register(cors, { origin: (origin, callback) => callback(null, !!origin && allowedOpsOrigins.has(origin)),
+    methods: ["GET", "HEAD", "POST", "PUT", "DELETE"] });
+  await registerAuth(app, db, providerEnv, demoEnabled);
+  registerAdminLogin(app);
 
   app.setErrorHandler((error, _request, reply) => {
     if (error instanceof ZodError) {
@@ -110,12 +137,25 @@ export async function buildApp(options: BuildAppOptions = {}) {
   });
 
   app.get("/health", async () => ({ ok: true }));
+  app.get("/ready", async (_request, reply) => {
+    const requiredModes = (providerEnv.REQUIRED_WORKER_MODES?.trim()
+      || (providerEnv.NODE_ENV === "production" ? "events-only,inbox-only" : ""))
+      .split(",").map(mode => mode.trim()).filter(Boolean);
+    try {
+      const bill = providerEnv.NEW_PAYMENTS_ENABLED === "true" ? {
+        scope: paymentBinding.merchantScope, period: providerEnv.REQUIRED_BILL_PERIOD! } : undefined;
+      const result = await checkReadiness(db, requiredModes, bill);
+      return reply.code(result.ok ? 200 : 503).send(result);
+    } catch {
+      return reply.code(503).send({ ok: false, missingModes: requiredModes, billCovered: null });
+    }
+  });
 
   app.post("/api/mock/wechat-login", async (request) => {
     const body = z.object({ code: z.string().min(1) }).parse(request.body);
     const identity = await providers.auth.exchangeLoginCode({ code: body.code });
     const user = await upsertWechatUser(db, identity);
-    const token = app.jwt.sign({ sub: user.id, role: "USER" });
+    const token = signSession(app, { sub: user.id, role: "USER" });
 
     return {
       token,
@@ -147,20 +187,30 @@ export async function buildApp(options: BuildAppOptions = {}) {
     return { user: { id: user.id, phone: maskPhone(user.phone) } };
   });
 
-  app.post("/api/consents", async (request) => {
+  app.get("/api/agreement/current", async (_request, reply) => {
+    const policy = await db.$transaction(tx => currentAgreement(tx));
+    if (!policy) return reply.code(503).send({ error: "Current agreement is unavailable" });
+    return { agreement: { version: policy.version, text: policy.text, textHash: policy.textHash,
+      activatedAt: policy.activatedAt, source: policy.source } };
+  });
+
+  app.post("/api/consents", async (request, reply) => {
     const auth = await requireUser(request);
     const body = z.object({
       agreementVersion: z.string().trim().min(1).max(100),
       source: z.string().trim().min(1).max(100),
     }).parse(request.body);
     const consent = await db.$transaction(async (tx) => {
+      const policy = await currentAgreement(tx, true);
+      if (!policy) return { error: "Current agreement is unavailable", statusCode: 503 as const };
+      if (body.agreementVersion !== policy.version) return { error: "Current agreement must be accepted", statusCode: 409 as const };
       const existing = await tx.consentRecord.findFirst({
-        where: { userId: auth.sub, agreementVersion: body.agreementVersion },
+        where: { userId: auth.sub, agreementVersion: policy.version, policyHash: policy.textHash },
         orderBy: { createdAt: "desc" },
       });
       if (existing) return existing;
       const next = await tx.consentRecord.create({
-        data: { userId: auth.sub, agreementVersion: body.agreementVersion, source: body.source },
+        data: { userId: auth.sub, agreementVersion: policy.version, policyHash: policy.textHash, source: body.source },
       });
       await tx.auditLog.create({
         data: {
@@ -172,6 +222,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
       });
       return next;
     });
+    if ("error" in consent) return reply.code(consent.statusCode).send({ error: consent.error });
     return { consent: { id: consent.id, agreementVersion: consent.agreementVersion, createdAt: consent.createdAt } };
   });
 
@@ -210,22 +261,24 @@ export async function buildApp(options: BuildAppOptions = {}) {
     return { profile };
   });
 
-  app.post("/api/mock/admin-login", async (request) => {
-    const body = z
-      .object({
-        username: z.string().min(2),
-        role: z.enum(["OPS", "SUPER_ADMIN"]).default("OPS"),
-      })
-      .parse(request.body);
-    const admin = await db.adminUser.upsert({
-      where: { username: body.username },
-      update: { role: body.role },
-      create: { username: body.username, role: body.role },
-    });
-    const token = app.jwt.sign({ sub: admin.id, role: admin.role });
+  if (demoEnabled) {
+    app.post("/api/mock/admin-login", async (request) => {
+      const body = z
+        .object({
+          username: z.string().min(2),
+          role: z.enum(["OPS", "SUPER_ADMIN"]).default("OPS"),
+        })
+        .parse(request.body);
+      const admin = await db.adminUser.upsert({
+        where: { username: body.username },
+        update: { role: body.role },
+        create: { username: body.username, role: body.role },
+      });
+      const token = signSession(app, { sub: admin.id, role: admin.role, adminRevision: admin.updatedAt.toISOString() });
 
-    return { token, admin: { id: admin.id, username: admin.username, role: admin.role } };
-  });
+      return { token, admin: { id: admin.id, username: admin.username, role: admin.role } };
+    });
+  }
 
   app.get("/api/activities", async () => {
     const activities = await db.activity.findMany({
@@ -251,52 +304,135 @@ export async function buildApp(options: BuildAppOptions = {}) {
   });
 
   app.post("/api/ops/restaurants", async (request) => {
-    await requireOps(request);
+    const operator = await requireOps(request);
     const body = restaurantInputSchema.parse(request.body);
-    const restaurant = await db.restaurant.create({ data: body });
+    const restaurant = await db.$transaction(async tx => {
+      const created = await tx.restaurant.create({ data: body });
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS", action: "restaurant.created", targetType: "Restaurant", targetId: created.id } });
+      return created;
+    });
 
+    return { restaurant };
+  });
+
+  app.put("/api/ops/restaurants/:id", async (request, reply) => {
+    const operator = await requireOps(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const body = restaurantInputSchema.parse(request.body);
+    const restaurant = await db.$transaction(async tx => {
+      await tx.$queryRaw`SELECT id FROM "Restaurant" WHERE id = ${id} FOR UPDATE`;
+      const current = await tx.restaurant.findUnique({ where: { id } });
+      if (!current) return "not_found" as const;
+      const scheduled = await tx.activity.count({ where: { restaurantId: id, status: { notIn: [ActivityStatus.DRAFT, ActivityStatus.CANCELED, ActivityStatus.COMPLETED] } } });
+      if (scheduled && (body.name !== current.name || body.district !== current.district || body.businessArea !== current.businessArea || body.address !== current.address || body.capacity !== current.capacity)) return "locked" as const;
+      await tx.restaurant.update({ where: { id }, data: body });
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS", action: "restaurant.updated", targetType: "Restaurant", targetId: id } });
+      return tx.restaurant.findUniqueOrThrow({ where: { id } });
+    });
+    if (restaurant === "not_found") return reply.code(404).send({ error: "Restaurant not found" });
+    if (restaurant === "locked") return reply.code(409).send({ error: "Scheduled activity prevents changing restaurant location or capacity" });
     return { restaurant };
   });
 
   app.get("/api/ops/restaurants", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const restaurants = await db.restaurant.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 50,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 51,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
     });
 
-    return { restaurants };
+    return { restaurants: restaurants.slice(0, 50), nextCursor: restaurants.length > 50 ? restaurants[49]!.id : null,
+      total: await db.restaurant.count() };
   });
 
-  app.post("/api/ops/activities", async (request) => {
-    await requireOps(request);
+  app.post("/api/ops/activities", async (request, reply) => {
+    const operator = await requireOps(request);
     const body = activityInputSchema.parse(request.body);
     assertVisibleCopyAllowed(`${body.title} ${body.theme} ${body.description}`);
+    if (new Date(body.registrationEndsAt) <= new Date()) return reply.code(400).send({ error: "Registration deadline must be in the future" });
     if (body.mealFeeIncluded !== false) {
       throw new Error("mealFeeIncluded must be false for MVP service-fee pricing");
     }
 
-    const activity = await db.activity.create({
-      data: {
+    const result = await db.$transaction(async tx => {
+      // Serialize direct published/open activities with edits to the same restaurant.
+      await tx.$queryRaw`SELECT id FROM "Restaurant" WHERE id = ${body.restaurantId} FOR UPDATE`;
+      const restaurant = await tx.restaurant.findUnique({ where: { id: body.restaurantId } });
+      if (!restaurant || restaurant.status !== "ACTIVE") return { kind: "invalid_restaurant" as const };
+      if (body.capacity > restaurant.capacity) return { kind: "capacity" as const };
+      const created = await tx.activity.create({ data: {
         ...body,
-        startsAt: new Date(body.startsAt),
-        endsAt: new Date(body.endsAt),
-        registrationEndsAt: new Date(body.registrationEndsAt),
-      },
+        startsAt: new Date(body.startsAt), endsAt: new Date(body.endsAt), registrationEndsAt: new Date(body.registrationEndsAt),
+      } });
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS", action: "activity.created", targetType: "Activity", targetId: created.id, metadata: { status: created.status } } });
+      return { kind: "created" as const, activity: created };
     });
+    if (result.kind === "invalid_restaurant") return reply.code(409).send({ error: "Active restaurant required" });
+    if (result.kind === "capacity") return reply.code(400).send({ error: "Activity capacity exceeds restaurant capacity" });
+    return { activity: result.activity };
+  });
 
-    return { activity };
+  app.post("/api/ops/activities/:id/publish", async (request, reply) => {
+    const operator = await requireOps(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const result = await db.$transaction(async tx => {
+      const locator = await tx.activity.findUnique({ where: { id }, select: { restaurantId: true } });
+      if (!locator) return "not_found" as const;
+      // Restaurant edits take this same lock before checking scheduled activities.
+      await tx.$queryRaw`SELECT id FROM "Restaurant" WHERE id = ${locator.restaurantId} FOR UPDATE`;
+      await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${id} FOR UPDATE`;
+      const activity = await tx.activity.findUnique({ where: { id }, include: { restaurant: true } });
+      if (!activity) return "not_found" as const;
+      if (activity.status !== ActivityStatus.DRAFT) return "invalid_status" as const;
+      if (activity.restaurant.status !== "ACTIVE" || activity.registrationEndsAt <= new Date() || activity.capacity > activity.restaurant.capacity) return "invalid_supply" as const;
+      assertActivityTransition(toSharedActivityStatus(activity.status), "published");
+      const changed = await tx.activity.updateMany({ where: { id, status: ActivityStatus.DRAFT }, data: { status: ActivityStatus.PUBLISHED } });
+      if (changed.count !== 1) return "invalid_status" as const;
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS", action: "activity.published", targetType: "Activity", targetId: id } });
+      return "published" as const;
+    });
+    if (result === "not_found") return reply.code(404).send({ error: "Activity not found" });
+    if (result !== "published") return reply.code(409).send({ error: "Activity cannot be published" });
+    return { activityStatus: ActivityStatus.PUBLISHED };
+  });
+
+  app.post("/api/ops/activities/:id/open-registration", async (request, reply) => {
+    const operator = await requireOps(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const result = await db.$transaction(async tx => {
+      await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${id} FOR UPDATE`;
+      const activity = await tx.activity.findUnique({ where: { id }, include: { restaurant: true } });
+      if (!activity) return "not_found" as const;
+      if (activity.status !== ActivityStatus.PUBLISHED) return "invalid_status" as const;
+      if (activity.restaurant.status !== "ACTIVE" || activity.registrationEndsAt <= new Date() || activity.capacity > activity.restaurant.capacity) return "invalid_supply" as const;
+      assertActivityTransition(toSharedActivityStatus(activity.status), "registration_open");
+      await tx.activity.update({ where: { id }, data: { status: ActivityStatus.REGISTRATION_OPEN } });
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
+        action: "activity.registration.opened", targetType: "Activity", targetId: id } });
+      return "opened" as const;
+    });
+    if (result === "not_found") return reply.code(404).send({ error: "Activity not found" });
+    if (result !== "opened") return reply.code(409).send({ error: "Activity registration cannot be opened" });
+    return { activityStatus: ActivityStatus.REGISTRATION_OPEN };
   });
 
   app.get("/api/ops/activities", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const activities = await db.activity.findMany({
-      orderBy: { startsAt: "asc" },
-      take: 50,
+      orderBy: [{ startsAt: "asc" }, { id: "asc" }],
+      take: 51,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: { restaurant: true },
     });
+    const page = activities.slice(0, 50);
+    const heldSeats = await db.order.groupBy({ by: ["activityId"], where: { activityId: { in: page.map(activity => activity.id) }, capacityHeld: true }, _count: { _all: true } });
+    const heldByActivity = new Map(heldSeats.map(row => [row.activityId, row._count._all]));
 
-    return { activities };
+    return { activities: page.map(activity => ({ ...activity, heldSeats: heldByActivity.get(activity.id) ?? 0 })), nextCursor: activities.length > 50 ? activities[49]!.id : null,
+      total: await db.activity.count() };
   });
 
   app.post("/api/ops/activities/:id/start", async (request, reply) => {
@@ -341,7 +477,9 @@ export async function buildApp(options: BuildAppOptions = {}) {
       const groupedOrders = await tx.order.findMany({ where: { activityId: activity.id, status: OrderStatus.GROUPED }, select: { id: true, status: true } });
       assertActivityTransition(toSharedActivityStatus(activity.status), "completed");
       for (const order of groupedOrders) assertOrderTransition(toSharedOrderStatus(order.status), "completed");
-      await tx.order.updateMany({ where: { id: { in: groupedOrders.map((order) => order.id) }, status: OrderStatus.GROUPED }, data: { status: OrderStatus.COMPLETED } });
+      await tx.order.updateMany({ where: { id: { in: groupedOrders.map((order) => order.id) }, status: OrderStatus.GROUPED }, data: {
+        status: OrderStatus.COMPLETED, version: { increment: 1 },
+      } });
       await tx.activity.update({ where: { id: activity.id }, data: { status: ActivityStatus.COMPLETED } });
       await tx.auditLog.create({
         data: {
@@ -364,20 +502,46 @@ export async function buildApp(options: BuildAppOptions = {}) {
 
   app.get("/api/ops/orders", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const orders = await db.order.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 50,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 51,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: {
         activity: true,
         user: true,
+        receipts: { select: { id: true, amountCents: true } },
+        payments: { select: { id: true } },
+        refunds: { select: { id: true } },
+        refundObligations: { select: { id: true } },
+        notifications: { select: { id: true } },
       },
     });
+    const page = orders.slice(0, 50);
+    const referencesByOrder = new Map(page.map(order => [order.id, [order.id,
+      ...order.receipts.map(receipt => receipt.id), ...order.payments.map(payment => payment.id),
+      ...order.refunds.map(refund => refund.id), ...order.refundObligations.map(duty => duty.id),
+      ...order.notifications.map(notification => notification.id)]]));
+    const orderByRef = new Map([...referencesByOrder].flatMap(([orderId, refs]) => refs.map(ref => [ref, orderId] as const)));
+    const jobs = await db.durableJob.findMany({ where: { refId: { in: [...orderByRef.keys()] } },
+      select: { id: true, refId: true } });
+    for (const job of jobs) {
+      const orderId = orderByRef.get(job.refId);
+      if (orderId) referencesByOrder.get(orderId)?.push(job.id);
+    }
+    const openCases = await db.financialCase.findMany({ where: { state: "OPEN", sourceRef: { in: [...referencesByOrder.values()].flat() } }, select: { id: true, sourceRef: true } });
+    const caseCountByRef = new Map<string, number>();
+    for (const issue of openCases) caseCountByRef.set(issue.sourceRef, (caseCountByRef.get(issue.sourceRef) ?? 0) + 1);
 
     return {
-      orders: orders.map((order) => ({
+      orders: page.map((order) => ({
         id: order.id,
         amountCents: order.amountCents,
         status: order.status,
+        capacityHeld: order.capacityHeld,
+        receivedCents: order.receipts.reduce((sum, receipt) => sum + receipt.amountCents, 0),
+        receiptCount: order.receipts.length,
+        openCaseCount: (referencesByOrder.get(order.id) ?? []).reduce((sum, ref) => sum + (caseCountByRef.get(ref) ?? 0), 0),
         createdAt: order.createdAt,
         activity: {
           id: order.activity.id,
@@ -390,19 +554,23 @@ export async function buildApp(options: BuildAppOptions = {}) {
           status: order.user.status,
         },
       })),
+      nextCursor: orders.length > 50 ? orders[49]!.id : null,
+      total: await db.order.count(),
     };
   });
 
   app.get("/api/ops/refunds", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const refunds = await db.refund.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 50,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 51,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: { order: { include: { activity: true, user: true } } },
     });
 
     return {
-      refunds: refunds.map((refund) => ({
+      refunds: refunds.slice(0, 50).map((refund) => ({
         id: refund.id,
         amountCents: refund.amountCents,
         status: refund.status,
@@ -416,46 +584,72 @@ export async function buildApp(options: BuildAppOptions = {}) {
           userPhone: maskPhone(refund.order.user.phone),
         },
       })),
+      nextCursor: refunds.length > 50 ? refunds[49]!.id : null,
+      total: await db.refund.count(),
     };
   });
 
   app.get("/api/ops/audit-logs", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const auditLogs = await db.auditLog.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 100,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 101,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
     });
 
-    return { auditLogs };
+    return { auditLogs: auditLogs.slice(0, 100), nextCursor: auditLogs.length > 100 ? auditLogs[99]!.id : null,
+      total: await db.auditLog.count() };
   });
 
   app.get("/api/notifications", async (request) => {
     const auth = await requireUser(request);
+    const query = z.object({ cursor: z.string().max(256).optional(), limit: z.coerce.number().int().min(1).max(50).default(20) }).parse(request.query);
+    const cursor = query.cursor ? decodeNotificationCursor(query.cursor) : null;
     const notifications = await db.notification.findMany({
-      where: { userId: auth.sub },
-      orderBy: { createdAt: "desc" },
-      take: 50,
+      where: { userId: auth.sub, status: "SENT",
+        ...(cursor ? { OR: [{ createdAt: { lt: cursor.createdAt } },
+          { createdAt: cursor.createdAt, id: { lt: cursor.id } }] } : {}) },
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: query.limit + 1,
     });
+    const page = notifications.slice(0, query.limit);
     return {
-      notifications: notifications.map((notification) => ({
+      notifications: page.map((notification) => ({
         id: notification.id,
         type: notification.type,
         status: notification.status,
         payload: notification.payload,
         createdAt: notification.createdAt,
+        readAt: notification.readAt,
+        orderId: notification.orderId,
+        activityId: notification.activityId,
       })),
+      nextCursor: notifications.length > query.limit ? encodeNotificationCursor(page.at(-1)!) : null,
     };
+  });
+
+  app.post("/api/notifications/:id/read", async (request, reply) => {
+    const auth = await requireUser(request);
+    const { id } = z.object({ id: z.string().min(1) }).parse(request.params);
+    const notification = await db.notification.findFirst({ where: { id, userId: auth.sub, status: "SENT" }, select: { id: true } });
+    if (!notification) return reply.code(404).send({ error: "Notification not found" });
+    await db.notification.updateMany({ where: { id, userId: auth.sub, status: "SENT", readAt: null }, data: { readAt: new Date() } });
+    const current = await db.notification.findUniqueOrThrow({ where: { id }, select: { readAt: true } });
+    return { id, readAt: current.readAt };
   });
 
   app.get("/api/ops/reports", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const reports = await db.report.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 100,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 101,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: { order: { include: { activity: true } } },
     });
     return {
-      reports: reports.map((report) => ({
+      reports: reports.slice(0, 100).map((report) => ({
         id: report.id,
         type: report.type,
         content: report.content,
@@ -463,18 +657,22 @@ export async function buildApp(options: BuildAppOptions = {}) {
         createdAt: report.createdAt,
         order: { id: report.order.id, status: report.order.status, activityTitle: report.order.activity.title },
       })),
+      nextCursor: reports.length > 100 ? reports[99]!.id : null,
+      total: await db.report.count(),
     };
   });
 
   app.get("/api/ops/reviews", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const reviews = await db.review.findMany({
-      orderBy: { updatedAt: "desc" },
-      take: 100,
+      orderBy: [{ updatedAt: "desc" }, { id: "desc" }],
+      take: 101,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: { order: { include: { activity: true } } },
     });
     return {
-      reviews: reviews.map((review) => ({
+      reviews: reviews.slice(0, 100).map((review) => ({
         id: review.id,
         score: review.score,
         tags: review.tags,
@@ -483,24 +681,30 @@ export async function buildApp(options: BuildAppOptions = {}) {
         updatedAt: review.updatedAt,
         order: { id: review.order.id, activityTitle: review.order.activity.title },
       })),
+      nextCursor: reviews.length > 100 ? reviews[99]!.id : null,
+      total: await db.review.count(),
     };
   });
 
   app.get("/api/ops/blacklist", async (request) => {
     await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
     const entries = await db.blacklist.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 100,
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 101,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
       include: { user: true },
     });
     return {
-      entries: entries.map((entry) => ({
+      entries: entries.slice(0, 100).map((entry) => ({
         id: entry.id,
         userId: entry.userId,
         reason: entry.reason,
         createdAt: entry.createdAt,
         user: { phone: maskPhone(entry.user.phone), status: entry.user.status },
       })),
+      nextCursor: entries.length > 100 ? entries[99]!.id : null,
+      total: await db.blacklist.count(),
     };
   });
 
@@ -563,7 +767,8 @@ export async function buildApp(options: BuildAppOptions = {}) {
       const current = await tx.report.findUnique({ where: { id: params.id } });
       if (!current) return null;
       if (current.status !== ReportStatus.OPEN) return "already_processed" as const;
-      const next = await tx.report.update({ where: { id: current.id }, data: { status: body.status } });
+      const changed = await tx.report.updateMany({ where: { id: current.id, status: ReportStatus.OPEN }, data: { status: body.status } });
+      if (changed.count !== 1) return "already_processed" as const;
       await tx.auditLog.create({ data: {
         actorId: operator.sub,
         actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
@@ -573,7 +778,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
         reason: body.reason,
         metadata: { status: body.status },
       } });
-      return next;
+      return tx.report.findUniqueOrThrow({ where: { id: current.id } });
     });
     if (report === null) return reply.code(404).send({ error: "Report not found" });
     if (report === "already_processed") return reply.code(409).send({ error: "Report has already been processed" });
@@ -591,29 +796,16 @@ export async function buildApp(options: BuildAppOptions = {}) {
       return reply.code(404).send({ error: "Activity not found" });
     }
 
+    const eligibleIds = new Set((await db.$transaction(tx => currentCandidates(tx, activity.id))).map(order => order.id));
     const [orders, tableGroups] = await Promise.all([
       db.order.findMany({
-      where: { activityId: activity.id, status: OrderStatus.PAID_PENDING_GROUP },
+      where: { id: { in: [...eligibleIds] } },
       orderBy: { createdAt: "asc" },
       select: {
         id: true,
         status: true,
         createdAt: true,
-        user: {
-          select: {
-            profile: {
-              select: {
-                preferredAreas: true,
-                availableTimes: true,
-                tastePreferences: true,
-                dietaryRestrictions: true,
-                budgetRange: true,
-                tableVibe: true,
-                acceptableTableSizes: true,
-              },
-            },
-          },
-        },
+        profileSnapshot: true,
       },
       }),
       db.tableGroup.findMany({
@@ -630,7 +822,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
           status: order.status,
           createdAt: order.createdAt,
         },
-        profile: order.user.profile,
+        profile: order.profileSnapshot,
       })),
       tableGroups: serializeTableGroups(tableGroups),
     };
@@ -639,168 +831,39 @@ export async function buildApp(options: BuildAppOptions = {}) {
   app.post("/api/ops/activities/:id/table-groups/draft", async (request, reply) => {
     const operator = await requireOps(request);
     const params = z.object({ id: z.string() }).parse(request.params);
-    const result = await db.$transaction(async (tx) => {
+    const result = await db.$transaction(async tx => {
       await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${params.id} FOR UPDATE`;
       const activity = await tx.activity.findUnique({ where: { id: params.id } });
-      if (!activity) {
-        return { kind: "not_found" as const };
-      }
-
-      const existingGroups = await tx.tableGroup.findMany({
-        where: { activityId: activity.id },
-        orderBy: { createdAt: "asc" },
-        include: { members: { orderBy: { createdAt: "asc" } } },
-      });
-      if (existingGroups.length > 0) {
-        return { kind: "existing" as const, existingGroups };
-      }
-      if (activity.status !== ActivityStatus.REGISTRATION_OPEN) {
-        return { kind: "invalid_activity_status" as const, status: activity.status };
-      }
-
-      const eligibleOrders = await tx.order.findMany({
-        where: { activityId: activity.id, status: OrderStatus.PAID_PENDING_GROUP },
-        orderBy: { createdAt: "asc" },
-        select: { id: true },
-      });
-      const decision = evaluateTableFormation(eligibleOrders.length, {
-        minSize: activity.minSize,
-        targetSize: activity.targetSize,
-        maxSize: activity.maxSize,
-      });
-      if (!decision.canForm) {
-        return { kind: "not_enough" as const, decision };
-      }
-
-      assertActivityTransition(toSharedActivityStatus(activity.status), "locking");
-      let orderOffset = 0;
-      const tableGroups = [];
-      for (const tableSize of decision.tableSizes) {
-        const memberOrders = eligibleOrders.slice(orderOffset, orderOffset + tableSize);
-        orderOffset += tableSize;
-        tableGroups.push(await tx.tableGroup.create({
-          data: {
-            activityId: activity.id,
-            members: { create: memberOrders.map((order) => ({ orderId: order.id })) },
-          },
-          include: { members: { orderBy: { createdAt: "asc" } } },
-        }));
-      }
-      await tx.activity.update({
-        where: { id: activity.id },
-        data: { status: ActivityStatus.LOCKING },
-      });
-      await tx.auditLog.create({
-        data: {
-          actorId: operator.sub,
-          actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
-          action: "table-groups.drafted",
-          targetType: "Activity",
-          targetId: activity.id,
-          metadata: { tableCount: tableGroups.length, eligibleOrderCount: eligibleOrders.length },
-        },
-      });
-      return { kind: "created" as const, decision, tableGroups };
+      if (!activity) return { kind: "not_found" as const };
+      return draftFormation(tx, activity, { sub: operator.sub, role: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS" });
     });
-
-    if (result.kind === "not_found") {
-      return reply.code(404).send({ error: "Activity not found" });
-    }
-    if (result.kind === "invalid_activity_status") {
-      return reply.code(409).send({ error: "Activity cannot be grouped in its current status" });
-    }
-    if (result.kind === "not_enough") {
-      return reply.code(409).send({
-        error: "Not enough paid orders to form valid tables",
-        decision: result.decision,
-      });
-    }
-    if (result.kind === "existing") {
-      return { idempotent: true, tableGroups: serializeTableGroups(result.existingGroups) };
-    }
-    return {
-      idempotent: false,
-      decision: result.decision,
-      tableGroups: serializeTableGroups(result.tableGroups),
-    };
+    if (result.kind === "not_found") return reply.code(404).send({ error: "Activity not found" });
+    if (result.kind === "invalid_status") return reply.code(409).send({ error: "Activity cannot be grouped in its current status" });
+    if (result.kind === "not_enough") return reply.code(409).send({
+      error: "Not enough paid orders to form valid tables", decision: result.decision,
+    });
+    if (result.kind === "needs_review") return reply.code(409).send({ error: "Table formation requires policy review", reason: result.reason });
+    return { idempotent: result.kind === "existing",
+      ...("decision" in result ? { decision: result.decision } : {}),
+      tableGroups: serializeTableGroups(result.tableGroups) };
   });
 
   app.post("/api/ops/activities/:id/table-groups/confirm", async (request, reply) => {
     const operator = await requireOps(request);
     const params = z.object({ id: z.string() }).parse(request.params);
-    const result = await db.$transaction(async (tx) => {
+    const result = await db.$transaction(async tx => {
       await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${params.id} FOR UPDATE`;
       const activity = await tx.activity.findUnique({ where: { id: params.id } });
-      if (!activity) {
-        return { kind: "not_found" as const };
-      }
-      if (activity.status === ActivityStatus.GROUPED) {
-        return { kind: "already_confirmed" as const };
-      }
-      if (activity.status !== ActivityStatus.LOCKING) {
-        return { kind: "invalid_activity_status" as const };
-      }
-
-      const pendingGroups = await tx.tableGroup.findMany({
-        where: { activityId: activity.id, status: "PENDING_CONFIRMATION" },
-        include: { members: true },
-      });
-      const orderIds = pendingGroups.flatMap((group) => group.members.map((member) => member.orderId));
-      if (pendingGroups.length === 0 || orderIds.length === 0) {
-        return { kind: "missing_draft" as const };
-      }
-
-      const orders = await tx.order.findMany({ where: { id: { in: orderIds } }, select: { id: true, status: true, userId: true } });
-      if (orders.length !== orderIds.length || orders.some((order) => order.status !== OrderStatus.PAID_PENDING_GROUP)) {
-        return { kind: "invalid_order_status" as const };
-      }
-      assertActivityTransition(toSharedActivityStatus(activity.status), "grouped");
-      for (const order of orders) {
-        assertOrderTransition(toSharedOrderStatus(order.status), "grouped");
-      }
-
-      await tx.order.updateMany({
-        where: { id: { in: orderIds }, status: OrderStatus.PAID_PENDING_GROUP },
-        data: { status: OrderStatus.GROUPED },
-      });
-      await tx.tableGroup.updateMany({
-        where: { id: { in: pendingGroups.map((group) => group.id) } },
-        data: { status: "CONFIRMED" },
-      });
-      await tx.activity.update({
-        where: { id: activity.id },
-        data: { status: ActivityStatus.GROUPED },
-      });
-      await tx.auditLog.create({
-        data: {
-          actorId: operator.sub,
-          actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
-          action: "table-groups.confirmed",
-          targetType: "Activity",
-          targetId: activity.id,
-          metadata: { tableCount: pendingGroups.length, groupedOrderCount: orderIds.length },
-        },
-      });
-      return { kind: "confirmed" as const, userIds: orders.map((order) => order.userId), activityTitle: activity.title };
+      if (!activity) return { kind: "not_found" as const };
+      return confirmFormation(tx, activity, { sub: operator.sub, role: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS" });
     });
-
-    if (result.kind === "not_found") {
-      return reply.code(404).send({ error: "Activity not found" });
-    }
-    if (result.kind === "already_confirmed") {
-      return { idempotent: true, activityStatus: ActivityStatus.GROUPED };
-    }
-    if (result.kind === "missing_draft") {
-      return reply.code(409).send({ error: "Table grouping draft is required" });
-    }
-    if (result.kind === "invalid_activity_status" || result.kind === "invalid_order_status") {
-      return reply.code(409).send({ error: "Table grouping cannot be confirmed in its current state" });
-    }
-    const notificationQueued = await enqueueInboxNotifications(app, db, result.userIds, "GROUP_CONFIRMED", {
-      title: "饭局已成团",
-      message: `${result.activityTitle} 已确认成团，餐厅信息将按规则逐步展示。`,
-    });
-    return { idempotent: false, activityStatus: ActivityStatus.GROUPED, notificationQueued };
+    if (result.kind === "not_found") return reply.code(404).send({ error: "Activity not found" });
+    if (result.kind === "already_confirmed") return { idempotent: true, activityStatus: ActivityStatus.GROUPED };
+    if (result.kind === "missing_draft") return reply.code(409).send({ error: "Table grouping draft is required" });
+    if (result.kind === "stale_draft") return reply.code(409).send({ error: "Table grouping draft is stale; rebuild it" });
+    if (result.kind === "needs_review") return reply.code(409).send({ error: "Table formation requires policy review", reason: result.reason });
+    if (result.kind === "invalid_status") return reply.code(409).send({ error: "Table grouping cannot be confirmed in its current state" });
+    return { idempotent: false, activityStatus: ActivityStatus.GROUPED, notificationQueued: true };
   });
 
   app.put("/api/ops/activities/:id/table-groups", async (request, reply) => {
@@ -809,63 +872,18 @@ export async function buildApp(options: BuildAppOptions = {}) {
     const body = z.object({
       tableGroups: z.array(z.object({ orderIds: z.array(z.string().min(1)).min(1) })).min(1),
     }).parse(request.body);
-    const result = await db.$transaction(async (tx) => {
+    const result = await db.$transaction(async tx => {
       await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${params.id} FOR UPDATE`;
       const activity = await tx.activity.findUnique({ where: { id: params.id } });
       if (!activity) return { kind: "not_found" as const };
-      if (activity.status !== ActivityStatus.LOCKING) return { kind: "invalid_activity_status" as const };
-      if (body.tableGroups.some((group) => group.orderIds.length < activity.minSize || group.orderIds.length > activity.maxSize)) {
-        return { kind: "invalid_table_size" as const };
-      }
-
-      const existingGroups = await tx.tableGroup.findMany({
-        where: { activityId: activity.id, status: "PENDING_CONFIRMATION" },
-        include: { members: true },
-      });
-      const existingOrderIds = existingGroups.flatMap((group) => group.members.map((member) => member.orderId));
-      const submittedOrderIds = body.tableGroups.flatMap((group) => group.orderIds);
-      const uniqueSubmittedOrderIds = new Set(submittedOrderIds);
-      if (
-        existingOrderIds.length === 0
-        || uniqueSubmittedOrderIds.size !== submittedOrderIds.length
-        || existingOrderIds.length !== submittedOrderIds.length
-        || existingOrderIds.some((orderId) => !uniqueSubmittedOrderIds.has(orderId))
-      ) {
-        return { kind: "invalid_members" as const };
-      }
-
-      await tx.tableGroup.deleteMany({ where: { id: { in: existingGroups.map((group) => group.id) } } });
-      const tableGroups = [];
-      for (const group of body.tableGroups) {
-        tableGroups.push(await tx.tableGroup.create({
-          data: {
-            activityId: activity.id,
-            members: { create: group.orderIds.map((orderId) => ({ orderId })) },
-          },
-          include: { members: { orderBy: { createdAt: "asc" } } },
-        }));
-      }
-      await tx.auditLog.create({
-        data: {
-          actorId: operator.sub,
-          actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
-          action: "table-groups.adjusted",
-          targetType: "Activity",
-          targetId: activity.id,
-          metadata: {
-            previousTableCount: existingGroups.length,
-            tableCount: tableGroups.length,
-            orderCount: submittedOrderIds.length,
-          },
-        },
-      });
-      return { kind: "adjusted" as const, tableGroups };
+      return adjustFormation(tx, activity, { sub: operator.sub, role: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS" },
+        body.tableGroups.map(group => group.orderIds));
     });
-
     if (result.kind === "not_found") return reply.code(404).send({ error: "Activity not found" });
-    if (result.kind === "invalid_activity_status") return reply.code(409).send({ error: "Table grouping can only be adjusted while locking" });
-    if (result.kind === "invalid_table_size") return reply.code(400).send({ error: "Each table must satisfy the activity table-size rules" });
-    if (result.kind === "invalid_members") return reply.code(400).send({ error: "Adjusted tables must contain each drafted order exactly once" });
+    if (result.kind === "needs_review") return reply.code(409).send({ error: "Table formation requires policy review", reason: result.reason });
+    if (result.kind === "invalid_status") return reply.code(409).send({ error: "Table grouping cannot be adjusted in its current state" });
+    if (result.kind === "invalid_size") return reply.code(400).send({ error: "Each table must satisfy the activity table-size rules" });
+    if (result.kind === "invalid_members") return reply.code(400).send({ error: "Adjusted tables must contain each current candidate exactly once" });
     return { tableGroups: serializeTableGroups(result.tableGroups) };
   });
 
@@ -892,7 +910,12 @@ export async function buildApp(options: BuildAppOptions = {}) {
       ]);
       if (pendingPaymentCount > 0) return { kind: "pending_payment" as const };
 
-      const decision = evaluateTableFormation(paidOrders.length, {
+      const verifiedCandidates = await currentCandidates(tx, activity.id);
+      const verifiedIds = new Set(verifiedCandidates.map(candidate => candidate.id));
+      for (const order of paidOrders) {
+        if (!verifiedIds.has(order.id)) await openCase(tx, "GROUP_FAILURE_FUNDING_UNVERIFIED", order.id, caseOwner);
+      }
+      const decision = evaluateTableFormation(verifiedCandidates.length, {
         minSize: activity.minSize,
         targetSize: activity.targetSize,
         maxSize: activity.maxSize,
@@ -908,9 +931,12 @@ export async function buildApp(options: BuildAppOptions = {}) {
       }
       await tx.order.updateMany({
         where: { id: { in: paidOrders.map((order) => order.id) }, status: OrderStatus.PAID_PENDING_GROUP },
-        data: { status: OrderStatus.GROUP_FAILED },
+        data: { status: OrderStatus.GROUP_FAILED, version: { increment: 1 } },
       });
       await tx.activity.update({ where: { id: activity.id }, data: { status: ActivityStatus.GROUP_FAILED } });
+      await tx.tableGroup.updateMany({ where: { activityId: activity.id, status: "PENDING_CONFIRMATION" }, data: { status: "CANCELED" } });
+      const refundObligations = await createDecisionRefundDuties(tx, activity.id, caseOwner, "GROUP_FAILED");
+      await queueDecisionNotifications(tx, activity, paidOrders, "GROUP_FAILED");
       await tx.auditLog.create({
         data: {
           actorId: operator.sub,
@@ -919,10 +945,10 @@ export async function buildApp(options: BuildAppOptions = {}) {
           targetType: "Activity",
           targetId: activity.id,
           reason: body.reason,
-          metadata: { affectedOrderCount: paidOrders.length, automaticRefund: false },
+          metadata: { affectedOrderCount: paidOrders.length, refundObligations },
         },
       });
-      return { kind: "marked" as const, affectedOrderCount: paidOrders.length, userIds: paidOrders.map((order) => order.userId), activityTitle: activity.title };
+      return { kind: "marked" as const, affectedOrderCount: paidOrders.length, refundObligations };
     });
 
     if (result.kind === "not_found") return reply.code(404).send({ error: "Activity not found" });
@@ -931,11 +957,51 @@ export async function buildApp(options: BuildAppOptions = {}) {
     if (result.kind === "pending_payment") return reply.code(409).send({ error: "Pending payments must be handled before marking group failed" });
     if (result.kind === "can_form") return reply.code(409).send({ error: "Eligible paid orders can still form valid tables", decision: result.decision });
     if (result.kind === "already_failed") return { idempotent: true, activityStatus: ActivityStatus.GROUP_FAILED };
-    const notificationQueued = await enqueueInboxNotifications(app, db, result.userIds, "GROUP_FAILED", {
-      title: "本次饭局未能成团",
-      message: `${result.activityTitle} 未能满足成团人数，后续处置请留意订单状态。`,
+    return { idempotent: false, activityStatus: ActivityStatus.GROUP_FAILED,
+      affectedOrderCount: result.affectedOrderCount, refundObligations: result.refundObligations,
+      notificationQueued: true };
+  });
+
+  app.post("/api/ops/activities/:id/cancel", async (request, reply) => {
+    const operator = await requireSuperAdmin(request);
+    const params = z.object({ id: z.string() }).parse(request.params);
+    const body = z.object({ reason: z.string().trim().min(1).max(200) }).parse(request.body);
+    const result = await db.$transaction(async tx => {
+      await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${params.id} FOR UPDATE`;
+      const activity = await tx.activity.findUnique({ where: { id: params.id } });
+      if (!activity) return { kind: "not_found" as const };
+      if (activity.status === "CANCELED") return { kind: "already_canceled" as const };
+      if (activity.startsAt <= new Date() || ["COMPLETED", "IN_PROGRESS"].includes(activity.status))
+        return { kind: "too_late" as const };
+      if (await tx.order.count({ where: { activityId: activity.id, status: "PENDING_PAYMENT" } }))
+        return { kind: "pending_payment" as const };
+      const orders = await tx.order.findMany({ where: { activityId: activity.id,
+        status: { in: ["PAID_PENDING_GROUP", "GROUPED", "REFUND_REVIEWING", "REFUNDING"] } },
+        orderBy: { id: "asc" }, select: { id: true, userId: true, status: true } });
+      for (const order of orders) await tx.$queryRaw`SELECT id FROM "Order" WHERE id = ${order.id} FOR UPDATE`;
+      await tx.activity.update({ where: { id: activity.id }, data: { status: "CANCELED" } });
+      await tx.tableGroup.updateMany({ where: { activityId: activity.id, status: { in: ["PENDING_CONFIRMATION", "CONFIRMED"] } },
+        data: { status: "CANCELED" } });
+      await tx.order.updateMany({ where: { id: { in: orders.filter(order =>
+        ["PAID_PENDING_GROUP", "GROUPED"].includes(order.status)).map(order => order.id) } },
+        data: { status: "REFUNDING", version: { increment: 1 } } });
+      const refundObligations = await createDecisionRefundDuties(tx, activity.id, caseOwner, "OPERATOR_CANCELED");
+      for (const order of orders) {
+        if (await tx.channelReceipt.count({ where: { orderId: order.id } }) === 0) {
+          await openCase(tx, "CANCELED_FUNDING_UNVERIFIED", order.id, caseOwner);
+        }
+      }
+      await queueDecisionNotifications(tx, activity, orders, "ACTIVITY_CANCELED");
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: "SUPER_ADMIN",
+        action: "activity.canceled", targetType: "Activity", targetId: activity.id, reason: body.reason,
+        metadata: { affectedOrderCount: orders.length, refundObligations } } });
+      return { kind: "canceled" as const, affectedOrderCount: orders.length, refundObligations };
     });
-    return { idempotent: false, activityStatus: ActivityStatus.GROUP_FAILED, affectedOrderCount: result.affectedOrderCount, notificationQueued };
+    if (result.kind === "not_found") return reply.code(404).send({ error: "Activity not found" });
+    if (result.kind === "too_late") return reply.code(409).send({ error: "Activity has started or completed" });
+    if (result.kind === "pending_payment") return reply.code(409).send({ error: "Pending payments require recovery before cancellation" });
+    if (result.kind === "already_canceled") return { idempotent: true, activityStatus: "CANCELED" };
+    return { idempotent: false, activityStatus: "CANCELED", ...result };
   });
 
   app.post("/api/orders", async (request, reply) => {
@@ -955,14 +1021,6 @@ export async function buildApp(options: BuildAppOptions = {}) {
     if (user.status === "BLACKLISTED") {
       return reply.code(403).send({ error: "User cannot register" });
     }
-    const consent = await db.consentRecord.findFirst({
-      where: { userId: auth.sub, agreementVersion: body.agreementVersion },
-      select: { id: true },
-    });
-    if (!consent) {
-      return reply.code(409).send({ error: "Agreement confirmation required" });
-    }
-
     const result = await db.$transaction(async (tx) => {
       await tx.$queryRaw`SELECT id FROM "Activity" WHERE id = ${body.activityId} FOR UPDATE`;
       const activity = await tx.activity.findUnique({ where: { id: body.activityId } });
@@ -973,17 +1031,34 @@ export async function buildApp(options: BuildAppOptions = {}) {
         return { error: "Registration has ended", statusCode: 409 as const };
       }
 
-      const existingOrder = await tx.order.findUnique({
-        where: { userId_activityId: { userId: auth.sub, activityId: body.activityId } },
-      });
+      const existingOrder = await tx.order.findFirst({ where: {
+        userId: auth.sub, activityId: body.activityId, registrationActive: true,
+      } });
       if (existingOrder) {
+        if (existingOrder.status === OrderStatus.PENDING_PAYMENT
+          && (!existingOrder.inventoryLockedUntil || existingOrder.inventoryLockedUntil > new Date())) {
+          return { order: existingOrder, idempotent: true };
+        }
         return { error: "User already registered for this activity", statusCode: 409 as const };
       }
+
+      const policy = await currentAgreement(tx, true);
+      if (!policy) return { error: "Current agreement is unavailable", statusCode: 503 as const };
+      if (body.agreementVersion !== policy.version) {
+        return { error: "Current agreement must be accepted", statusCode: 409 as const };
+      }
+      const consent = await tx.consentRecord.findFirst({ where: {
+        userId: auth.sub, agreementVersion: policy.version, policyHash: policy.textHash,
+      }, orderBy: { createdAt: "desc" }, select: { id: true } });
+      if (!consent) return { error: "Agreement confirmation required", statusCode: 409 as const };
+      const profile = await tx.userProfile.findUnique({ where: { userId: auth.sub } });
+      const parsedProfile = profileInputSchema.omit({ note: true }).safeParse(profile);
+      if (!parsedProfile.success) return { error: "Profile questionnaire required", statusCode: 409 as const };
 
       const activeOrderCount = await tx.order.count({
         where: {
           activityId: activity.id,
-          status: { in: CAPACITY_HOLD_ORDER_STATUSES },
+          capacityHeld: true,
         },
       });
       if (activeOrderCount >= activity.capacity) {
@@ -997,10 +1072,13 @@ export async function buildApp(options: BuildAppOptions = {}) {
           amountCents: calculateOrderAmountCents({
             serviceFeeCents: activity.serviceFeeCents,
           }),
-          agreementVersion: body.agreementVersion,
+          agreementVersion: policy.version,
+          consentRecordId: consent.id,
+          profileSnapshot: { ...parsedProfile.data, ruleVersion: "l3-v1" },
           inventoryLockedUntil: new Date(Date.now() + 15 * 60 * 1000),
         },
       });
+      await scheduleExpiration(tx, order.id, order.inventoryLockedUntil!);
       await tx.auditLog.create({
         data: {
           action: "order.create",
@@ -1020,7 +1098,24 @@ export async function buildApp(options: BuildAppOptions = {}) {
       return reply.code(result.statusCode).send({ error: result.error });
     }
 
-    return { order: result.order, reused: false };
+    return { order: result.order, reused: "idempotent" in result && result.idempotent === true };
+  });
+
+  app.get("/api/orders", async (request, reply) => {
+    const auth = await requireUser(request);
+    const { cursor } = z.object({ cursor: z.string().min(1).max(100).optional() }).parse(request.query);
+    const anchor = cursor ? await db.order.findFirst({ where: { id: cursor, userId: auth.sub }, select: { id: true, createdAt: true } }) : null;
+    if (cursor && !anchor) return reply.code(400).send({ error: "Invalid order cursor" });
+    const rows = await db.order.findMany({
+      where: { userId: auth.sub, ...(anchor ? { OR: [
+        { createdAt: { lt: anchor.createdAt } },
+        { createdAt: anchor.createdAt, id: { lt: anchor.id } },
+      ] } : {}) },
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }], take: 21,
+      select: { id: true, status: true, amountCents: true, createdAt: true,
+        activity: { select: { id: true, title: true, startsAt: true, endsAt: true } } },
+    });
+    return { orders: rows.slice(0, 20), nextCursor: rows.length > 20 ? rows[19]!.id : null };
   });
 
   app.get("/api/orders/:id", async (request, reply) => {
@@ -1028,13 +1123,32 @@ export async function buildApp(options: BuildAppOptions = {}) {
     const params = z.object({ id: z.string() }).parse(request.params);
     const order = await db.order.findUnique({
       where: { id: params.id },
-      include: { activity: { include: { restaurant: true } } },
+      include: { activity: { include: { restaurant: true } },
+        receipts: { select: { id: true } },
+        refunds: { orderBy: { createdAt: "desc" }, select: { id: true, status: true, amountCents: true, resolutionState: true, updatedAt: true } },
+        payments: { where: { active: true }, select: { id: true, status: true, resolutionState: true } } },
     });
     if (!order || order.userId !== auth.sub) {
       return reply.code(404).send({ error: "Order not found" });
     }
 
-    const visibility = getOrderVisibility(order.status, order.activity.status, order.activity.startsAt);
+    const confirmedSeat = await db.tableMember.findFirst({ where: { orderId: order.id,
+      tableGroup: { activityId: order.activityId, status: "CONFIRMED" } }, select: { id: true } });
+    const visibility = confirmedSeat && order.registrationActive && order.capacityHeld
+      ? getOrderVisibility(order.status, order.activity.status, order.activity.startsAt) :
+        isPaidEffectivePrismaOrder(order.status) ? "basic" : "none";
+    const pendingPayments = order.payments.filter(p => !(p.status === "SUCCEEDED" && p.resolutionState === "CONFIRMED"));
+    const manualJobs = await db.durableJob.findMany({
+      where: { businessKey: { in: [...pendingPayments.map(p => `payment:${p.id}`), ...order.refunds.map(r => `refund:${r.id}`)] }, state: "MANUAL" },
+      select: { businessKey: true },
+    });
+    const manualKeys = new Set(manualJobs.map(job => job.businessKey));
+    // Confirmed money can still have an unresolved fulfillment exception.
+    const fulfillmentReview = await db.financialCase.findFirst({
+      where: { sourceRef: { in: order.receipts.map(receipt => receipt.id) },
+        category: { in: ["FULFILLMENT_REQUIRES_REVIEW", "LEGACY_FULFILLMENT_REQUIRES_REVIEW"] },
+        state: { not: "RESOLVED" } }, select: { id: true },
+    });
 
     return {
       order: {
@@ -1042,6 +1156,13 @@ export async function buildApp(options: BuildAppOptions = {}) {
         amountCents: order.amountCents,
         status: order.status,
         visibility,
+        refunds: order.refunds.map(({ resolutionState, ...refund }) => ({ ...refund,
+          requiresReview: !(refund.status === "SUCCEEDED" && resolutionState === "CONFIRMED")
+            && (resolutionState === "MANUAL" || manualKeys.has(`refund:${refund.id}`)) })),
+        paymentState: fulfillmentReview || pendingPayments.some(p => p.resolutionState === "MANUAL" || manualKeys.has(`payment:${p.id}`)) ? "REQUIRES_REVIEW"
+          : pendingPayments.some(p => p.resolutionState === "UNKNOWN") ? "PROCESSING" : "NONE",
+        canRequestCancel: canRequestCancel(order.status)
+          || (order.status === OrderStatus.PENDING_PAYMENT && providers.payment.mode === "mock"),
         activity: {
           id: order.activity.id,
           title: order.activity.title,
@@ -1112,11 +1233,26 @@ export async function buildApp(options: BuildAppOptions = {}) {
     if (!order || order.userId !== auth.sub) {
       return reply.code(404).send({ error: "Order not found" });
     }
+    if (order.status === OrderStatus.PENDING_PAYMENT) {
+      const result = await expireOrder(db, order.id, mockChannel, caseOwner, true);
+      if (result.kind === "released" || (result.kind === "terminal"
+        && (result.order.status === OrderStatus.CLOSED || result.order.status === OrderStatus.CANCELED))) {
+        return { order: result.order, pendingPaymentCanceled: true };
+      }
+      return reply.code(409).send({ error: "Payment result requires review before releasing the order" });
+    }
     if (!canRequestCancel(order.status)) {
       return reply.code(400).send({ error: "Order cannot be canceled" });
     }
 
     const refund = await db.$transaction(async (tx) => {
+      const current = await lockOrder(tx, order.id);
+      if (!canRequestCancel(current.status)) throw Object.assign(new Error("Order cannot be canceled"), { statusCode: 400 });
+      const policy = evaluateRefundDecision({ orderStatus: toSharedOrderStatus(current.status),
+        activityStatus: toSharedActivityStatus(current.activity.status), startsAt: current.activity.startsAt,
+        now: new Date(), requestedBy: "user" });
+      if (policy.action !== "requires_ops_review" || ["CANCELED", "GROUP_FAILED"].includes(current.activity.status))
+        throw Object.assign(new Error("Cancellation requires current activity review"), { statusCode: 409 });
       const createdRefund = await tx.refund.create({
         data: {
           orderId: order.id,
@@ -1126,10 +1262,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
           status: RefundStatus.REVIEWING,
         },
       });
-      await tx.order.update({
-        where: { id: order.id },
-        data: { status: OrderStatus.REFUND_REVIEWING },
-      });
+      await markOrderState(tx, order.id, OrderStatus.REFUND_REVIEWING);
       await tx.auditLog.create({
         data: {
           action: "refund.requested",
@@ -1139,7 +1272,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
           metadata: {
             orderId: order.id,
             userId: auth.sub,
-            fromOrderStatus: order.status,
+            fromOrderStatus: current.status,
             toOrderStatus: OrderStatus.REFUND_REVIEWING,
           },
         },
@@ -1164,107 +1297,182 @@ export async function buildApp(options: BuildAppOptions = {}) {
       return reply.code(400).send({ error: "Order is not pending payment" });
     }
 
-    const payment = await db.payment.create({
-      data: {
-        orderId: order.id,
-        amountCents: order.amountCents,
-        channel: providers.payment.mode,
-      },
-    });
+    if (providers.payment.mode === "wechat" && !canStartRealPayment(providerEnv, auth.sub, order.amountCents)) {
+      return reply.code(403).send({ error: "New payments are disabled or outside the approved scope" });
+    }
+    if (providers.payment.mode === "wechat" && !(await hasCompleteBillCoverage(db,
+      paymentBinding.merchantScope, providerEnv.REQUIRED_BILL_PERIOD!))) {
+      return reply.code(503).send({ error: "Required channel bill coverage is incomplete" });
+    }
 
+    const intent = await ensurePaymentIntent(db, order.id, auth.sub, paymentBinding);
+    const payment = intent.payment;
+    if (!intent.created) {
+      const gate = await publishPrepay(db, payment.id, payment.version);
+      if (!gate.payable) return gate;
+      if (!payment.prepayId && providers.payment.mode === "wechat") return recoverPrepay(db, payment.id, providers.payment, caseOwner);
+      const paymentParams = payment.prepayId ? providers.payment.resumePayment?.(payment.prepayId) : undefined;
+      return publishPrepay(db, payment.id, payment.version, { paymentParams });
+    }
+    await db.payment.updateMany({ where: { id: payment.id, version: payment.version, resolutionState: "NEW" },
+      data: { resolutionState: "UNKNOWN", version: { increment: 1 } } });
+    // No transaction is held during channel I/O. A lost response leaves the intent and recovery task intact.
+    const providerPayment = await providers.payment.createPayment({
+      merchantOrderNo: payment.merchantOrderNo, amountCents: payment.amountCents, openid: order.user.wechatOpenid,
+    });
+    if (providerPayment.channel !== payment.channel) throw new ProviderUnavailableError("Original payment channel changed");
+    return publishPrepay(db, payment.id, payment.version + 1, providerPayment);
+  });
+
+  app.get("/api/payments/:id", async request => {
+    const user = await requireUser(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const payment = await db.payment.findFirst({ where: { id, order: { userId: user.sub } },
+      select: { id: true, orderId: true, status: true, resolutionState: true, amountCents: true } });
+    if (!payment) throw Object.assign(new Error("Payment not found"), { statusCode: 404 });
+    const recovery = await db.durableJob.findUnique({ where: { businessKey: `payment:${payment.id}` }, select: { state: true } });
+    return { payment, recoveryState: recovery?.state ?? "UNAVAILABLE", requiresReview: payment.resolutionState === "MANUAL" || recovery?.state === "MANUAL" };
+  });
+  app.get("/api/ops/financial-cases", async request => {
+    await requireOps(request);
+    const { cursor } = z.object({ cursor: z.string().optional() }).parse(request.query);
+    const cases = await db.financialCase.findMany({ where: { state: "OPEN" }, orderBy: [{ deadline: "asc" }, { id: "asc" }], take: 101,
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}) });
+    return { cases: cases.slice(0, 100), nextCursor: cases.length > 100 ? cases[99]!.id : null,
+      total: await db.financialCase.count({ where: { state: "OPEN" } }) };
+  });
+
+  app.get("/api/ops/diagnostics/orders/:id", async (request, reply) => {
+    await requireOps(request);
+    const { id } = z.object({ id: z.string().min(1) }).parse(request.params);
+    const order = await db.order.findUnique({ where: { id }, select: { id: true, activityId: true, status: true,
+      payments: { select: { id: true, status: true, resolutionState: true } },
+      refunds: { select: { id: true, status: true, resolutionState: true } },
+      receipts: { select: { id: true, amountCents: true, verifiedAt: true } },
+      refundObligations: { select: { id: true, state: true, deadline: true } },
+      notifications: { select: { id: true, status: true, readAt: true } } } });
+    if (!order) return reply.code(404).send({ error: "Order not found" });
+    const refs = [...order.payments.map(row => row.id), ...order.refunds.map(row => row.id),
+      ...order.receipts.map(row => row.id), ...order.refundObligations.map(row => row.id),
+      ...order.notifications.map(row => row.id), id];
+    const jobs = await db.durableJob.findMany({ where: { refId: { in: refs } }, select: { id: true, kind: true, refId: true,
+      state: true, attempts: true, errorClass: true, runAt: true } });
+    const cases = await db.financialCase.findMany({ where: { sourceRef: { in: [...refs, ...jobs.map(job => job.id)] } },
+      select: { id: true, category: true, sourceRef: true, state: true, owner: true, deadline: true } });
+    return { order, jobs, cases };
+  });
+
+  app.get("/api/ops/diagnostics/queue", async request => {
+    await requireOps(request);
+    const [states, oldest, bills] = await Promise.all([
+      db.durableJob.groupBy({ by: ["state"], _count: { _all: true } }),
+      db.durableJob.findFirst({ where: { state: { in: ["READY", "RETRY"] } },
+        orderBy: [{ runAt: "asc" }, { id: "asc" }], select: { runAt: true } }),
+      db.reconciliationBatch.findMany({ orderBy: { createdAt: "desc" }, take: 20,
+        select: { merchantScope: true, period: true, coverageState: true, createdAt: true } }),
+    ]);
+    return { jobs: Object.fromEntries(states.map(row => [row.state, row._count._all])),
+      oldestRunnableAt: oldest?.runAt ?? null, billCoverage: bills };
+  });
+
+  app.get("/api/ops/diagnostics/jobs/:id", async (request, reply) => {
+    await requireOps(request);
+    const { id } = z.object({ id: z.string().min(1) }).parse(request.params);
+    const job = await db.durableJob.findUnique({ where: { id }, select: { id: true, kind: true, refId: true,
+      state: true, attempts: true, errorClass: true, runAt: true } });
+    if (!job) return reply.code(404).send({ error: "Job not found" });
+    const notification = job.kind === "DELIVER_INBOX" ? await db.notification.findUnique({ where: { id: job.refId },
+      select: { id: true, userId: true, orderId: true, activityId: true, status: true, readAt: true } }) : null;
+    return { job, notification };
+  });
+
+  app.post("/api/ops/financial-cases/:id/claim", async (request, reply) => {
+    const operator = await requireOps(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const result = await db.$transaction(async tx => {
+      const issue = await tx.financialCase.findUnique({ where: { id } });
+      if (!issue) return "not_found" as const;
+      if (caseOwner !== "local-review-required" || issue.state !== "OPEN" || issue.owner !== caseOwner) return "unavailable" as const;
+      const changed = await tx.financialCase.updateMany({ where: { id, state: "OPEN", owner: caseOwner }, data: { owner: operator.sub } });
+      if (changed.count !== 1) return "unavailable" as const;
+      await tx.auditLog.create({ data: { actorId: operator.sub, actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS", action: "funding.case.claim", targetType: "FinancialCase", targetId: id } });
+      return "claimed" as const;
+    });
+    if (result === "not_found") return reply.code(404).send({ error: "Case not found" });
+    if (result !== "claimed") return reply.code(409).send({ error: "Case is unavailable for claim" });
+    return { claimed: true };
+  });
+
+  app.post("/api/ops/financial-cases/:id/resolve", async (request, reply) => {
+    const reviewer = await requireSuperAdmin(request);
+    const { id } = z.object({ id: z.string() }).parse(request.params);
+    const issue = await db.financialCase.findUnique({ where: { id } });
+    if (!issue) return reply.code(404).send({ error: "Case not found" });
+    if (issue.owner === reviewer.sub) return reply.code(409).send({ error: "Independent case owner and reviewer required" });
+    const assignedOwner = await db.adminUser.findUnique({ where: { id: issue.owner }, select: { id: true } });
+    if (!assignedOwner) return reply.code(409).send({ error: "Case owner must be a verified administrator" });
     try {
-      const providerPayment = await providers.payment.createPayment({
-        merchantOrderNo: payment.merchantOrderNo,
-        amountCents: order.amountCents,
-        openid: order.user.wechatOpenid,
-      });
-      const updatedPayment = await db.payment.update({
-        where: { id: payment.id },
-        data: {
-          channel: providerPayment.channel,
-          ...(providerPayment.prepayId === undefined ? {} : { prepayId: providerPayment.prepayId }),
-        },
-      });
-      return { payment: updatedPayment, ...(providerPayment.paymentParams === undefined ? {} : { paymentParams: providerPayment.paymentParams }) };
+      const resolved = await resolveVerifiedCase(db, { caseId: id, operator: issue.owner, reviewer: reviewer.sub });
+      return { case: resolved };
     } catch (error) {
-      await db.payment.delete({ where: { id: payment.id } });
+      if (error instanceof Error && /evidence|changed|owner/i.test(error.message)) return reply.code(409).send({ error: error.message });
       throw error;
     }
   });
 
-  app.post("/api/mock/payments/:paymentId/succeed", async (request, reply) => {
-    const params = z.object({ paymentId: z.string() }).parse(request.params);
-    const payment = await db.payment.findUnique({
-      where: { id: params.paymentId },
-      include: { order: true },
-    });
-    if (!payment) {
-      return reply.code(404).send({ error: "Payment not found" });
-    }
-    const paymentDecision = canApplyPaymentSuccess(payment.status, payment.order.status);
-    if (paymentDecision === "idempotent") {
-      return { payment, idempotent: true };
-    }
-    if (paymentDecision === "reject" && payment.status !== PaymentStatus.PENDING) {
-      return reply.code(409).send({ error: "Payment is not pending" });
-    }
-    if (paymentDecision === "reject") {
-      await db.auditLog.create({
-        data: {
-          action: "payment.callback.rejected",
-          targetType: "Payment",
-          targetId: payment.id,
-          reason: "Order is not pending payment",
-          metadata: {
-            orderId: payment.orderId,
-            orderStatus: payment.order.status,
-            paymentStatus: payment.status,
+  if (demoEnabled) {
+    app.post("/api/mock/payments/:paymentId/succeed", async (request, reply) => {
+      const params = z.object({ paymentId: z.string() }).parse(request.params);
+      const payment = await db.payment.findUnique({
+        where: { id: params.paymentId },
+        include: { order: true },
+      });
+      if (!payment) {
+        return reply.code(404).send({ error: "Payment not found" });
+      }
+      mockChannel.assertBinding(payment);
+      const paymentDecision = canApplyPaymentSuccess(payment.status, payment.order.status);
+      if (paymentDecision === "idempotent") {
+        return { payment, idempotent: true };
+      }
+      if (paymentDecision === "reject" && payment.status !== PaymentStatus.PENDING) {
+        return reply.code(409).send({ error: "Payment is not pending" });
+      }
+      if (paymentDecision === "reject") {
+        await db.auditLog.create({
+          data: {
+            action: "payment.callback.rejected",
+            targetType: "Payment",
+            targetId: payment.id,
+            reason: "Order is not pending payment",
+            metadata: {
+              orderId: payment.orderId,
+              orderStatus: payment.order.status,
+              paymentStatus: payment.status,
+            },
           },
-        },
-      });
-      return reply.code(409).send({ error: "Order is not pending payment" });
-    }
+        });
+        return reply.code(409).send({ error: "Order is not pending payment" });
+      }
 
-    const providerCallback = await providers.payment.applySuccessCallback({
-      paymentId: payment.id,
+      const fact = await mockChannel.pay(payment.merchantOrderNo, payment.amountCents);
+      await applyPaymentEvidence(db, { kind: "PAYMENT_SUCCEEDED", channel: "mock", merchantScope: payment.merchantScope,
+        merchantOrderNo: payment.merchantOrderNo, channelTradeNo: fact.channelNo, amountCents: fact.amountCents,
+        paidAt: fact.createdAt.toISOString(), currency: "CNY", evidenceHash: createHash("sha256").update(fact.id).digest("hex") }, caseOwner);
+      const updated = await db.payment.findUniqueOrThrow({ where: { id: payment.id } });
+      await db.auditLog.create({ data: { action: "payment.callback.succeeded", targetType: "Payment", targetId: payment.id } });
+
+      return { payment: updated, idempotent: false };
     });
-
-    const updated = await db.$transaction(async (tx) => {
-      const nextPayment = await tx.payment.update({
-        where: { id: payment.id },
-        data: {
-          status: PaymentStatus.SUCCEEDED,
-          channelTradeNo: providerCallback.channelTradeNo,
-          callbackNonce: providerCallback.callbackNonce,
-        },
-      });
-      await tx.order.update({
-        where: { id: payment.orderId },
-        data: { status: OrderStatus.PAID_PENDING_GROUP },
-      });
-      await tx.auditLog.create({
-        data: {
-          action: "payment.callback.succeeded",
-          targetType: "Payment",
-          targetId: payment.id,
-          metadata: {
-            orderId: payment.orderId,
-            fromOrderStatus: payment.order.status,
-            toOrderStatus: OrderStatus.PAID_PENDING_GROUP,
-          },
-        },
-      });
-      return nextPayment;
-    });
-
-    return { payment: updated, idempotent: false };
-  });
+  }
 
   app.post("/api/ops/refunds/:id/approve", async (request, reply) => {
     const auth = await requireOps(request);
     const params = z.object({ id: z.string() }).parse(request.params);
     const body = z.object({ reason: z.string().min(1).max(200) }).parse(request.body);
     const refund = await db.$transaction(async (tx) => {
+      const locator = await tx.refund.findUnique({ where: { id: params.id } });
+      if (locator) await lockOrder(tx, locator.orderId);
       const currentRefund = await tx.refund.findUnique({
         where: { id: params.id },
         include: { order: true },
@@ -1292,14 +1500,13 @@ export async function buildApp(options: BuildAppOptions = {}) {
         });
         return { error: "Refund cannot be approved from current state", statusCode: 409 as const };
       }
-      const nextRefund = await tx.refund.update({
-        where: { id: params.id },
-        data: { status: RefundStatus.REFUNDING },
-      });
-      await tx.order.update({
-        where: { id: nextRefund.orderId },
-        data: { status: OrderStatus.REFUNDING },
-      });
+      const original = await tx.payment.findFirst({ where: { orderId: currentRefund.orderId, active: true, status: "SUCCEEDED" } });
+      const receipt = original?.channelTradeNo ? await tx.channelReceipt.findUnique({ where: {
+        channel_merchantScope_channelTradeNo: { channel: original.channel, merchantScope: original.merchantScope, channelTradeNo: original.channelTradeNo },
+      } }) : null;
+      if (!receipt) return { error: "Refund requires a verified original receipt", statusCode: 409 as const };
+      const nextRefund = await reserveRefund(tx, currentRefund.id, receipt.id);
+      await markOrderState(tx, nextRefund.orderId, OrderStatus.REFUNDING);
       await tx.auditLog.create({
         data: {
           actorId: auth.sub,
@@ -1317,166 +1524,126 @@ export async function buildApp(options: BuildAppOptions = {}) {
       return reply.code(refund.statusCode).send({ error: refund.error });
     }
 
-    const approvedRefund = refund.refund;
-    try {
-      const payment = await db.payment.findFirst({
-        where: { orderId: approvedRefund.orderId, status: PaymentStatus.SUCCEEDED },
-        orderBy: { createdAt: "desc" },
-      });
-      if (!payment) {
-        throw new ProviderUnavailableError("Refund requires a successful payment");
+    return { refund: refund.refund };
+  });
+
+  app.post("/api/ops/refunds/:id/reject", async (request, reply) => {
+    const operator = await requireOps(request);
+    const params = z.object({ id: z.string() }).parse(request.params);
+    const body = z.object({ reason: z.string().trim().min(1).max(200) }).parse(request.body);
+    const result = await db.$transaction(async tx => {
+      const locator = await tx.refund.findUnique({ where: { id: params.id }, select: { orderId: true } });
+      if (!locator) return { kind: "not_found" as const };
+      const order = await lockOrder(tx, locator.orderId);
+      const refund = await tx.refund.findUniqueOrThrow({ where: { id: params.id } });
+      if (refund.status !== "REVIEWING" || order.status !== "REFUND_REVIEWING")
+        return { kind: "invalid_status" as const };
+      if (order.activity.startsAt <= new Date() || ["IN_PROGRESS", "COMPLETED"].includes(order.activity.status))
+        return { kind: "requires_review" as const };
+      const seat = await tx.tableMember.findFirst({ where: { orderId: order.id,
+        tableGroup: { activityId: order.activityId, status: "CONFIRMED" } }, select: { id: true } });
+      const funding = await tx.channelReceipt.findFirst({ where: { orderId: order.id, amountCents: order.amountCents,
+        payment: { status: "SUCCEEDED", resolutionState: "CONFIRMED" } }, select: { id: true } });
+      const competingRefund = funding ? await tx.refund.count({ where: { orderId: order.id, id: { not: refund.id },
+        status: { not: "REJECTED" }, OR: [{ receiptId: funding.id }, { receiptId: null }] } }) : 0;
+      await tx.refund.update({ where: { id: refund.id }, data: { status: "REJECTED", resolutionState: "REJECTED",
+        version: { increment: 1 } } });
+      let nextStatus: OrderStatus;
+      if (funding && !competingRefund && seat && ["GROUPED", "ADDRESS_UNLOCKED"].includes(order.activity.status))
+        nextStatus = OrderStatus.GROUPED;
+      else if (funding && !competingRefund && !seat && ["PUBLISHED", "REGISTRATION_OPEN", "LOCKING"].includes(order.activity.status)
+        && order.registrationActive && order.capacityHeld)
+        nextStatus = OrderStatus.PAID_PENDING_GROUP;
+      else {
+        nextStatus = OrderStatus.GROUP_FAILED;
+        await createDecisionRefundDuties(tx, order.activityId, caseOwner, "REFUND_REJECTED_NO_FULFILLMENT", order.id);
       }
-      const providerRefund = await providers.refund.createRefund({
-        merchantRefundNo: approvedRefund.merchantRefundNo,
-        merchantOrderNo: payment.merchantOrderNo,
-        amountCents: approvedRefund.amountCents,
+      await markOrderState(tx, order.id, nextStatus);
+      await tx.auditLog.create({ data: { actorId: operator.sub,
+        actorRole: operator.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
+        action: "refund.rejected", targetType: "Refund", targetId: refund.id, reason: body.reason,
+        metadata: { orderId: order.id, nextStatus } } });
+      return { kind: "rejected" as const, orderStatus: nextStatus };
+    });
+    if (result.kind === "not_found") return reply.code(404).send({ error: "Refund not found" });
+    if (result.kind === "invalid_status") return reply.code(409).send({ error: "Refund cannot be rejected from current state" });
+    if (result.kind === "requires_review") return reply.code(409).send({ error: "Current fulfillment requires manual review" });
+    return { refundStatus: "REJECTED", orderStatus: result.orderStatus };
+  });
+
+  if (demoEnabled) {
+    app.post("/api/mock/refunds/:refundId/succeed", async (request, reply) => {
+      const params = z.object({ refundId: z.string() }).parse(request.params);
+      const refund = await db.refund.findUnique({
+        where: { id: params.refundId },
+        include: { order: true },
       });
-      const updatedRefund = await db.refund.update({
-        where: { id: approvedRefund.id },
-        data: {
-          ...(providerRefund.channelRefundNo === undefined ? {} : { channelRefundNo: providerRefund.channelRefundNo }),
-        },
-      });
-      return { refund: updatedRefund };
-    } catch (error) {
-      await db.$transaction(async (tx) => {
-        await tx.refund.update({
-          where: { id: approvedRefund.id },
-          data: { status: RefundStatus.FAILED },
-        });
-        await tx.order.update({
-          where: { id: approvedRefund.orderId },
-          data: { status: OrderStatus.REFUND_REVIEWING },
-        });
-        await tx.auditLog.create({
+      if (!refund) {
+        return reply.code(404).send({ error: "Refund not found" });
+      }
+      const refundDecision = canApplyRefundCallback(refund.status, refund.order.status);
+      if (refundDecision === "idempotent") {
+        return { refund, idempotent: true };
+      }
+      if (refundDecision === "reject") {
+        await db.auditLog.create({
           data: {
-            actorId: auth.sub,
-            actorRole: auth.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : "OPS",
-            action: "refund.request.failed",
+            action: "refund.callback.rejected",
             targetType: "Refund",
-            targetId: approvedRefund.id,
-            reason: "Channel refund request failed",
+            targetId: refund.id,
+            reason: "Refund or order is not refunding",
+            metadata: {
+              orderId: refund.orderId,
+              orderStatus: refund.order.status,
+              refundStatus: refund.status,
+            },
           },
         });
-      });
-      throw error;
-    }
-  });
+        return reply.code(409).send({ error: "Refund is not ready for callback" });
+      }
 
-  app.post("/api/mock/refunds/:refundId/succeed", async (request, reply) => {
-    const params = z.object({ refundId: z.string() }).parse(request.params);
-    const refund = await db.refund.findUnique({
-      where: { id: params.refundId },
-      include: { order: true },
+      const receipt = refund.receiptId ? await db.channelReceipt.findUnique({ where: { id: refund.receiptId } }) : null;
+      if (!receipt) return reply.code(409).send({ error: "Original receipt missing" });
+      mockChannel.assertBinding(refund);
+      const fact = await mockChannel.refund(refund.merchantRefundNo, receipt.channelTradeNo, refund.amountCents);
+      await confirmRefund(db, { merchantRefundNo: refund.merchantRefundNo, channel: "mock", merchantScope: refund.merchantScope,
+        originalTradeNo: receipt.channelTradeNo, channelRefundNo: fact.channelNo, amountCents: fact.amountCents }, caseOwner);
+      const updated = await db.refund.findUniqueOrThrow({ where: { id: refund.id } });
+      await db.auditLog.create({ data: { action: "refund.callback.succeeded", targetType: "Refund", targetId: refund.id } });
+
+      return { refund: updated, idempotent: false };
     });
-    if (!refund) {
-      return reply.code(404).send({ error: "Refund not found" });
-    }
-    const refundDecision = canApplyRefundCallback(refund.status, refund.order.status);
-    if (refundDecision === "idempotent") {
-      return { refund, idempotent: true };
-    }
-    if (refundDecision === "reject") {
-      await db.auditLog.create({
-        data: {
-          action: "refund.callback.rejected",
-          targetType: "Refund",
-          targetId: refund.id,
-          reason: "Refund or order is not refunding",
-          metadata: {
-            orderId: refund.orderId,
-            orderStatus: refund.order.status,
-            refundStatus: refund.status,
-          },
-        },
-      });
-      return reply.code(409).send({ error: "Refund is not ready for callback" });
-    }
+  }
 
-    const providerCallback = await providers.refund.applySuccessCallback({
-      refundId: refund.id,
+  if (demoEnabled) {
+    app.post("/api/mock/refunds/:refundId/fail", async (request, reply) => {
+      const params = z.object({ refundId: z.string() }).parse(request.params);
+      const body = z.object({ reason: z.string().min(1).max(200) }).parse(request.body);
+      const refund = await db.refund.findUnique({
+        where: { id: params.refundId },
+        include: { order: true },
+      });
+      if (!refund) {
+        return reply.code(404).send({ error: "Refund not found" });
+      }
+      mockChannel.assertBinding(refund);
+      if (canApplyRefundCallback(refund.status, refund.order.status) !== "apply") {
+        return reply.code(409).send({ error: "Refund is not ready for callback" });
+      }
+
+      const providerCallback = await providers.refund.applyFailureCallback({
+        refundId: refund.id,
+        reason: body.reason,
+      });
+
+      const updated = await recordRefundFailure(db, refund.id, refund.version, providerCallback.failureReason);
+
+      return { refund: updated };
     });
-
-    const updated = await db.$transaction(async (tx) => {
-      const nextRefund = await tx.refund.update({
-        where: { id: refund.id },
-        data: {
-          status: RefundStatus.SUCCEEDED,
-          channelRefundNo: providerCallback.channelRefundNo,
-          callbackNonce: providerCallback.callbackNonce,
-        },
-      });
-      await tx.order.update({
-        where: { id: refund.orderId },
-        data: { status: OrderStatus.REFUNDED },
-      });
-      await tx.auditLog.create({
-        data: {
-          action: "refund.callback.succeeded",
-          targetType: "Refund",
-          targetId: refund.id,
-          metadata: {
-            orderId: refund.orderId,
-            fromOrderStatus: refund.order.status,
-            toOrderStatus: OrderStatus.REFUNDED,
-          },
-        },
-      });
-      return nextRefund;
-    });
-
-    return { refund: updated, idempotent: false };
-  });
-
-  app.post("/api/mock/refunds/:refundId/fail", async (request, reply) => {
-    const params = z.object({ refundId: z.string() }).parse(request.params);
-    const body = z.object({ reason: z.string().min(1).max(200) }).parse(request.body);
-    const refund = await db.refund.findUnique({
-      where: { id: params.refundId },
-      include: { order: true },
-    });
-    if (!refund) {
-      return reply.code(404).send({ error: "Refund not found" });
-    }
-    if (canApplyRefundCallback(refund.status, refund.order.status) !== "apply") {
-      return reply.code(409).send({ error: "Refund is not ready for callback" });
-    }
-
-    const providerCallback = await providers.refund.applyFailureCallback({
-      refundId: refund.id,
-      reason: body.reason,
-    });
-
-    const updated = await db.$transaction(async (tx) => {
-      const nextRefund = await tx.refund.update({
-        where: { id: refund.id },
-        data: { status: RefundStatus.FAILED },
-      });
-      await tx.order.update({
-        where: { id: refund.orderId },
-        data: { status: OrderStatus.REFUND_REVIEWING },
-      });
-      await tx.auditLog.create({
-        data: {
-          action: "refund.callback.failed",
-          targetType: "Refund",
-          targetId: refund.id,
-          reason: providerCallback.failureReason,
-          metadata: {
-            orderId: refund.orderId,
-            fromOrderStatus: refund.order.status,
-            toOrderStatus: OrderStatus.REFUND_REVIEWING,
-          },
-        },
-      });
-      return nextRefund;
-    });
-
-    return { refund: updated };
-  });
+  }
 
   app.post("/api/wechat/pay/notify", async (request, reply) => {
-    if (!realWechatPayEnabled(providerEnv, providers.payment.mode)) {
+    if (providers.payment.mode !== "wechat") {
       return reply.code(404).send({ error: "Not found" });
     }
     const rawBody = callbackBodies.get(request);
@@ -1486,88 +1653,36 @@ export async function buildApp(options: BuildAppOptions = {}) {
       request.headers,
       options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv),
     );
-    const payment = await db.payment.findUnique({
-      where: { merchantOrderNo: callback.merchantOrderNo },
-      include: { order: true },
-    });
-    if (!payment || payment.amountCents !== callback.amountCents || payment.order.amountCents !== callback.amountCents) {
-      return reply.code(409).send({ error: "Payment callback does not match a pending order" });
-    }
-    const decision = canApplyPaymentSuccess(payment.status, payment.order.status);
-    if (decision === "idempotent") {
-      if (payment.channelTradeNo !== callback.channelTradeNo || payment.callbackNonce !== callback.callbackNonce) {
-        return reply.code(409).send({ error: "Payment callback conflicts with completed payment" });
-      }
-      return { code: "SUCCESS", idempotent: true };
-    }
-    if (decision === "reject") {
-      await db.auditLog.create({
-        data: { action: "payment.callback.rejected", targetType: "Payment", targetId: payment.id, reason: "Payment callback reached a non-pending order" },
-      });
-      return reply.code(409).send({ error: "Payment callback is not applicable" });
-    }
-    await db.$transaction(async (tx) => {
-      await tx.payment.update({
-        where: { id: payment.id },
-        data: { status: PaymentStatus.SUCCEEDED, channelTradeNo: callback.channelTradeNo, callbackNonce: callback.callbackNonce },
-      });
-      await tx.order.update({ where: { id: payment.orderId }, data: { status: OrderStatus.PAID_PENDING_GROUP } });
-      await tx.auditLog.create({
-        data: { action: "payment.callback.succeeded", targetType: "Payment", targetId: payment.id, metadata: { orderId: payment.orderId, fromOrderStatus: payment.order.status, toOrderStatus: OrderStatus.PAID_PENDING_GROUP } },
-      });
-    });
-    return { code: "SUCCESS", idempotent: false };
+    const saved = await persistTrustedEvent(db, {
+      source: "wechat-payment-callback", eventKey: callback.eventId,
+      verificationMaterialId: String(request.headers["wechatpay-serial"]),
+      evidence: { kind: "PAYMENT_SUCCEEDED", channel: "wechat", merchantScope: bindingFor(providerEnv, "wechat").merchantScope,
+        merchantOrderNo: callback.merchantOrderNo, channelTradeNo: callback.channelTradeNo,
+        amountCents: callback.amountCents, paidAt: callback.paidAt, currency: "CNY", evidenceHash: createHash("sha256").update(rawBody).digest("hex") },
+    }, caseOwner);
+    if (saved.conflict) return reply.code(409).send({ error: "Notification event conflict" });
+    return { code: "SUCCESS", idempotent: saved.duplicate };
   });
 
   app.post("/api/wechat/refund/notify", async (request, reply) => {
-    if (!realWechatPayEnabled(providerEnv, providers.refund.mode)) {
-      return reply.code(404).send({ error: "Not found" });
-    }
+    if (providers.refund.mode !== "wechat") return reply.code(404).send({ error: "Not found" });
     const rawBody = callbackBodies.get(request);
     if (!rawBody) return reply.code(400).send({ error: "Missing raw callback body" });
-    const callback = verifyRefundNotification(
-      rawBody,
-      request.headers,
-      options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv),
-    );
-    const refund = await db.refund.findUnique({
-      where: { merchantRefundNo: callback.merchantRefundNo },
-      include: { order: true },
-    });
-    if (!refund || refund.amountCents !== callback.amountCents) {
-      return reply.code(409).send({ error: "Refund callback does not match a pending refund" });
-    }
-    const decision = canApplyRefundCallback(refund.status, refund.order.status);
-    if (decision === "idempotent") {
-      if (refund.channelRefundNo !== callback.channelRefundNo || refund.callbackNonce !== callback.callbackNonce) {
-        return reply.code(409).send({ error: "Refund callback conflicts with completed refund" });
-      }
-      return { code: "SUCCESS", idempotent: true };
-    }
-    if (decision === "reject") {
-      await db.auditLog.create({
-        data: { action: "refund.callback.rejected", targetType: "Refund", targetId: refund.id, reason: "Refund callback reached a non-refunding order" },
-      });
-      return reply.code(409).send({ error: "Refund callback is not applicable" });
-    }
-    await db.$transaction(async (tx) => {
-      await tx.refund.update({
-        where: { id: refund.id },
-        data: { status: RefundStatus.SUCCEEDED, channelRefundNo: callback.channelRefundNo, callbackNonce: callback.callbackNonce },
-      });
-      await tx.order.update({ where: { id: refund.orderId }, data: { status: OrderStatus.REFUNDED } });
-      await tx.auditLog.create({
-        data: { action: "refund.callback.succeeded", targetType: "Refund", targetId: refund.id, metadata: { orderId: refund.orderId, fromOrderStatus: refund.order.status, toOrderStatus: OrderStatus.REFUNDED } },
-      });
-    });
-    return { code: "SUCCESS", idempotent: false };
+    const callback = verifyRefundNotification(rawBody, request.headers,
+      options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv));
+    const saved = await persistTrustedEvent(db, {
+      source: "wechat-refund-callback", eventKey: callback.eventId,
+      verificationMaterialId: String(request.headers["wechatpay-serial"]),
+      evidence: { kind: "REFUND_SUCCEEDED", channel: "wechat", merchantScope: bindingFor(providerEnv, "wechat").merchantScope,
+        merchantRefundNo: callback.merchantRefundNo, channelRefundNo: callback.channelRefundNo,
+        originalTradeNo: callback.originalTradeNo, amountCents: callback.amountCents, currency: "CNY",
+        evidenceHash: createHash("sha256").update(rawBody).digest("hex") },
+    }, caseOwner);
+    if (saved.conflict) return reply.code(409).send({ error: "Notification event conflict" });
+    return { code: "SUCCESS", idempotent: saved.duplicate };
   });
 
   return app;
-}
-
-function realWechatPayEnabled(env: ProviderEnv, mode: "mock" | "wechat"): boolean {
-  return mode === "wechat" && env.FEATURE_REAL_WECHAT_PAY === "true";
 }
 
 function notificationConfigFromEnv(env: ProviderEnv): WechatPayNotificationConfig {
@@ -1576,7 +1691,12 @@ function notificationConfigFromEnv(env: ProviderEnv): WechatPayNotificationConfi
   if (!apiV3Key || !certificatePath) {
     throw new ProviderConfigError("Missing WeChat Pay notification verification configuration");
   }
-  return { apiV3Key, platformCertificate: readFileSync(certificatePath, "utf8") };
+  const platformCertificate = readFileSync(certificatePath, "utf8");
+  const certificate = new X509Certificate(platformCertificate);
+  const now = Date.now();
+  if (Date.parse(certificate.validFrom) > now || Date.parse(certificate.validTo) <= now) throw new ProviderConfigError("Platform certificate expired or not yet valid");
+  return { apiV3Key, platformCertificate, certificateSerial: certificate.serialNumber,
+    expectedMerchantId: env.WECHAT_PAY_MCH_ID ?? "", expectedAppId: env.WECHAT_MINIAPP_APP_ID ?? "" };
 }
 
 async function upsertWechatUser(
@@ -1652,6 +1772,13 @@ const activityInputSchema = z.object({
   maxSize: z.number().int().min(4).max(8).default(8),
   capacity: z.number().int().min(4),
   status: z.enum(["DRAFT", "PUBLISHED", "REGISTRATION_OPEN"]).default("DRAFT"),
+}).superRefine((activity, context) => {
+  if (!(Date.parse(activity.registrationEndsAt) <= Date.parse(activity.startsAt) && Date.parse(activity.startsAt) < Date.parse(activity.endsAt))) {
+    context.addIssue({ code: "custom", path: ["startsAt"], message: "Registration deadline, start and end must be ordered" });
+  }
+  if (!(activity.minSize <= activity.targetSize && activity.targetSize <= activity.maxSize && activity.maxSize <= activity.capacity)) {
+    context.addIssue({ code: "custom", path: ["capacity"], message: "Group sizes must fit activity capacity" });
+  }
 });
 
 const profileInputSchema = z.object({
@@ -1664,28 +1791,6 @@ const profileInputSchema = z.object({
   acceptableTableSizes: z.array(z.number().int().min(4).max(8)).min(1).max(5),
   note: z.string().trim().min(1).max(500).optional(),
 });
-
-const CAPACITY_HOLD_ORDER_STATUSES: OrderStatus[] =
-  Object.values(OrderStatus).filter(isCapacityHoldingOrderStatus);
-
-async function enqueueInboxNotifications(
-  app: { log: { warn: (details: object, message: string) => void } },
-  db: PrismaClient,
-  userIds: string[],
-  type: "GROUP_CONFIRMED" | "GROUP_FAILED",
-  payload: { title: string; message: string },
-): Promise<boolean> {
-  if (userIds.length === 0) return true;
-  try {
-    await db.notification.createMany({
-      data: userIds.map((userId) => ({ userId, type, status: NotificationStatus.SENT, payload })),
-    });
-    return true;
-  } catch (error) {
-    app.log.warn({ error, type, recipientCount: userIds.length }, "inbox notification enqueue failed");
-    return false;
-  }
-}
 
 function toSharedActivityStatus(status: ActivityStatus): SharedActivityStatus {
   return status.toLowerCase() as SharedActivityStatus;
@@ -1737,17 +1842,6 @@ function canCreateOrder(status: ActivityStatus): boolean {
   return (
     status === ActivityStatus.PUBLISHED ||
     status === ActivityStatus.REGISTRATION_OPEN
-  );
-}
-
-function isCapacityHoldingOrderStatus(status: OrderStatus): boolean {
-  return (
-    status === OrderStatus.PENDING_PAYMENT ||
-    status === OrderStatus.PAID_PENDING_GROUP ||
-    status === OrderStatus.GROUPED ||
-    status === OrderStatus.REFUND_REVIEWING ||
-    status === OrderStatus.REFUNDING ||
-    status === OrderStatus.COMPLETED
   );
 }
 
@@ -1820,4 +1914,18 @@ function isGroupedOrLaterActivity(status: ActivityStatus): boolean {
     status === ActivityStatus.IN_PROGRESS ||
     status === ActivityStatus.COMPLETED
   );
+}
+
+function encodeNotificationCursor(row: { createdAt: Date; id: string }): string {
+  return Buffer.from(JSON.stringify([row.createdAt.toISOString(), row.id])).toString("base64url");
+}
+
+function decodeNotificationCursor(value: string): { createdAt: Date; id: string } {
+  try {
+    const parsed: unknown = JSON.parse(Buffer.from(value, "base64url").toString("utf8"));
+    const pair = z.tuple([z.string().datetime(), z.string().min(1)]).parse(parsed);
+    return { createdAt: new Date(pair[0]), id: pair[1] };
+  } catch {
+    throw Object.assign(new Error("Invalid notification cursor"), { statusCode: 400 });
+  }
 }

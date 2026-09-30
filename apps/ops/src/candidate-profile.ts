@@ -7,5 +7,6 @@ export function formatCandidateProfile(profile: NonNullable<OpsTableCandidate["p
     `预算 ${profile.budgetRange}`,
     profile.tableVibe,
     `可接受 ${profile.acceptableTableSizes.join(" / ")} 人桌`,
+    `饮食限制 ${profile.dietaryRestrictions.join(" / ")}`,
   ].join(" · ");
 }

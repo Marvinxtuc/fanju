@@ -7,7 +7,9 @@ export default defineAppConfig({
     "pages/activity-detail/index",
     "pages/mock-auth/index",
     "pages/profile/index",
-    "pages/order-detail/index"
+    "pages/order-detail/index",
+    "pages/order-list/index",
+    "pages/inbox/index"
   ],
   window: {
     navigationBarTitleText: "餐厅兴趣体验",

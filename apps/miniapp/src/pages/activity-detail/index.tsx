@@ -6,8 +6,10 @@ import {
   confirmAgreement,
   createAndPayOrder,
   getActivity,
+  getCurrentAgreement,
   hasAuthenticatedSession,
   type ActivitySummary,
+  type CurrentAgreement,
 } from "../../api";
 
 const checklist = ["确认活动时间", "阅读取消规则", "费用为服务费/订位费"];
@@ -20,6 +22,7 @@ const menuLines: Array<[string, string]> = [
 export default function ActivityDetailPage(): JSX.Element {
   const activityId = Taro.getCurrentInstance().router?.params.id ?? "";
   const [activity, setActivity] = useState<ActivitySummary | null>(null);
+  const [agreement, setAgreement] = useState<CurrentAgreement | null>(null);
   const [error, setError] = useState("");
   const [agreementAccepted, setAgreementAccepted] = useState(false);
 
@@ -27,7 +30,10 @@ export default function ActivityDetailPage(): JSX.Element {
     async function load(): Promise<void> {
       try {
         setError("");
+        setAgreement(null);
+        setAgreementAccepted(false);
         setActivity(await getActivity(activityId));
+        setAgreement(await getCurrentAgreement());
       } catch (loadError) {
         setError(loadError instanceof Error ? loadError.message : "活动详情加载失败");
       }
@@ -36,7 +42,7 @@ export default function ActivityDetailPage(): JSX.Element {
   }, [activityId]);
 
   async function handleCreateOrder(): Promise<void> {
-    if (!agreementAccepted) {
+    if (!agreement || !agreementAccepted) {
       setError("请先确认活动规则、退款规则、用户协议和隐私说明");
       return;
     }
@@ -47,9 +53,9 @@ export default function ActivityDetailPage(): JSX.Element {
     }
     try {
       setError("");
-      await confirmAgreement("v1");
-      await createAndPayOrder(activityId);
-      await navigateTo({ url: "/pages/order-detail/index" });
+      await confirmAgreement(agreement.version);
+      const orderId = await createAndPayOrder(activityId, agreement.version);
+      await navigateTo({ url: `/pages/order-detail/index?id=${encodeURIComponent(orderId)}` });
     } catch (orderError) {
       const message = orderError instanceof Error ? orderError.message : "报名或测试支付失败";
       if (message === "Phone binding required") {
@@ -119,9 +125,10 @@ export default function ActivityDetailPage(): JSX.Element {
           </Text>
         ))}
         <View className="agreement-row">
-          <Switch checked={agreementAccepted} color="#ff6b2c" onChange={(event) => setAgreementAccepted(event.detail.value)} />
-          <Text>我已阅读并同意活动规则、退款规则、用户协议和隐私说明（v1）</Text>
+          <Switch checked={agreementAccepted} disabled={!agreement} color="#ff6b2c" onChange={(event) => setAgreementAccepted(event.detail.value)} />
+          <Text>我已阅读并同意当前协议（{agreement?.version ?? "未配置"}）</Text>
         </View>
+        {agreement ? <Text className="summary">{agreement.text}</Text> : <Text className="error-text">协议暂不可用，无法报名</Text>}
       </View>
 
       <View className="safe-card">
@@ -133,10 +140,13 @@ export default function ActivityDetailPage(): JSX.Element {
         <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/mock-auth/index" })}>
           登录与手机号授权
         </Button>
+        <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/profile/index" })}>
+          填写饭局偏好问卷
+        </Button>
         <Button className="button-primary" onClick={() => void handleCreateOrder()}>
           支付服务费，加入饭局
         </Button>
-        <Button className="button-quiet" onClick={() => navigateTo({ url: "/pages/order-detail/index" })}>
+        <Button className="button-quiet" onClick={() => navigateTo({ url: "/pages/order-list/index" })}>
           查看饭票
         </Button>
       </View>

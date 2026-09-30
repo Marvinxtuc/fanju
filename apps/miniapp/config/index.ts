@@ -1,5 +1,14 @@
 import { defineConfig } from "@tarojs/cli";
 
+if (process.env.NODE_ENV === "production" && !process.env.TARO_APP_API_BASE_URL) {
+  throw new Error("Production weapp build requires TARO_APP_API_BASE_URL");
+}
+
+const demoMode = process.env.TARO_APP_DEMO_MODE === "true";
+if (demoMode && process.env.NODE_ENV === "production") {
+  throw new Error("Production miniapp cannot enable demo mode");
+}
+
 const apiBaseUrl = process.env.TARO_APP_API_BASE_URL ?? "http://127.0.0.1:3000";
 
 export default defineConfig({
@@ -16,7 +25,8 @@ export default defineConfig({
   framework: "react",
   compiler: "webpack5",
   defineConstants: {
-    __FANJU_API_BASE_URL__: JSON.stringify(apiBaseUrl)
+    __FANJU_API_BASE_URL__: JSON.stringify(apiBaseUrl),
+    __FANJU_DEMO_MODE__: JSON.stringify(demoMode)
   },
   mini: {},
   h5: {}

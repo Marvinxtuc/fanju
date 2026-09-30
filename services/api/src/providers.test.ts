@@ -1,6 +1,6 @@
 import { generateKeyPairSync } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { createWechatProviders, ProviderConfigError } from "./providers.js";
+import { createWechatProviders, ProviderConfigError, VerifiedChannelError } from "./providers.js";
 
 describe("wechat provider configuration", () => {
   it("defaults to mock providers in local development", () => {
@@ -310,3 +310,40 @@ function wechatPayEnv() {
     WECHAT_REFUND_CALLBACK_URL: "https://example.invalid/refund",
   };
 }
+
+describe("offline funding recovery protocols", () => {
+  it("queries the same merchant payment number and signs GET without a request body", async () => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    const calls: import("./providers.js").ProviderHttpRequest[] = [];
+    const providers = createWechatProviders(wechatPayEnv(), { readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
+      httpClient: async request => { calls.push(request); return { out_trade_no: "original/order", mchid: "test_mch_id", appid: "wx_test_app_id", transaction_id: "channel-one", trade_state: "SUCCESS", success_time: "2026-09-29T08:00:00+08:00", amount: { total: 9900, currency: "CNY" } }; } });
+    expect(await providers.payment.queryPayment!("original/order")).toMatchObject({ status: "SUCCEEDED", merchantOrderNo: "original/order", channelTradeNo: "channel-one", amountCents: 9900 });
+    expect(calls[0]?.url).toContain("out-trade-no/original%2Forder?mchid=test_mch_id");
+    expect(calls[0]?.method).toBe("GET");
+    expect(calls[0]?.body).toBeUndefined();
+    expect(calls[0]?.verifyResponse).toBeTypeOf("function");
+    await expect(providers.payment.queryPayment!("another-order")).rejects.toThrow("identity mismatch");
+  });
+  it("maps a verified missing order without treating network errors as absence", async () => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    let missing = true;
+    const providers = createWechatProviders(wechatPayEnv(), {
+      readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
+      httpClient: async () => { if (missing) throw new VerifiedChannelError(404, "ORDER_NOT_EXIST"); throw new Error("network failure"); },
+    });
+    expect(await providers.payment.queryPayment!("original-order")).toEqual({ merchantOrderNo: "original-order", status: "NOT_FOUND" });
+    missing = false;
+    await expect(providers.payment.queryPayment!("original-order")).rejects.toThrow("network failure");
+  });
+  it("closes by the original number and verifies refund associations", async () => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    const calls: import("./providers.js").ProviderHttpRequest[] = [];
+    const providers = createWechatProviders(wechatPayEnv(), { readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
+      httpClient: async request => { calls.push(request); return request.method === "POST" ? {} : { out_refund_no: "refund-one", refund_id: "channel-refund", transaction_id: "original-trade", status: "SUCCESS", amount: { refund: 9900, currency: "CNY" } }; } });
+    await providers.payment.closePayment!("original-order");
+    expect(calls[0]?.url).toContain("out-trade-no/original-order/close");
+    expect(calls[0]?.body).toEqual({ mchid: "test_mch_id" });
+    expect(await providers.refund.queryRefund!("refund-one")).toMatchObject({ status: "SUCCEEDED", originalTradeNo: "original-trade", channelRefundNo: "channel-refund" });
+    await expect(providers.refund.queryRefund!("other-refund")).rejects.toThrow("identity mismatch");
+  });
+});

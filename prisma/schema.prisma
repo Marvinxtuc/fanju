@@ -121,10 +121,21 @@ model ConsentRecord {
   userId           String
   agreementVersion String
   source           String
+  policyHash       String?
   createdAt        DateTime @default(now())
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, agreementVersion])
+}
+
+model AgreementPolicy {
+  version     String   @id
+  text        String
+  textHash    String
+  source      String
+  active      Boolean  @default(false)
+  activatedAt DateTime
+  createdAt   DateTime @default(now())
 }
 
 model AdminUser {
@@ -176,6 +187,7 @@ model Activity {
   updatedAt         DateTime      @updatedAt
   restaurant        Restaurant    @relation(fields: [restaurantId], references: [id])
   orders            Order[]
+  notifications     Notification[]
   tableGroups       TableGroup[]
 
   @@index([status, startsAt])
@@ -188,8 +200,12 @@ model Order {
   amountCents     Int
   status          OrderStatus  @default(PENDING_PAYMENT)
   agreementVersion String
+  consentRecordId String?
   profileSnapshot Json?
   inventoryLockedUntil DateTime?
+  registrationActive Boolean @default(true)
+  capacityHeld Boolean @default(true)
+  version         Int          @default(0)
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
   user            User         @relation(fields: [userId], references: [id])
@@ -199,8 +215,12 @@ model Order {
   review          Review?
   reports         Report[]
   tableMembers    TableMember[]
+  receipts        ChannelReceipt[]
+  refundObligations RefundObligation[]
+  notifications     Notification[]
 
-  @@unique([userId, activityId])
+  // The persistent active-registration partial unique index is maintained by migration SQL.
+  @@index([userId, activityId])
   @@index([status])
 }
 
@@ -211,12 +231,21 @@ model Payment {
   amountCents    Int
   status         PaymentStatus @default(PENDING)
   channel        String        @default("mock")
+  active         Boolean       @default(true)
+  resolutionState String       @default("NEW")
+  version        Int           @default(0)
+  merchantScope  String        @default("legacy-unverified")
+  providerConfigId String      @default("legacy-unverified")
+  nextQueryAt    DateTime?
   prepayId       String?       @unique
   channelTradeNo String?       @unique
   callbackNonce  String?       @unique
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
   order          Order         @relation(fields: [orderId], references: [id])
+
+  receipts       ChannelReceipt[]
+  refunds        Refund[]
 
   @@index([orderId, status])
 }
@@ -225,6 +254,14 @@ model Refund {
   id              String       @id @default(cuid())
   orderId         String
   merchantRefundNo String      @unique @default(cuid())
+  paymentId       String?
+  receiptId       String?
+  obligationId    String?       @unique
+  channel         String        @default("legacy-unverified")
+  merchantScope   String        @default("legacy-unverified")
+  providerConfigId String       @default("legacy-unverified")
+  resolutionState String        @default("NEW")
+  version         Int           @default(0)
   amountCents     Int
   status          RefundStatus @default(REVIEWING)
   reason          String
@@ -235,6 +272,10 @@ model Refund {
   updatedAt       DateTime     @updatedAt
   order           Order        @relation(fields: [orderId], references: [id])
 
+  payment         Payment?      @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  receipt         ChannelReceipt? @relation(fields: [receiptId], references: [id], onDelete: Restrict)
+  obligation      RefundObligation? @relation(fields: [obligationId], references: [id], onDelete: Restrict)
+
   @@index([orderId, status])
 }
 
@@ -242,10 +283,15 @@ model TableGroup {
   id          String           @id @default(cuid())
   activityId  String
   status      TableGroupStatus @default(PENDING_CONFIRMATION)
+  generation  Int              @default(0)
+  ordinal     Int?
+  candidateDigest String?
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
   activity    Activity         @relation(fields: [activityId], references: [id])
   members     TableMember[]
+
+  @@unique([activityId, generation, ordinal])
 }
 
 model TableMember {
@@ -312,11 +358,148 @@ model AuditLog {
 
 model Notification {
   id        String             @id @default(cuid())
+  businessKey String?          @unique
   userId    String
+  orderId   String?
+  activityId String?
   type      String
   status    NotificationStatus @default(PENDING)
   payload   Json?
+  readAt    DateTime?
   createdAt DateTime           @default(now())
   updatedAt DateTime           @updatedAt
   user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  order     Order?             @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  activity  Activity?          @relation(fields: [activityId], references: [id], onDelete: Restrict)
+
+  @@index([userId, status, createdAt, id])
+}
+
+model WorkerHeartbeat {
+  id          String   @id @default(cuid())
+  mode        String
+  instanceId  String
+  version     String
+  lastPolledAt DateTime @default(now())
+
+  @@unique([mode, instanceId])
+  @@index([mode, lastPolledAt])
+}
+
+
+model ChannelReceipt {
+  id               String   @id @default(cuid())
+  channel          String
+  merchantScope    String
+  channelTradeNo   String
+  merchantOrderNo  String
+  paymentId        String?
+  orderId          String?
+  amountCents      Int
+  currency         String   @default("CNY")
+  evidenceHash     String
+  verifiedAt       DateTime
+  paidAt           DateTime?
+  createdAt        DateTime @default(now())
+  payment          Payment? @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  order            Order?   @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  refunds          Refund[]
+  obligations      RefundObligation[]
+
+  @@unique([channel, merchantScope, channelTradeNo])
+  @@index([merchantScope, merchantOrderNo])
+}
+
+model RefundObligation {
+  id            String @id @default(cuid())
+  receiptId     String
+  orderId       String?
+  businessKey   String @unique
+  cause         String
+  amountCents   Int
+  state         String @default("OPEN")
+  owner         String
+  deadline      DateTime
+  policyVersion String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  receipt       ChannelReceipt @relation(fields: [receiptId], references: [id], onDelete: Restrict)
+  order         Order? @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  refund        Refund?
+}
+
+model ReceivedEvent {
+  id                     String @id @default(cuid())
+  source                 String
+  merchantScope          String
+  eventKey               String
+  payloadHash            String
+  normalizedPayload      Json
+  verificationMaterialId String
+  verifiedAt             DateTime
+  state                  String @default("RECEIVED")
+  createdAt              DateTime @default(now())
+
+  @@unique([source, merchantScope, eventKey])
+}
+
+model DurableJob {
+  id             String @id @default(cuid())
+  kind           String
+  businessKey    String @unique
+  payloadVersion Int @default(1)
+  refId          String
+  state          String @default("READY")
+  runAt          DateTime @default(now())
+  attempts       Int @default(0)
+  leaseOwner     String?
+  leaseUntil     DateTime?
+  generation     Int @default(0)
+  errorClass     String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([state, runAt])
+}
+
+model ReconciliationBatch {
+  id             String @id @default(cuid())
+  merchantScope  String
+  period         String
+  sourceHash     String
+  coverageState  String
+  decisionOrdinal BigInt @default(autoincrement())
+  createdAt      DateTime @default(now())
+
+  @@unique([merchantScope, period, sourceHash])
+}
+
+model FinancialCase {
+  id             String @id @default(cuid())
+  caseKey        String @unique
+  category       String
+  sourceRef      String
+  owner          String
+  deadline       DateTime
+  state          String @default("OPEN")
+  resolution     String?
+  reviewedBy     String?
+  reviewedAt     DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([state, deadline])
+}
+
+// Disposable mock channel facts survive API/worker restarts and never represent real funds.
+model MockChannelTransaction {
+  id              String @id @default(cuid())
+  kind            String
+  businessKey     String @unique
+  channelNo       String @unique
+  originalTradeNo String?
+  amountCents     Int
+  status          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }

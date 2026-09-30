@@ -1,17 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   addBlacklistEntry,
+  claimFinancialCase,
   adjustTableGroups,
   approveRefund,
+  rejectRefund,
+  cancelActivity,
   completeActivity,
   confirmTableGroups,
   draftTableGroups,
   loadTableCandidates,
   loadOpsData,
   loginOps,
+  loginDemoOps,
   markGroupFailed,
+  openActivityRegistration,
+  publishActivity,
   resolveReport,
+  resolveFinancialCase,
+  removeBlacklistEntry,
   startActivity,
   type OpsActivity,
   type OpsBlacklistEntry,
@@ -20,11 +28,15 @@ import {
   type OpsRefund,
   type OpsReport,
   type OpsReview,
+  type OpsRole,
   type OpsRestaurant,
   type OpsTableCandidate,
   type OpsTableGroup,
 } from "./api.js";
+import { ActivityForm, RestaurantForm } from "./SupplyForms.js";
 import { formatCandidateProfile } from "./candidate-profile.js";
+
+import { SessionTracker } from "./session.js";
 
 import "./app.css";
 
@@ -41,8 +53,14 @@ const tabs: Array<{ id: OpsTab; label: string }> = [
 ];
 
 export function App(): JSX.Element {
+  const sessions = useRef(new SessionTracker()).current;
+  const session = sessions.capture();
   const [activeTab, setActiveTab] = useState<OpsTab>("restaurants");
   const [token, setToken] = useState("");
+  const [role, setRole] = useState<OpsRole | null>(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginBusy, setLoginBusy] = useState(false);
   const [data, setData] = useState<OpsData | null>(null);
   const [error, setError] = useState("");
   const [groupingActivityId, setGroupingActivityId] = useState<string | null>(null);
@@ -52,142 +70,275 @@ export function App(): JSX.Element {
   const [activityLifecycleBusy, setActivityLifecycleBusy] = useState<string | null>(null);
 
   async function refresh(): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
-      const nextToken = token || (await loginOps());
-      setToken(nextToken);
-      setData(await loadOpsData(nextToken));
+      if (!token) return;
+      const nextData = await loadOpsData(token);
+      if (sessions.isCurrent(session)) setData(nextData);
     } catch (loadError) {
+      if (!sessions.isCurrent(session)) return;
       setError(loadError instanceof Error ? loadError.message : "后台数据加载失败");
     }
   }
 
   useEffect(() => {
-    void refresh();
+    function expire(event: Event) {
+      const authorization = (event as CustomEvent<{ authorization?: string }>).detail?.authorization;
+      const current = sessions.capture();
+      if (!current.token || authorization !== `Bearer ${current.token}`) return;
+      sessions.invalidate(); setToken(""); setRole(null); setData(null); setCandidates(null); setTableGroups([]); setGroupingBusy(false); setActivityLifecycleBusy(null); setError("登录已失效，请重新登录后继续"); }
+    window.addEventListener("fanju-session-expired", expire);
+    return () => window.removeEventListener("fanju-session-expired", expire);
   }, []);
 
+  async function handleLogin(demo = false): Promise<void> {
+    const epoch = sessions.invalidate();
+    setLoginBusy(true);
+    setError("");
+    try {
+      const login = demo ? await loginDemoOps() : await loginOps(username, password);
+      setPassword("");
+      const nextData = await loadOpsData(login.token);
+      if (sessions.isGeneration(epoch)) { sessions.activate(login.token); setToken(login.token); setRole(login.admin.role); setData(nextData); }
+    } catch (error) {
+      if (!sessions.isGeneration(epoch)) return;
+      setError(error instanceof Error ? error.message : "登录失败");
+    } finally { setPassword(""); setLoginBusy(false); }
+  }
+
+
   async function handleApproveRefund(refundId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       await approveRefund(token, refundId);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (approveError) {
+      if (!sessions.isCurrent(session)) return;
       setError(approveError instanceof Error ? approveError.message : "退款审批失败");
     }
   }
 
+  async function handleRejectRefund(refundId: string): Promise<void> {
+    const reason = window.prompt("请输入退款审核拒绝原因");
+    if (!reason?.trim() || !sessions.isCurrent(session)) return;
+    try {
+      setError("");
+      await rejectRefund(token, refundId, reason.trim());
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "退款审核拒绝失败");
+    }
+  }
+
+  async function handleFinancialCase(id: string, action: "claim" | "resolve"): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
+    try {
+      setError("");
+      if (action === "claim") await claimFinancialCase(token, id);
+      else await resolveFinancialCase(token, id);
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "异常待办处理失败");
+    }
+  }
+
+  async function handleCancelActivity(activityId: string): Promise<void> {
+    const reason = window.prompt("取消活动将建立逐笔退款责任。请输入取消原因（仅超级管理员可执行）");
+    if (!reason?.trim() || !sessions.isCurrent(session)) return;
+    try {
+      setError(""); setActivityLifecycleBusy(activityId);
+      await cancelActivity(token, activityId, reason.trim());
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "活动取消失败");
+    } finally {
+      if (sessions.isCurrent(session)) setActivityLifecycleBusy(null);
+    }
+  }
+
+  async function handlePublishActivity(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
+    try {
+      setError(""); setActivityLifecycleBusy(activityId);
+      await publishActivity(token, activityId);
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "活动发布失败");
+    } finally { if (sessions.isCurrent(session)) setActivityLifecycleBusy(null); }
+  }
+
+  async function handleOpenRegistration(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
+    try {
+      setError(""); setActivityLifecycleBusy(activityId);
+      await openActivityRegistration(token, activityId);
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "开放报名失败");
+    } finally { if (sessions.isCurrent(session)) setActivityLifecycleBusy(null); }
+  }
+
   async function handleResolveReport(reportId: string, status: "RESOLVED" | "REJECTED", reason: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       await resolveReport(token, reportId, status, reason);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (resolveError) {
+      if (!sessions.isCurrent(session)) return;
       setError(resolveError instanceof Error ? resolveError.message : "反馈处理失败");
     }
   }
 
   async function handleAddBlacklistEntry(userId: string, reason: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       await addBlacklistEntry(token, userId, reason);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (blacklistError) {
+      if (!sessions.isCurrent(session)) return;
       setError(blacklistError instanceof Error ? blacklistError.message : "黑名单添加失败");
     }
   }
 
+  async function handleRemoveBlacklistEntry(userId: string): Promise<void> {
+    const reason = window.prompt("解除黑名单原因（仅超级管理员可执行）");
+    if (!reason?.trim() || !sessions.isCurrent(session)) return;
+    try {
+      setError(""); await removeBlacklistEntry(token, userId, reason.trim());
+      if (sessions.isCurrent(session)) await refresh();
+    } catch (error) {
+      if (sessions.isCurrent(session)) setError(error instanceof Error ? error.message : "解除黑名单失败");
+    }
+  }
+
   async function handleOpenGrouping(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setGroupingBusy(true);
       setGroupingActivityId(activityId);
       const grouping = await loadTableCandidates(token, activityId);
+      if (!sessions.isCurrent(session)) return;
       setCandidates(grouping.candidates);
       setTableGroups(grouping.tableGroups);
     } catch (groupingError) {
+      if (!sessions.isCurrent(session)) return;
       setError(groupingError instanceof Error ? groupingError.message : "候选人加载失败");
     } finally {
-      setGroupingBusy(false);
+      if (sessions.isCurrent(session)) setGroupingBusy(false);
     }
   }
 
   async function handleDraftGrouping(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setGroupingBusy(true);
       const draft = await draftTableGroups(token, activityId);
+      if (!sessions.isCurrent(session)) return;
       setTableGroups(draft.tableGroups);
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (groupingError) {
+      if (!sessions.isCurrent(session)) return;
       setError(groupingError instanceof Error ? groupingError.message : "排桌草案生成失败");
     } finally {
-      setGroupingBusy(false);
+      if (sessions.isCurrent(session)) setGroupingBusy(false);
     }
   }
 
   async function handleConfirmGrouping(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setGroupingBusy(true);
       await confirmTableGroups(token, activityId);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (groupingError) {
+      if (!sessions.isCurrent(session)) return;
       setError(groupingError instanceof Error ? groupingError.message : "成团确认失败");
     } finally {
-      setGroupingBusy(false);
+      if (sessions.isCurrent(session)) setGroupingBusy(false);
     }
   }
 
   async function handleAdjustGrouping(activityId: string, tableGroups: Array<{ orderIds: string[] }>): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setGroupingBusy(true);
       const adjusted = await adjustTableGroups(token, activityId, tableGroups);
+      if (!sessions.isCurrent(session)) return;
       setTableGroups(adjusted.tableGroups);
     } catch (groupingError) {
+      if (!sessions.isCurrent(session)) return;
       setError(groupingError instanceof Error ? groupingError.message : "人工调整保存失败");
     } finally {
-      setGroupingBusy(false);
+      if (sessions.isCurrent(session)) setGroupingBusy(false);
     }
   }
 
   async function handleMarkGroupFailed(activityId: string, reason: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setGroupingBusy(true);
       await markGroupFailed(token, activityId, reason);
+      if (!sessions.isCurrent(session)) return;
       setTableGroups([]);
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (groupingError) {
+      if (!sessions.isCurrent(session)) return;
       setError(groupingError instanceof Error ? groupingError.message : "成团失败标记失败");
     } finally {
-      setGroupingBusy(false);
+      if (sessions.isCurrent(session)) setGroupingBusy(false);
     }
   }
 
   async function handleStartActivity(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setActivityLifecycleBusy(activityId);
       await startActivity(token, activityId);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (activityError) {
+      if (!sessions.isCurrent(session)) return;
       setError(activityError instanceof Error ? activityError.message : "活动开始标记失败");
     } finally {
-      setActivityLifecycleBusy(null);
+      if (sessions.isCurrent(session)) setActivityLifecycleBusy(null);
     }
   }
 
   async function handleCompleteActivity(activityId: string): Promise<void> {
+    if (!sessions.isCurrent(session)) return;
     try {
       setError("");
       setActivityLifecycleBusy(activityId);
       await completeActivity(token, activityId);
+      if (!sessions.isCurrent(session)) return;
       await refresh();
+      if (!sessions.isCurrent(session)) return;
     } catch (activityError) {
+      if (!sessions.isCurrent(session)) return;
       setError(activityError instanceof Error ? activityError.message : "活动完成标记失败");
     } finally {
-      setActivityLifecycleBusy(null);
+      if (sessions.isCurrent(session)) setActivityLifecycleBusy(null);
     }
   }
 
@@ -206,6 +357,14 @@ export function App(): JSX.Element {
           刷新
         </button>
       </header>
+
+      {!token ? <form className="ops-panel" onSubmit={event => { event.preventDefault(); void handleLogin(); }}>
+        <h2>管理员登录</h2>
+        <label>账号<input autoComplete="username" value={username} onChange={event => setUsername(event.target.value)} /></label>
+        <label>密码<input type="password" autoComplete="current-password" value={password} onChange={event => setPassword(event.target.value)} /></label>
+        <button type="submit" disabled={loginBusy || !username || !password}>{loginBusy ? "登录中…" : "登录"}</button>
+        {import.meta.env.DEV && import.meta.env.VITE_DEMO_MODE === "true" ? <button type="button" disabled={loginBusy} onClick={() => void handleLogin(true)}>本地演示登录</button> : null}
+      </form> : <button type="button" onClick={() => { sessions.invalidate(); setToken(""); setRole(null); setData(null); setCandidates(null); setTableGroups([]); setGroupingBusy(false); setActivityLifecycleBusy(null); }}>退出登录</button>}
 
       {data ? <Dashboard data={data} /> : null}
 
@@ -228,8 +387,12 @@ export function App(): JSX.Element {
           错误：{error}
         </p>
       ) : null}
-      {!data ? <p className="ops-loading">加载中</p> : renderTab(activeTab, data, {
+      {!data ? null : renderTab(activeTab, data, {
+        token, role, onSupplySaved: refresh, onPublishActivity: handlePublishActivity, onOpenRegistration: handleOpenRegistration,
         onApproveRefund: handleApproveRefund,
+        onRejectRefund: handleRejectRefund,
+        onFinancialCase: handleFinancialCase,
+        onCancelActivity: handleCancelActivity,
         onOpenGrouping: handleOpenGrouping,
         onDraftGrouping: handleDraftGrouping,
         onConfirmGrouping: handleConfirmGrouping,
@@ -237,6 +400,7 @@ export function App(): JSX.Element {
         onMarkGroupFailed: handleMarkGroupFailed,
         onResolveReport: handleResolveReport,
         onAddBlacklistEntry: handleAddBlacklistEntry,
+        onRemoveBlacklistEntry: handleRemoveBlacklistEntry,
         onStartActivity: handleStartActivity,
         onCompleteActivity: handleCompleteActivity,
         groupingActivityId,
@@ -252,13 +416,13 @@ export function App(): JSX.Element {
 function Dashboard({ data }: { data: OpsData }): JSX.Element {
   const reviewingRefunds = data.refunds.filter((refund) => refund.status === "REVIEWING" || refund.status === "FAILED").length;
   const openReports = data.reports.filter((report) => report.status === "OPEN").length;
-  const paidOrders = data.orders.filter((order) => order.status !== "CANCELED" && order.status !== "REFUNDED").length;
+  const heldOrders = data.orders.filter((order) => order.capacityHeld).length;
 
   return (
     <section className="ops-dashboard" aria-label="运营概览">
       <MetricCard label="餐厅库" value={String(data.restaurants.length)} note="可排期资源" />
       <MetricCard label="饭局排期" value={String(data.activities.length)} note="活动状态跟踪" />
-      <MetricCard label="有效订单" value={String(paidOrders)} note="服务费口径" tone="blue" />
+      <MetricCard label="占位订单" value={String(heldOrders)} note="当前容量口径" tone="blue" />
       <MetricCard label="待审退款" value={String(reviewingRefunds)} note="需人工确认" tone="red" />
       <MetricCard label="待处理反馈" value={String(openReports)} note="仅运营可见" tone="blue" />
       <MetricCard label="体验评价" value={String(data.reviews.length)} note="仅运营查看" tone="blue" />
@@ -281,7 +445,15 @@ function renderTab(
   activeTab: OpsTab,
   data: OpsData,
   actions: {
+    token: string;
+    role: OpsRole | null;
+    onSupplySaved: () => Promise<void>;
+    onPublishActivity: (activityId: string) => Promise<void>;
+    onOpenRegistration: (activityId: string) => Promise<void>;
     onApproveRefund: (refundId: string) => Promise<void>;
+    onRejectRefund: (refundId: string) => Promise<void>;
+    onFinancialCase: (id: string, action: "claim" | "resolve") => Promise<void>;
+    onCancelActivity: (activityId: string) => Promise<void>;
     onOpenGrouping: (activityId: string) => Promise<void>;
     onDraftGrouping: (activityId: string) => Promise<void>;
     onConfirmGrouping: (activityId: string) => Promise<void>;
@@ -289,6 +461,7 @@ function renderTab(
     onMarkGroupFailed: (activityId: string, reason: string) => Promise<void>;
     onResolveReport: (reportId: string, status: "RESOLVED" | "REJECTED", reason: string) => Promise<void>;
     onAddBlacklistEntry: (userId: string, reason: string) => Promise<void>;
+    onRemoveBlacklistEntry: (userId: string) => Promise<void>;
     onStartActivity: (activityId: string) => Promise<void>;
     onCompleteActivity: (activityId: string) => Promise<void>;
     groupingActivityId: string | null;
@@ -302,6 +475,7 @@ function renderTab(
     return (
       <section className="ops-content">
         <SectionHeader title="餐厅菜单库" subtitle="维护可开桌餐厅、区域和容量，页面仅展示运营必要信息。" stamp="MENU" />
+        <RestaurantManager token={actions.token} restaurants={data.restaurants} onSaved={actions.onSupplySaved} />
         <div className="ticket-grid">
           {data.restaurants.map((restaurant) => (
             <RestaurantTicket key={restaurant.id} restaurant={restaurant} />
@@ -315,9 +489,10 @@ function renderTab(
     return (
       <section className="ops-content">
         <SectionHeader title="饭局排期" subtitle="跟踪活动状态、服务费和开桌时间，保持饭局优先的表达。" stamp="OPEN" />
+        <ActivityForm token={actions.token} restaurants={data.restaurants} onSaved={actions.onSupplySaved} />
         <div className="ticket-list">
           {data.activities.map((activity) => (
-            <ActivityTicket activity={activity} key={activity.id} onOpenGrouping={actions.onOpenGrouping} onStartActivity={actions.onStartActivity} onCompleteActivity={actions.onCompleteActivity} lifecycleBusy={actions.activityLifecycleBusy === activity.id} />
+            <ActivityTicket activity={activity} key={activity.id} onOpenGrouping={actions.onOpenGrouping} onStartActivity={actions.onStartActivity} onCompleteActivity={actions.onCompleteActivity} onCancelActivity={actions.onCancelActivity} onPublishActivity={actions.onPublishActivity} onOpenRegistration={actions.onOpenRegistration} canCancel={actions.role === "SUPER_ADMIN"} lifecycleBusy={actions.activityLifecycleBusy === activity.id} />
           ))}
         </div>
         {actions.groupingActivityId ? (
@@ -348,8 +523,18 @@ function renderTab(
         <h3 className="subheading">退款审核</h3>
         <div className="ticket-list">
           {data.refunds.map((refund) => (
-            <RefundTicket key={refund.id} onApproveRefund={actions.onApproveRefund} refund={refund} />
+            <RefundTicket key={refund.id} onApproveRefund={actions.onApproveRefund} onRejectRefund={actions.onRejectRefund} refund={refund} />
           ))}
+        </div>
+        <h3 className="subheading">资金异常待办</h3>
+        <p>结案只在渠道事实已收敛、且复核人与处理人不同时生效；结案不会改写资金记录。</p>
+        <div className="ticket-list">
+          {data.financialCases.length === 0 ? <p className="ops-loading">当前没有开放的资金异常待办。</p> : data.financialCases.map(issue => <article className="ops-ticket ops-ticket--review" key={issue.id}>
+            <div className="ticket-top"><span className="ticket-label">截止 {formatDateTime(issue.deadline)}</span><span className="tag tag--red">{issue.state}</span></div>
+            <h3>{issue.category}</h3><p>关联记录：{issue.sourceRef}</p><p>处理人：{issue.owner}</p>
+            <div className="report-actions"><button className="ops-button ops-button--secondary" type="button" onClick={() => void actions.onFinancialCase(issue.id, "claim")}>认领</button>
+              {actions.role === "SUPER_ADMIN" ? <button className="ops-button ops-button--primary" type="button" onClick={() => void actions.onFinancialCase(issue.id, "resolve")}>证据复核结案</button> : null}</div>
+          </article>)}
         </div>
       </section>
     );
@@ -370,7 +555,7 @@ function renderTab(
     return (
       <section className="ops-content">
         <SectionHeader title="黑名单管理" subtitle="限制后续报名；既有订单保持不变，解除仅限超级管理员通过受控接口处理。" stamp="GUARD" />
-        <BlacklistPanel entries={data.blacklist} onAddBlacklistEntry={actions.onAddBlacklistEntry} />
+        <BlacklistPanel entries={data.blacklist} onAddBlacklistEntry={actions.onAddBlacklistEntry} onRemoveBlacklistEntry={actions.onRemoveBlacklistEntry} canRemove={actions.role === "SUPER_ADMIN"} />
       </section>
     );
   }
@@ -423,9 +608,13 @@ function ReviewTicket({ review }: { review: OpsReview }): JSX.Element {
 function BlacklistPanel({
   entries,
   onAddBlacklistEntry,
+  onRemoveBlacklistEntry,
+  canRemove,
 }: {
   entries: OpsBlacklistEntry[];
   onAddBlacklistEntry: (userId: string, reason: string) => Promise<void>;
+  onRemoveBlacklistEntry: (userId: string) => Promise<void>;
+  canRemove: boolean;
 }): JSX.Element {
   const [userId, setUserId] = useState("");
   const [reason, setReason] = useState("");
@@ -465,6 +654,7 @@ function BlacklistPanel({
             <p>{entry.reason}</p>
             <div className="ticket-divider" />
             <small>内部用户 ID：{entry.userId}</small>
+            {canRemove ? <button className="ops-button ops-button--secondary" type="button" onClick={() => void onRemoveBlacklistEntry(entry.userId)}>解除黑名单</button> : null}
           </article>
         ))}
       </div>
@@ -528,17 +718,36 @@ function RestaurantTicket({ restaurant }: { restaurant: OpsRestaurant }): JSX.El
   );
 }
 
+function RestaurantManager({ token, restaurants, onSaved }: { token: string; restaurants: OpsRestaurant[]; onSaved: () => Promise<void> }): JSX.Element {
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const selected = restaurants.find(r => r.id === editingId);
+  return <div>
+    <div className="report-actions"><button type="button" className="ops-button ops-button--secondary" onClick={() => setEditingId(null)}>新增餐厅</button>
+      {restaurants.map(r => <button type="button" className="ops-button ops-button--secondary" key={r.id} onClick={() => setEditingId(r.id)}>编辑 {r.name}</button>)}
+    </div>
+    <RestaurantForm token={token} restaurant={selected} onSaved={onSaved} />
+  </div>;
+}
+
 function ActivityTicket({
   activity,
   onOpenGrouping,
   onStartActivity,
   onCompleteActivity,
+  onCancelActivity,
+  canCancel,
+  onPublishActivity,
+  onOpenRegistration,
   lifecycleBusy,
 }: {
   activity: OpsActivity;
   onOpenGrouping: (activityId: string) => Promise<void>;
   onStartActivity: (activityId: string) => Promise<void>;
   onCompleteActivity: (activityId: string) => Promise<void>;
+  onCancelActivity: (activityId: string) => Promise<void>;
+  canCancel: boolean;
+  onPublishActivity: (activityId: string) => Promise<void>;
+  onOpenRegistration: (activityId: string) => Promise<void>;
   lifecycleBusy: boolean;
 }): JSX.Element {
   const now = Date.now();
@@ -552,6 +761,7 @@ function ActivityTicket({
       </div>
       <h3>{activity.title}</h3>
       <p>菜单体验 / 公共餐厅 / 服务费 {formatMoney(activity.serviceFeeCents)}</p>
+      <p>已占 {activity.heldSeats} / {activity.capacity} 席</p>
       <div className="ticket-divider" />
       <div className="ticket-facts">
         <span>服务费/订位费</span>
@@ -559,8 +769,12 @@ function ActivityTicket({
         <button className="ops-button ops-button--secondary" type="button" onClick={() => void onOpenGrouping(activity.id)}>
           排桌候选
         </button>
+        {activity.status === "DRAFT" ? <button className="ops-button ops-button--primary" disabled={lifecycleBusy} type="button" onClick={() => void onPublishActivity(activity.id)}>发布活动</button> : null}
+        {activity.status === "PUBLISHED" ? <button className="ops-button ops-button--primary" disabled={lifecycleBusy} type="button" onClick={() => void onOpenRegistration(activity.id)}>开放报名</button> : null}
         {canStart ? <button className="ops-button ops-button--primary" disabled={lifecycleBusy} type="button" onClick={() => void onStartActivity(activity.id)}>{lifecycleBusy ? "处理中…" : "标记已开始"}</button> : null}
         {canComplete ? <button className="ops-button ops-button--primary" disabled={lifecycleBusy} type="button" onClick={() => void onCompleteActivity(activity.id)}>{lifecycleBusy ? "处理中…" : "标记已完成"}</button> : null}
+        {canCancel && now < new Date(activity.startsAt).getTime() && !["CANCELED", "COMPLETED", "IN_PROGRESS"].includes(activity.status)
+          ? <button className="ops-button ops-button--secondary" disabled={lifecycleBusy} type="button" onClick={() => void onCancelActivity(activity.id)}>取消活动</button> : null}
       </div>
     </article>
   );
@@ -593,9 +807,9 @@ function GroupingPanel({
   if (!activity) {
     return <p className="ops-alert">活动状态已刷新，请重新选择排桌候选。</p>;
   }
-  const canDraft = activity.status === "REGISTRATION_OPEN";
+  const canDraft = activity.status === "REGISTRATION_OPEN" || activity.status === "LOCKING";
   const canConfirm = activity.status === "LOCKING" && tableGroups.length > 0;
-  const canMarkGroupFailed = activity.status === "REGISTRATION_OPEN"
+  const canMarkGroupFailed = (activity.status === "REGISTRATION_OPEN" || activity.status === "LOCKING")
     && candidates !== null
     && candidates.length < activity.minSize
     && Date.now() >= new Date(activity.registrationEndsAt).getTime();
@@ -659,7 +873,7 @@ function GroupingPanel({
       {canMarkGroupFailed ? (
         <div className="group-failure-panel">
           <strong>报名已截止，当前人数不足 {activity.minSize} 人</strong>
-          <span>标记后订单仅进入“成团失败”，不会自动创建退款或调用退款渠道。</span>
+          <span>标记后按每笔实收建立退款责任，由后台任务恢复处理。</span>
           <div className="report-actions">
             <input aria-label="成团失败原因" className="report-reason" value={failureReason} maxLength={200} onChange={(event) => setFailureReason(event.target.value)} placeholder="填写人工处置原因" />
             <button className="ops-button ops-button--secondary" disabled={!failureReason.trim() || busy} type="button" onClick={() => void onMarkGroupFailed(activity.id, failureReason)}>
@@ -681,6 +895,7 @@ function OrderTicket({ order }: { order: OpsOrder }): JSX.Element {
       </div>
       <h3>{order.activity.title}</h3>
       <p>用户手机号：{order.user.phone ?? "未展示"}</p>
+      <p>渠道实收：{formatMoney(order.receivedCents)} · 收款流水 {order.receiptCount} 笔 · 未结异常 {order.openCaseCount} 项</p>
       <div className="ticket-divider" />
       <div className="ticket-facts">
         <span>订单金额</span>
@@ -693,9 +908,11 @@ function OrderTicket({ order }: { order: OpsOrder }): JSX.Element {
 function RefundTicket({
   refund,
   onApproveRefund,
+  onRejectRefund,
 }: {
   refund: OpsRefund;
   onApproveRefund: (refundId: string) => Promise<void>;
+  onRejectRefund: (refundId: string) => Promise<void>;
 }): JSX.Element {
   const canApprove = refund.status === "REVIEWING" || refund.status === "FAILED";
 
@@ -711,9 +928,8 @@ function RefundTicket({
       <div className="ticket-facts">
         <span>{formatMoney(refund.amountCents)}</span>
         {canApprove ? (
-          <button className="ops-button ops-button--primary" type="button" onClick={() => void onApproveRefund(refund.id)}>
-            审批通过
-          </button>
+          <><button className="ops-button ops-button--primary" type="button" onClick={() => void onApproveRefund(refund.id)}>审批通过</button>
+          {refund.status === "REVIEWING" ? <button className="ops-button ops-button--secondary" type="button" onClick={() => void onRejectRefund(refund.id)}>审核拒绝</button> : null}</>
         ) : (
           <strong>{refund.order.status}</strong>
         )}

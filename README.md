@@ -246,7 +246,7 @@ M3.1.1-B 真实身份联调请使用 shell 环境变量、部署平台 secret �
 - `WECHAT_PAY_CALLBACK_URL`
 - `WECHAT_REFUND_CALLBACK_URL`
 
-生产环境默认禁止 mock payment。若必须在生产环境演示 mock payment，必须显式设置 `ALLOW_MOCK_PAYMENT_IN_PRODUCTION=true`，且不得接真实商户号、真实证书或真实密钥。
+生产环境默认禁止 mock payment。兼容开关 `ALLOW_MOCK_PAYMENT_IN_PRODUCTION` 不会开放演示登录、模拟回调或运营权限，也不代表收费放行；运营端现支持经服务端配置的受控账号；未配置时保持关闭。
 
 真实支付回调和退款回调不得直接写订单、支付或退款状态，必须复用 API 层既有状态机 helper。
 
@@ -266,3 +266,38 @@ M3.1.1-B 真实身份联调请使用 shell 环境变量、部署平台 secret �
 - 配置文件格式。
 - 生产依赖。
 - 部署拓扑。
+
+
+## 阶段 1：本地隔离与真实构建（2026-09-29）
+
+- 演示管理员登录与支付/退款 succeed/fail 路由默认不存在。仅 `NODE_ENV=development|test`、`APP_ENV=local`、`LOCAL_DEMO_ENABLED=true`、全部 provider 为 mock 且真实支付开关关闭时注册。
+- 演示环境必须使用隔离测试库并绑定 `API_HOST=127.0.0.1`；不能暴露到公网。显式演示仍可按请求选择角色，只适用于可丢弃测试数据。
+- 非演示环境仅接受受控管理员账号；未配置账号时全部运营 API 拒绝访问。旧无限期或已撤销 token 不再有效。真实身份、手机号、支付创建及渠道通知原路径保留。
+- `pnpm test` / `pnpm test:api:db` / provider 测试 / HTTP 探针现在先生成 Prisma 并构建 shared。数据库测试必须显式提供隔离 `DATABASE_URL`。
+- `pnpm build` 生成真实运营端和微信端产物；`pnpm typecheck` 独立保留。小程序生产构建必须显式设置 `TARO_APP_API_BASE_URL`。运营端生产包默认同源 `/api`，跨域部署需构建时设置 `VITE_API_BASE_URL`。
+- 配置通过进程环境注入；`.env.example` 是说明模板，不代表每个命令会自动加载根目录 `.env`。
+- CI 使用 `RUN_DB_TESTS=1 pnpm test:ci`，保存各包 JSON 结果并拒绝跳过数据库用例；`pnpm verify:release <API发布包目录>` 验证无 API 源码依赖的 Node 启动及 HTTP。
+- 工作记录及限制见 [阶段 1 实施报告](docs/stage1/2026-09-29/README.md)。此变更不代表 G0 放行或真实支付已获批准。
+
+
+### S1b / S2 后续实施
+
+受控管理员的配置、scrypt 摘要生成、会话期限与撤销步骤见 [账号设计](docs/stage1/2026-09-29/auth/DESIGN.md)。运行环境、Provider 矩阵、新收费停止开关及剩余资金门禁见 [配置说明](docs/stage1/2026-09-29/auth/CONFIGURATION.md)。新配置必须通过进程环境或仓库外 Secret 注入；不要复制真实账号清单到仓库。
+
+
+### 本地资金恢复（A2 实施中）
+
+支付意图、回调事件和恢复任务均持久保存。启动API前在专用可丢弃数据库执行迁移；运行worker需要显式 `DATABASE_URL`，不会使用本机默认5432。
+
+- 编译API：先 `pnpm prepare:test` 生成Prisma并构建shared，再 `pnpm --filter @timeleft-shanghai/api build`。当前A2包含两项新增迁移（共6项），更新API/worker前先在专用测试库应用迁移。
+- 本地模拟恢复：`APP_ENV=local NODE_ENV=development PAYMENT_PROVIDER=mock REFUND_PROVIDER=mock pnpm --filter @timeleft-shanghai/api worker`
+- 仅消费可信事件：`WORKER_MODE=events-only FINANCIAL_CASE_OWNER=<负责人> pnpm --filter @timeleft-shanghai/api worker`。此模式不能领取渠道请求任务，可在关闭新收费时持续应用已验签通知。
+- 仅投递站内通知：`WORKER_MODE=inbox-only pnpm --filter @timeleft-shanghai/api worker`。此模式只领取 `DELIVER_INBOX`，不加载资金渠道处理器。`SENT` 表示站内可读，不表示微信消息送达。
+- `/health` 是进程存活检查；`/ready` 检查数据库、最新迁移及所需 worker 最近 30 秒的心跳。`REQUIRED_WORKER_MODES` 可明确配置；生产默认要求 `events-only,inbox-only`。API 收到 SIGTERM 后排空连接，最多等待 15 秒。
+- 恢复新收费前须配置 `REQUIRED_BILL_SCOPE` 与 `REQUIRED_BILL_PERIOD`，导入该范围的完整账单；启动时要求 scope 等于当前支付商户绑定，`/ready` 和新支付入口也只用该绑定查询最新覆盖判定。后导入的完整账单可替代旧的不完整状态，历史批次仍保留；最新判定缺失或不完整时拒绝新支付。账单检查不代替逐笔异常结案。
+- `APP_ENV=local NODE_ENV=test pnpm --filter @timeleft-shanghai/api inbox:audit` 只读列出站内通知缺任务等差异；显式追加 `--repair` 仅补建有可靠业务键与订单关联的 `PENDING` 任务。运营诊断接口 `/api/ops/diagnostics/orders/:id`、`/api/ops/diagnostics/jobs/:id` 与 `/api/ops/diagnostics/queue` 需要运营身份，可用待办关联的任务 ID 追查站内通知，响应不含渠道流水和用户联系方式。
+- 受控账单导入：在显式local/ci与mock配置下，使用 `pnpm --filter @timeleft-shanghai/api reconcile:import <账单JSON路径> <已核验SHA256>`；必须设置 `FINANCIAL_CASE_OWNER`。导入完成不代表待办已经处理完毕。
+
+真实渠道worker外发、生产迁移及收费仍须独立放行。当前实现和未验收项见 [A2实施记录](docs/stage2/2026-09-29/IMPLEMENTATION_STATUS.md)。
+
+历史模拟收款认领、责任人/独立复核及有限待办结案步骤见 [本地资金操作手册](docs/stage2/2026-09-29/LOCAL_FUNDING_RUNBOOK.md)。CLI不会将缺少证据的资金事项强制结案，也不替代生产管理员认证。

@@ -29,6 +29,11 @@ button {
   padding: 32px 0 48px;
 }
 
+.supply-form { margin: 18px 0 24px; }
+.supply-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+.supply-grid label { display: grid; gap: 5px; font-size: 13px; font-weight: 700; }
+.supply-grid input, .supply-grid select { width: 100%; padding: 9px; border: 1px solid #d8bea4; border-radius: 8px; font: inherit; background: white; }
+
 .ops-header {
   position: relative;
   display: grid;

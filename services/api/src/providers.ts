@@ -1,4 +1,5 @@
-import { createSign, randomUUID } from "node:crypto";
+import { verifyChannelResponse, parseChannelPaymentTime } from "./wechat-response.js";
+import { createSign, randomUUID, X509Certificate } from "node:crypto";
 import { readFileSync } from "node:fs";
 
 export type ProviderMode = "mock" | "wechat";
@@ -12,6 +13,7 @@ export interface ProviderHttpRequest {
   method?: "GET" | "POST";
   body?: unknown;
   headers?: Record<string, string>;
+  verifyResponse?: (raw: string, headers: Headers) => void;
 }
 
 export type ProviderHttpClient = (
@@ -45,6 +47,9 @@ export interface PhoneProvider {
 
 export interface PaymentProvider {
   mode: ProviderMode;
+  resumePayment?(prepayId: string): WechatMiniProgramPaymentParams;
+  queryPayment?(merchantOrderNo: string): Promise<ChannelPaymentResult>;
+  closePayment?(merchantOrderNo: string): Promise<void>;
   createPayment(input: {
     merchantOrderNo: string;
     amountCents: number;
@@ -62,6 +67,7 @@ export interface PaymentProvider {
 
 export interface RefundProvider {
   mode: ProviderMode;
+  queryRefund?(merchantRefundNo: string): Promise<ChannelRefundResult>;
   createRefund(input: {
     merchantRefundNo: string;
     merchantOrderNo: string;
@@ -79,6 +85,14 @@ export interface RefundProvider {
   }>;
 }
 
+export type ChannelPaymentResult = { merchantOrderNo: string; status: "NOT_FOUND" } | {
+  merchantOrderNo: string; status: "SUCCEEDED" | "PENDING" | "CLOSED";
+  channelTradeNo?: string; paidAt?: string; amountCents: number; currency: "CNY";
+};
+export interface ChannelRefundResult {
+  merchantRefundNo: string; status: "SUCCEEDED" | "PENDING" | "CLOSED" | "FAILED";
+  channelRefundNo: string; originalTradeNo: string; amountCents: number; currency: "CNY";
+}
 export interface WechatMiniProgramPaymentParams {
   appId: string;
   timeStamp: string;
@@ -106,6 +120,13 @@ export class ProviderUnavailableError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "ProviderUnavailableError";
+  }
+}
+
+// Only fetchJson constructs this after verifying the exact error response bytes.
+export class VerifiedChannelError extends ProviderUnavailableError {
+  constructor(readonly status: number, readonly code: "ORDER_NOT_EXIST") {
+    super(`Verified channel error: ${code}`);
   }
 }
 
@@ -406,6 +427,36 @@ class WechatPaymentProvider implements PaymentProvider {
     );
   }
 
+  async queryPayment(merchantOrderNo: string): Promise<ChannelPaymentResult> {
+    const path = `/v3/pay/transactions/out-trade-no/${encodeURIComponent(merchantOrderNo)}?mchid=${encodeURIComponent(requireConfigValue(this.env, "WECHAT_PAY_MCH_ID"))}`;
+    let value: Record<string, unknown>;
+    try { value = asRecord(await this.httpClient(signedWechatPayRequest(this.env, this.readFile, path, undefined, "GET"))); }
+    catch (error) {
+      if (error instanceof VerifiedChannelError && error.status === 404 && error.code === "ORDER_NOT_EXIST") {
+        return { merchantOrderNo, status: "NOT_FOUND" };
+      }
+      throw error;
+    }
+    if (value.out_trade_no !== merchantOrderNo || value.mchid !== this.env.WECHAT_PAY_MCH_ID || value.appid !== this.env.WECHAT_MINIAPP_APP_ID) throw new ProviderUnavailableError("Payment query identity mismatch");
+    const amount = asRecord(value.amount);assertPositiveAmount(Number(amount.total));
+    if (typeof amount.total !== "number" || amount.currency !== "CNY") throw new ProviderUnavailableError("Payment query amount invalid");
+    const state = requiredResponseString(value, "trade_state", "payment query");
+    if (!["SUCCESS", "REFUND", "NOTPAY", "USERPAYING", "CLOSED", "REVOKED", "PAYERROR"].includes(state)) throw new ProviderUnavailableError("Unknown payment state");
+    const succeeded = state === "SUCCESS" || state === "REFUND";
+    return { merchantOrderNo, amountCents: amount.total, currency: "CNY",
+      status: succeeded ? "SUCCEEDED" : ["CLOSED", "REVOKED", "PAYERROR"].includes(state) ? "CLOSED" : "PENDING",
+      ...(succeeded ? { channelTradeNo: requiredResponseString(value, "transaction_id", "payment query"), paidAt: parseChannelPaymentTime(value.success_time) } : {}) };
+  }
+  async closePayment(merchantOrderNo: string): Promise<void> {
+    await this.httpClient(signedWechatPayRequest(this.env, this.readFile,
+      `/v3/pay/transactions/out-trade-no/${encodeURIComponent(merchantOrderNo)}/close`,
+      { mchid: requireConfigValue(this.env, "WECHAT_PAY_MCH_ID") }));
+  }
+
+  resumePayment(prepayId: string): WechatMiniProgramPaymentParams {
+    return createMiniProgramPaymentParams(requireConfigValue(this.env, "WECHAT_MINIAPP_APP_ID"), prepayId, this.privateKey());
+  }
+
   private privateKey(): string {
     return this.readFile(requireConfigValue(this.env, "WECHAT_PAY_PRIVATE_KEY_PATH"));
   }
@@ -456,6 +507,20 @@ class WechatRefundProvider implements RefundProvider {
     return { channel: "wechat", ...(channelRefundNo === undefined ? {} : { channelRefundNo }) };
   }
 
+  async queryRefund(merchantRefundNo: string): Promise<ChannelRefundResult> {
+    const value = asRecord(await this.httpClient(signedWechatPayRequest(this.env, this.readFile,
+      `/v3/refund/domestic/refunds/${encodeURIComponent(merchantRefundNo)}`, undefined, "GET")));
+    if (value.out_refund_no !== merchantRefundNo) throw new ProviderUnavailableError("Refund query identity mismatch");
+    const amount = asRecord(value.amount);assertPositiveAmount(Number(amount.refund));
+    if (typeof amount.refund !== "number" || amount.currency !== "CNY") throw new ProviderUnavailableError("Refund query amount invalid");
+    const state = requiredResponseString(value, "status", "refund query");
+    if (!["SUCCESS", "PROCESSING", "CLOSED", "ABNORMAL"].includes(state)) throw new ProviderUnavailableError("Unknown refund state");
+    return { merchantRefundNo, amountCents: amount.refund, currency: "CNY",
+      status: state === "SUCCESS" ? "SUCCEEDED" : state === "PROCESSING" ? "PENDING" : state === "CLOSED" ? "CLOSED" : "FAILED",
+      channelRefundNo: requiredResponseString(value, "refund_id", "refund query"),
+      originalTradeNo: requiredResponseString(value, "transaction_id", "refund query") };
+  }
+
   async applySuccessCallback(): Promise<{
     channelRefundNo: string;
     callbackNonce: string;
@@ -476,22 +541,27 @@ function signedWechatPayRequest(
   env: ProviderEnv,
   readFile: (path: string) => string,
   path: string,
-  body: Record<string, unknown>,
+  body: Record<string, unknown> | undefined,
+  method: "GET" | "POST" = "POST",
 ): ProviderHttpRequest {
   const timestamp = String(Math.floor(Date.now() / 1000));
   const nonce = randomUUID().replace(/-/g, "");
-  const rawBody = JSON.stringify(body);
+  const rawBody = body === undefined ? "" : JSON.stringify(body);
   const privateKey = readFile(requireConfigValue(env, "WECHAT_PAY_PRIVATE_KEY_PATH"));
   const signer = createSign("RSA-SHA256");
-  signer.update(`POST\n${path}\n${timestamp}\n${nonce}\n${rawBody}\n`);
+  signer.update(`${method}\n${path}\n${timestamp}\n${nonce}\n${rawBody}\n`);
   signer.end();
   const signature = signer.sign(privateKey, "base64");
   const mchid = requireConfigValue(env, "WECHAT_PAY_MCH_ID");
   const serialNo = requireConfigValue(env, "WECHAT_PAY_CERT_SERIAL_NO");
   return {
     url: `https://api.mch.weixin.qq.com${path}`,
-    method: "POST",
-    body,
+    method,
+    ...(body === undefined ? {} : { body }),
+    verifyResponse: (raw, headers) => {
+      const certificate = readFile(requireConfigValue(env, "WECHAT_PAY_PLATFORM_CERT_PATH"));
+      verifyChannelResponse(raw, headers, { certificate, serial: new X509Certificate(certificate).serialNumber });
+    },
     headers: {
       authorization: `WECHATPAY2-SHA256-RSA2048 mchid=\"${mchid}\",nonce_str=\"${nonce}\",timestamp=\"${timestamp}\",serial_no=\"${serialNo}\",signature=\"${signature}\"`,
       accept: "application/json",
@@ -541,22 +611,41 @@ function requireConfigValue(env: ProviderEnv, key: string): string {
   return value;
 }
 
-async function fetchJson(request: ProviderHttpRequest): Promise<unknown> {
+export async function fetchJson(request: ProviderHttpRequest): Promise<unknown> {
   const method = request.method ?? "GET";
-  const init: RequestInit = { method };
+  const init: RequestInit = { method, redirect: "error", signal: AbortSignal.timeout(10_000) };
   if (request.headers !== undefined) init.headers = request.headers;
   if (request.body !== undefined) {
     init.body = JSON.stringify(request.body);
     init.headers = { ...request.headers, "content-type": "application/json" };
   }
   const response = await fetch(request.url, init);
+  const reader = response.body?.getReader();
+  const chunks: Uint8Array[] = [];
+  let bytes = 0;
+  if (reader) {
+    for (;;) {
+      const part = await reader.read();
+      if (part.done) break;
+      bytes += part.value.byteLength;
+      if (bytes > 1_048_576) { await reader.cancel(); throw new ProviderUnavailableError("Channel response exceeds size limit"); }
+      chunks.push(part.value);
+    }
+  }
+  const raw = Buffer.concat(chunks).toString("utf8");
+  request.verifyResponse?.(raw, response.headers);
   if (!response.ok) {
+    if (request.verifyResponse && response.status === 404) {
+      let code: unknown;
+      try { code = JSON.parse(raw)?.code; } catch { /* Invalid errors remain unavailable. */ }
+      if (code === "ORDER_NOT_EXIST") throw new VerifiedChannelError(404, code);
+    }
     throw new ProviderUnavailableError(
       `WeChat channel request failed with status ${response.status}`,
     );
   }
   try {
-    return await response.json();
+    return response.status === 204 ? {} : JSON.parse(raw);
   } catch {
     throw new ProviderUnavailableError("WeChat channel returned invalid JSON");
   }

@@ -11,6 +11,6 @@ describe("formatCandidateProfile", () => {
       budgetRange: "150-250",
       tableVibe: "轻松聊天",
       acceptableTableSizes: [4, 6],
-    })).toBe("徐汇 / 静安 · 周六晚 · 预算 150-250 · 轻松聊天 · 可接受 4 / 6 人桌");
+    })).toBe("徐汇 / 静安 · 周六晚 · 预算 150-250 · 轻松聊天 · 可接受 4 / 6 人桌 · 饮食限制 无");
   });
 });

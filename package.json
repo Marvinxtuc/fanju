@@ -13,11 +13,14 @@
     "check:copy": "tsx scripts/check-visible-copy.ts",
     "check:secrets": "tsx scripts/check-secrets.ts",
     "check:pii": "pnpm check:secrets",
-    "probe:api:state-machine": "tsx services/api/src/probe-state-machine.ts",
-    "test": "pnpm db:generate && pnpm -r test",
-    "test:api:db": "RUN_DB_TESTS=1 pnpm --filter @timeleft-shanghai/api test",
-    "test:providers": "pnpm --filter @timeleft-shanghai/api test -- providers.test.ts",
-    "typecheck": "pnpm db:generate && pnpm -r typecheck"
+    "probe:api:state-machine": "pnpm prepare:test && tsx services/api/src/probe-state-machine.ts",
+    "test": "pnpm prepare:test && pnpm -r test",
+    "test:api:db": "pnpm prepare:test && RUN_DB_TESTS=1 pnpm --filter @timeleft-shanghai/api test",
+    "test:providers": "pnpm prepare:test && pnpm --filter @timeleft-shanghai/api exec vitest run src/providers.test.ts",
+    "typecheck": "pnpm prepare:test && pnpm -r typecheck",
+    "prepare:test": "pnpm db:generate && pnpm --filter @timeleft-shanghai/shared build",
+    "test:ci": "pnpm prepare:test && node scripts/test-ci.mjs",
+    "verify:release": "node scripts/verify-release.mjs"
   },
   "devDependencies": {
     "@types/node": "26.0.0",

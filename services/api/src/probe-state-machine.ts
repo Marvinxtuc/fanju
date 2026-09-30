@@ -6,17 +6,19 @@ import {
   type RefundStatus,
 } from "./generated/prisma/client.js";
 import { buildApp } from "./app.js";
+import { agreementHash } from "./orders/agreement.js";
 
 const connectionString =
   process.env.DATABASE_URL ??
   "postgresql://timeleft:timeleft_dev_password@localhost:5432/timeleft_shanghai?schema=public";
 
 const runId = `probe_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+const agreementVersion = `${runId}_agreement`;
 const prisma = new PrismaClient({
   adapter: new PrismaPg({ connectionString }),
 });
 
-type HttpMethod = "GET" | "POST";
+type HttpMethod = "GET" | "POST" | "PUT";
 
 interface ProbeContext {
   baseUrl: string;
@@ -25,7 +27,11 @@ interface ProbeContext {
 
 async function main(): Promise<void> {
   await cleanupProbeData();
-  const app = await buildApp({ prisma });
+  const agreementText = "仅用于本地状态机探针的协议文本";
+  await prisma.agreementPolicy.create({ data: { version: agreementVersion, text: agreementText,
+    textHash: agreementHash(agreementText), source: "isolated-state-machine-probe",
+    active: true, activatedAt: new Date("2026-01-01T00:00:00.000Z") } });
+  const app = await buildApp({ prisma, providerEnv: { NODE_ENV: "test", APP_ENV: "local", LOCAL_DEMO_ENABLED: "true" } });
 
   try {
     await app.listen({ port: 0, host: "127.0.0.1" });
@@ -54,19 +60,20 @@ async function main(): Promise<void> {
 }
 
 async function probeExpiredRegistration(context: ProbeContext): Promise<void> {
-  const activityId = await createActivity(context, {
-    registrationEndsAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
-  });
+  const activityId = await createActivity(context);
+  await prisma.activity.update({ where: { id: activityId }, data: {
+    registrationEndsAt: new Date(Date.now() - 60 * 60 * 1000),
+  } });
   const userToken = await loginBoundUser(context.baseUrl, "expired", "13500200001");
   const response = await request(context.baseUrl, "POST", "/api/orders", userToken, {
     activityId,
-    agreementVersion: "v1",
+    agreementVersion,
   });
   assertStatus("expired registration rejects order creation", response.status, 409);
 }
 
 async function probeCapacityLimit(context: ProbeContext): Promise<void> {
-  const activityId = await createActivity(context, { capacity: 4 });
+  const activityId = await createActivity(context, { capacity: 4, targetSize: 4, maxSize: 4 });
   for (let index = 0; index < 4; index += 1) {
     const userToken = await loginBoundUser(
       context.baseUrl,
@@ -91,7 +98,12 @@ async function probeDuplicateRegistration(context: ProbeContext): Promise<void> 
   const first = await createOrder(context.baseUrl, userToken, activityId);
   assertStatus("first duplicate probe order succeeds", first.status, 200);
   const duplicate = await createOrder(context.baseUrl, userToken, activityId);
-  assertStatus("duplicate registration rejects second order", duplicate.status, 409);
+  assertStatus("duplicate pending registration reuses the first order", duplicate.status, 200);
+  const firstBody = await first.json() as { order: { id: string } };
+  const duplicateBody = await duplicate.json() as { order: { id: string }; reused: boolean };
+  if (!duplicateBody.reused || duplicateBody.order.id !== firstBody.order.id) {
+    throw new Error("Duplicate registration created or returned a different order");
+  }
 }
 
 async function probeRefundCallbackRequiresApproval(context: ProbeContext): Promise<void> {
@@ -255,7 +267,7 @@ async function createOrder(
 ): Promise<Response> {
   return request(baseUrl, "POST", "/api/orders", userToken, {
     activityId,
-    agreementVersion: "v1",
+    agreementVersion,
     amountCents: 1,
   });
 }
@@ -339,10 +351,16 @@ async function loginBoundUser(
   const bind = await request(baseUrl, "POST", "/api/mock/phone", token, { phone });
   assertStatus("phone bind succeeds", bind.status, 200);
   const consent = await request(baseUrl, "POST", "/api/consents", token, {
-    agreementVersion: "v1",
+    agreementVersion,
     source: "state-machine-probe",
   });
   assertStatus("agreement confirmation succeeds", consent.status, 200);
+  const profile = await request(baseUrl, "PUT", "/api/profile", token, {
+    preferredAreas: ["徐汇"], availableTimes: ["周六晚"], tastePreferences: [],
+    dietaryRestrictions: ["无"], budgetRange: "150-250", tableVibe: "轻松聊天",
+    acceptableTableSizes: [4, 5, 6, 7, 8],
+  });
+  assertStatus("questionnaire submission succeeds", profile.status, 200);
   return token;
 }
 
@@ -461,6 +479,13 @@ async function cleanupProbeData(): Promise<void> {
   });
   await prisma.tableGroup.deleteMany({ where: { id: { in: tableGroupIds } } });
   await prisma.refund.deleteMany({ where: { id: { in: refundIds } } });
+  const duties = await prisma.refundObligation.findMany({ where: { orderId: { in: orderIds } }, select: { id: true } });
+  await prisma.durableJob.deleteMany({ where: { refId: { in: [...paymentIds, ...refundIds, ...duties.map(d => d.id)] } } });
+  await prisma.refundObligation.deleteMany({ where: { orderId: { in: orderIds } } });
+  const receipts = await prisma.channelReceipt.findMany({ where: { orderId: { in: orderIds } }, select: { id: true, channelTradeNo: true } });
+  await prisma.auditLog.deleteMany({ where: { targetId: { in: receipts.map(r => r.id) } } });
+  await prisma.mockChannelTransaction.deleteMany({ where: { OR: [{ channelNo: { in: receipts.map(r => r.channelTradeNo) } }, { originalTradeNo: { in: receipts.map(r => r.channelTradeNo) } }] } });
+  await prisma.channelReceipt.deleteMany({ where: { orderId: { in: orderIds } } });
   await prisma.payment.deleteMany({ where: { id: { in: paymentIds } } });
   await prisma.order.deleteMany({ where: { id: { in: orderIds } } });
   await prisma.activity.deleteMany({ where: { id: { in: activityIds } } });
@@ -469,6 +494,7 @@ async function cleanupProbeData(): Promise<void> {
   await prisma.userProfile.deleteMany({ where: { userId: { in: userIds } } });
   await prisma.user.deleteMany({ where: { id: { in: userIds } } });
   await prisma.adminUser.deleteMany({ where: { id: { in: adminIds } } });
+  await prisma.agreementPolicy.deleteMany({ where: { version: agreementVersion } });
 }
 
 let phoneCounter = 400;

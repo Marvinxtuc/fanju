@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Input, Text, Textarea, View } from "@tarojs/components";
-import { navigateTo } from "@tarojs/taro";
+import { navigateTo, useRouter, useDidShow, useDidHide } from "@tarojs/taro";
 
-import { getLastOrder, getNotifications, submitOrderReport, submitOrderReview, type InboxNotification, type OrderDetail } from "../../api";
+import { getOrderPage, continueOrderPayment, requestOrderCancel, submitOrderReport, submitOrderReview, type InboxNotification, type OrderDetail } from "../../api";
+
+import { orderStatusLabel } from "../../order-status";
 
 export default function OrderDetailPage(): JSX.Element {
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [notifications, setNotifications] = useState<InboxNotification[]>([]);
+  const [notificationUnavailable, setNotificationUnavailable] = useState(false);
   const [error, setError] = useState("");
   const [reportType, setReportType] = useState("现场异常");
   const [reportContent, setReportContent] = useState("");
@@ -18,23 +21,60 @@ export default function OrderDetailPage(): JSX.Element {
   const [reviewMessage, setReviewMessage] = useState("");
   const [reviewBusy, setReviewBusy] = useState(false);
 
-  useEffect(() => {
+  const orderId = useRouter().params.id;
+  const generation = useRef(0);
+  const loadSequence = useRef(0);
+  const actionPending = useRef(false);
+  const [actionBusy, setActionBusy] = useState(false);
+  const [actionMessage, setActionMessage] = useState("");
+  const [cancelReason, setCancelReason] = useState("");
+  useDidShow(() => {
+    generation.current++; actionPending.current = false;
+    setOrder(null); setNotifications([]); setActionBusy(false); setReviewBusy(false); setReportBusy(false);
+    setActionMessage(""); setReviewMessage(""); setReportMessage("");
     void load();
-  }, []);
+  });
+  useDidHide(() => { generation.current++; loadSequence.current++; setOrder(null); setNotifications([]); });
 
   async function load(): Promise<void> {
+    const current = generation.current;
+    const sequence = ++loadSequence.current;
     try {
       setError("");
-      const [nextOrder, nextNotifications] = await Promise.all([getLastOrder(), getNotifications()]);
-      setOrder(nextOrder);
-      setNotifications(nextNotifications);
+      const result = await getOrderPage(orderId);
+      if (current !== generation.current || sequence !== loadSequence.current) return;
+      setOrder(result.order); setNotifications(result.notifications.filter(notification => notification.orderId === result.order.id));
+      setNotificationUnavailable(result.notificationUnavailable);
     } catch (loadError) {
+      if (current !== generation.current || sequence !== loadSequence.current) return;
+      setOrder(null); setNotifications([]);
       setError(loadError instanceof Error ? loadError.message : "订单详情加载失败");
+    }
+  }
+
+  async function act(kind: "pay" | "cancel"): Promise<void> {
+    if (!order || actionPending.current) return;
+    const current = generation.current;
+    actionPending.current = true; setActionBusy(true); setError(""); setActionMessage("");
+    try {
+      const message = kind === "pay" ? await continueOrderPayment(order.id)
+        : (await requestOrderCancel(order.id, cancelReason), "取消申请已受理，退款仍需审核与处理，请查看下方进度");
+      if (current !== generation.current) return;
+      setActionMessage(message);
+      await load();
+    } catch (cause) {
+      if (current !== generation.current) return;
+      await load();
+      if (current !== generation.current) return;
+      setError(kind === "pay" ? "付款未完成或结果待确认，订单已保留，可刷新后继续。" : cause instanceof Error ? cause.message : "取消申请失败");
+    } finally {
+      if (current === generation.current) { actionPending.current = false; setActionBusy(false); }
     }
   }
 
   async function submitReview(): Promise<void> {
     if (!order) return;
+    const current = generation.current;
     try {
       setError("");
       setReviewMessage("");
@@ -42,27 +82,34 @@ export default function OrderDetailPage(): JSX.Element {
       const score = Number(reviewScore);
       const tags = reviewTags.split(/[,，]/).map((tag) => tag.trim()).filter(Boolean);
       const review = await submitOrderReview(order.id, score, tags, reviewContent);
+      if (current !== generation.current) return;
       setReviewMessage(`已保存 ${review.score} 分评价，仅供运营改进体验。`);
     } catch (submitError) {
+      if (current !== generation.current) return;
+      setOrder(null); setNotifications([]);
       setError(submitError instanceof Error ? submitError.message : "提交评价失败");
     } finally {
-      setReviewBusy(false);
+      if (current === generation.current) setReviewBusy(false);
     }
   }
 
   async function submitReport(): Promise<void> {
     if (!order) return;
+    const current = generation.current;
     try {
       setError("");
       setReportMessage("");
       setReportBusy(true);
       const report = await submitOrderReport(order.id, reportType, reportContent);
+      if (current !== generation.current) return;
       setReportContent("");
       setReportMessage(`已提交，编号 ${report.id}，等待运营处理。`);
     } catch (submitError) {
+      if (current !== generation.current) return;
+      setOrder(null); setNotifications([]);
       setError(submitError instanceof Error ? submitError.message : "提交反馈失败");
     } finally {
-      setReportBusy(false);
+      if (current === generation.current) setReportBusy(false);
     }
   }
 
@@ -74,10 +121,28 @@ export default function OrderDetailPage(): JSX.Element {
       <View className="detail-header">
         <Text className="eyebrow">到店小票</Text>
         <Text className="title">{order ? "饭局已入票" : "暂无饭票"}</Text>
-        <Text className="summary">订单金额由服务端计算；当前使用 mock 支付，不接生产真实支付。</Text>
+        <Text className="summary">查看报名、付款与活动安排，餐费到店自理。</Text>
       </View>
 
       {error ? <Text className="error-text">错误：{error}</Text> : null}
+
+      <Button disabled={actionBusy} onClick={() => void load()}>刷新订单</Button>
+      <Button onClick={() => navigateTo({ url: "/pages/order-list/index" })}>全部订单</Button>
+      <Button onClick={() => navigateTo({ url: "/pages/mock-auth/index" })}>重新登录与授权</Button>
+      {actionMessage ? <Text className="summary">{actionMessage}</Text> : null}
+      {order?.paymentState === "REQUIRES_REVIEW" ? <Text>付款状态待核查，请联系运营。</Text> : null}
+      {order?.paymentState === "PROCESSING" ? <Text>付款结果处理中，请以刷新后的订单状态为准。</Text> : null}
+      {order?.status === "PENDING_PAYMENT" ? <Button disabled={actionBusy || order.paymentState === "REQUIRES_REVIEW"} onClick={() => void act("pay")}>继续付款</Button> : null}
+      {order?.canRequestCancel ? <View className="detail-block">
+        <Input value={cancelReason} maxlength={200} onInput={event => setCancelReason(event.detail.value)} placeholder="请填写取消原因" />
+        <Button disabled={actionBusy || !cancelReason.trim()} onClick={() => void act("cancel")}>
+          {order.status === "PENDING_PAYMENT" ? "取消待付报名" : "申请取消与退款"}
+        </Button>
+      </View> : null}
+      {order?.refunds.map(refund => <View key={refund.id} className="detail-block">
+        <Text>退款 ¥{(refund.amountCents / 100).toFixed(2)} · {refund.requiresReview ? "待人工核查" : orderStatusLabel(refund.status)}</Text>
+        <Text className="muted">{refund.updatedAt}</Text>
+      </View>)}
 
       <View className="ticket-card">
         <View className="ticket-row">
@@ -85,7 +150,7 @@ export default function OrderDetailPage(): JSX.Element {
             <Text className="ticket-label">ORDER</Text>
             <Text className="meal-card__title">{order?.id ?? "暂无订单"}</Text>
           </View>
-          <Text className="stamp stamp--green">{order?.status ?? "-"}</Text>
+          <Text className="stamp stamp--green">{order ? orderStatusLabel(order.status) : "-"}</Text>
         </View>
         <View className="ticket-divider" />
         <Text className="muted">服务费/订位费</Text>
@@ -111,7 +176,7 @@ export default function OrderDetailPage(): JSX.Element {
 
       <View className="detail-block">
         <Text className="block-title">取消规则</Text>
-        <Text className="summary">T-24 前取消进入运营快速审核，审核通过后按测试退款流程处理。</Text>
+        <Text className="summary">取消申请需审核；申请受理不代表退款完成，请以订单中的退款进度为准。</Text>
       </View>
 
       <View className="detail-block">
@@ -147,12 +212,13 @@ export default function OrderDetailPage(): JSX.Element {
 
       <View className="detail-block">
         <Text className="block-title">站内通知</Text>
+        <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/inbox/index" })}>查看全部通知</Button>
         {notifications.length > 0 ? notifications.map((notification) => (
           <View className="notification-card" key={notification.id}>
             <Text className="notification-card__title">{notification.payload?.title ?? "活动状态更新"}</Text>
             <Text className="muted">{notification.payload?.message ?? "请留意订单状态。"}</Text>
           </View>
-        )) : <Text className="muted">当前没有新的站内通知。</Text>}
+        )) : <Text className="muted">{notificationUnavailable ? "通知暂时不可用，可稍后刷新；订单状态不受影响。" : "当前没有新的站内通知。"}</Text>}
       </View>
 
       <View className="action-bar">
