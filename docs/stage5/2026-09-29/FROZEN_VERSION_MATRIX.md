@@ -36,3 +36,7 @@
 保留当前 13 项迁移和全部资金历史，停止新收费与新写入、正常排空 API/worker。恢复此 SHA 对应的已验证产物和匹配的脱敏配置，再执行 readiness、本人历史订单、资金任务、账单覆盖和待办核对；核对未通过时不恢复收费。不将源码 revert 等同于数据库回滚，不使用 reset/clean，不切回 `bc25f5b` 写入新数据库。
 
 G0–G4 仍未签收。正式协议与餐厅规则、真实平台/商户/账单、目标环境代理/备份/告警及真实设备验收继续缺输入。本轮没有真实微信请求、生产迁移/部署、推送或收费。
+
+## API/worker 版本标识与就绪补证
+
+同一独立包以 `RELEASE_VERSION=2e7e012e1f58e093f5913cdaeaa400b4bb7e30a7` 分别运行 events-only/inbox-only worker。数据库记录两个模式的同 SHA 新鲜心跳；API 指定两种 required mode 后，真实 loopback `/ready` 返回 200、missingModes 空。证据 `evidence/freeze/version-ready.json`。`/ready` 本身核对模式、心跳与迁移，不强制版本相等；本次通过额外数据库核对绑定版本，部署准入仍须显式核对实际 API/worker 产物组合，不能仅凭 ready 200 放行混跑。
