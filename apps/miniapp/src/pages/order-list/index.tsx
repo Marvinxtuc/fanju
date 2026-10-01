@@ -1,12 +1,13 @@
 import { useRef, useState } from "react";
 import { Button, Text, View } from "@tarojs/components";
-import { navigateTo, useDidShow, useDidHide } from "@tarojs/taro";
+import { navigateTo, useDidShow, useDidHide, useRouter } from "@tarojs/taro";
 import { listOrders, type OrderSummary } from "../../api";
 import { orderStatusLabel } from "../../order-status";
 import {formalBusinessEnabled} from '../../api';
 import {FormalOrderList} from '../../FormalOrderDetail';
+import {LegacyOrderHistory} from '../../LegacyOrderHistory';
 
-export default function OrderListPage():JSX.Element{return formalBusinessEnabled?<FormalOrderList/>:<LegacyOrderListPage/>;}
+export default function OrderListPage():JSX.Element{const history=useRouter().params.history;return formalBusinessEnabled?(history==='legacy'?<LegacyOrderHistory/>:<FormalOrderList/>):<LegacyOrderListPage/>;}
 function LegacyOrderListPage(): JSX.Element {
   const [orders, setOrders] = useState<OrderSummary[]>([]);
   const [cursor, setCursor] = useState<string | null>(null);

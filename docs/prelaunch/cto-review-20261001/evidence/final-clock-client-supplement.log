@@ -1,0 +1,9 @@
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  06:29:56
+   Duration  224ms (transform 52ms, setup 0ms, import 43ms, tests 81ms, environment 0ms)
+

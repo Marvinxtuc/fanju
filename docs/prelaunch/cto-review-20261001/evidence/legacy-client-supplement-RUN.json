@@ -1,0 +1,18 @@
+{
+  "candidateId": "c18e7dc3a1e34cb22bd6a48d3e8d41704700224697923c934dd19aacd856b4f4",
+  "exitCode": 0,
+  "passed": 6,
+  "scope": "ACTUAL_FORMAL_CLIENT_CODE_WITH_SYNTHETIC_REQUESTS",
+  "command": [
+    "pnpm",
+    "exec",
+    "vitest",
+    "run",
+    "--config",
+    "docs/prelaunch/cto-review-20261001/tests/vitest.config.mts",
+    "--configLoader",
+    "native"
+  ],
+  "stdoutSha256": "3cfdbb6780242dbd52bf4f408b09169f75a105b862a4f0d5fae505627c7e3e84",
+  "productionVerified": false
+}

@@ -1,0 +1,75 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 0/13 modules 1 active 
+ babel-loader › src/app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/14 dependen
+cies 0/13 modules 13 active 
+ ...gm5f4pyaqmjy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/co
+mp.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 137/139 depend
+encies 0/47 modules 46 active 
+ ..._modules/.pnpm/@tarojs+runtime@4.2.0/node_modules/@tarojs/runtime/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 167/200 depend
+encies 3/48 modules 45 active 
+ babel-loader › src/FormalActivityDetail.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 185/203 depend
+encies 6/61 modules 55 active 
+ css-loader › postcss-loader › src/app.css
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 376/448 depend
+encies 42/111 modules 62 active 
+ ...@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/getPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 437/470 depend
+encies 46/123 modules 75 active 
+ ...de_modules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 489/520 depend
+encies 58/135 modules 77 active 
+ ...ules/.pnpm/@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/g
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 567/569 depend
+encies 88/153 modules 65 active 
+ ...arojs+runtime@4.2.0_@tarojs+shared@4.2.0/node_modules/@tarojs/api/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (70%) finish module graph 
+ InnerGraphPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.42s
+

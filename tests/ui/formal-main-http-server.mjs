@@ -20,6 +20,11 @@ const activity=await db.activity.create({data:{id:prefix+'_activity',restaurantI
 const rows=[];for(const role of ['OPS','RESTAURANT'])rows.push(await db.v11Actor.create({data:{id:prefix+'_'+role,personId:prefix+'_'+role+'_person',role,restaurantId:role==='RESTAURANT'?restaurant.id:null,passwordHash:'EXTERNAL_SESSION_ONLY'}}));
 const user=await db.user.create({data:{wechatOpenid:prefix+'_synthetic_openid',phone:'synthetic-authorized-phone'}});
 await db.v11Actor.create({data:{role:'USER',personId:prefix+'_user_person',userId:user.id,passwordHash:'EXTERNAL_SESSION_ONLY'}});
+const legacyActivity=await db.activity.create({data:{...activity,id:prefix+'_legacy_activity',title:'合成旧订单菜单体验'}});
+const legacyOrder=await db.order.create({data:{id:prefix+'_legacy_order',userId:user.id,activityId:legacyActivity.id,amountCents:1234,status:'REFUNDING',agreementVersion:'SYNTHETIC_LEGACY_VERSION'}});
+const legacyRefund=await db.refund.create({data:{id:prefix+'_legacy_refund',orderId:legacyOrder.id,amountCents:234,status:'REFUNDING',reason:'合成历史退款',requestedBy:user.id}});
+const foreignUser=await db.user.create({data:{wechatOpenid:prefix+'_foreign_synthetic'}});
+const foreignOrder=await db.order.create({data:{id:prefix+'_foreign_order',userId:foreignUser.id,activityId:legacyActivity.id,amountCents:9876,status:'PENDING_PAYMENT',agreementVersion:'SYNTHETIC_LEGACY_VERSION'}});
 const now=new Date(),f=formalRuntimeFixture(prefix,now,{memberRemovalEvent:'DECISION_ACCEPTED',refundBatchUtcMinutes:[(now.getUTCHours()*60+now.getUTCMinutes()+1)%1440]});
 const ops={...rows[0],role:'OPS'};
 const archive=await createFormalPolicyArchive(db).archive(f.materialRaw,{sha256:f.context.materialSha256,releaseVersion:f.context.releaseVersion,inheritedBaselineHash:f.material.inheritedBaselineHash},f.trust.evidence,ops);
@@ -35,8 +40,8 @@ const channel={assertBinding(x){if(x.channel!=='wechat'||x.merchantScope!==f.con
 const app=await buildApp({prisma:db,providerEnv:{...env,AUTH_PROVIDER:'wechat',PHONE_PROVIDER:'wechat',WECHAT_MINIAPP_APP_ID:'synthetic-app',WECHAT_MINIAPP_APP_SECRET:'synthetic-test-secret',FEATURE_V11_IDENTITY:'true',FEATURE_V11_FORMAL_BUSINESS:'true',FEATURE_V11_FORMAL_PAYMENT:'true',V11_FORMAL_CASE_OWNER:rows[0].id,V11_CONTROLLED_ACCOUNTS_JSON:JSON.stringify(accounts)},formalRuntimeAuthoritySource:async()=>f.authority(),formalChannel:channel,providerHttpClient:async()=>{throw Error('External channel forbidden');}});
 await app.listen({host:'127.0.0.1',port:0});
 process.send({type:'PRELAUNCH_READY',task_id:'FJ-PRELAUNCH-MASTER-V1.1-20261001-01',owner_id:runtime.owner_id,pid:process.pid,port:app.server.address().port,
- activityId:activity.id,policyId:policy.policyId,userToken:signSession(app,{sub:user.id,role:'USER'}),opsUsername:rows[0].id,restaurantUsername:rows[1].id,password});
+ activityId:activity.id,legacyOrderId:legacyOrder.id,foreignOrderId:foreignOrder.id,policyId:policy.policyId,userToken:signSession(app,{sub:user.id,role:'USER'}),opsUsername:rows[0].id,restaurantUsername:rows[1].id,password});
 const handlers=formalRefundService(db,async()=>f.authority(),channel,rows[0].id).handlers;
 let stopping=false,working;const timer=setInterval(()=>{if(stopping||working)return;working=runOne(db,prefix+'_worker',rows[0].id,handlers,['V11_WECHAT_REFUND'],f.context).catch(()=>{process.send?.({type:'WORKER_FAILURE',code:'FORMAL_TEST_WORKER_FAILED'});}).finally(()=>{working=undefined;});},250);
-process.on('message',async message=>{if(message?.type==='COUNTS')process.send({type:'COUNTS',paymentSends,refundSends,registrations:await db.v11Registration.count({where:{activityId:activity.id}})});});
+process.on('message',async message=>{if(message?.type==='COUNTS')process.send({type:'COUNTS',paymentSends,refundSends,registrations:await db.v11Registration.count({where:{activityId:activity.id}}),legacyOrderVersion:(await db.order.findUniqueOrThrow({where:{id:legacyOrder.id}})).version,legacyRefundState:(await db.refund.findUniqueOrThrow({where:{id:legacyRefund.id}})).status});});
 process.once('SIGTERM',async()=>{stopping=true;clearInterval(timer);await working;await app.close();await db.$disconnect();process.disconnect();});

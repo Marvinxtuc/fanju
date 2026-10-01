@@ -1,8 +1,8 @@
 {
   "baselineCommit": "5b0510052f447051004d8f2ebac950bb99aa8dab",
-  "currentCandidate": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
+  "currentCandidate": "0688cf6cb3c093c9203f220d2627b13b6fe8e43c4c01656b6950112ce291cae0",
   "executionStatus": "ACTIVE_CONTINUATION",
-  "engineeringStatus": "SCOPED_FORMAL_CLIENT_REGRESSION_VERIFIED",
+  "engineeringStatus": "SCOPED_FORMAL_AND_LEGACY_HISTORY_REGRESSION_VERIFIED",
   "productionReady": false,
   "productionActivated": false,
   "realFundsExecuted": false,
@@ -16,9 +16,8 @@
     "mainMiniappAndOps": "IMPLEMENTED_SCOPED_FORMAL_TESTS",
     "fullRegression": "PASS_30_STEPS_CURRENT_CANDIDATE"
   },
-  "evidence": "docs/prelaunch/evidence/final-2026-10-01T16-09-57-573Z/RUNS.json",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T22-28-05-609Z/RUNS.json",
   "next": [
-    "Legacy Order visibility integration without erasing obligations",
     "Historical channel recovery configuration and formal rights branch acceptance",
     "Update complete handoff after remaining implementation"
   ]

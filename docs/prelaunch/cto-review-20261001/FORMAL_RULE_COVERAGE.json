@@ -1,5 +1,5 @@
 {
-  "candidateId": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
+  "candidateId": "0688cf6cb3c093c9203f220d2627b13b6fe8e43c4c01656b6950112ce291cae0",
   "ruleCount": 104,
   "scenarioCount": 139,
   "rules": [
@@ -28401,6 +28401,6 @@
   ],
   "verification": "CURRENT_FORMAL_SUITES_PASS_NOT_ALL_RULE_BRANCHES_ASSERTED",
   "productionApproved": false,
-  "currentCandidate": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
-  "finalEvidence": "docs/prelaunch/evidence/final-2026-10-01T16-09-57-573Z/RUNS.json"
+  "currentCandidate": "0688cf6cb3c093c9203f220d2627b13b6fe8e43c4c01656b6950112ce291cae0",
+  "finalEvidence": "docs/prelaunch/evidence/final-2026-10-01T22-28-05-609Z/RUNS.json"
 }

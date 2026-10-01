@@ -114,7 +114,11 @@ test('main application formal restaurant proposal and platform price approval',a
    assert.equal(await runOne(db,prefix+'_worker',opsRow.id,refunds.handlers,['V11_WECHAT_REFUND'],f.context),false);
    const delay=Date.parse(decision.batchAt)-Date.now()+30;assert.ok(delay>=0&&delay<65000,'synthetic batch must be imminent');
    await new Promise(resolve=>setTimeout(resolve,delay));
-   assert.equal(await runOne(db,prefix+'_worker',opsRow.id,refunds.handlers,['V11_WECHAT_REFUND'],f.context),true);assert.equal(refundSends,1);
+   // Queue eligibility uses PostgreSQL clock_timestamp, not this process clock.
+   // Bound the polling without moving runAt or bypassing the batch gate.
+   let claimed=false;const claimDeadline=Date.now()+3000;
+   while(!claimed&&Date.now()<claimDeadline){claimed=await runOne(db,prefix+'_worker',opsRow.id,refunds.handlers,['V11_WECHAT_REFUND'],f.context);if(!claimed)await new Promise(resolve=>setTimeout(resolve,50));}
+   assert.equal(claimed,true,'refund job must become due on the database clock');assert.equal(refundSends,1);
    assert.equal(await runOne(db,prefix+'_worker',opsRow.id,refunds.handlers,['V11_WECHAT_REFUND'],f.context),false);
    const refundQuery=await app.inject({method:'POST',url:'/api/v11/formal/registrations/'+reg.id+'/refunds/query',headers,payload:{}});assert.equal(refundQuery.statusCode,200,refundQuery.body);assert.equal(refundQuery.json().results[0].kind,'CONFIRMED');
    assert.equal((await db.v11RefundInstruction.findUniqueOrThrow({where:{id:decision.instructionIds[0]}})).state,'CONFIRMED');

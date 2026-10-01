@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+ok 1 - real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+  ---
+  duration_ms: 5084.477083
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5167.884416

@@ -7,8 +7,9 @@ import { getOrderPage, continueOrderPayment, requestOrderCancel, submitOrderRepo
 import { orderStatusLabel } from "../../order-status";
 import {formalBusinessEnabled} from '../../api';
 import {FormalOrderDetail} from '../../FormalOrderDetail';
+import {LegacyOrderHistory} from '../../LegacyOrderHistory';
 
-export default function OrderDetailPage():JSX.Element{return formalBusinessEnabled?<FormalOrderDetail/>:<LegacyOrderDetailPage/>;}
+export default function OrderDetailPage():JSX.Element{const history=useRouter().params.history;return formalBusinessEnabled?(history==='legacy'?<LegacyOrderHistory/>:<FormalOrderDetail/>):<LegacyOrderDetailPage/>;}
 function LegacyOrderDetailPage(): JSX.Element {
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [notifications, setNotifications] = useState<InboxNotification[]>([]);

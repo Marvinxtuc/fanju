@@ -23,7 +23,7 @@ export function FormalOrderDetail():JSX.Element{
    {['ENDED','EXPIRED'].includes(record.state)&&<Button disabled={busy} onClick={()=>void run(async()=>{const activityId=await beginNewFormalAttempt(record);await navigateTo({url:'/pages/activity-detail/index?id='+encodeURIComponent(activityId)});})}>重新阅读规则并申请报名</Button>}
    <Button disabled={busy||record.state!=='PENDING_PAYMENT'} onClick={()=>void run(pay)}>继续支付</Button><Button disabled={busy} onClick={()=>void run(applyRefund)}>申请取消及退款</Button></>}
   <Button disabled={busy||!id} onClick={()=>void run(load)}>刷新报名</Button><Button disabled={busy||!record} onClick={()=>void run(query)}>核对收款与退款进度</Button>
-  <Button onClick={()=>navigateTo({url:'/pages/mock-auth/index'})}>登录与授权</Button><Button onClick={()=>navigateTo({url:'/pages/money-records/index'})}>历史资金记录</Button>
+  <Button onClick={()=>navigateTo({url:'/pages/mock-auth/index'})}>登录与授权</Button><Button onClick={()=>navigateTo({url:'/pages/order-list/index?history=legacy'})}>旧版本订单记录</Button><Button onClick={()=>navigateTo({url:'/pages/money-records/index'})}>历史资金记录</Button>
  </View>;
 }
 export function FormalOrderList():JSX.Element{
@@ -32,6 +32,6 @@ export function FormalOrderList():JSX.Element{
  async function load(next?:string){if(pending.current)return;pending.current=true;const epoch=generation.current;setBusy(true);setError('');try{const data=await formalRequest<{registrations:FormalRegistrationDetail[];nextCursor:string|null}>('/api/v11/formal/registrations'+(next?'?cursor='+encodeURIComponent(next):''));if(epoch===generation.current){setRows(previous=>next?[...previous,...data.registrations]:data.registrations);setCursor(data.nextCursor);}}catch(e){if(epoch===generation.current){setRows([]);setCursor(null);setError(e instanceof Error?e.message:'报名查询未完成');}}finally{if(epoch===generation.current){pending.current=false;setBusy(false);}}}
  return <View className="page"><Text className="title">我的报名</Text>{error&&<Text className="error-text">{error}</Text>}<Button disabled={busy} onClick={()=>void load()}>刷新报名记录</Button>
   {rows.map(r=><View key={r.id}><Text>{r.title} · {r.state}</Text><Text>F ¥{(r.F/100).toFixed(2)}；D ¥{(r.D/100).toFixed(2)}；合计 ¥{(r.total/100).toFixed(2)}</Text><Button onClick={()=>navigateTo({url:'/pages/order-detail/index?id='+encodeURIComponent(r.id)})}>查看报名及退款</Button></View>)}
-  {cursor&&<Button disabled={busy} onClick={()=>void load(cursor)}>下一页</Button>}<Button onClick={()=>navigateTo({url:'/pages/money-records/index'})}>历史资金记录</Button>
+  {cursor&&<Button disabled={busy} onClick={()=>void load(cursor)}>下一页</Button>}<Button onClick={()=>navigateTo({url:'/pages/order-list/index?history=legacy'})}>旧版本订单记录</Button><Button onClick={()=>navigateTo({url:'/pages/money-records/index'})}>历史资金记录</Button>
  </View>;
 }
