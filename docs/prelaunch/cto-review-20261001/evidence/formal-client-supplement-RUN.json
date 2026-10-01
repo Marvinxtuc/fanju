@@ -1,7 +1,7 @@
 {
-  "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9",
+  "candidateId": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
   "exitCode": 0,
-  "passed": 4,
+  "passed": 6,
   "scope": "ACTUAL_FORMAL_CLIENT_CODE_WITH_SYNTHETIC_REQUESTS",
   "command": [
     "pnpm",
@@ -13,7 +13,7 @@
     "--configLoader",
     "native"
   ],
-  "testSha256": "1e3e483b0c2b00ce580242e7f1f01c72835f357a0eefbf55b436875f1368d5cf",
-  "reportSha256": "053fc853e7ab15231849405848009129819fe81372215a635e89d3e2f25af4c4",
+  "testSha256": "b9a4f9d2ca09eb212cd575fbb2425b97be3c680b267c2413c6ba4f7f7d11bea8",
+  "reportSha256": "4e0e9e6d7550e09d1269222f1d9b6fc07381ee36c81b0eb31cc72e30fec4572d",
   "productionVerified": false
 }

@@ -1,0 +1,25 @@
+{
+  "candidateId": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
+  "afterCandidateId": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
+  "startedAt": "2026-10-01T16:12:07.654Z",
+  "finishedAt": "2026-10-01T16:13:01.483Z",
+  "command": [
+    "pnpm",
+    "exec",
+    "vitest",
+    "run",
+    "--config",
+    "tests/ui/vitest.formal-http-dom.config.mts",
+    "--configLoader",
+    "native",
+    "--no-cache",
+    "--reporter=default",
+    "--reporter=json",
+    "--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/cto-review-20261001/evidence/formal-dom-2026-10-01T16-12-07.171Z/vitest.json"
+  ],
+  "exitCode": 0,
+  "workerFailure": false,
+  "nativePassed": 2,
+  "scope": "ACTUAL_MAIN_COMPONENTS_AND_FORMAL_HTTP_WITH_ISOLATED_SYNTHETIC_TRANSPORT",
+  "realPlatformVerified": false
+}

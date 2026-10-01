@@ -9,7 +9,7 @@ const filters = ["今晚", "明天", "周末", "新店", "火锅", "日料", "Br
 
 export default function HomePage(): JSX.Element {
   const [activities, setActivities] = useState<ActivitySummary[]>([]);
-  const [error, setError] = useState("");const [cursor,setCursor]=useState<string|null>(null),[busy,setBusy]=useState(false);const epoch=useRef(0),pending=useRef(false);
+  const [error, setError] = useState("");const [unavailable,setUnavailable]=useState(0);const [cursor,setCursor]=useState<string|null>(null),[busy,setBusy]=useState(false);const epoch=useRef(0),pending=useRef(false);
 
   useEffect(() => {
     void load();return()=>{epoch.current++;};
@@ -17,7 +17,7 @@ export default function HomePage(): JSX.Element {
 
   async function load(next?:string): Promise<void> {
     if(pending.current)return;pending.current=true;const generation=epoch.current;setBusy(true);
-    try {setError('');const result=await listActivityPage(next);if(generation===epoch.current){setActivities(old=>next?[...old,...result.activities]:result.activities);setCursor(result.nextCursor);}}
+    try {setError('');const result=await listActivityPage(next);if(generation===epoch.current){setActivities(old=>next?[...old,...result.activities]:result.activities);setCursor(result.nextCursor);setUnavailable(old=>next?old+result.unavailableCount:result.unavailableCount);}}
     catch(loadError){if(generation===epoch.current)setError(loadError instanceof Error?loadError.message:'活动列表加载失败');}
     finally{if(generation===epoch.current){pending.current=false;setBusy(false);}}
   }
@@ -65,6 +65,8 @@ export default function HomePage(): JSX.Element {
         </View>
       </View>
 
+      <Button disabled={busy} onClick={()=>void load()}>刷新活动</Button>
+      {unavailable>0&&<Text>有 {unavailable} 项活动暂不可报名，请稍后刷新。</Text>}
       {cursor&&<Button disabled={busy} onClick={()=>void load(cursor)}>下一页活动</Button>}
       {error ? <Text className="error-text">错误：{error}</Text> : null}
 

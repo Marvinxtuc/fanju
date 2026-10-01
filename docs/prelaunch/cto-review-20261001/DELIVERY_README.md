@@ -2,7 +2,7 @@
 
 基线5b0510052f447051004d8f2ebac950bb99aa8dab，独立worktree codex/fanju-stage0-baseline。未覆盖主工作区或后续成果。当前候选见CURRENT_SOURCE_SNAPSHOT.json。
 
-已完成正式主交易/退款/对账/政策来源接线及本轮同候选回归：30步骤全部PASS；shared226、API342、miniapp36、ops33、旧DOM18、进程261及独占空库HTTP1。A1 52属于shared226，不重复累计；正式DOM1包含在进程测试中。补充正式客户端4及保留历史回滚拒绝1独立留证。四项新迁移上/空下/重建全部26项通过。本地合成验证不代商户、真机、生产或政策签收。
+已完成正式主交易/退款/对账/政策来源接线及本轮同候选回归：30步骤全部PASS；shared226、API342、miniapp36、ops33、旧DOM18、进程261及独占空库HTTP1。A1 52属于shared226，不重复累计；正式DOM1包含在进程测试中。补充正式客户端6及保留历史回滚拒绝1独立留证。四项新迁移上/空下/重建全部26项通过。本地合成验证不代商户、真机、生产或政策签收。
 
 本轮重点源码：formal-action-authority/runtime-policy/authority-source/policy-consent/supply/registration/payment-service/qualification/refund-service/refund-followup/reconciliation-coverage/lifecycle/business-worker及主miniapp/ops。正式渠道默认关闭、所有恢复保留原渠道和原权益、未决参数明确阻断。未改COMPLETE常量或用空authorizer冒充批准。未激活生产政策，未真实收付，未部署。
 

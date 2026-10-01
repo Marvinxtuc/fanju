@@ -1,0 +1,81 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 0/13 modules 1 active 
+ babel-loader › src/app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/14 dependen
+cies 0/13 modules 13 active 
+ ...jy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%)  
+ ....96_esbuild@_x7kzigfqbs57njkoepaeoxy3su/node_modules/postcss-loader/dist/c
+js.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 154/163 depend
+encies 1/47 modules 46 active 
+ babel-loader › src/FormalActivityDetail.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 171/177 depend
+encies 5/59 modules 43 active 
+ ...orktrees/fanju-stage0-baseline/饭局/packages/shared/dist/rules/prelaunchCl
+ient.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 199/247 depend
+encies 23/64 modules 41 active 
+ ...abel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 365/431 depend
+encies 38/106 modules 65 active 
+ ...@tarojs+runtime@4.2.0/node_modules/@tarojs/runtime/dist/dom-external/eleme
+nt.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 420/466 depend
+encies 46/121 modules 74 active 
+ ...m/@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/superPropG
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 531/533 depend
+encies 70/152 modules 74 active 
+ ...dules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/componen
+ts.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 555/562 depend
+encies 87/152 modules 65 active 
+ ...act@18.3.1/node_modules/react-reconciler/cjs/react-reconciler.production.m
+in.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (70%) finish module graph 
+ InnerGraphPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.40s
+

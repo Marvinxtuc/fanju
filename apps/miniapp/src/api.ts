@@ -94,9 +94,9 @@ export interface UserProfileInput {
   note?: string;
 }
 
-export async function listActivityPage(cursor?:string):Promise<{activities:ActivitySummary[];nextCursor:string|null}>{
- if(formalBusinessEnabled){const data=await apiRequest<{activities:FormalOffer[];nextCursor:string|null}>('/api/v11/formal/activities'+(cursor?'?cursor='+encodeURIComponent(cursor):''));return {activities:data.activities.map(validateFormalOffer),nextCursor:data.nextCursor};}
- return {activities:(await apiRequest<{activities:ActivitySummary[]}>('/api/activities')).activities,nextCursor:null};
+export async function listActivityPage(cursor?:string):Promise<{activities:ActivitySummary[];nextCursor:string|null;unavailableCount:number}>{
+ if(formalBusinessEnabled){const data=await apiRequest<{activities:FormalOffer[];nextCursor:string|null;unavailableCount:number}>('/api/v11/formal/activities'+(cursor?'?cursor='+encodeURIComponent(cursor):''));if(!Array.isArray(data.activities)||!(data.nextCursor===null||validId(data.nextCursor))||!validMoney(data.unavailableCount))throw Error('活动列表资料不完整，请刷新');return {activities:data.activities.map(validateFormalOffer),nextCursor:data.nextCursor,unavailableCount:data.unavailableCount};}
+ return {activities:(await apiRequest<{activities:ActivitySummary[]}>('/api/activities')).activities,nextCursor:null,unavailableCount:0};
 }
 export async function listActivities(): Promise<ActivitySummary[]> {return (await listActivityPage()).activities;}
 
@@ -383,17 +383,19 @@ async function apiRequest<T>(path: string, options: RequestOptions = {}): Promis
   return response.data;
 }
 export interface FormalOffer extends ActivitySummary {depositCents:number;totalCents:number;supplyId:string;policyId:string;waitlistMax:number|null;mealCollection:'DIRECT_TO_RESTAURANT'}
-export interface FormalPolicyDelivery {policyId:string;deliveryId:string;documents:Array<{kind:string;publicText:string}>;fullHashes:Record<string,string>;publicHashes:Record<string,string>}
+export interface FormalPolicyDelivery {policyId:string;deliveryId:string;documents:Array<{kind:string;documentId:string;fullHash:string;publicHash:string;publicText:string}>;fullHashes:Record<string,string>;publicHashes:Record<string,string>}
 export interface FormalRegistrationDetail {id:string;activityId:string;supplyId:string;policyId:string;category:string;title:string;state:string;F:number;D:number;total:number;acceptedAt:string;holdExpiresAt:string|null;restaurantName:string|null;address:string|null;
  refunds:Array<{id:string;F:number;D:number;total:number;state:string}>;requests:Array<{id:string;kind:string;acceptedAt:string;state:string;blockerIds:string[]}>}
 export async function formalRequest<T>(path:string,options:Omit<RequestOptions,'token'>={}):Promise<T>{
  const token=await ensureAuthenticatedUser();const identity=await initializeAvailableV11Identity(token);if(!identity)throw Error('报名账号服务暂不可用');
  const result=await apiRequest<T>(path,{...options,token});
- if(!isCurrentUserSession(token))throw Error("登录状态已改变，请重新加载");return result;
+ if(!isCurrentUserSession(token))throw Error("登录状态已改变，请重新加载");
+ if(/^\/api\/v11\/formal\/registrations(?:\/[^/?]+)?(?:\?[^]*)?$/.test(path))validateFormalRegistrationResponse(result,path);
+ return result;
 }
 export async function getFormalOffer(id:string){return validateFormalOffer((await apiRequest<{activity:FormalOffer}>('/api/v11/formal/activities/'+encodeURIComponent(id))).activity);}
-export async function deliverFormalTerms(id:string){return formalRequest<FormalPolicyDelivery>('/api/v11/policies/'+encodeURIComponent(id)+'/delivery');}
-export async function acceptFormalTerms(delivery:FormalPolicyDelivery){return formalRequest<{consentId:string;acceptedAt:string}>('/api/v11/policies/'+encodeURIComponent(delivery.policyId)+'/consents',
+export async function deliverFormalTerms(id:string){return validateFormalTerms(await formalRequest<FormalPolicyDelivery>('/api/v11/policies/'+encodeURIComponent(id)+'/delivery'),id);}
+export async function acceptFormalTerms(delivery:FormalPolicyDelivery){validateFormalTerms(delivery,delivery.policyId);return formalRequest<{consentId:string;acceptedAt:string}>('/api/v11/policies/'+encodeURIComponent(delivery.policyId)+'/consents',
  {method:'POST',data:{deliveryId:delivery.deliveryId,fullHashes:delivery.fullHashes,publicHashes:delivery.publicHashes}});}
 export async function prepareFormalPayment(id:string){
  const result=await formalRequest<{state:string;paymentParams:Taro.requestPayment.Option|null}>('/api/v11/formal/registrations/'+encodeURIComponent(id)+'/payment/prepare',{method:'POST'});
@@ -468,4 +470,29 @@ function validMoney(n:unknown){return Number.isSafeInteger(n)&&Number(n)>=0;}
 function validateFormalOffer(value:FormalOffer):FormalOffer{
  if(!value||typeof value.id!=='string'||!value.id||typeof value.supplyId!=='string'||!value.supplyId||typeof value.policyId!=='string'||!value.policyId||typeof value.title!=='string'||!value.title||!validMoney(value.serviceFeeCents)||!validMoney(value.depositCents)||!validMoney(value.totalCents)||value.totalCents!==value.serviceFeeCents+value.depositCents||value.mealCollection!=='DIRECT_TO_RESTAURANT'||!(value.waitlistMax===null||validMoney(value.waitlistMax))||!Number.isFinite(Date.parse(value.startsAt)))throw Error('活动报价资料不完整，请重新加载');
  return value;
+}
+
+function validId(value:unknown){return typeof value==='string'&&value.length>0;}
+function validDate(value:unknown){return typeof value==='string'&&Number.isFinite(Date.parse(value));}
+function moneyParts(value:any){return value&&validMoney(value.F)&&validMoney(value.D)&&validMoney(value.total)&&value.total===value.F+value.D;}
+function validateFormalTerms(value:FormalPolicyDelivery,policyId:string){
+ const fail=()=>{throw Error('报名规则资料不完整，请重新阅读');};
+ if(!value||value.policyId!==policyId||!validId(value.deliveryId)||!Array.isArray(value.documents)||value.documents.length!==3||!value.fullHashes||!value.publicHashes)fail();
+ const kinds=new Set(),ids=new Set();
+ for(const d of value.documents){
+  if(!d||!['USER_AGREEMENT','PRIVACY_NOTICE','REFUND_POLICY'].includes(d.kind)||kinds.has(d.kind)||!validId(d.documentId)||ids.has(d.documentId)||typeof d.publicText!=='string'||!d.publicText.trim()||! /^[a-f0-9]{64}$/.test(d.fullHash)||! /^[a-f0-9]{64}$/.test(d.publicHash)||value.fullHashes[d.documentId]!==d.fullHash||value.publicHashes[d.documentId]!==d.publicHash)fail();
+  kinds.add(d.kind);ids.add(d.documentId);
+ }
+ if(Object.keys(value.fullHashes).length!==3||Object.keys(value.publicHashes).length!==3)fail();return value;
+}
+function validateFormalRegistrationResponse(value:any,path:string){
+ const fail=()=>{throw Error('报名记录资料不完整，请刷新核对');};
+ function record(r:any){
+  if(!r||!validId(r.id)||!validId(r.activityId)||!validId(r.supplyId)||!validId(r.policyId)||!validId(r.title)||!validId(r.state)||!validId(r.category)||!moneyParts(r)||!validDate(r.acceptedAt)||!(r.holdExpiresAt===null||validDate(r.holdExpiresAt))||!(r.restaurantName===null||typeof r.restaurantName==='string')||!(r.address===null||typeof r.address==='string')||!Array.isArray(r.refunds)||!Array.isArray(r.requests))fail();
+  if(r.refunds.some((f:any)=>!validId(f?.id)||!validId(f.state)||!moneyParts(f))||r.requests.some((q:any)=>!validId(q?.id)||!validId(q.kind)||!validId(q.state)||!validDate(q.acceptedAt)||!Array.isArray(q.blockerIds)||q.blockerIds.some((x:unknown)=>!validId(x))))fail();
+ }
+ if(!value||typeof value!=='object')fail();
+ if(value.registration){record(value.registration);const suffix=path.split('?')[0]!.split('/').slice(5);if(suffix.length&&value.registration.id!==decodeURIComponent(suffix[0]!))fail();}
+ else if(Array.isArray(value.registrations)){value.registrations.forEach(record);if(!(value.nextCursor===null||validId(value.nextCursor)))fail();}
+ else if(!value.request||!validDate(value.request.acceptedAt)||!Array.isArray(value.blockerIds)||value.blockerIds.some((x:unknown)=>!validId(x)))fail();
 }

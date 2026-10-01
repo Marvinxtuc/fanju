@@ -1,8 +1,8 @@
 {
   "baselineCommit": "5b0510052f447051004d8f2ebac950bb99aa8dab",
-  "currentCandidate": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9",
-  "executionStatus": "DELIVERY_PREPARATION",
-  "engineeringStatus": "SCOPED_FORMAL_ASSEMBLY_VERIFIED_CONDITIONAL",
+  "currentCandidate": "404d3a6145e0fd94818dcc8e3c68837d0c4db8bf31b8bf2f4b89075dd06bd295",
+  "executionStatus": "ACTIVE_CONTINUATION",
+  "engineeringStatus": "SCOPED_FORMAL_CLIENT_REGRESSION_VERIFIED",
   "productionReady": false,
   "productionActivated": false,
   "realFundsExecuted": false,
@@ -16,10 +16,10 @@
     "mainMiniappAndOps": "IMPLEMENTED_SCOPED_FORMAL_TESTS",
     "fullRegression": "PASS_30_STEPS_CURRENT_CANDIDATE"
   },
-  "evidence": "docs/prelaunch/evidence/final-2026-10-01T15-59-29-671Z/RUNS.json",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T16-09-57-573Z/RUNS.json",
   "next": [
-    "Complete manifest and Git delivery",
-    "Resolve specifically enumerated rights inputs and formal branch acceptance",
-    "Current real platform/device/channel/target environment acceptance under existing authorization"
+    "Legacy Order visibility integration without erasing obligations",
+    "Historical channel recovery configuration and formal rights branch acceptance",
+    "Update complete handoff after remaining implementation"
   ]
 }
