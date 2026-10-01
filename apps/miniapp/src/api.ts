@@ -2,8 +2,10 @@ import Taro from "@tarojs/taro";
 
 declare const __FANJU_API_BASE_URL__: string;
 declare const __FANJU_DEMO_MODE__: boolean;
+declare const __FANJU_FORMAL_BUSINESS__: boolean;
 
 export const demoModeEnabled = __FANJU_DEMO_MODE__;
+export const formalBusinessEnabled=typeof __FANJU_FORMAL_BUSINESS__!=='undefined'&&__FANJU_FORMAL_BUSINESS__;
 
 const API_BASE_URL = __FANJU_API_BASE_URL__;
 const TOKEN_KEY = "fanju_session_v2";
@@ -92,10 +94,11 @@ export interface UserProfileInput {
   note?: string;
 }
 
-export async function listActivities(): Promise<ActivitySummary[]> {
-  const data = await apiRequest<{ activities: ActivitySummary[] }>("/api/activities");
-  return data.activities;
+export async function listActivityPage(cursor?:string):Promise<{activities:ActivitySummary[];nextCursor:string|null}>{
+ if(formalBusinessEnabled){const data=await apiRequest<{activities:FormalOffer[];nextCursor:string|null}>('/api/v11/formal/activities'+(cursor?'?cursor='+encodeURIComponent(cursor):''));return {activities:data.activities.map(validateFormalOffer),nextCursor:data.nextCursor};}
+ return {activities:(await apiRequest<{activities:ActivitySummary[]}>('/api/activities')).activities,nextCursor:null};
 }
+export async function listActivities(): Promise<ActivitySummary[]> {return (await listActivityPage()).activities;}
 
 export async function getActivity(activityId: string): Promise<ActivitySummary> {
   const data = await apiRequest<{ activity: ActivitySummary }>(`/api/activities/${activityId}`);
@@ -379,6 +382,26 @@ async function apiRequest<T>(path: string, options: RequestOptions = {}): Promis
   }
   return response.data;
 }
+export interface FormalOffer extends ActivitySummary {depositCents:number;totalCents:number;supplyId:string;policyId:string;waitlistMax:number|null;mealCollection:'DIRECT_TO_RESTAURANT'}
+export interface FormalPolicyDelivery {policyId:string;deliveryId:string;documents:Array<{kind:string;publicText:string}>;fullHashes:Record<string,string>;publicHashes:Record<string,string>}
+export interface FormalRegistrationDetail {id:string;activityId:string;supplyId:string;policyId:string;category:string;title:string;state:string;F:number;D:number;total:number;acceptedAt:string;holdExpiresAt:string|null;restaurantName:string|null;address:string|null;
+ refunds:Array<{id:string;F:number;D:number;total:number;state:string}>;requests:Array<{id:string;kind:string;acceptedAt:string;state:string;blockerIds:string[]}>}
+export async function formalRequest<T>(path:string,options:Omit<RequestOptions,'token'>={}):Promise<T>{
+ const token=await ensureAuthenticatedUser();const identity=await initializeAvailableV11Identity(token);if(!identity)throw Error('报名账号服务暂不可用');
+ const result=await apiRequest<T>(path,{...options,token});
+ if(!isCurrentUserSession(token))throw Error("登录状态已改变，请重新加载");return result;
+}
+export async function getFormalOffer(id:string){return validateFormalOffer((await apiRequest<{activity:FormalOffer}>('/api/v11/formal/activities/'+encodeURIComponent(id))).activity);}
+export async function deliverFormalTerms(id:string){return formalRequest<FormalPolicyDelivery>('/api/v11/policies/'+encodeURIComponent(id)+'/delivery');}
+export async function acceptFormalTerms(delivery:FormalPolicyDelivery){return formalRequest<{consentId:string;acceptedAt:string}>('/api/v11/policies/'+encodeURIComponent(delivery.policyId)+'/consents',
+ {method:'POST',data:{deliveryId:delivery.deliveryId,fullHashes:delivery.fullHashes,publicHashes:delivery.publicHashes}});}
+export async function prepareFormalPayment(id:string){
+ const result=await formalRequest<{state:string;paymentParams:Taro.requestPayment.Option|null}>('/api/v11/formal/registrations/'+encodeURIComponent(id)+'/payment/prepare',{method:'POST'});
+ if(result.state!=='PREPARED'||!result.paymentParams)throw Error('支付结果正在查询，请稍后刷新');
+ await Taro.requestPayment(result.paymentParams);
+ // User-device acknowledgement is not a receipt; always ask the trusted route.
+ return formalRequest('/api/v11/formal/registrations/'+encodeURIComponent(id)+'/payment/query',{method:'POST'});
+}
 
 export interface FormalRefundRequest {
   requestId:string; registrationId:string; acceptedAt:string; state:string;
@@ -409,3 +432,40 @@ export async function submitFormalRefund(token:string,id:string,idempotencyKey:s
  return apiRequest<FormalRefundRequest>(`/api/v11/registrations/${encodeURIComponent(id)}/refund-requests`,{method:'POST',token,data:{idempotencyKey}});
 }
 export async function getFormalRefund(token:string,id:string){return apiRequest<FormalRefundRequest>(`/api/v11/refund-requests/${encodeURIComponent(id)}`,{token});}
+
+// Persist the exact accepted intent before sending: retries across remounts use
+// the same consent and business key, scoped to the authenticated server user.
+export async function submitFormalSignup(offer:FormalOffer,terms:FormalPolicyDelivery,membership:'FORMAL'|'WAITLIST',gender:'MALE'|'FEMALE'){
+ const token=await ensureAuthenticatedUser(),identity=await initializeAvailableV11Identity(token);
+ if(!identity)throw Error('报名账号服务暂不可用');
+ const storageKey='fanju_formal_signup_v1:'+identity.userId+':'+offer.id+':'+offer.supplyId+':'+membership;
+ let input=Taro.getStorageSync<{activityId:string;supplyId:string;policyId:string;consentId:string;membership:string;businessKey:string}>(storageKey);
+ if(!input){
+  await formalRequest('/api/v11/formal/profile',{method:'PUT',data:{policyId:offer.policyId,gender,adultDeclaration:true,serviceCompatible:true}});
+  const accepted=await acceptFormalTerms(terms);
+  if(!isCurrentUserSession(token))throw Error('登录状态已改变，请重新加载');
+  input={activityId:offer.id,supplyId:offer.supplyId,policyId:offer.policyId,consentId:accepted.consentId,membership,businessKey:'signup_'+Date.now()+'_'+Math.random().toString(36).slice(2)};
+  Taro.setStorageSync(storageKey,input);
+ }
+ if(input.activityId!==offer.id||input.supplyId!==offer.supplyId||input.policyId!==offer.policyId||input.membership!==membership||!input.businessKey||!input.consentId)throw Error('报名恢复记录不一致，请核对原申请');
+ return formalRequest<{registration?:FormalRegistrationDetail;request?:{acceptedAt:string};blockerIds?:string[]}>('/api/v11/formal/registrations',{method:'POST',data:input});
+}
+export async function formalRefundRequestKey(id:string){
+ const token=await ensureAuthenticatedUser(),identity=await initializeAvailableV11Identity(token);if(!identity)throw Error('报名账号服务暂不可用');
+ const storageKey='fanju_formal_refund_v1:'+identity.userId+':'+id;let key=Taro.getStorageSync<string>(storageKey);
+ if(!key){key='refund_'+Date.now()+'_'+Math.random().toString(36).slice(2);Taro.setStorageSync(storageKey,key);}return key;
+}
+
+export async function beginNewFormalAttempt(record:FormalRegistrationDetail){
+ const current=(await formalRequest<{registration:FormalRegistrationDetail}>('/api/v11/formal/registrations/'+encodeURIComponent(record.id))).registration;
+ if(!['ENDED','EXPIRED'].includes(current.state)||current.refunds.some(r=>r.state!=='CONFIRMED'))throw Error('原报名或退款仍在处理，请先核对原记录');
+ const token=await ensureAuthenticatedUser(),identity=await initializeAvailableV11Identity(token);if(!identity)throw Error('报名账号服务暂不可用');
+ for(const membership of ['FORMAL','WAITLIST'])Taro.removeStorageSync('fanju_formal_signup_v1:'+identity.userId+':'+current.activityId+':'+current.supplyId+':'+membership);
+ return current.activityId;
+}
+
+function validMoney(n:unknown){return Number.isSafeInteger(n)&&Number(n)>=0;}
+function validateFormalOffer(value:FormalOffer):FormalOffer{
+ if(!value||typeof value.id!=='string'||!value.id||typeof value.supplyId!=='string'||!value.supplyId||typeof value.policyId!=='string'||!value.policyId||typeof value.title!=='string'||!value.title||!validMoney(value.serviceFeeCents)||!validMoney(value.depositCents)||!validMoney(value.totalCents)||value.totalCents!==value.serviceFeeCents+value.depositCents||value.mealCollection!=='DIRECT_TO_RESTAURANT'||!(value.waitlistMax===null||validMoney(value.waitlistMax))||!Number.isFinite(Date.parse(value.startsAt)))throw Error('活动报价资料不完整，请重新加载');
+ return value;
+}

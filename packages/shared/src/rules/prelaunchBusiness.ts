@@ -62,13 +62,13 @@ export function quoteFunding(input: { readonly supply: SupplyRevisionInput; read
   if (!input.policyBundleId || !funds({ F, D: input.supply.D }) || F + input.supply.D <= 0) return invalid("QUOTE_INVALID");
   return ready("QUOTE_SNAPSHOT", Object.freeze({ supplyRevisionId: input.supply.revisionId, policyBundleId: input.policyBundleId, F, D: input.supply.D, total: F + input.supply.D, mealCollection: "DIRECT_TO_RESTAURANT" as const }));
 }
-export function evaluateRegistrationEligibility(input: { readonly loggedIn: boolean; readonly phoneAuthorized: boolean; readonly gender: string | null; readonly adultEligibility: "UNRESOLVED" | "SIMULATION_CONFIRMED"; readonly blacklisted: boolean; readonly accountClosurePending: boolean; readonly requiresSpecialAccommodation: boolean | null }): PrelaunchDecision<{ allowed: boolean }> {
+export function evaluateRegistrationEligibility(input: { readonly loggedIn: boolean; readonly phoneAuthorized: boolean; readonly gender: string | null; readonly adultEligibility: "UNRESOLVED" | "SIMULATION_CONFIRMED" | "FORMAL_DECLARATION_VERIFIED"; readonly blacklisted: boolean; readonly accountClosurePending: boolean; readonly requiresSpecialAccommodation: boolean | null }): PrelaunchDecision<{ allowed: boolean }> {
   if (!input.loggedIn || !input.phoneAuthorized || !["MALE", "FEMALE"].includes(input.gender ?? "") || input.blacklisted) return ready("REGISTRATION_PREREQUISITES_REQUIRED", { allowed: false });
   if (input.accountClosurePending) return blocked("CLOSURE_REGISTRATION_UNRESOLVED", ["OP-15"], { allowed: false });
-  if (input.adultEligibility !== "SIMULATION_CONFIRMED") return blocked("ADULT_ELIGIBILITY_UNRESOLVED", ["RV-04"], { allowed: false });
+  if (!["SIMULATION_CONFIRMED","FORMAL_DECLARATION_VERIFIED"].includes(input.adultEligibility)) return blocked("ADULT_ELIGIBILITY_UNRESOLVED", ["RV-04"], { allowed: false });
   if (input.requiresSpecialAccommodation === true) return ready("SPECIAL_ACCOMMODATION_UNAVAILABLE", { allowed: false });
   if (input.requiresSpecialAccommodation === null) return blocked("ADAPTATION_CHECK_UNRESOLVED", ["OP-10", "RV-07"], { allowed: false });
-  return ready("SIMULATION_REGISTRATION_ELIGIBLE", { allowed: true });
+  return ready(input.adultEligibility === "FORMAL_DECLARATION_VERIFIED" ? "FORMAL_REGISTRATION_ELIGIBLE" : "SIMULATION_REGISTRATION_ELIGIBLE", { allowed: true });
 }
 export interface PaymentQualificationInput {
   readonly reservedAt: number;
@@ -193,12 +193,12 @@ export function reduceWaitlist(current: WaitlistState, event: { readonly type: "
   const state = event.type === "PROMOTE" ? "PROMOTED" : event.type === "EXIT" ? "EXITED" : "EXPIRED";
   return ready("WAITLIST_EVENT_APPLIED", { next: { ...current, state, version: event.transactionSequence }, fullRefundObligation: state !== "PROMOTED", grantFormalSeat: state === "PROMOTED" });
 }
-export function evaluateWaitlistAdmission(input: { readonly validCount: number; readonly limit: number | null; readonly beforeT24: boolean; readonly unresolvedPriorRegistration: boolean; readonly inFlightAdmissions: number }): PrelaunchDecision<{ createPayment: boolean }> {
+export function evaluateWaitlistAdmission(input: { readonly validCount: number; readonly limit: number | null; readonly beforeT24: boolean; readonly unresolvedPriorRegistration: boolean; readonly inFlightAdmissions: number; readonly concurrentExposureReserved?: boolean }): PrelaunchDecision<{ createPayment: boolean }> {
   if (!integer(input.validCount) || !integer(input.inFlightAdmissions)) return invalid();
   if (input.limit === null) return blocked("WAITLIST_LIMIT_UNRESOLVED", ["OP-08"], { createPayment: false });
   if (!integer(input.limit)) return invalid();
-  if (!input.beforeT24 || input.validCount >= input.limit) return ready("WAITLIST_CLOSED_OR_FULL", { createPayment: false });
-  if (input.unresolvedPriorRegistration || input.inFlightAdmissions > 0) return blocked("WAITLIST_CONCURRENT_EXPOSURE_UNRESOLVED", ["OP-08"], { createPayment: false });
+  if (!input.beforeT24 || input.validCount + input.inFlightAdmissions >= input.limit) return ready("WAITLIST_CLOSED_OR_FULL", { createPayment: false });
+  if (input.unresolvedPriorRegistration || (input.inFlightAdmissions > 0 && input.concurrentExposureReserved !== true)) return blocked("WAITLIST_CONCURRENT_EXPOSURE_UNRESOLVED", ["OP-08"], { createPayment: false });
   return ready("WAITLIST_ADMISSION_ALLOWED", { createPayment: true });
 }
 /** Only new/uncommitted members are distributed. Existing formed memberships are immutable. */

@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, ScrollView, Text, View } from "@tarojs/components";
 import { navigateTo } from "@tarojs/taro";
 
-import { listActivities, type ActivitySummary } from "../../api";
+import { listActivityPage, type ActivitySummary, formalBusinessEnabled, type FormalOffer } from "../../api";
 import { prelaunchEnabled } from "../../prelaunch-api";
 
 const filters = ["今晚", "明天", "周末", "新店", "火锅", "日料", "Brunch", "低预算"];
 
 export default function HomePage(): JSX.Element {
   const [activities, setActivities] = useState<ActivitySummary[]>([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState("");const [cursor,setCursor]=useState<string|null>(null),[busy,setBusy]=useState(false);const epoch=useRef(0),pending=useRef(false);
 
   useEffect(() => {
-    void load();
+    void load();return()=>{epoch.current++;};
   }, []);
 
-  async function load(): Promise<void> {
-    try {
-      setError("");
-      setActivities(await listActivities());
-    } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : "活动列表加载失败");
-    }
+  async function load(next?:string): Promise<void> {
+    if(pending.current)return;pending.current=true;const generation=epoch.current;setBusy(true);
+    try {setError('');const result=await listActivityPage(next);if(generation===epoch.current){setActivities(old=>next?[...old,...result.activities]:result.activities);setCursor(result.nextCursor);}}
+    catch(loadError){if(generation===epoch.current)setError(loadError instanceof Error?loadError.message:'活动列表加载失败');}
+    finally{if(generation===epoch.current){pending.current=false;setBusy(false);}}
   }
 
   function openFirstActivity(): void {
@@ -67,6 +65,7 @@ export default function HomePage(): JSX.Element {
         </View>
       </View>
 
+      {cursor&&<Button disabled={busy} onClick={()=>void load(cursor)}>下一页活动</Button>}
       {error ? <Text className="error-text">错误：{error}</Text> : null}
 
       <View className="section">
@@ -86,7 +85,8 @@ export default function HomePage(): JSX.Element {
             <View className="ticket-divider" />
             <View className="tag-row">
               <Text className="tag">公共餐厅</Text>
-              <Text className="tag">服务费 {activity.serviceFeeCents / 100} 元</Text>
+              <Text className="tag">服务费 F {activity.serviceFeeCents / 100} 元</Text>
+              {formalBusinessEnabled&&<Text className="tag">保证金 D {(activity as FormalOffer).depositCents/100} 元；合计 {(activity as FormalOffer).totalCents/100} 元</Text>}
               <Text className="tag tag--red">{activity.status}</Text>
             </View>
             <Button

@@ -1,0 +1,9 @@
+Datasource "db": PostgreSQL database "fanju_prelaunch_209be97903c8_restore", schema "public" at "127.0.0.1:32772"
+
+26 migrations found in prisma/migrations
+
+Database schema is up to date!
+
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma/schema.prisma.

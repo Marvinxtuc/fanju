@@ -1,0 +1,117 @@
+[
+  {
+    "migration_name": "20260624000000_initial",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260717000000_wechat_pay_channel_references",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260720000000_user_profile_table_sizes",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260720001000_reviews",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929000000_funding_recovery_expand",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929010000_receipt_paid_at",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929020000_inventory_expand",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929021000_inventory_cutover",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929030000_formation_recovery_expand",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260929040000_profile_consent_expand",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260930000000_notification_inbox",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260930010000_worker_heartbeat",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20260930020000_reconciliation_decision_order",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001000000_prelaunch_v11_expand",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001010000_v11_payment_preparation",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001020000_v11_receipt_recorded_state",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001030000_v11_refund_request_snapshot",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001040000_v11_real_refund_binding",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001050000_v11_policy_material_archive",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001060000_v11_bill_comparison_snapshot",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001070000_v11_bill_comparison_page",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001080000_v11_bill_page_query_refs",
+    "finished": true,
+    "rolled_back": false
+  },
+  {
+    "migration_name": "20261001090000_v11_runtime_policy_binding",
+    "finished": true,
+    "rolled_back": false
+  }
+]

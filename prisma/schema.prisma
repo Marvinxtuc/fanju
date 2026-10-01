@@ -554,6 +554,7 @@ model V11PolicySnapshot {
   v11BundleConsent_policyId V11BundleConsent[] @relation("V11BundleConsent_policyId")
   v11SupplyRevision_policyId V11SupplyRevision[] @relation("V11SupplyRevision_policyId")
   v11Registration_policyId V11Registration[] @relation("V11Registration_policyId")
+  runtimeBinding V11RuntimePolicyBinding?
 }
 
 // Immutable release material archive; never a runtime policy activation record.
@@ -570,6 +571,26 @@ model V11PolicyMaterialArchive {
   actor V11Actor @relation("V11PolicyMaterialArchive_submittedBy", fields: [submittedBy], references: [id], onDelete: Restrict)
   createdAt DateTime @default(now()) @db.Timestamptz(3)
   @@unique([bundleId, version, releaseVersion])
+  runtimeBindings V11RuntimePolicyBinding[]
+}
+
+// Separate provenance for an explicitly authorized runtime policy. Archives and
+// test policies remain unchanged; production/test environment is immutable.
+model V11RuntimePolicyBinding {
+  id String @id @default(cuid())
+  policyId String @unique
+  policy V11PolicySnapshot @relation(fields: [policyId], references: [id], onDelete: Restrict)
+  archiveId String
+  archive V11PolicyMaterialArchive @relation(fields: [archiveId], references: [id], onDelete: Restrict)
+  environment String
+  releaseVersion String
+  parameterRaw String
+  parameterDigest String
+  authorityRaw String
+  authoritySignature String
+  authorityDigest String
+  issuerId String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
 }
 
 model V11Profile {

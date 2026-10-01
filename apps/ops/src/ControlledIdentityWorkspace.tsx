@@ -1,6 +1,7 @@
 import type {ObligationPage} from './controlled-obligations.js';
 import { useEffect, useRef, useState } from "react";
 import { browserControlledIdentityClient, type ControlledPrincipal } from "./controlled-identity-api.js";
+import {FormalBusinessWorkspace} from './FormalBusinessWorkspace.js';
 
 export function ControlledIdentityWorkspace(): JSX.Element {
   const client = useRef<ReturnType<typeof browserControlledIdentityClient> | null>(null);
@@ -33,7 +34,8 @@ export function ControlledIdentityWorkspace(): JSX.Element {
   return <main><h1>受控工作台</h1>
     {identity ? <section aria-label="当前身份"><p>角色：{identity.role === "OPS" ? "运营" : identity.role === "REVIEWER" ? "复核" : "餐厅"}</p>
       {identity.restaurantId && <p>授权餐厅：{identity.restaurantId}</p>}
-      {identity.role==='RESTAURANT'?<p>业务功能尚未开放。</p>:<><button disabled={busy} onClick={()=>void load()}>查看应退进度</button><p>退款执行尚未开放。</p></>}<button disabled={busy} onClick={() => void run(false)}>重新核验身份</button></section>
+      {identity.role!=='RESTAURANT'&&<button disabled={busy} onClick={()=>void load()}>查看应退进度</button>}<button disabled={busy} onClick={() => void run(false)}>重新核验身份</button>
+      {client.current&&<FormalBusinessWorkspace key={identity.id+':'+identity.version} client={client.current} identity={identity} onSessionLost={logout}/>}</section>
       : <form onSubmit={e => { e.preventDefault(); void run(true); }}>
         <label>账号<input autoComplete="username" value={username} onChange={e => setUsername(e.target.value)} required maxLength={80} disabled={busy}/></label>
         <label>密码<input type="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} required maxLength={256} disabled={busy}/></label>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button, Switch, Text, View } from "@tarojs/components";
 import Taro, { navigateTo } from "@tarojs/taro";
+import {FormalActivityDetail} from '../../FormalActivityDetail';
+import {formalBusinessEnabled} from '../../api';
 
 import {
   confirmAgreement,
@@ -19,7 +21,8 @@ const menuLines: Array<[string, string]> = [
   ["结算方式", "餐费到店自理"],
 ];
 
-export default function ActivityDetailPage(): JSX.Element {
+export default function ActivityDetailPage():JSX.Element{return formalBusinessEnabled?<FormalActivityDetail/>:<LegacyActivityDetailPage/>;}
+function LegacyActivityDetailPage(): JSX.Element {
   const activityId = Taro.getCurrentInstance().router?.params.id ?? "";
   const [activity, setActivity] = useState<ActivitySummary | null>(null);
   const [agreement, setAgreement] = useState<CurrentAgreement | null>(null);

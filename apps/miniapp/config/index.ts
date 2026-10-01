@@ -31,6 +31,7 @@ export default defineConfig({
   defineConstants: {
     __FANJU_API_BASE_URL__: JSON.stringify(apiBaseUrl),
     __FANJU_DEMO_MODE__: JSON.stringify(demoMode),
+    __FANJU_FORMAL_BUSINESS__: JSON.stringify(!demoMode && process.env.TARO_APP_FORMAL_BUSINESS !== 'false'),
     __FANJU_PRELAUNCH_ENABLED__: JSON.stringify(prelaunchEnabled)
   },
   mini: {},

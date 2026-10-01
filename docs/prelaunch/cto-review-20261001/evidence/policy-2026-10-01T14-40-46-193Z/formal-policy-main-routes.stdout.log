@@ -1,0 +1,125 @@
+TAP version 13
+# Subtest: independent runtime provenance on verified isolated PostgreSQL
+    # Subtest: archive alone creates no runtime policy
+    ok 1 - archive alone creates no runtime policy
+      ---
+      duration_ms: 4.972584
+      type: 'test'
+      ...
+    # Subtest: forged grant cannot assemble runtime policy
+    ok 2 - forged grant cannot assemble runtime policy
+      ---
+      duration_ms: 10.76225
+      type: 'test'
+      ...
+    # Subtest: signed explicit assembly creates a distinct isolated runtime snapshot and preserves archive
+    ok 3 - signed explicit assembly creates a distinct isolated runtime snapshot and preserves archive
+      ---
+      duration_ms: 32.251959
+      type: 'test'
+      ...
+    # Subtest: fresh scoped action grant and revocation are enforced
+    ok 4 - fresh scoped action grant and revocation are enforced
+      ---
+      duration_ms: 13.925709
+      type: 'test'
+      ...
+    # Subtest: recovery-only grant preserves old policy without new-charge authority
+    ok 5 - recovery-only grant preserves old policy without new-charge authority
+      ---
+      duration_ms: 12.755959
+      type: 'test'
+      ...
+    # Subtest: isolated runtime cannot authorize production context
+    ok 6 - isolated runtime cannot authorize production context
+      ---
+      duration_ms: 5.706583
+      type: 'test'
+      ...
+    # Subtest: runtime binding is immutable in database
+    ok 7 - runtime binding is immutable in database
+      ---
+      duration_ms: 14.896916
+      type: 'test'
+      ...
+    # Subtest: existing draft cannot be promoted and new runtime cannot omit provenance
+    ok 8 - existing draft cannot be promoted and new runtime cannot omit provenance
+      ---
+      duration_ms: 37.604417
+      type: 'test'
+      ...
+    # Subtest: public-text tamper rejects action and rolls back test write
+    ok 9 - public-text tamper rejects action and rolls back test write
+      ---
+      duration_ms: 9.381542
+      type: 'test'
+      ...
+# {"level":30,"time":1790865650674,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+    # Subtest: main application formal policy routes capture exact delivery and authenticated consent
+        # Subtest: unsigned read is denied and preview endpoints remain absent
+        ok 1 - unsigned read is denied and preview endpoints remain absent
+          ---
+          duration_ms: 7.874584
+          type: 'test'
+          ...
+# {"level":30,"time":1790865650676,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":401},"responseTime":1.490083932876587,"msg":"request completed"}
+# {"level":30,"time":1790865650676,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/api/prelaunch/v11/policy/current","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790865650676,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","msg":"Route GET:/api/prelaunch/v11/policy/current not found"}
+# {"level":30,"time":1790865650676,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":404},"responseTime":0.11250019073486328,"msg":"request completed"}
+# {"level":30,"time":1790865650676,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790865650689,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":11.978416919708252,"msg":"request completed"}
+# {"level":30,"time":1790865650690,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+        # Subtest: formal route delivers exactly three public documents
+        ok 2 - formal route delivers exactly three public documents
+          ---
+          duration_ms: 13.075709
+          type: 'test'
+          ...
+# {"level":30,"time":1790865650697,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":409},"responseTime":7.5969579219818115,"msg":"request completed"}
+# {"level":30,"time":1790865650697,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790865650704,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":404},"responseTime":6.646500110626221,"msg":"request completed"}
+# {"level":30,"time":1790865650705,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"POST","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+        # Subtest: changed hash and other-user delivery cannot create consent
+        ok 3 - changed hash and other-user delivery cannot create consent
+          ---
+          duration_ms: 15.155541
+          type: 'test'
+          ...
+# {"level":30,"time":1790865650717,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":12.044874906539917,"msg":"request completed"}
+# {"level":30,"time":1790865650717,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"POST","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790865650724,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":7.332665920257568,"msg":"request completed"}
+        # Subtest: explicit consent records original time and replays one source id
+        ok 4 - explicit consent records original time and replays one source id
+          ---
+          duration_ms: 21.014791
+          type: 'test'
+          ...
+# {"level":30,"time":1790865650727,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupn63pa00029wnvsc80qi3h/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790865650728,"pid":97556,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":401},"responseTime":1.5804579257965088,"msg":"request completed"}
+        # Subtest: actor version revocation denies later acceptance
+        ok 5 - actor version revocation denies later acceptance
+          ---
+          duration_ms: 2.858917
+          type: 'test'
+          ...
+        1..5
+    ok 10 - main application formal policy routes capture exact delivery and authenticated consent
+      ---
+      duration_ms: 119.065666
+      type: 'test'
+      ...
+    1..10
+ok 1 - independent runtime provenance on verified isolated PostgreSQL
+  ---
+  duration_ms: 454.99375
+  type: 'test'
+  ...
+1..1
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 668.457167

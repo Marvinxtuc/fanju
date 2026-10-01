@@ -99,10 +99,13 @@ if(buildManifest.candidate_id!==candidate.candidate_id) throw new Error('Clean a
 runSourceRoot=buildManifest.build_root;
 await run('formal-client-build',process.execPath,['scripts/prelaunch-clean-build.mjs',scratch,'https://api.synthetic-fanju.cn'],'.',{timeout:1_500_000});
 await run('legacy-worker-compat-final',process.execPath,['scripts/prelaunch-verify.mjs','worker-compat',scratch],'.',{timeout:360_000});
+// The existing journey requires an exclusively empty generation. Run it
+// separately before formal fixtures; Node may reorder files internally.
+await run('http-journey-native',process.execPath,['--test','tests/prelaunch/http-journey-recovery.test.mjs'],'.',{nodeTest:true,timeout:240_000});
 // A missing required test cannot quietly turn into a PASS.
-const nodeTests=readdirSync(resolve(root,'tests/prelaunch')).filter(name=>name.endsWith('.test.mjs') && name!=='legacy-worker.test.mjs').sort();
+const nodeTests=readdirSync(resolve(root,'tests/prelaunch')).filter(name=>name.endsWith('.test.mjs') && name!=='legacy-worker.test.mjs' && name!=='http-journey-recovery.test.mjs').sort();
 if (!nodeTests.length) {runs.push({id:`${id}-prelaunch-process-tests`,status:'NOT_RUN',reason:'No native process tests installed',candidate_id:candidate.candidate_id});save();}
-else await run('prelaunch-process-tests',process.execPath,['--test','--test-concurrency=1',...nodeTests.map(name=>`tests/prelaunch/${name}`)],'.',{nodeTest:true});
+else await run('prelaunch-process-tests',process.execPath,['--test','--test-concurrency=1',...nodeTests.map(name=>`tests/prelaunch/${name}`)],'.',{nodeTest:true,timeout:900_000});
 writeFileSync(resolve(dir,'SOURCE_SNAPSHOT.json'),JSON.stringify(candidate,null,2)+'\n');
 save();if(runs.some(record=>record.status!=='PASS')) process.exitCode=1;
 console.log(`Evidence directory: ${dir}`);

@@ -1,0 +1,93 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局[39m
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+ [31m❯[39m tests/ui/formal-main-http-dom.test.tsx [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 217[2mms[22m[39m
+[31m   [31m×[31m actual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount[39m[32m 216[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/ui/formal-main-http-dom.test.tsx[2m > [22mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[31m[1mAssertionError[22m: expected true to be false // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+[36m [2m❯[22m click tests/ui/formal-main-http-dom.test.tsx:[2m13:170[22m[39m
+
+[90m [2m❯[22m tests/ui/formal-main-http-dom.test.tsx:[2m25:90[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Unhandled Errors [49m[22m[31m⎯⎯⎯⎯⎯⎯[39m
+[31m[1m
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.[22m[39m
+
+[31m⎯⎯⎯⎯[39m[1m[41m Unhandled Rejection [49m[22m[31m⎯⎯⎯⎯⎯[39m
+[31m[1mError[22m: Unexpected controlled session loss[39m
+[36m [2m❯[22m onSessionLost tests/ui/formal-main-http-dom.test.tsx:[2m20:91[22m[39m
+
+[90m [2m❯[22m run apps/ops/src/FormalBusinessWorkspace.tsx:[2m12:294[22m[39m
+[90m [2m❯[22m processTicksAndRejections node:internal/process/task_queues:[2m103:5[22m[39m
+
+[31mThis error originated in "[1mtests/ui/formal-main-http-dom.test.tsx[22m" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.[39m
+[31mThe latest test that might've caused the error is "[1mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount[22m". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.[39m
+[31m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m     Errors [22m [1m[31m1 error[39m[22m
+[2m   Start at [22m 23:18:21
+[2m   Duration [22m 585ms[2m (transform 38ms, setup 0ms, import 45ms, tests 217ms, environment 218ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/cto-review-20261001/evidence/formal-dom-2026-10-01T15-18-20.202Z/vitest.json

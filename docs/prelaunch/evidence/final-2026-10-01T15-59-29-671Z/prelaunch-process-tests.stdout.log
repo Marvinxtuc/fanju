@@ -1,0 +1,2142 @@
+TAP version 13
+# Subtest: BR02 BR03 BR08 admission requires phone valid gender and adaptation before registration or charging while browsing stays available
+ok 1 - BR02 BR03 BR08 admission requires phone valid gender and adaptation before registration or charging while browsing stays available
+  ---
+  duration_ms: 120.766417
+  type: 'test'
+  ...
+# Subtest: BR04 BR05 RB07 empty and mismatched optional time preferences do not block native registration or full payment and legacy fields survive
+ok 2 - BR04 BR05 RB07 empty and mismatched optional time preferences do not block native registration or full payment and legacy fields survive
+  ---
+  duration_ms: 127.671292
+  type: 'test'
+  ...
+# Subtest: RB09 full and public consent hash mismatches refuse HTTP acceptance with no registration or payment
+ok 3 - RB09 full and public consent hash mismatches refuse HTTP acceptance with no registration or payment
+  ---
+  duration_ms: 69.712667
+  type: 'test'
+  ...
+# Subtest: DR08 absent approved D_MIN or D_MAX refuses HTTP approval without new revision or payment
+ok 4 - DR08 absent approved D_MIN or D_MAX refuses HTTP approval without new revision or payment
+  ---
+  duration_ms: 62.2605
+  type: 'test'
+  ...
+# Subtest: consent captures only intact exact documents and admission rechecks source and hashes
+ok 5 - consent captures only intact exact documents and admission rechecks source and hashes
+  ---
+  duration_ms: 87.894
+  type: 'test'
+  ...
+# Subtest: RB06 cross activity QR rejects and never records attendance for paid formal user
+ok 6 - RB06 cross activity QR rejects and never records attendance for paid formal user
+  ---
+  duration_ms: 63.70975
+  type: 'test'
+  ...
+# Subtest: BR38 RB11 PRE027 native morning activity normal fulfillment schedules exact next Shanghai day D only and channel confirmation remains separate
+ok 7 - BR38 RB11 PRE027 native morning activity normal fulfillment schedules exact next Shanghai day D only and channel confirmation remains separate
+  ---
+  duration_ms: 392.101042
+  type: 'test'
+  ...
+# Subtest: BR38 RB11 PRE027 native cross Shanghai midnight normal fulfillment schedules exact next Shanghai day D only and channel confirmation remains separate
+ok 8 - BR38 RB11 PRE027 native cross Shanghai midnight normal fulfillment schedules exact next Shanghai day D only and channel confirmation remains separate
+  ---
+  duration_ms: 135.613833
+  type: 'test'
+  ...
+# Subtest: BR39 native next-day scan without restaurant confirmation creates operational todo without automatic refund or violation
+ok 9 - BR39 native next-day scan without restaurant confirmation creates operational todo without automatic refund or violation
+  ---
+  duration_ms: 73.291208
+  type: 'test'
+  ...
+# Subtest: BR46 BR47 native special REFUND_D respects legal scope and original formed T25 facts at later T20 review
+ok 10 - BR46 BR47 native special REFUND_D respects legal scope and original formed T25 facts at later T20 review
+  ---
+  duration_ms: 211.254208
+  type: 'test'
+  ...
+# Subtest: BR46 BR47 native special REFUND_FD respects legal scope and original formed T25 facts at later T20 review
+ok 11 - BR46 BR47 native special REFUND_FD respects legal scope and original formed T25 facts at later T20 review
+  ---
+  duration_ms: 177.740458
+  type: 'test'
+  ...
+# Subtest: BR46 BR47 native special REJECT respects legal scope and original formed T25 facts at later T20 review
+ok 12 - BR46 BR47 native special REJECT respects legal scope and original formed T25 facts at later T20 review
+  ---
+  duration_ms: 166.935875
+  type: 'test'
+  ...
+# Subtest: BR53 RB11 native approval before Shanghai midnight schedules next day without an extra calendar day
+ok 13 - BR53 RB11 native approval before Shanghai midnight schedules next day without an extra calendar day
+  ---
+  duration_ms: 56.492916
+  type: 'test'
+  ...
+# Subtest: BR64 PRE030 native CREATED or SENT without received proof cannot start adverse worker clock or deduct D
+ok 14 - BR64 PRE030 native CREATED or SENT without received proof cannot start adverse worker clock or deduct D
+  ---
+  duration_ms: 93.517917
+  type: 'test'
+  ...
+# Subtest: owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+    # Subtest: HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+    ok 1 - HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+      ---
+      duration_ms: 406.0615
+      type: 'test'
+      ...
+    # Subtest: normal fulfillment schedules D once, preserves F, and can be read repeatedly
+    ok 2 - normal fulfillment schedules D once, preserves F, and can be read repeatedly
+      ---
+      duration_ms: 154.79625
+      type: 'test'
+      ...
+    # Subtest: two rounds retain explanation and require a different final reviewer person
+    ok 3 - two rounds retain explanation and require a different final reviewer person
+      ---
+      duration_ms: 115.280458
+      type: 'test'
+      ...
+    # Subtest: core restaurant change rejection preserves snapshot and separately records unresolved compensation
+    ok 4 - core restaurant change rejection preserves snapshot and separately records unresolved compensation
+      ---
+      duration_ms: 42.634041
+      type: 'test'
+      ...
+    # Subtest: privacy export excludes direct identifiers, closure retains obligations and original money facts
+    ok 5 - privacy export excludes direct identifiers, closure retains obligations and original money facts
+      ---
+      duration_ms: 39.662833
+      type: 'test'
+      ...
+    # Subtest: 20 competing refunds serialize component budgets and channel original-trade budget independently
+    ok 6 - 20 competing refunds serialize component budgets and channel original-trade budget independently
+      ---
+      duration_ms: 98.675542
+      type: 'test'
+      ...
+    # Subtest: A lease expiration B completion fences old A finish and retry
+    ok 7 - A lease expiration B completion fences old A finish and retry
+      ---
+      duration_ms: 7.65125
+      type: 'test'
+      ...
+    1..7
+ok 15 - owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+  ---
+  duration_ms: 1165.220084
+  type: 'test'
+  ...
+# Subtest: PRE035: native unavailable channel bill and per-fact query reject without successful zero-discrepancy completion
+ok 16 - PRE035: native unavailable channel bill and per-fact query reject without successful zero-discrepancy completion
+  ---
+  duration_ms: 435.470875
+  type: 'test'
+  ...
+# Subtest: BR59: native new policy and HTTP supply revision preserve old registration consent price and policy snapshots
+ok 17 - BR59: native new policy and HTTP supply revision preserve old registration consent price and policy snapshots
+  ---
+  duration_ms: 256.932458
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR29 ordinary waiting T25 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 18 - native cancellation matrix: BR29 ordinary waiting T25 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 308.291875
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR30 ordinary formed T25 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 19 - native cancellation matrix: BR30 ordinary formed T25 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 414.014542
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR31 ordinary formed exact T24 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 20 - native cancellation matrix: BR31 ordinary formed exact T24 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 190.799625
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR62 ordinary waiting exact T24 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 21 - native cancellation matrix: BR62 ordinary waiting exact T24 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 49.158292
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR62 ordinary waiting exact T8 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 22 - native cancellation matrix: BR62 ordinary waiting exact T8 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 48.909
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: ordinary waiting T7 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 23 - native cancellation matrix: ordinary waiting T7 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 48.133833
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR32 late formed T10 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 24 - native cancellation matrix: BR32 late formed T10 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 202.518875
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR62 late formed exact T8 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 25 - native cancellation matrix: BR62 late formed exact T8 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 187.876292
+  type: 'test'
+  ...
+# Subtest: native cancellation matrix: BR33 late formed T7 snapshots exact F D and original acceptedAt without unauthorized member removal
+ok 26 - native cancellation matrix: BR33 late formed T7 snapshots exact F D and original acceptedAt without unauthorized member removal
+  ---
+  duration_ms: 186.520667
+  type: 'test'
+  ...
+# Subtest: BR24 BR25 native paid waitlist active exit and T24 expiry reserve F D in full independent of voluntary time tiers
+ok 27 - BR24 BR25 native paid waitlist active exit and T24 expiry reserve F D in full independent of voluntary time tiers
+  ---
+  duration_ms: 383.636084
+  type: 'test'
+  ...
+# Subtest: BR61 native current INVALIDATED cancellation uses current unformed F D tier despite historical formation
+ok 28 - BR61 native current INVALIDATED cancellation uses current unformed F D tier despite historical formation
+  ---
+  duration_ms: 178.31125
+  type: 'test'
+  ...
+# Subtest: BR56 PRE036: native closure retains inactive registration HELD_D obligations and preserves original money facts
+ok 29 - BR56 PRE036: native closure retains inactive registration HELD_D obligations and preserves original money facts
+  ---
+  duration_ms: 278.019875
+  type: 'test'
+  ...
+# Subtest: BR56 PRE036: native closure retains inactive registration REFUND_UNKNOWN obligations and preserves original money facts
+ok 30 - BR56 PRE036: native closure retains inactive registration REFUND_UNKNOWN obligations and preserves original money facts
+  ---
+  duration_ms: 98.3465
+  type: 'test'
+  ...
+# Subtest: BR56 PRE036: native closure retains inactive registration DISPUTE_AND_SETTLEMENT obligations and preserves original money facts
+ok 31 - BR56 PRE036: native closure retains inactive registration DISPUTE_AND_SETTLEMENT obligations and preserves original money facts
+  ---
+  duration_ms: 73.834084
+  type: 'test'
+  ...
+# Subtest: BR56 closure: completed channel D refund and retained F are not misreported as unfinished deposit but OP15 deletion stays blocked
+ok 32 - BR56 closure: completed channel D refund and retained F are not misreported as unfinished deposit but OP15 deletion stays blocked
+  ---
+  duration_ms: 93.557292
+  type: 'test'
+  ...
+# Subtest: PRE008: twenty concurrent startPayment calls across two Prisma clients preserve one merchant intent
+ok 33 - PRE008: twenty concurrent startPayment calls across two Prisma clients preserve one merchant intent
+  ---
+  duration_ms: 386.333208
+  type: 'test'
+  ...
+# Subtest: PRE016: twenty concurrent formal registrations across two Prisma clients contest exactly one final seat
+ok 34 - PRE016: twenty concurrent formal registrations across two Prisma clients contest exactly one final seat
+  ---
+  duration_ms: 451.510584
+  type: 'test'
+  ...
+# Subtest: R4: lawful core-change rejection promotes paid queue head before any new formal admission without aggregate-cancel refill
+ok 35 - R4: lawful core-change rejection promotes paid queue head before any new formal admission without aggregate-cancel refill
+  ---
+  duration_ms: 1425.688625
+  type: 'test'
+  ...
+# Subtest: PRE031: native REVIEW_FIRST row-lock barrier serializes final review against 48-hour settlement without actual transfer
+ok 36 - PRE031: native REVIEW_FIRST row-lock barrier serializes final review against 48-hour settlement without actual transfer
+  ---
+  duration_ms: 533.727708
+  type: 'test'
+  ...
+# Subtest: PRE031: native EXPIRY_FIRST row-lock barrier serializes final review against 48-hour settlement without actual transfer
+ok 37 - PRE031: native EXPIRY_FIRST row-lock barrier serializes final review against 48-hour settlement without actual transfer
+  ---
+  duration_ms: 202.329833
+  type: 'test'
+  ...
+# Subtest: PRE013: native orphan trusted payment and refund events persist MANUAL cases without qualification
+ok 38 - PRE013: native orphan trusted payment and refund events persist MANUAL cases without qualification
+  ---
+  duration_ms: 91.195917
+  type: 'test'
+  ...
+# Subtest: PRE009: native PAYMENT accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+ok 39 - PRE009: native PAYMENT accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+  ---
+  duration_ms: 305.832458
+  type: 'test'
+  ...
+# Subtest: PRE009: native REFUND accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+ok 40 - PRE009: native REFUND accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+  ---
+  duration_ms: 225.915292
+  type: 'test'
+  ...
+# Subtest: PRE010: native PAYMENT callback success before original timeout remains CONFIRMED and keeps one effect
+ok 41 - PRE010: native PAYMENT callback success before original timeout remains CONFIRMED and keeps one effect
+  ---
+  duration_ms: 105.952292
+  type: 'test'
+  ...
+# Subtest: PRE010: native REFUND callback success before original timeout remains CONFIRMED and keeps one effect
+ok 42 - PRE010: native REFUND callback success before original timeout remains CONFIRMED and keeps one effect
+  ---
+  duration_ms: 90.623625
+  type: 'test'
+  ...
+# Subtest: PRE044: native event transaction fails before ACK and rolls back all effects then repeated persistence commits once
+ok 43 - PRE044: native event transaction fails before ACK and rolls back all effects then repeated persistence commits once
+  ---
+  duration_ms: 69.576459
+  type: 'test'
+  ...
+# Subtest: read-only monitor observes aggregate queue, cases and exact-release heartbeat
+ok 44 - read-only monitor observes aggregate queue, cases and exact-release heartbeat
+  ---
+  duration_ms: 169.566042
+  type: 'test'
+  ...
+# Subtest: formal user can read only own recorded money without granting policy eligibility
+    # Subtest: unallocated late receipt remains visible despite inactive registration and draft policy
+    ok 1 - unallocated late receipt remains visible despite inactive registration and draft policy
+      ---
+      duration_ms: 42.03
+      type: 'test'
+      ...
+    # Subtest: foreign user and unsigned request cannot access the record
+    ok 2 - foreign user and unsigned request cannot access the record
+      ---
+      duration_ms: 15.173209
+      type: 'test'
+      ...
+    # Subtest: allocation does not change monetary totals and unrelated mock facts are excluded
+    ok 3 - allocation does not change monetary totals and unrelated mock facts are excluded
+      ---
+      duration_ms: 29.011541
+      type: 'test'
+      ...
+    # Subtest: receipt binding assigned to another registration cannot leak into either user view
+    ok 4 - receipt binding assigned to another registration cannot leak into either user view
+      ---
+      duration_ms: 37.746875
+      type: 'test'
+      ...
+    # Subtest: formal refund intake is concurrent-idempotent, owned and cannot execute simulated decisions
+    ok 5 - formal refund intake is concurrent-idempotent, owned and cannot execute simulated decisions
+      ---
+      duration_ms: 51.784083
+      type: 'test'
+      ...
+    # Subtest: own registration pagination preserves inactive records and never accepts another owner hint
+    ok 6 - own registration pagination preserves inactive records and never accepts another owner hint
+      ---
+      duration_ms: 32.315
+      type: 'test'
+      ...
+    # Subtest: owned obligation tracks partial refunds and a conflict does not hide recorded money
+    ok 7 - owned obligation tracks partial refunds and a conflict does not hide recorded money
+      ---
+      duration_ms: 36.090667
+      type: 'test'
+      ...
+    # Subtest: conflicting original refund identity fails closed without financial writes
+    ok 8 - conflicting original refund identity fails closed without financial writes
+      ---
+      duration_ms: 11.222042
+      type: 'test'
+      ...
+    1..8
+ok 45 - formal user can read only own recorded money without granting policy eligibility
+  ---
+  duration_ms: 422.383625
+  type: 'test'
+  ...
+# {"level":30,"time":1790870487014,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487047,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":32.57662487030029,"msg":"request completed"}
+# {"level":30,"time":1790870487048,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487078,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":30.13770818710327,"msg":"request completed"}
+# {"level":30,"time":1790870487078,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_98437de8778844f38db35b13b97d2833_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487111,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":33.17908310890198,"msg":"request completed"}
+# {"level":30,"time":1790870487111,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1rnl0007konv2r8pu40l/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487165,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":53.265000104904175,"msg":"request completed"}
+# {"level":30,"time":1790870487165,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_98437de8778844f38db35b13b97d2833_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487193,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":28.3889582157135,"msg":"request completed"}
+# {"level":30,"time":1790870487200,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487227,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":27.07404112815857,"msg":"request completed"}
+# {"level":30,"time":1790870487228,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487261,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":32.977874994277954,"msg":"request completed"}
+# {"level":30,"time":1790870487261,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487298,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":37.15149998664856,"msg":"request completed"}
+# {"level":30,"time":1790870487299,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487421,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":121.67670798301697,"msg":"request completed"}
+# {"level":30,"time":1790870487426,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487446,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":20.240334033966064,"msg":"request completed"}
+# {"level":30,"time":1790870487446,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487462,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":15.945542097091675,"msg":"request completed"}
+# {"level":30,"time":1790870487462,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487478,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":15.801790952682495,"msg":"request completed"}
+# {"level":30,"time":1790870487478,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487533,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":54.19779086112976,"msg":"request completed"}
+# {"level":30,"time":1790870487534,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1ruy000jkonve3m5682t/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487620,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":85.94474983215332,"msg":"request completed"}
+# {"level":30,"time":1790870487621,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1rz0000wkonvaounz9v9/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487675,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":54.072750091552734,"msg":"request completed"}
+# {"level":30,"time":1790870487677,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487685,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":8.859249830245972,"msg":"request completed"}
+# {"level":30,"time":1790870487686,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487693,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":6.937333106994629,"msg":"request completed"}
+# {"level":30,"time":1790870487693,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487705,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":12.262125015258789,"msg":"request completed"}
+# {"level":30,"time":1790870487705,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487731,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":26.388041973114014,"msg":"request completed"}
+# {"level":30,"time":1790870487733,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487740,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":6.541749954223633,"msg":"request completed"}
+# {"level":30,"time":1790870487740,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487746,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":6.33774995803833,"msg":"request completed"}
+# {"level":30,"time":1790870487746,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487755,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":8.593583822250366,"msg":"request completed"}
+# {"level":30,"time":1790870487755,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487779,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":24.198583126068115,"msg":"request completed"}
+# {"level":30,"time":1790870487780,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1s4r001ukonvyj8tgcax/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487830,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","res":{"statusCode":200},"responseTime":50.54058384895325,"msg":"request completed"}
+# {"level":30,"time":1790870487831,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1s620027konvmk6qwwzl/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487881,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":49.809624910354614,"msg":"request completed"}
+# {"level":30,"time":1790870487882,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487888,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","res":{"statusCode":200},"responseTime":6.139958143234253,"msg":"request completed"}
+# {"level":30,"time":1790870487889,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487895,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","res":{"statusCode":200},"responseTime":6.513000011444092,"msg":"request completed"}
+# {"level":30,"time":1790870487895,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487906,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","res":{"statusCode":200},"responseTime":11.147958040237427,"msg":"request completed"}
+# {"level":30,"time":1790870487907,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487937,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","res":{"statusCode":200},"responseTime":30.62466597557068,"msg":"request completed"}
+# {"level":30,"time":1790870487939,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","req":{"method":"GET","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487944,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","res":{"statusCode":200},"responseTime":5.855041980743408,"msg":"request completed"}
+# {"level":30,"time":1790870487944,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487951,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","res":{"statusCode":200},"responseTime":6.022416114807129,"msg":"request completed"}
+# {"level":30,"time":1790870487951,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","req":{"method":"POST","url":"/api/v11/policies/cmupq1rhx0002konvjngaj78q/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487959,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","res":{"statusCode":200},"responseTime":7.972833871841431,"msg":"request completed"}
+# {"level":30,"time":1790870487959,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870487986,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","res":{"statusCode":200},"responseTime":27.37958288192749,"msg":"request completed"}
+# {"level":30,"time":1790870487987,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sbt003mkonvjinkbvgw/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488030,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","res":{"statusCode":200},"responseTime":43.60708284378052,"msg":"request completed"}
+# {"level":30,"time":1790870488031,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sag0039konvyswpp2jx/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488078,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","res":{"statusCode":200},"responseTime":46.80879187583923,"msg":"request completed"}
+# {"level":30,"time":1790870488079,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-10","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1ruy000jkonve3m5682t/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488094,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-10","res":{"statusCode":200},"responseTime":14.707499980926514,"msg":"request completed"}
+# {"level":30,"time":1790870488094,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-11","req":{"method":"POST","url":"/api/v11/ops/formal/refund-requests/cmupq1sev0049konvs6wexv79/decide","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488132,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-11","res":{"statusCode":200},"responseTime":37.80454111099243,"msg":"request completed"}
+# Subtest: formal waitlist ordering and durable exit promotion: REGISTRATION_ACCEPTED
+ok 46 - formal waitlist ordering and durable exit promotion: REGISTRATION_ACCEPTED
+  ---
+  duration_ms: 1498.779791
+  type: 'test'
+  ...
+# {"level":30,"time":1790870488328,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488354,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":26.47333312034607,"msg":"request completed"}
+# {"level":30,"time":1790870488354,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488380,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":26.095833778381348,"msg":"request completed"}
+# {"level":30,"time":1790870488381,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_5ed10af097b34d18885e25eeed55fd1b_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488390,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":9.01183295249939,"msg":"request completed"}
+# {"level":30,"time":1790870488390,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1sn8004ykonv03kzhhbw/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488402,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":12.052749872207642,"msg":"request completed"}
+# {"level":30,"time":1790870488402,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_5ed10af097b34d18885e25eeed55fd1b_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488411,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":8.807834148406982,"msg":"request completed"}
+# {"level":30,"time":1790870488412,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488419,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":6.956000089645386,"msg":"request completed"}
+# {"level":30,"time":1790870488419,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488426,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":6.873083829879761,"msg":"request completed"}
+# {"level":30,"time":1790870488427,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488435,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":8.899791955947876,"msg":"request completed"}
+# {"level":30,"time":1790870488436,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488472,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":36.19291710853577,"msg":"request completed"}
+# {"level":30,"time":1790870488474,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488484,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":9.527082920074463,"msg":"request completed"}
+# {"level":30,"time":1790870488484,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488490,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":6.134541034698486,"msg":"request completed"}
+# {"level":30,"time":1790870488490,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488499,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":9.332125186920166,"msg":"request completed"}
+# {"level":30,"time":1790870488499,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488525,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":25.592000007629395,"msg":"request completed"}
+# {"level":30,"time":1790870488526,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sp2005akonve5zhj11f/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488591,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":64.98795795440674,"msg":"request completed"}
+# {"level":30,"time":1790870488592,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sqs005nkonvt63emqk3/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488641,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":49.13095808029175,"msg":"request completed"}
+# {"level":30,"time":1790870488643,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488652,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":9.261917114257812,"msg":"request completed"}
+# {"level":30,"time":1790870488652,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488660,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":7.425457954406738,"msg":"request completed"}
+# {"level":30,"time":1790870488660,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488673,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":12.892082929611206,"msg":"request completed"}
+# {"level":30,"time":1790870488673,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488701,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":28.116000175476074,"msg":"request completed"}
+# {"level":30,"time":1790870488703,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488709,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":6.2452919483184814,"msg":"request completed"}
+# {"level":30,"time":1790870488709,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488716,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":7.093082904815674,"msg":"request completed"}
+# {"level":30,"time":1790870488716,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488724,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":7.723083972930908,"msg":"request completed"}
+# {"level":30,"time":1790870488724,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488750,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":25.326624870300293,"msg":"request completed"}
+# {"level":30,"time":1790870488750,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1svo006lkonviu6f1pyn/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488801,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","res":{"statusCode":200},"responseTime":50.748125076293945,"msg":"request completed"}
+# {"level":30,"time":1790870488802,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sx2006ykonvnofmske1/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488850,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":47.7422080039978,"msg":"request completed"}
+# {"level":30,"time":1790870488851,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488856,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","res":{"statusCode":200},"responseTime":5.508541107177734,"msg":"request completed"}
+# {"level":30,"time":1790870488857,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488862,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","res":{"statusCode":200},"responseTime":5.671708106994629,"msg":"request completed"}
+# {"level":30,"time":1790870488862,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488871,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","res":{"statusCode":200},"responseTime":8.43975019454956,"msg":"request completed"}
+# {"level":30,"time":1790870488871,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488899,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","res":{"statusCode":200},"responseTime":28.328874826431274,"msg":"request completed"}
+# {"level":30,"time":1790870488900,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","req":{"method":"GET","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488906,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","res":{"statusCode":200},"responseTime":5.241374969482422,"msg":"request completed"}
+# {"level":30,"time":1790870488906,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488911,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","res":{"statusCode":200},"responseTime":5.411041975021362,"msg":"request completed"}
+# {"level":30,"time":1790870488911,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","req":{"method":"POST","url":"/api/v11/policies/cmupq1sjz004tkonvvj7a09sh/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488919,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","res":{"statusCode":200},"responseTime":7.935542106628418,"msg":"request completed"}
+# {"level":30,"time":1790870488919,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488943,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","res":{"statusCode":200},"responseTime":24.03054189682007,"msg":"request completed"}
+# {"level":30,"time":1790870488944,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1t2f008dkonvwko9voyi/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870488983,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","res":{"statusCode":200},"responseTime":39.01675009727478,"msg":"request completed"}
+# {"level":30,"time":1790870488983,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1t160080konvibp68bpw/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489016,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","res":{"statusCode":200},"responseTime":32.9557089805603,"msg":"request completed"}
+# {"level":30,"time":1790870489017,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-10","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1sp2005akonve5zhj11f/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489032,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-10","res":{"statusCode":200},"responseTime":14.156166076660156,"msg":"request completed"}
+# {"level":30,"time":1790870489032,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-11","req":{"method":"POST","url":"/api/v11/ops/formal/refund-requests/cmupq1t4y0090konva3ikup58/decide","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489061,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-11","res":{"statusCode":200},"responseTime":29.644457817077637,"msg":"request completed"}
+# Subtest: formal waitlist ordering and durable exit promotion: TRUSTED_PAYMENT_CONFIRMED
+ok 47 - formal waitlist ordering and durable exit promotion: TRUSTED_PAYMENT_CONFIRMED
+  ---
+  duration_ms: 919.348167
+  type: 'test'
+  ...
+# {"level":30,"time":1790870489244,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489271,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":26.344166040420532,"msg":"request completed"}
+# {"level":30,"time":1790870489271,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489296,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":25.586166858673096,"msg":"request completed"}
+# {"level":30,"time":1790870489296,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_28a9efb111834fb6a5e04a494f0da84c_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489305,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":8.98279094696045,"msg":"request completed"}
+# {"level":30,"time":1790870489306,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1tco009pkonvf47zqgi7/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489317,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":11.376000165939331,"msg":"request completed"}
+# {"level":30,"time":1790870489317,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_28a9efb111834fb6a5e04a494f0da84c_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489324,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":7.311125040054321,"msg":"request completed"}
+# {"level":30,"time":1790870489326,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1t9f009kkonvbk5mpb8p/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489335,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":8.481624841690063,"msg":"request completed"}
+# {"level":30,"time":1790870489335,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489342,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":6.859290838241577,"msg":"request completed"}
+# {"level":30,"time":1790870489342,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1t9f009kkonvbk5mpb8p/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489351,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":9.063958168029785,"msg":"request completed"}
+# {"level":30,"time":1790870489351,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489392,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":41.51141691207886,"msg":"request completed"}
+# {"level":30,"time":1790870489394,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1tei00a1konvj6v2gdso/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489449,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":54.96595788002014,"msg":"request completed"}
+# {"level":30,"time":1790870489449,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1tei00a1konvj6v2gdso/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489487,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":37.92170786857605,"msg":"request completed"}
+# Subtest: extra original-channel receipt refunds only the extra money and preserves valid membership
+ok 48 - extra original-channel receipt refunds only the extra money and preserves valid membership
+  ---
+  duration_ms: 416.739542
+  type: 'test'
+  ...
+# {"level":30,"time":1790870489662,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489692,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":29.947499990463257,"msg":"request completed"}
+# {"level":30,"time":1790870489692,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489721,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":29.038249969482422,"msg":"request completed"}
+# {"level":30,"time":1790870489721,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_65de567c2e3e4cb4ba5170995a594662_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489749,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":27.30929183959961,"msg":"request completed"}
+# {"level":30,"time":1790870489749,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1tov00b4konvg6dsh2xe/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489787,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":38.40070915222168,"msg":"request completed"}
+# {"level":30,"time":1790870489787,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_65de567c2e3e4cb4ba5170995a594662_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489808,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":20.372082948684692,"msg":"request completed"}
+# {"level":30,"time":1790870489814,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1tl200azkonvikii4umg/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489832,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":17.8574161529541,"msg":"request completed"}
+# {"level":30,"time":1790870489832,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489852,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":19.63450002670288,"msg":"request completed"}
+# {"level":30,"time":1790870489852,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1tl200azkonvikii4umg/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489874,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":22.436000108718872,"msg":"request completed"}
+# {"level":30,"time":1790870489874,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870489959,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":84.39379215240479,"msg":"request completed"}
+# {"level":30,"time":1790870489963,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1ttw00bgkonvu3kdbg5x/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490022,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":59.31487488746643,"msg":"request completed"}
+# Subtest: policy-review replay preserves the original pending rights instead of forced full refund
+ok 49 - policy-review replay preserves the original pending rights instead of forced full refund
+  ---
+  duration_ms: 496.435333
+  type: 'test'
+  ...
+# {"level":30,"time":1790870490206,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490236,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":29.2327082157135,"msg":"request completed"}
+# {"level":30,"time":1790870490236,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490265,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":28.689666986465454,"msg":"request completed"}
+# {"level":30,"time":1790870490265,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_adce86586ab241a381f687fa057e99a3_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490292,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":27.314249992370605,"msg":"request completed"}
+# {"level":30,"time":1790870490292,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1u3z00c0konv9p6zvk3k/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490330,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":38.11483311653137,"msg":"request completed"}
+# {"level":30,"time":1790870490330,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_adce86586ab241a381f687fa057e99a3_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490355,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":24.41683292388916,"msg":"request completed"}
+# {"level":30,"time":1790870490362,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1tzw00bvkonvjn83qbz7/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490379,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":16.82574987411499,"msg":"request completed"}
+# {"level":30,"time":1790870490379,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490394,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":14.7642080783844,"msg":"request completed"}
+# {"level":30,"time":1790870490394,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1tzw00bvkonvjn83qbz7/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490412,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":17.891083002090454,"msg":"request completed"}
+# {"level":30,"time":1790870490412,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490468,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":55.972583055496216,"msg":"request completed"}
+# {"level":30,"time":1790870490470,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1u8600cckonv1fcvw01i/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490539,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":69.65375018119812,"msg":"request completed"}
+# {"level":30,"time":1790870490540,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1u8600cckonv1fcvw01i/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490594,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":54.19312500953674,"msg":"request completed"}
+# Subtest: mandatory refund retains obligation when auto-decision is null
+ok 50 - mandatory refund retains obligation when auto-decision is null
+  ---
+  duration_ms: 586.422583
+  type: 'test'
+  ...
+# {"level":30,"time":1790870490754,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490783,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":28.5482919216156,"msg":"request completed"}
+# {"level":30,"time":1790870490783,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490812,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":29.119959115982056,"msg":"request completed"}
+# {"level":30,"time":1790870490812,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_698ab9abfef443a786464caee610dd33_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490835,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":23.161207914352417,"msg":"request completed"}
+# {"level":30,"time":1790870490835,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1uj400dakonvrrs0g1my/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490878,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":42.43733286857605,"msg":"request completed"}
+# {"level":30,"time":1790870490878,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_698ab9abfef443a786464caee610dd33_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490899,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":21.40541696548462,"msg":"request completed"}
+# {"level":30,"time":1790870490905,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1ufc00d5konvbunv595o/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490924,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":19.546416997909546,"msg":"request completed"}
+# {"level":30,"time":1790870490924,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490945,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":20.460416078567505,"msg":"request completed"}
+# {"level":30,"time":1790870490945,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1ufc00d5konvbunv595o/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870490976,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":30.94533395767212,"msg":"request completed"}
+# {"level":30,"time":1790870490976,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491073,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":96.89699983596802,"msg":"request completed"}
+# {"level":30,"time":1790870491075,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1uon00dmkonv7daji468/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491194,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":118.6148750782013,"msg":"request completed"}
+# {"level":30,"time":1790870491195,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1uon00dmkonv7daji468/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491287,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":92.06824994087219,"msg":"request completed"}
+# Subtest: mandatory refund retains obligation when auto-decision is false
+ok 51 - mandatory refund retains obligation when auto-decision is false
+  ---
+  duration_ms: 706.8455
+  type: 'test'
+  ...
+# {"level":30,"time":1790870491497,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491528,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":30.709167003631592,"msg":"request completed"}
+# {"level":30,"time":1790870491528,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491557,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":29.07241702079773,"msg":"request completed"}
+# {"level":30,"time":1790870491557,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_7b1c699bb72944e0b6e20503a73174fd_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491582,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":24.683374881744385,"msg":"request completed"}
+# {"level":30,"time":1790870491582,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1v3t00ekkonvg7nw6vy9/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491620,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":37.48775005340576,"msg":"request completed"}
+# {"level":30,"time":1790870491620,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_7b1c699bb72944e0b6e20503a73174fd_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491640,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":20.408666133880615,"msg":"request completed"}
+# {"level":30,"time":1790870491645,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1uzt00efkonvfc11vbil/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491664,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":18.637290954589844,"msg":"request completed"}
+# {"level":30,"time":1790870491664,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491683,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":18.45508313179016,"msg":"request completed"}
+# {"level":30,"time":1790870491683,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1uzt00efkonvfc11vbil/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491706,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":22.905041933059692,"msg":"request completed"}
+# {"level":30,"time":1790870491706,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491790,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":84.3914167881012,"msg":"request completed"}
+# {"level":30,"time":1790870491792,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1v8p00ewkonv28a0k3do/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491874,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":82.10495805740356,"msg":"request completed"}
+# {"level":30,"time":1790870491875,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1v8p00ewkonv28a0k3do/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870491943,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":68.46024990081787,"msg":"request completed"}
+# Subtest: revoked historical authority preserves receipts and keeps followup sweep alive
+ok 52 - revoked historical authority preserves receipts and keeps followup sweep alive
+  ---
+  duration_ms: 644.137875
+  type: 'test'
+  ...
+# {"level":30,"time":1790870492118,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492150,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":31.875917196273804,"msg":"request completed"}
+# {"level":30,"time":1790870492150,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492180,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":29.706665992736816,"msg":"request completed"}
+# {"level":30,"time":1790870492180,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_6345d1a318264bb9bf0f3aecec550b54_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492208,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":27.39633297920227,"msg":"request completed"}
+# {"level":30,"time":1790870492208,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1vl700fukonvoan8opwo/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492246,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":38.2407500743866,"msg":"request completed"}
+# {"level":30,"time":1790870492246,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_6345d1a318264bb9bf0f3aecec550b54_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492265,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":18.706125020980835,"msg":"request completed"}
+# {"level":30,"time":1790870492271,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492293,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":22.090834140777588,"msg":"request completed"}
+# {"level":30,"time":1790870492293,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492310,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":16.331125020980835,"msg":"request completed"}
+# {"level":30,"time":1790870492310,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492326,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":16.201416969299316,"msg":"request completed"}
+# {"level":30,"time":1790870492326,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492389,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":62.755542039871216,"msg":"request completed"}
+# {"level":30,"time":1790870492390,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1vpj00g6konvdakyh4vq/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492488,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":97.1577501296997,"msg":"request completed"}
+# {"level":30,"time":1790870492490,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"GET","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492501,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":10.544790983200073,"msg":"request completed"}
+# {"level":30,"time":1790870492501,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492513,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":11.569875001907349,"msg":"request completed"}
+# {"level":30,"time":1790870492513,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492528,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":15.2100830078125,"msg":"request completed"}
+# {"level":30,"time":1790870492528,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492566,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":37.2271249294281,"msg":"request completed"}
+# {"level":30,"time":1790870492567,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1vuw00gukonvlvwvdorn/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492647,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":80.18283295631409,"msg":"request completed"}
+# {"level":30,"time":1790870492649,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492658,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":8.214832782745361,"msg":"request completed"}
+# {"level":30,"time":1790870492658,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492669,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":11.042083024978638,"msg":"request completed"}
+# {"level":30,"time":1790870492669,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"POST","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492681,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":12.03345799446106,"msg":"request completed"}
+# {"level":30,"time":1790870492681,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492723,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":41.36737513542175,"msg":"request completed"}
+# {"level":30,"time":1790870492723,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1vzb00hhkonvlzq0q7p4/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492790,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":66.17891693115234,"msg":"request completed"}
+# {"level":30,"time":1790870492791,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"GET","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492798,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":6.4794580936431885,"msg":"request completed"}
+# {"level":30,"time":1790870492798,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492805,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":6.820083141326904,"msg":"request completed"}
+# {"level":30,"time":1790870492805,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/v11/policies/cmupq1vh500fpkonvh3kkrxx1/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492818,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":13.460124969482422,"msg":"request completed"}
+# {"level":30,"time":1790870492818,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492848,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","res":{"statusCode":200},"responseTime":30.027665853500366,"msg":"request completed"}
+# {"level":30,"time":1790870492849,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1w2u00i4konvrzc51f02/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870492899,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":49.37879204750061,"msg":"request completed"}
+# Subtest: restarted formal lifecycle reconstructs T24 from historical membership and preserves append-only authority audit
+ok 53 - restarted formal lifecycle reconstructs T24 from historical membership and preserves append-only authority audit
+  ---
+  duration_ms: 974.965417
+  type: 'test'
+  ...
+# {"level":30,"time":1790870493075,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493102,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":26.304666996002197,"msg":"request completed"}
+# {"level":30,"time":1790870493102,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493128,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":25.927165985107422,"msg":"request completed"}
+# {"level":30,"time":1790870493128,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_6dfab6a90ed24dfa8ac481286e94b9bc_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493136,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":8.139832973480225,"msg":"request completed"}
+# {"level":30,"time":1790870493136,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1wb300j0konvpd4bymu1/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493148,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":11.81237506866455,"msg":"request completed"}
+# {"level":30,"time":1790870493148,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_6dfab6a90ed24dfa8ac481286e94b9bc_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493155,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":7.041291952133179,"msg":"request completed"}
+# {"level":30,"time":1790870493157,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1w7s00ivkonvhmlmj0nz/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493163,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":6.5738749504089355,"msg":"request completed"}
+# {"level":30,"time":1790870493163,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493181,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":17.278083086013794,"msg":"request completed"}
+# {"level":30,"time":1790870493181,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1w7s00ivkonvhmlmj0nz/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493189,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":8.26799988746643,"msg":"request completed"}
+# {"level":30,"time":1790870493189,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493224,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":34.63241696357727,"msg":"request completed"}
+# {"level":30,"time":1790870493225,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1wd400jckonvqbkhef99/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493279,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":54.294708013534546,"msg":"request completed"}
+# {"level":30,"time":1790870493280,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1wd400jckonvqbkhef99/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493298,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":18.700500011444092,"msg":"request completed"}
+# {"level":30,"time":1790870493300,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1wd400jckonvqbkhef99/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493306,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":6.129292011260986,"msg":"request completed"}
+# {"level":30,"time":1790870493306,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/ops/formal/refund-requests/cmupq1wfb00jskonvxz3mx13j/decide","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493328,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":21.87108302116394,"msg":"request completed"}
+# Subtest: REQUEST_ACCEPTED removal occurs before OPS decision and preserves original refund application
+ok 54 - REQUEST_ACCEPTED removal occurs before OPS decision and preserves original refund application
+  ---
+  duration_ms: 392.3495
+  type: 'test'
+  ...
+# {"level":30,"time":1790870493494,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493523,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":29.41270899772644,"msg":"request completed"}
+# {"level":30,"time":1790870493523,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493552,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":28.786458015441895,"msg":"request completed"}
+# {"level":30,"time":1790870493552,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_d97d8c758daf45d6a5996b6b10d020f2_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493581,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":28.871166944503784,"msg":"request completed"}
+# {"level":30,"time":1790870493581,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq1wnc00k8konvtu787tqu/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493617,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":36.05420899391174,"msg":"request completed"}
+# {"level":30,"time":1790870493618,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_d97d8c758daf45d6a5996b6b10d020f2_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493637,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":19.00183391571045,"msg":"request completed"}
+# {"level":30,"time":1790870493641,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq1wjc00k3konvo2wii0fw/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493655,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":13.878582954406738,"msg":"request completed"}
+# {"level":30,"time":1790870493655,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493669,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":13.877208948135376,"msg":"request completed"}
+# {"level":30,"time":1790870493669,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq1wjc00k3konvo2wii0fw/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493691,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":21.64383292198181,"msg":"request completed"}
+# {"level":30,"time":1790870493691,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493749,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":58.52895784378052,"msg":"request completed"}
+# {"level":30,"time":1790870493753,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq1wrg00kkkonvbwkc5bej/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870493821,"pid":25368,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":67.19937491416931,"msg":"request completed"}
+# Subtest: formal T8 restarted worker keeps low-person branch explicit without fabricated approval or receipt loss
+ok 55 - formal T8 restarted worker keeps low-person branch explicit without fabricated approval or receipt loss
+  ---
+  duration_ms: 521.1115
+  type: 'test'
+  ...
+# Subtest: formal client origin requires canonical HTTPS without credentials, path or local endpoints
+ok 56 - formal client origin requires canonical HTTPS without credentials, path or local endpoints
+  ---
+  duration_ms: 0.775041
+  type: 'test'
+  ...
+# Subtest: formal absolute hold expiry preserves unknown money and routes ambiguous qualifications to review
+    # Subtest: concurrent expiry releases capacity once, preserves UNKNOWN and commits one query task
+    ok 1 - concurrent expiry releases capacity once, preserves UNKNOWN and commits one query task
+      ---
+      duration_ms: 73.8415
+      type: 'test'
+      ...
+    # Subtest: trusted channel closure converges only with committed formal expiry evidence
+    ok 2 - trusted channel closure converges only with committed formal expiry evidence
+      ---
+      duration_ms: 190.040375
+      type: 'test'
+      ...
+    # Subtest: subsequent trustworthy query records timely channel payment as full late refund obligation
+    ok 3 - subsequent trustworthy query records timely channel payment as full late refund obligation
+      ---
+      duration_ms: 90.8815
+      type: 'test'
+      ...
+    # Subtest: durable formal close commits recovery before I/O and fences stale send authority
+    ok 4 - durable formal close commits recovery before I/O and fences stale send authority
+      ---
+      duration_ms: 200.336875
+      type: 'test'
+      ...
+    # Subtest: money and preparation axes cover valid pending states without promoting terminal or corrupt records
+    ok 5 - money and preparation axes cover valid pending states without promoting terminal or corrupt records
+      ---
+      duration_ms: 585.431333
+      type: 'test'
+      ...
+    # Subtest: historical bounded close sweep restores missing jobs without resetting prior tasks or crossing binding
+    ok 6 - historical bounded close sweep restores missing jobs without resetting prior tasks or crossing binding
+      ---
+      duration_ms: 1303.042834
+      type: 'test'
+      ...
+    # Subtest: shared closure runtime survives process death before and after synthetic channel send, drains and caps retries
+    ok 7 - shared closure runtime survives process death before and after synthetic channel send, drains and caps retries
+      ---
+      duration_ms: 2287.109833
+      type: 'test'
+      ...
+    # Subtest: bound job claims leave other merchant and config leases and retry budgets untouched
+    ok 8 - bound job claims leave other merchant and config leases and retry budgets untouched
+      ---
+      duration_ms: 63.494833
+      type: 'test'
+      ...
+    # Subtest: controlled obligation observation preserves conflicts, isolates scope and rejects role or actor revocation
+    ok 9 - controlled obligation observation preserves conflicts, isolates scope and rejects role or actor revocation
+      ---
+      duration_ms: 21.444
+      type: 'test'
+      ...
+    # Subtest: controlled HTTP obligation route requires dedicated session and rejects caller scope and revoked account
+    ok 10 - controlled HTTP obligation route requires dedicated session and rejects caller scope and revoked account
+      ---
+      duration_ms: 124.306417
+      type: 'test'
+      ...
+    # Subtest: future hold and foreign binding cannot be expired
+    ok 11 - future hold and foreign binding cannot be expired
+      ---
+      duration_ms: 17.76825
+      type: 'test'
+      ...
+    # Subtest: existing paid qualification, cancellation, waitlist and wrong deadline require review without changing rights
+    ok 12 - existing paid qualification, cancellation, waitlist and wrong deadline require review without changing rights
+      ---
+      duration_ms: 39.830709
+      type: 'test'
+      ...
+    # Subtest: timely success evidence before cutoff cannot be silently reclassified as an unknown expired order
+    ok 13 - timely success evidence before cutoff cannot be silently reclassified as an unknown expired order
+      ---
+      duration_ms: 9.338083
+      type: 'test'
+      ...
+    # Subtest: bounded scanner traverses past a full page of review items instead of starving later rows
+    ok 14 - bounded scanner traverses past a full page of review items instead of starving later rows
+      ---
+      duration_ms: 429.233167
+      type: 'test'
+      ...
+    # Subtest: owned standalone process runs shared worker runtime, reaches a later page and drains SIGTERM
+    ok 15 - owned standalone process runs shared worker runtime, reaches a later page and drains SIGTERM
+      ---
+      duration_ms: 1706.972042
+      type: 'test'
+      ...
+    1..15
+ok 57 - formal absolute hold expiry preserves unknown money and routes ambiguous qualifications to review
+  ---
+  duration_ms: 7274.938792
+  type: 'test'
+  ...
+# {"evidence":"/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/cto-review-20261001/evidence/formal-dom-2026-10-01T16-01-41.567Z","counts":{"registrations":1,"paymentSends":1,"refundSends":1}}
+# Subtest: formal main HTTP + React DOM end-to-end with guarded synthetic transport
+ok 58 - formal main HTTP + React DOM end-to-end with guarded synthetic transport
+  ---
+  duration_ms: 19672.363333
+  type: 'test'
+  ...
+# {"level":30,"time":1790870521617,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521649,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":31.479750156402588,"msg":"request completed"}
+# {"level":30,"time":1790870521650,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521680,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":30.14016604423523,"msg":"request completed"}
+# {"level":30,"time":1790870521680,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/formal_branch_4e4d89fcba744455957e103d193ff2ec_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521718,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":37.611083030700684,"msg":"request completed"}
+# {"level":30,"time":1790870521718,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq2ict0007rfnvh9gm29sw/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521769,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":50.63154196739197,"msg":"request completed"}
+# {"level":30,"time":1790870521769,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/ops/formal/activities/formal_branch_4e4d89fcba744455957e103d193ff2ec_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521798,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":29.014832973480225,"msg":"request completed"}
+# {"level":30,"time":1790870521805,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521836,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":31.353541135787964,"msg":"request completed"}
+# {"level":30,"time":1790870521837,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521861,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":24.75595784187317,"msg":"request completed"}
+# {"level":30,"time":1790870521862,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870521901,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":38.9386670589447,"msg":"request completed"}
+# {"level":30,"time":1790870521901,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522027,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":125.27987504005432,"msg":"request completed"}
+# {"level":30,"time":1790870522029,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2ik6000jrfnv1xjp6f30/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522118,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":88.71116709709167,"msg":"request completed"}
+# {"level":30,"time":1790870522121,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"GET","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522134,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":13.043916940689087,"msg":"request completed"}
+# {"level":30,"time":1790870522134,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522141,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":7.323291063308716,"msg":"request completed"}
+# {"level":30,"time":1790870522141,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522153,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":11.161792039871216,"msg":"request completed"}
+# {"level":30,"time":1790870522153,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522182,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":29.504124879837036,"msg":"request completed"}
+# {"level":30,"time":1790870522183,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2ipm0017rfnvdomlvtpa/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522234,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":50.903417110443115,"msg":"request completed"}
+# {"level":30,"time":1790870522235,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522242,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":6.65512490272522,"msg":"request completed"}
+# {"level":30,"time":1790870522242,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522249,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":6.591625213623047,"msg":"request completed"}
+# {"level":30,"time":1790870522249,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"POST","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522259,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":10.099042177200317,"msg":"request completed"}
+# {"level":30,"time":1790870522259,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522285,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":26.197916984558105,"msg":"request completed"}
+# {"level":30,"time":1790870522286,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2isl001urfnvutagx6qj/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522337,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":51.12625002861023,"msg":"request completed"}
+# {"level":30,"time":1790870522338,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"GET","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522344,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":5.809165954589844,"msg":"request completed"}
+# {"level":30,"time":1790870522344,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522350,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":5.842832803726196,"msg":"request completed"}
+# {"level":30,"time":1790870522350,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522359,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":8.615791082382202,"msg":"request completed"}
+# {"level":30,"time":1790870522359,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522382,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","res":{"statusCode":200},"responseTime":22.873416900634766,"msg":"request completed"}
+# {"level":30,"time":1790870522383,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2iva002hrfnvffpme15s/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522434,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":51.1400420665741,"msg":"request completed"}
+# {"level":30,"time":1790870522435,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","req":{"method":"GET","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522441,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","res":{"statusCode":200},"responseTime":5.973124980926514,"msg":"request completed"}
+# {"level":30,"time":1790870522441,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522448,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","res":{"statusCode":200},"responseTime":6.5934998989105225,"msg":"request completed"}
+# {"level":30,"time":1790870522448,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","req":{"method":"POST","url":"/api/v11/policies/cmupq2i7f0002rfnvh6fvkjmv/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522457,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","res":{"statusCode":200},"responseTime":8.991499900817871,"msg":"request completed"}
+# {"level":30,"time":1790870522457,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522487,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","res":{"statusCode":200},"responseTime":30.189040899276733,"msg":"request completed"}
+# {"level":30,"time":1790870522488,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2iy60039rfnvhrtjf4mo/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522502,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","res":{"statusCode":200},"responseTime":14.920334100723267,"msg":"request completed"}
+# {"level":30,"time":1790870522503,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","req":{"method":"POST","url":"/api/v11/ops/formal/refund-requests/cmupq2iym003erfnv71ige4td/decide","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522523,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","res":{"statusCode":200},"responseTime":19.979291915893555,"msg":"request completed"}
+# {"level":30,"time":1790870522534,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2iy60039rfnvhrtjf4mo/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870522552,"pid":25611,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","res":{"statusCode":200},"responseTime":17.360583066940308,"msg":"request completed"}
+# Subtest: formal unpaid waitlist application reaches trusted no-funds closure without erasing accepted history
+ok 59 - formal unpaid waitlist application reaches trusted no-funds closure without erasing accepted history
+  ---
+  duration_ms: 1274.093333
+  type: 'test'
+  ...
+# Subtest: policy material archive is immutable and cannot grant runtime authority
+    # Subtest: ten concurrent imports preserve exact bytes with one record and audit
+    ok 1 - ten concurrent imports preserve exact bytes with one record and audit
+      ---
+      duration_ms: 68.229625
+      type: 'test'
+      ...
+    # Subtest: reads recheck pins and attachments and expose public projection only
+    ok 2 - reads recheck pins and attachments and expose public projection only
+      ---
+      duration_ms: 8.506
+      type: 'test'
+      ...
+    # Subtest: database rejects changing bytes, changing scope or deleting archived material
+    ok 3 - database rejects changing bytes, changing scope or deleting archived material
+      ---
+      duration_ms: 12.57475
+      type: 'test'
+      ...
+    # Subtest: same named release cannot be replaced by another digest
+    ok 4 - same named release cannot be replaced by another digest
+      ---
+      duration_ms: 7.692875
+      type: 'test'
+      ...
+    # Subtest: audit failure rolls back the newly inserted archive
+    ok 5 - audit failure rolls back the newly inserted archive
+      ---
+      duration_ms: 12.617125
+      type: 'test'
+      ...
+    # Subtest: role hints, stale actor versions and disabled accounts cannot archive or read
+    ok 6 - role hints, stale actor versions and disabled accounts cannot archive or read
+      ---
+      duration_ms: 16.010208
+      type: 'test'
+      ...
+    1..6
+ok 60 - policy material archive is immutable and cannot grant runtime authority
+  ---
+  duration_ms: 222.241916
+  type: 'test'
+  ...
+# {"level":30,"time":1790870523517,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870523549,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":32.56525015830994,"msg":"request completed"}
+# Subtest: formal scoped coverage and difference closure use trusted v4 bills/current money and independent grants
+    # Subtest: empty complete bill remains blocked without bound worker proof; original coverage is unchanged
+    ok 1 - empty complete bill remains blocked without bound worker proof; original coverage is unchanged
+      ---
+      duration_ms: 68.436375
+      type: 'test'
+      ...
+# {"level":30,"time":1790870523708,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/formal/reconciliation/assess","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870523759,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":50.33929204940796,"msg":"request completed"}
+    # Subtest: signed exact scope produces independent limited completeness without production release
+    ok 2 - signed exact scope produces independent limited completeness without production release
+      ---
+      duration_ms: 133.377042
+      type: 'test'
+      ...
+    # Subtest: forged scope and revoked grant cannot assess
+    ok 3 - forged scope and revoked grant cannot assess
+      ---
+      duration_ms: 13.128959
+      type: 'test'
+      ...
+    # Subtest: existing newer difference supersedes earlier zero result and cannot close itself
+    ok 4 - existing newer difference supersedes earlier zero result and cannot close itself
+      ---
+      duration_ms: 50.22375
+      type: 'test'
+      ...
+    # Subtest: queued trusted recovery blocks closure until actual query worker completes
+    ok 5 - queued trusted recovery blocks closure until actual query worker completes
+      ---
+      duration_ms: 147.820875
+      type: 'test'
+      ...
+# {"level":30,"time":1790870524278,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/ops/formal/reconciliation/differences/cmupq2jzw000erqnv752rn7p4/close","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870524325,"pid":25622,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":46.5709171295166,"msg":"request completed"}
+    # Subtest: independent same-bill comparison closes the owned old case and then assesses complete scope
+    ok 6 - independent same-bill comparison closes the owned old case and then assesses complete scope
+      ---
+      duration_ms: 171.942167
+      type: 'test'
+      ...
+    # Subtest: later money makes prior comparison stale and prevents even closure replay
+    ok 7 - later money makes prior comparison stale and prevents even closure replay
+      ---
+      duration_ms: 89.734166
+      type: 'test'
+      ...
+    1..7
+ok 61 - formal scoped coverage and difference closure use trusted v4 bills/current money and independent grants
+  ---
+  duration_ms: 1362.373958
+  type: 'test'
+  ...
+# Subtest: independent runtime provenance on verified isolated PostgreSQL
+    # Subtest: archive alone creates no runtime policy
+    ok 1 - archive alone creates no runtime policy
+      ---
+      duration_ms: 4.390875
+      type: 'test'
+      ...
+    # Subtest: forged grant cannot assemble runtime policy
+    ok 2 - forged grant cannot assemble runtime policy
+      ---
+      duration_ms: 7.889541
+      type: 'test'
+      ...
+    # Subtest: signed explicit assembly creates a distinct isolated runtime snapshot and preserves archive
+    ok 3 - signed explicit assembly creates a distinct isolated runtime snapshot and preserves archive
+      ---
+      duration_ms: 17.312625
+      type: 'test'
+      ...
+    # Subtest: fresh scoped action grant and revocation are enforced
+    ok 4 - fresh scoped action grant and revocation are enforced
+      ---
+      duration_ms: 8.535583
+      type: 'test'
+      ...
+    # Subtest: recovery-only grant preserves old policy without new-charge authority
+    ok 5 - recovery-only grant preserves old policy without new-charge authority
+      ---
+      duration_ms: 8.33275
+      type: 'test'
+      ...
+    # Subtest: isolated runtime cannot authorize production context
+    ok 6 - isolated runtime cannot authorize production context
+      ---
+      duration_ms: 2.496
+      type: 'test'
+      ...
+    # Subtest: runtime binding is immutable in database
+    ok 7 - runtime binding is immutable in database
+      ---
+      duration_ms: 8.337041
+      type: 'test'
+      ...
+    # Subtest: existing draft cannot be promoted and new runtime cannot omit provenance
+    ok 8 - existing draft cannot be promoted and new runtime cannot omit provenance
+      ---
+      duration_ms: 18.853333
+      type: 'test'
+      ...
+    # Subtest: public-text tamper rejects action and rolls back test write
+    ok 9 - public-text tamper rejects action and rolls back test write
+      ---
+      duration_ms: 8.133834
+      type: 'test'
+      ...
+# {"level":30,"time":1790870524993,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+    # Subtest: main application formal policy routes capture exact delivery and authenticated consent
+        # Subtest: unsigned read is denied and preview endpoints remain absent
+        ok 1 - unsigned read is denied and preview endpoints remain absent
+          ---
+          duration_ms: 6.348208
+          type: 'test'
+          ...
+# {"level":30,"time":1790870524995,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":401},"responseTime":1.5415420532226562,"msg":"request completed"}
+# {"level":30,"time":1790870524995,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/api/prelaunch/v11/policy/current","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870524995,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","msg":"Route GET:/api/prelaunch/v11/policy/current not found"}
+# {"level":30,"time":1790870524995,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":404},"responseTime":0.11575007438659668,"msg":"request completed"}
+# {"level":30,"time":1790870524995,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525016,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":20.75458288192749,"msg":"request completed"}
+# {"level":30,"time":1790870525018,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+        # Subtest: formal route delivers exactly three public documents
+        ok 2 - formal route delivers exactly three public documents
+          ---
+          duration_ms: 22.68575
+          type: 'test'
+          ...
+# {"level":30,"time":1790870525031,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":409},"responseTime":12.59783411026001,"msg":"request completed"}
+# {"level":30,"time":1790870525031,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525044,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":404},"responseTime":12.998417139053345,"msg":"request completed"}
+# {"level":30,"time":1790870525045,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"POST","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+        # Subtest: changed hash and other-user delivery cannot create consent
+        ok 3 - changed hash and other-user delivery cannot create consent
+          ---
+          duration_ms: 26.786875
+          type: 'test'
+          ...
+# {"level":30,"time":1790870525072,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":27.294417142868042,"msg":"request completed"}
+# {"level":30,"time":1790870525073,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"POST","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525090,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":16.94220805168152,"msg":"request completed"}
+        # Subtest: explicit consent records original time and replays one source id
+        ok 4 - explicit consent records original time and replays one source id
+          ---
+          duration_ms: 46.753708
+          type: 'test'
+          ...
+# {"level":30,"time":1790870525094,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/policies/cmupq2ksv0002rxnv2yr01jc8/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525097,"pid":25629,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":401},"responseTime":3.233875036239624,"msg":"request completed"}
+        # Subtest: actor version revocation denies later acceptance
+        ok 5 - actor version revocation denies later acceptance
+          ---
+          duration_ms: 5.782792
+          type: 'test'
+          ...
+        1..5
+    ok 10 - main application formal policy routes capture exact delivery and authenticated consent
+      ---
+      duration_ms: 152.945875
+      type: 'test'
+      ...
+    1..10
+ok 62 - independent runtime provenance on verified isolated PostgreSQL
+  ---
+  duration_ms: 385.975583
+  type: 'test'
+  ...
+# {"level":30,"time":1790870525590,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525622,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":32.31383299827576,"msg":"request completed"}
+# {"level":30,"time":1790870525622,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/v11/ops/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525652,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":29.497124910354614,"msg":"request completed"}
+# {"level":30,"time":1790870525659,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525660,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":401},"responseTime":0.8709580898284912,"msg":"request completed"}
+# {"level":30,"time":1790870525660,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525662,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":403},"responseTime":2.0697498321533203,"msg":"request completed"}
+# Subtest: main application formal restaurant proposal and platform price approval
+    # Subtest: ordinary user token and wrong controlled role cannot propose
+    ok 1 - ordinary user token and wrong controlled role cannot propose
+      ---
+      duration_ms: 10.30475
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525663,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525665,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":400},"responseTime":2.5517499446868896,"msg":"request completed"}
+# {"level":30,"time":1790870525666,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525668,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":400},"responseTime":2.0955419540405273,"msg":"request completed"}
+    # Subtest: restaurant cannot submit approval or platform fee fields
+    ok 2 - restaurant cannot submit approval or platform fee fields
+      ---
+      duration_ms: 5.109125
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525668,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525703,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":35.17541718482971,"msg":"request completed"}
+# {"level":30,"time":1790870525707,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525723,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":15.466583013534546,"msg":"request completed"}
+    # Subtest: authenticated proposal preserves original time and no supply is approved yet
+    ok 3 - authenticated proposal preserves original time and no supply is approved yet
+      ---
+      duration_ms: 55.009708
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525723,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525739,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":409},"responseTime":15.483290910720825,"msg":"request completed"}
+    # Subtest: changed proposal with same business key conflicts
+    ok 4 - changed proposal with same business key conflicts
+      ---
+      duration_ms: 16.313625
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525739,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq2lfm0009smnvgxt84gqi/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525742,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":403},"responseTime":2.237917184829712,"msg":"request completed"}
+    # Subtest: restaurant cannot platform-approve its proposal
+    ok 5 - restaurant cannot platform-approve its proposal
+      ---
+      duration_ms: 2.529833
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525742,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq2lfm0009smnvgxt84gqi/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525781,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":38.69945812225342,"msg":"request completed"}
+# {"level":30,"time":1790870525783,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq2lfm0009smnvgxt84gqi/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525805,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":22.081291913986206,"msg":"request completed"}
+# {"level":30,"time":1790870525805,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq2lfm0009smnvgxt84gqi/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525826,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":409},"responseTime":20.900458097457886,"msg":"request completed"}
+    # Subtest: platform approval binds exact policy, parameter and F/D revision
+    ok 6 - platform approval binds exact policy, parameter and F/D revision
+      ---
+      duration_ms: 85.645834
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525833,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/v11/ops/formal/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+    # Subtest: approved revision cannot be edited
+    ok 7 - approved revision cannot be edited
+      ---
+      duration_ms: 4.613583
+      type: 'test'
+      ...
+# {"level":30,"time":1790870525846,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":403},"responseTime":12.635041952133179,"msg":"request completed"}
+# {"level":30,"time":1790870525846,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/v11/ops/formal/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/publish","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525869,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":23.492125034332275,"msg":"request completed"}
+# {"level":30,"time":1790870525874,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/v11/policies/cmupq2l9q0002smnv679kwu2x/delivery","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525896,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":21.99270796775818,"msg":"request completed"}
+# {"level":30,"time":1790870525896,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"POST","url":"/api/v11/policies/cmupq2l9q0002smnv679kwu2x/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525925,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":28.652957916259766,"msg":"request completed"}
+# {"level":30,"time":1790870525925,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525946,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":409},"responseTime":21.310708045959473,"msg":"request completed"}
+# {"level":30,"time":1790870525947,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"PUT","url":"/api/v11/formal/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525962,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":15.143709182739258,"msg":"request completed"}
+# {"level":30,"time":1790870525962,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870525962,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526036,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":73.68045806884766,"msg":"request completed"}
+# {"level":30,"time":1790870526050,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":88.05041694641113,"msg":"request completed"}
+# {"level":30,"time":1790870526052,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526072,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":409},"responseTime":20.230667114257812,"msg":"request completed"}
+# {"level":30,"time":1790870526072,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526092,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":202},"responseTime":19.928416967391968,"msg":"request completed"}
+# {"level":30,"time":1790870526093,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526109,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-o","res":{"statusCode":202},"responseTime":16.223833084106445,"msg":"request completed"}
+# {"level":30,"time":1790870526109,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/payment/prepare","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526162,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":52.98604083061218,"msg":"request completed"}
+# {"level":30,"time":1790870526164,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/payment/prepare","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526207,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-q","res":{"statusCode":200},"responseTime":43.118959188461304,"msg":"request completed"}
+# {"level":30,"time":1790870526207,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526269,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-r","res":{"statusCode":200},"responseTime":61.55087494850159,"msg":"request completed"}
+# {"level":30,"time":1790870526271,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/payment/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526305,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-s","res":{"statusCode":200},"responseTime":33.75837516784668,"msg":"request completed"}
+# {"level":30,"time":1790870526305,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/refund-requests","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526320,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-t","res":{"statusCode":200},"responseTime":14.097167015075684,"msg":"request completed"}
+# {"level":30,"time":1790870526320,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","req":{"method":"POST","url":"/api/v11/ops/formal/refund-requests/cmupq2lwo0012smnvaglfcsdb/decide","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870526350,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-u","res":{"statusCode":200},"responseTime":30.481915950775146,"msg":"request completed"}
+# {"level":30,"time":1790870580378,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","req":{"method":"POST","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k/refunds/query","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870580492,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-v","res":{"statusCode":200},"responseTime":114.29754090309143,"msg":"request completed"}
+# {"level":30,"time":1790870580500,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","req":{"method":"GET","url":"/api/v11/formal/registrations/cmupq2lo4000lsmnvx6luap7k","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870580509,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-w","res":{"statusCode":404},"responseTime":9.289375066757202,"msg":"request completed"}
+# {"level":30,"time":1790870580509,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","req":{"method":"POST","url":"/api/v11/formal/registrations","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870580535,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-x","res":{"statusCode":503},"responseTime":26.26229190826416,"msg":"request completed"}
+    # Subtest: main formal publication profile consent registration and owned read chain
+    ok 8 - main formal publication profile consent registration and owned read chain
+      ---
+      duration_ms: 54702.650375
+      type: 'test'
+      ...
+# {"level":30,"time":1790870580536,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","req":{"method":"POST","url":"/api/v11/restaurant/activities/supply_6dc57f81d41f4216967592a59c40496a_activity/supply-proposals","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870580564,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-y","res":{"statusCode":200},"responseTime":27.829041957855225,"msg":"request completed"}
+# {"level":30,"time":1790870580564,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","req":{"method":"POST","url":"/api/v11/ops/supply-proposals/cmupq3rri001ismnvg5l293o7/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+# {"level":30,"time":1790870580590,"pid":25654,"hostname":"Marvins-Mac-mini.local","reqId":"req-z","res":{"statusCode":503},"responseTime":26.25458288192749,"msg":"request completed"}
+    # Subtest: authority revocation blocks another approval without deleting proposal
+    ok 9 - authority revocation blocks another approval without deleting proposal
+      ---
+      duration_ms: 56.235542
+      type: 'test'
+      ...
+    1..9
+ok 63 - main application formal restaurant proposal and platform price approval
+  ---
+  duration_ms: 55311.713917
+  type: 'test'
+  ...
+# {"evidenceClass":"OWNED_HTTP_REACT_DOM","nativeTests":2,"scope":"Synthetic persisted order recovery and notice-list read failure; native device and payment popup not exercised","report":"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/http-dom-evidence/ui_http_3e76fc4c1a4d4768bf0cf1733d213a72/vitest.json","log":"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/http-dom-evidence/ui_http_3e76fc4c1a4d4768bf0cf1733d213a72/vitest.log"}
+# Subtest: PRE040/041 joint proof: owned real HTTP plus React DOM remount/cache clear and notice-query failure
+ok 64 - PRE040/041 joint proof: owned real HTTP plus React DOM remount/cache clear and notice-query failure
+  ---
+  duration_ms: 2012.663666
+  type: 'test'
+  ...
+# Subtest: PRE001: native wrong worktree and changed starting dirty reject while approved unchanged dirty remains protected with zero writes
+ok 65 - PRE001: native wrong worktree and changed starting dirty reject while approved unchanged dirty remains protected with zero writes
+  ---
+  duration_ms: 4.979708
+  type: 'test'
+  ...
+# Subtest: PRE002: native missing and wrong synthetic OWNER reject before runtime read database connection or any writes
+ok 66 - PRE002: native missing and wrong synthetic OWNER reject before runtime read database connection or any writes
+  ---
+  duration_ms: 2.449458
+  type: 'test'
+  ...
+# Subtest: known late full-refund obligation survives without policy activation or refund submission
+    # Subtest: exact ten-minute boundary records full F+D idempotently without changing qualification or budgets
+    ok 1 - exact ten-minute boundary records full F+D idempotently without changing qualification or budgets
+      ---
+      duration_ms: 81.535
+      type: 'test'
+      ...
+    # Subtest: timely paidAt cannot undo previously expired UNKNOWN hold and subsequent confirmation
+    ok 2 - timely paidAt cannot undo previously expired UNKNOWN hold and subsequent confirmation
+      ---
+      duration_ms: 74.78375
+      type: 'test'
+      ...
+    # Subtest: timely payment without released-expired qualification does not create a refund obligation
+    ok 3 - timely payment without released-expired qualification does not create a refund obligation
+      ---
+      duration_ms: 40.839958
+      type: 'test'
+      ...
+    # Subtest: manual receipt evidence fails before obligation evidence is written
+    ok 4 - manual receipt evidence fails before obligation evidence is written
+      ---
+      duration_ms: 42.158084
+      type: 'test'
+      ...
+    1..4
+ok 67 - known late full-refund obligation survives without policy activation or refund submission
+  ---
+  duration_ms: 462.735083
+  type: 'test'
+  ...
+# Subtest: BR17 BR21 native T24 uses minimum not target and failed table refunds all remaining F D without later revival
+ok 68 - BR17 BR21 native T24 uses minimum not target and failed table refunds all remaining F D without later revival
+  ---
+  duration_ms: 800.372792
+  type: 'test'
+  ...
+# Subtest: BR26 BR27 native T20 directly fills formed vacancy without reviving ended T24 waitlist or exceeding maximum
+ok 69 - BR26 BR27 native T20 directly fills formed vacancy without reviving ended T24 waitlist or exceeding maximum
+  ---
+  duration_ms: 348.804208
+  type: 'test'
+  ...
+# Subtest: PRE024 native exact T24 registration and complete payment preserve OP05 classification blocker without inventing qualification
+ok 70 - PRE024 native exact T24 registration and complete payment preserve OP05 classification blocker without inventing qualification
+  ---
+  duration_ms: 49.745458
+  type: 'test'
+  ...
+# Subtest: BR28 PRE015 native exact T8 closes new admissions while cross-cutoff payment blocks classification and expired late receipt refunds F D
+ok 71 - BR28 PRE015 native exact T8 closes new admissions while cross-cutoff payment blocks classification and expired late receipt refunds F D
+  ---
+  duration_ms: 405.461667
+  type: 'test'
+  ...
+# Subtest: BR60 native formed T24 then lawful T15 invalidation T8 preserves OP07 restaurant decision instead of auto-refunding others
+ok 72 - BR60 native formed T24 then lawful T15 invalidation T8 preserves OP07 restaurant decision instead of auto-refunding others
+  ---
+  duration_ms: 187.943291
+  type: 'test'
+  ...
+# Subtest: request metric precision is bounded while secret/phone fields remain visible to scanner
+ok 73 - request metric precision is bounded while secret/phone fields remain visible to scanner
+  ---
+  duration_ms: 0.580458
+  type: 'test'
+  ...
+# Subtest: R4: individual core-change rejection invalidates remaining table hides address and lawful new payment restores formation
+ok 74 - R4: individual core-change rejection invalidates remaining table hides address and lawful new payment restores formation
+  ---
+  duration_ms: 642.898167
+  type: 'test'
+  ...
+# Subtest: R4: delayed T24 materialization reconstructs historical formation and never fails an already formed cutoff table
+ok 75 - R4: delayed T24 materialization reconstructs historical formation and never fails an already formed cutoff table
+  ---
+  duration_ms: 237.48125
+  type: 'test'
+  ...
+# Subtest: owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+ok 76 - owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+  ---
+  duration_ms: 588.85
+  type: 'test'
+  ...
+# Subtest: owned DB: unknown table state fails closed; cutoff prevents new promotion
+ok 77 - owned DB: unknown table state fails closed; cutoff prevents new promotion
+  ---
+  duration_ms: 28.411209
+  type: 'test'
+  ...
+# Subtest: R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+ok 78 - R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+  ---
+  duration_ms: 237.168667
+  type: 'test'
+  ...
+# Subtest: R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+ok 79 - R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+  ---
+  duration_ms: 156.911958
+  type: 'test'
+  ...
+# Subtest: R2-03: expired generation cannot pass locked lease fencing or write a business effect
+ok 80 - R2-03: expired generation cannot pass locked lease fencing or write a business effect
+  ---
+  duration_ms: 23.913458
+  type: 'test'
+  ...
+# Subtest: R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+ok 81 - R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+  ---
+  duration_ms: 48.092417
+  type: 'test'
+  ...
+# Subtest: R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+ok 82 - R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+  ---
+  duration_ms: 39.053833
+  type: 'test'
+  ...
+# Subtest: R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+ok 83 - R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+  ---
+  duration_ms: 35.9515
+  type: 'test'
+  ...
+# Subtest: R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+ok 84 - R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+  ---
+  duration_ms: 45.31925
+  type: 'test'
+  ...
+# Subtest: R2-08: corrupted table state cannot create refund entitlement or erase membership
+ok 85 - R2-08: corrupted table state cannot create refund entitlement or erase membership
+  ---
+  duration_ms: 42.22675
+  type: 'test'
+  ...
+# Subtest: R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+ok 86 - R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+  ---
+  duration_ms: 24.803625
+  type: 'test'
+  ...
+# Subtest: component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+ok 87 - component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+  ---
+  duration_ms: 88.509333
+  type: 'test'
+  ...
+# Subtest: native API: immutable supply revision, scoped history, queue and financial-case role checks
+ok 88 - native API: immutable supply revision, scoped history, queue and financial-case role checks
+  ---
+  duration_ms: 154.824375
+  type: 'test'
+  ...
+# Subtest: PRE038: missing or wrong write contract refuses before business effects; GET and preflight remain available
+ok 89 - PRE038: missing or wrong write contract refuses before business effects; GET and preflight remain available
+  ---
+  duration_ms: 67.649042
+  type: 'test'
+  ...
+# Subtest: PRE028 BR37: native scan alone records arrival without normal fulfillment D refund or breach
+ok 90 - PRE028 BR37: native scan alone records arrival without normal fulfillment D refund or breach
+  ---
+  duration_ms: 283.596667
+  type: 'test'
+  ...
+# Subtest: PRE029 RB05: native restaurant A cannot confirm restaurant B fulfillment or create attendance and money commands
+ok 91 - PRE029 RB05: native restaurant A cannot confirm restaurant B fulfillment or create attendance and money commands
+  ---
+  duration_ms: 103.01425
+  type: 'test'
+  ...
+# Subtest: DR07: native D below D_MIN and above D_MAX both reject approval without payment or mutating signed supply
+ok 92 - DR07: native D below D_MIN and above D_MAX both reject approval without payment or mutating signed supply
+  ---
+  duration_ms: 221.117875
+  type: 'test'
+  ...
+# Subtest: PRE023 BR18: native two tables formed and failed expose only own effective formed address and reject another users detail
+ok 93 - PRE023 BR18: native two tables formed and failed expose only own effective formed address and reject another users detail
+  ---
+  duration_ms: 466.334375
+  type: 'test'
+  ...
+# Subtest: PRE041: native failed notify retries only its outbox and preserves committed payment without inventing receivedAt
+ok 94 - PRE041: native failed notify retries only its outbox and preserves committed payment without inventing receivedAt
+  ---
+  duration_ms: 81.35375
+  type: 'test'
+  ...
+# Subtest: complete preparation SQL migrates the prior intent table and preserves mock rows
+ok 95 - complete preparation SQL migrates the prior intent table and preserves mock rows
+  ---
+  duration_ms: 95.976958
+  type: 'test'
+  ...
+# Subtest: preparation persists and serializes on owned PostgreSQL
+    # Subtest: twenty concurrent claims produce one durable submitting attempt
+    ok 1 - twenty concurrent claims produce one durable submitting attempt
+      ---
+      duration_ms: 154.679042
+      type: 'test'
+      ...
+    # Subtest: prepayment save does not confirm money and stale failures cannot undo it
+    ok 2 - prepayment save does not confirm money and stale failures cannot undo it
+      ---
+      duration_ms: 10.326916
+      type: 'test'
+      ...
+    # Subtest: resume signs only persisted pending prepayment and rejects cancellation during query
+    ok 3 - resume signs only persisted pending prepayment and rejects cancellation during query
+      ---
+      duration_ms: 65.762791
+      type: 'test'
+      ...
+    # Subtest: unknown outcome cannot be claimed for another submission
+    ok 4 - unknown outcome cannot be claimed for another submission
+      ---
+      duration_ms: 15.286166
+      type: 'test'
+      ...
+    # Subtest: cancellation during channel query blocks prepayment send and retains recovery
+    ok 5 - cancellation during channel query blocks prepayment send and retains recovery
+      ---
+      duration_ms: 17.114875
+      type: 'test'
+      ...
+    # Subtest: wrong binding and inactive intents reject without writes
+    ok 6 - wrong binding and inactive intents reject without writes
+      ---
+      duration_ms: 11.877459
+      type: 'test'
+      ...
+    # Subtest: database constraint rejects prepared state without a reference
+    ok 7 - database constraint rejects prepared state without a reference
+      ---
+      duration_ms: 5.791125
+      type: 'test'
+      ...
+    # Subtest: runner persists submitting before network and prepay before returning
+    ok 8 - runner persists submitting before network and prepay before returning
+      ---
+      duration_ms: 17.515375
+      type: 'test'
+      ...
+    # Subtest: runner timeout leaves unknown and cannot resend
+    ok 9 - runner timeout leaves unknown and cannot resend
+      ---
+      duration_ms: 14.83175
+      type: 'test'
+      ...
+    # Subtest: authorization rejection rolls back before a durable claim
+    ok 10 - authorization rejection rolls back before a durable claim
+      ---
+      duration_ms: 6.523708
+      type: 'test'
+      ...
+    # Subtest: canceled registration and expired hold cannot prepare a payment
+    ok 11 - canceled registration and expired hold cannot prepare a payment
+      ---
+      duration_ms: 14.507583
+      type: 'test'
+      ...
+    # Subtest: verified notification triggers query once even for canceled intent and preserves conflict
+    ok 12 - verified notification triggers query once even for canceled intent and preserves conflict
+      ---
+      duration_ms: 120.030666
+      type: 'test'
+      ...
+# {"level":30,"time":1790870590796,"pid":25934,"hostname":"Marvins-Mac-mini.local","msg":"Server listening at http://127.0.0.1:53349"}
+# {"level":30,"time":1790870590800,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590807,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":503},"responseTime":6.747041940689087,"msg":"request completed"}
+# {"level":30,"time":1790870590812,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590815,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":503},"responseTime":2.477541923522949,"msg":"request completed"}
+# {"level":30,"time":1790870590817,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590819,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":503},"responseTime":1.9168329238891602,"msg":"request completed"}
+# {"level":30,"time":1790870590822,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590824,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":503},"responseTime":1.9582087993621826,"msg":"request completed"}
+# {"level":30,"time":1790870590826,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590828,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":2.0990829467773438,"msg":"request completed"}
+# {"level":30,"time":1790870590833,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590835,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":503},"responseTime":2.08945894241333,"msg":"request completed"}
+# {"level":30,"time":1790870590840,"pid":25934,"hostname":"Marvins-Mac-mini.local","msg":"Server listening at http://127.0.0.1:53351"}
+# {"level":30,"time":1790870590843,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590846,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":503},"responseTime":2.065124988555908,"msg":"request completed"}
+# {"level":30,"time":1790870590848,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590851,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":503},"responseTime":2.4274590015411377,"msg":"request completed"}
+# {"level":30,"time":1790870590854,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590856,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":503},"responseTime":2.6170830726623535,"msg":"request completed"}
+# {"level":30,"time":1790870590859,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590861,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":2.054832935333252,"msg":"request completed"}
+# {"level":30,"time":1790870590864,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590866,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":503},"responseTime":1.9469168186187744,"msg":"request completed"}
+# {"level":30,"time":1790870590868,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590870,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":503},"responseTime":2.0211668014526367,"msg":"request completed"}
+# {"level":30,"time":1790870590872,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590874,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":503},"responseTime":1.7902500629425049,"msg":"request completed"}
+# {"level":30,"time":1790870590876,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"GET","url":"/ready","host":"127.0.0.1:53351","remoteAddress":"127.0.0.1","remotePort":53352},"msg":"incoming request"}
+# {"level":30,"time":1790870590878,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":1.9045419692993164,"msg":"request completed"}
+# {"level":30,"time":1790870590881,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590882,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":400},"responseTime":1.0129590034484863,"msg":"request completed"}
+# {"level":30,"time":1790870590885,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590893,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":8.765874862670898,"msg":"request completed"}
+# {"level":30,"time":1790870590894,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53353},"msg":"incoming request"}
+# {"level":30,"time":1790870590901,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":6.466375112533569,"msg":"request completed"}
+# {"level":30,"time":1790870590911,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590918,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":6.856291055679321,"msg":"request completed"}
+# {"level":30,"time":1790870590920,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53353},"msg":"incoming request"}
+# {"level":30,"time":1790870590925,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":4.124917030334473,"msg":"request completed"}
+# {"level":30,"time":1790870590928,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:53349","remoteAddress":"127.0.0.1","remotePort":53350},"msg":"incoming request"}
+# {"level":30,"time":1790870590933,"pid":25934,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":5.767458915710449,"msg":"request completed"}
+    # Subtest: signed raw HTTP callback commits V11 trigger and query while tampering writes nothing
+    ok 13 - signed raw HTTP callback commits V11 trigger and query while tampering writes nothing
+      ---
+      duration_ms: 255.891042
+      type: 'test'
+      ...
+    # Subtest: late trusted payment query survives cancellation and concurrent duplicate intake
+    ok 14 - late trusted payment query survives cancellation and concurrent duplicate intake
+      ---
+      duration_ms: 456.49425
+      type: 'test'
+      ...
+    # Subtest: SIGKILL after synthetic refund send retains obligation and successor cannot resubmit
+    ok 15 - SIGKILL after synthetic refund send retains obligation and successor cannot resubmit
+      ---
+      duration_ms: 365.232959
+      type: 'test'
+      ...
+    # Subtest: expired lease cannot query and lease loss during query cannot persist
+    ok 16 - expired lease cannot query and lease loss during query cannot persist
+      ---
+      duration_ms: 18.1385
+      type: 'test'
+      ...
+    # Subtest: query handler persists success and escalates conflict under a live lease
+    ok 17 - query handler persists success and escalates conflict under a live lease
+      ---
+      duration_ms: 46.732958
+      type: 'test'
+      ...
+    # Subtest: recovery job identity conflict rolls back the submission claim
+    ok 18 - recovery job identity conflict rolls back the submission claim
+      ---
+      duration_ms: 9.298042
+      type: 'test'
+      ...
+    # Subtest: refund budget rejects invalid components and cross-receipt business key reuse
+    ok 19 - refund budget rejects invalid components and cross-receipt business key reuse
+      ---
+      duration_ms: 32.731417
+      type: 'test'
+      ...
+    # Subtest: closed query completes only an already closed obligation and retains conflicting money evidence
+    ok 20 - closed query completes only an already closed obligation and retains conflicting money evidence
+      ---
+      duration_ms: 60.680541
+      type: 'test'
+      ...
+    # Subtest: changed closure evidence persists independently without replacing history or duplicating audit
+    ok 21 - changed closure evidence persists independently without replacing history or duplicating audit
+      ---
+      duration_ms: 81.049209
+      type: 'test'
+      ...
+    # Subtest: query sweep executable rejects implicit activation, mock providers and invalid retry identity
+    ok 22 - query sweep executable rejects implicit activation, mock providers and invalid retry identity
+      ---
+      duration_ms: 273.482458
+      type: 'test'
+      ...
+    # Subtest: real query sweep scopes both inventories, includes closed obligations and preserves prior jobs
+    ok 23 - real query sweep scopes both inventories, includes closed obligations and preserves prior jobs
+      ---
+      duration_ms: 80.858209
+      type: 'test'
+      ...
+    1..23
+ok 96 - preparation persists and serializes on owned PostgreSQL
+  ---
+  duration_ms: 2317.527583
+  type: 'test'
+  ...
+# Subtest: formal identity onboarding uses verified sessions and serializes real PostgreSQL bindings
+    # Subtest: unauthenticated onboarding creates no binding
+    ok 1 - unauthenticated onboarding creates no binding
+      ---
+      duration_ms: 14.809583
+      type: 'test'
+      ...
+    # Subtest: 20 authenticated attempts produce one actor and one audit without privileged request hints
+    ok 2 - 20 authenticated attempts produce one actor and one audit without privileged request hints
+      ---
+      duration_ms: 87.403916
+      type: 'test'
+      ...
+    # Subtest: blacklisted user retains authenticated identity access
+    ok 3 - blacklisted user retains authenticated identity access
+      ---
+      duration_ms: 2.152833
+      type: 'test'
+      ...
+    # Subtest: disabled actor is not re-enabled by onboarding and does not receive a new binding
+    ok 4 - disabled actor is not re-enabled by onboarding and does not receive a new binding
+      ---
+      duration_ms: 7.248708
+      type: 'test'
+      ...
+    # Subtest: ambiguous historical mappings reject rather than merge or choose an arbitrary actor
+    ok 5 - ambiguous historical mappings reject rather than merge or choose an arbitrary actor
+      ---
+      duration_ms: 4.812708
+      type: 'test'
+      ...
+    1..5
+ok 97 - formal identity onboarding uses verified sessions and serializes real PostgreSQL bindings
+  ---
+  duration_ms: 295.437125
+  type: 'test'
+  ...
+# Subtest: PRE019: native EXIT_FIRST row-lock barrier gives one waitlist outcome and preserves the correct cancellation category
+ok 98 - PRE019: native EXIT_FIRST row-lock barrier gives one waitlist outcome and preserves the correct cancellation category
+  ---
+  duration_ms: 529.683042
+  type: 'test'
+  ...
+# Subtest: PRE019: native PROMOTE_FIRST row-lock barrier gives one waitlist outcome and preserves the correct cancellation category
+ok 99 - PRE019: native PROMOTE_FIRST row-lock barrier gives one waitlist outcome and preserves the correct cancellation category
+  ---
+  duration_ms: 288.395334
+  type: 'test'
+  ...
+# Subtest: PRE014: native EXPIRY_FIRST row-lock barrier preserves exact ten-minute hold and one receipt without overselling
+ok 100 - PRE014: native EXPIRY_FIRST row-lock barrier preserves exact ten-minute hold and one receipt without overselling
+  ---
+  duration_ms: 91.163333
+  type: 'test'
+  ...
+# Subtest: PRE014: native SUCCESS_FIRST row-lock barrier preserves exact ten-minute hold and one receipt without overselling
+ok 101 - PRE014: native SUCCESS_FIRST row-lock barrier preserves exact ten-minute hold and one receipt without overselling
+  ---
+  duration_ms: 75.957792
+  type: 'test'
+  ...
+# Subtest: PRE018: twenty waitlist admissions across two Prisma clients conserve cap and isolate unresolved in-flight ordering with OP08
+ok 102 - PRE018: twenty waitlist admissions across two Prisma clients conserve cap and isolate unresolved in-flight ordering with OP08
+  ---
+  duration_ms: 692.326292
+  type: 'test'
+  ...
+# Subtest: BR13 DR02 native unpaid failed UNKNOWN held and incomplete amount do not count toward minimum until a full trustworthy receipt succeeds
+ok 103 - BR13 DR02 native unpaid failed UNKNOWN held and incomplete amount do not count toward minimum until a full trustworthy receipt succeeds
+  ---
+  duration_ms: 544.714833
+  type: 'test'
+  ...
+# Subtest: BR58 native multiple distinct trustworthy receipts each retain original F D budgets and refund exactly once on lawful termination
+ok 104 - BR58 native multiple distinct trustworthy receipts each retain original F D budgets and refund exactly once on lawful termination
+  ---
+  duration_ms: 160.212667
+  type: 'test'
+  ...
+# Subtest: refund time evidence enriches monetary confirmation without rewriting old facts
+    # Subtest: missing completion time confirms money without inventing time
+    ok 1 - missing completion time confirms money without inventing time
+      ---
+      duration_ms: 43.846541
+      type: 'test'
+      ...
+    # Subtest: adding time is independent evidence and concurrent repeats are idempotent
+    ok 2 - adding time is independent evidence and concurrent repeats are idempotent
+      ---
+      duration_ms: 59.643666
+      type: 'test'
+      ...
+    # Subtest: changed time preserves original evidence, creates a conflict and never rolls back money
+    ok 3 - changed time preserves original evidence, creates a conflict and never rolls back money
+      ---
+      duration_ms: 33.884584
+      type: 'test'
+      ...
+    # Subtest: returning to original time cannot clear unresolved conflicts
+    ok 4 - returning to original time cannot clear unresolved conflicts
+      ---
+      duration_ms: 25.9245
+      type: 'test'
+      ...
+    # Subtest: a time before the original payment remains manual evidence
+    ok 5 - a time before the original payment remains manual evidence
+      ---
+      duration_ms: 38.878041
+      type: 'test'
+      ...
+    # Subtest: verified notification supplies missing time without completing money and query can corroborate it
+    ok 6 - verified notification supplies missing time without completing money and query can corroborate it
+      ---
+      duration_ms: 102.613
+      type: 'test'
+      ...
+    1..6
+ok 105 - refund time evidence enriches monetary confirmation without rewriting old facts
+  ---
+  duration_ms: 403.072291
+  type: 'test'
+  ...
+# Subtest: PRE012 wrong originalTrade refund callback retains manual fact and no component completion
+ok 106 - PRE012 wrong originalTrade refund callback retains manual fact and no component completion
+  ---
+  duration_ms: 213.626167
+  type: 'test'
+  ...
+# Subtest: PRE020 legal waitlist re-entry after confirmed exit creates new tail without reviving old ordinal
+ok 107 - PRE020 legal waitlist re-entry after confirmed exit creates new tail without reviving old ordinal
+  ---
+  duration_ms: 379.810375
+  type: 'test'
+  ...
+# Subtest: PRE033 synthetic change acceptance preserves original snapshot and timeout rejects only unanswered member
+ok 108 - PRE033 synthetic change acceptance preserves original snapshot and timeout rejects only unanswered member
+  ---
+  duration_ms: 115.198666
+  type: 'test'
+  ...
+# Subtest: PRE034 settled D correction preserves completed settlement and refuses duplicate original component refund
+ok 109 - PRE034 settled D correction preserves completed settlement and refuses duplicate original component refund
+  ---
+  duration_ms: 55.996375
+  type: 'test'
+  ...
+# Subtest: restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+ok 110 - restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+  ---
+  duration_ms: 2858.195333
+  type: 'test'
+  ...
+# Subtest: R2 new binding: DB constraints reject foreign writes and injected unavailable binding preserves MANUAL events without fallback
+ok 111 - R2 new binding: DB constraints reject foreign writes and injected unavailable binding preserves MANUAL events without fallback
+  ---
+  duration_ms: 409.334041
+  type: 'test'
+  ...
+# Subtest: R2 new notice: concurrent receives preserve one receivedAt and sequential retries return the same clock
+ok 112 - R2 new notice: concurrent receives preserve one receivedAt and sequential retries return the same clock
+  ---
+  duration_ms: 146.640916
+  type: 'test'
+  ...
+# Subtest: R2 new change: canonical identical retry preserves one change and conflicting compensation rejects
+ok 113 - R2 new change: canonical identical retry preserves one change and conflicting compensation rejects
+  ---
+  duration_ms: 25.179917
+  type: 'test'
+  ...
+# Subtest: R2 new reconciliation: APPLIED event with missing receipt binding opens case and never counts false recovery
+ok 114 - R2 new reconciliation: APPLIED event with missing receipt binding opens case and never counts false recovery
+  ---
+  duration_ms: 811.207166
+  type: 'test'
+  ...
+# Subtest: R2 parser: native malformed JSON oversized body and unsupported media return sanitized 400 413 415
+ok 115 - R2 parser: native malformed JSON oversized body and unsupported media return sanitized 400 413 415
+  ---
+  duration_ms: 63.038458
+  type: 'test'
+  ...
+# Subtest: scanner exempts only a complete 64-hex token and retains adjacent/punctuated phone matches
+ok 116 - scanner exempts only a complete 64-hex token and retains adjacent/punctuated phone matches
+  ---
+  duration_ms: 0.658458
+  type: 'test'
+  ...
+# Subtest: actual scanner CLI accepts embedded numeric hash but rejects a standalone synthetic phone
+ok 117 - actual scanner CLI accepts embedded numeric hash but rejects a standalone synthetic phone
+  ---
+  duration_ms: 310.100666
+  type: 'test'
+  ...
+# Subtest: PRE039: exact allowed local Origin/PUT/DELETE and external Origin/unsupported method preflights
+ok 118 - PRE039: exact allowed local Origin/PUT/DELETE and external Origin/unsupported method preflights
+  ---
+  duration_ms: 38.087583
+  type: 'test'
+  ...
+# Subtest: BR01/PRE039: forbidden identity/birth fields strictly refuse with zero profile write; adult declaration and empty optional time need no age collection
+ok 119 - BR01/PRE039: forbidden identity/birth fields strictly refuse with zero profile write; adult declaration and empty optional time need no age collection
+  ---
+  duration_ms: 124.819416
+  type: 'test'
+  ...
+# Subtest: PRE034 settled D approved overturn retains original payment and records blocked correction source and recovery obligation
+ok 120 - PRE034 settled D approved overturn retains original payment and records blocked correction source and recovery obligation
+  ---
+  duration_ms: 362.888959
+  type: 'test'
+  ...
+# Subtest: USR08 native internal soft preference breaks only equal-fill legal table ties without splitting committed members or public ratio promises
+ok 121 - USR08 native internal soft preference breaks only equal-fill legal table ties without splitting committed members or public ratio promises
+  ---
+  duration_ms: 944.182209
+  type: 'test'
+  ...
+# Subtest: USR08 native paid FIFO head retains priority over a better-balanced later person and maximum capacity stays hard
+ok 122 - USR08 native paid FIFO head retains priority over a better-balanced later person and maximum capacity stays hard
+  ---
+  duration_ms: 552.594083
+  type: 'test'
+  ...
+# Subtest: USR08 native unknown historical gender falls back to ordinal and different fill priority is never overridden
+ok 123 - USR08 native unknown historical gender falls back to ordinal and different fill priority is never overridden
+  ---
+  duration_ms: 732.62525
+  type: 'test'
+  ...
+# Subtest: VEN04 VEN05: native supply bounds restaurant signature approval and immutable revision gates
+ok 124 - VEN04 VEN05: native supply bounds restaurant signature approval and immutable revision gates
+  ---
+  duration_ms: 382.942042
+  type: 'test'
+  ...
+# Subtest: VEN06: native FILL_TO_TARGET streams two bounded tables never splits formed members and promotes queue head
+ok 125 - VEN06: native FILL_TO_TARGET streams two bounded tables never splits formed members and promotes queue head
+  ---
+  duration_ms: 1526.190917
+  type: 'test'
+  ...
+# Subtest: VEN06: native FILL_TO_MAX streams two bounded tables never splits formed members and promotes queue head
+ok 126 - VEN06: native FILL_TO_MAX streams two bounded tables never splits formed members and promotes queue head
+  ---
+  duration_ms: 1016.024875
+  type: 'test'
+  ...
+# Subtest: USR06/07 Shanghai boundaries and anonymous distinct-per-profile multi-select statistics
+ok 127 - USR06/07 Shanghai boundaries and anonymous distinct-per-profile multi-select statistics
+  ---
+  duration_ms: 31.675542
+  type: 'test'
+  ...
+# Subtest: USR06 local API: only own saved preference is read; demand restricted to OPS/REVIEWER and returns only counts
+ok 128 - USR06 local API: only own saved preference is read; demand restricted to OPS/REVIEWER and returns only counts
+  ---
+  duration_ms: 532.92525
+  type: 'test'
+  ...
+# Subtest: fresh process recovers completed bill through new signed metadata and rejects tampered cache
+ok 129 - fresh process recovers completed bill through new signed metadata and rejects tampered cache
+  ---
+  duration_ms: 366.776083
+  type: 'test'
+  ...
+# Subtest: bill range SIGTERM drains active date before exiting with resumable remaining range
+ok 130 - bill range SIGTERM drains active date before exiting with resumable remaining range
+  ---
+  duration_ms: 174.688291
+  type: 'test'
+  ...
+# Subtest: bill range SIGINT drains active date before exiting with resumable remaining range
+ok 131 - bill range SIGINT drains active date before exiting with resumable remaining range
+  ---
+  duration_ms: 172.459292
+  type: 'test'
+  ...
+# Subtest: verified bill snapshot detects both directions without granting financial state
+    # Subtest: forged copied provenance and changed raw bytes fail before database writes
+    ok 1 - forged copied provenance and changed raw bytes fail before database writes
+      ---
+      duration_ms: 5.204
+      type: 'test'
+      ...
+    # Subtest: concurrent replay persists one snapshot, evidence, cases and query-only jobs
+    ok 2 - concurrent replay persists one snapshot, evidence, cases and query-only jobs
+      ---
+      duration_ms: 178.393916
+      type: 'test'
+      ...
+    # Subtest: a run UUID cannot be reused for a changed owner or release
+    ok 3 - a run UUID cannot be reused for a changed owner or release
+      ---
+      duration_ms: 16.899708
+      type: 'test'
+      ...
+    # Subtest: signed but malformed summary has no partial intake or audit
+    ok 4 - signed but malformed summary has no partial intake or audit
+      ---
+      duration_ms: 7.725333
+      type: 'test'
+      ...
+    # Subtest: a newer empty bill detects local receipts instead of declaring zero differences
+    ok 5 - a newer empty bill detects local receipts instead of declaring zero differences
+      ---
+      duration_ms: 49.750083
+      type: 'test'
+      ...
+    # Subtest: a persisted evidence conflict rolls back all earlier event and job writes
+    ok 6 - a persisted evidence conflict rolls back all earlier event and job writes
+      ---
+      duration_ms: 38.967708
+      type: 'test'
+      ...
+    # Subtest: conflicting gross amounts remain independent evidence without overwriting money
+    ok 7 - conflicting gross amounts remain independent evidence without overwriting money
+      ---
+      duration_ms: 66.959125
+      type: 'test'
+      ...
+    # Subtest: new snapshot can observe resolution without automatically closing old cases
+    ok 8 - new snapshot can observe resolution without automatically closing old cases
+      ---
+      duration_ms: 76.794084
+      type: 'test'
+      ...
+    # Subtest: trusted completion time exposes local refunds absent from the selected bill
+    ok 9 - trusted completion time exposes local refunds absent from the selected bill
+      ---
+      duration_ms: 216.329959
+      type: 'test'
+      ...
+    # Subtest: requested range finds the missing day from actual committed audit ordinals without writes
+    ok 10 - requested range finds the missing day from actual committed audit ordinals without writes
+      ---
+      duration_ms: 14.39175
+      type: 'test'
+      ...
+    # Subtest: range inspection pages actual audit history and keeps late-page conflicts blocking
+    ok 11 - range inspection pages actual audit history and keeps late-page conflicts blocking
+      ---
+      duration_ms: 122.96725
+      type: 'test'
+      ...
+    # Subtest: daily recovery uses committed audit and rejects changed identity without downloads
+    ok 12 - daily recovery uses committed audit and rejects changed identity without downloads
+      ---
+      duration_ms: 16.022458
+      type: 'test'
+      ...
+    # Subtest: bounded range restart consumes committed daily snapshots without duplicate downloads
+    ok 13 - bounded range restart consumes committed daily snapshots without duplicate downloads
+      ---
+      duration_ms: 36.33175
+      type: 'test'
+      ...
+    # Subtest: shared core phases use the entire verified bill for reverse checks and reject forged contexts
+    ok 14 - shared core phases use the entire verified bill for reverse checks and reject forged contexts
+      ---
+      duration_ms: 27.583292
+      type: 'test'
+      ...
+    # Subtest: persistent snapshot pins identity and restores original facts after later channel records
+    ok 15 - persistent snapshot pins identity and restores original facts after later channel records
+      ---
+      duration_ms: 414.94425
+      type: 'test'
+      ...
+    # Subtest: checkpoint commit is idempotent, immutable and verifies case/event/query evidence
+    ok 16 - checkpoint commit is idempotent, immutable and verifies case/event/query evidence
+      ---
+      duration_ms: 449.968584
+      type: 'test'
+      ...
+    # Subtest: paged finalization requires complete ranges and preserves full comparison counts and recovery
+    ok 17 - paged finalization requires complete ranges and preserves full comparison counts and recovery
+      ---
+      duration_ms: 2618.381625
+      type: 'test'
+      ...
+    # Subtest: zero forward rows still compare recorded funds and never treat missing pages as an empty day
+    ok 18 - zero forward rows still compare recorded funds and never treat missing pages as an empty day
+      ---
+      duration_ms: 95.000417
+      type: 'test'
+      ...
+    # Subtest: resumable CLI service creates paged runs and only replays committed legacy evidence
+    ok 19 - resumable CLI service creates paged runs and only replays committed legacy evidence
+      ---
+      duration_ms: 93.819458
+      type: 'test'
+      ...
+    # Subtest: SIGKILL before and after page commit preserves atomic progress and fresh-process recovery
+    ok 20 - SIGKILL before and after page commit preserves atomic progress and fresh-process recovery
+      ---
+      duration_ms: 1417.101583
+      type: 'test'
+      ...
+    # Subtest: actual daily and range CLI processes use durable pages and resume without channel calls
+    ok 21 - actual daily and range CLI processes use durable pages and resume without channel calls
+      ---
+      duration_ms: 1430.013833
+      type: 'test'
+      ...
+    # Subtest: snapshot captures only necessary legacy references and binds facts to the exact verified plan
+    ok 22 - snapshot captures only necessary legacy references and binds facts to the exact verified plan
+      ---
+      duration_ms: 171.548959
+      type: 'test'
+      ...
+    # Subtest: checkpoint insert failure rolls back page observations, cases and durable queries
+    ok 23 - checkpoint insert failure rolls back page observations, cases and durable queries
+      ---
+      duration_ms: 73.180459
+      type: 'test'
+      ...
+    # Subtest: range task pins scope and persists failed dates across retries
+    ok 24 - range task pins scope and persists failed dates across retries
+      ---
+      duration_ms: 26.219
+      type: 'test'
+      ...
+    1..24
+ok 132 - verified bill snapshot detects both directions without granting financial state
+  ---
+  duration_ms: 7839.108375
+  type: 'test'
+  ...
+1..132
+# tests 261
+# suites 0
+# pass 261
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 145455.462958

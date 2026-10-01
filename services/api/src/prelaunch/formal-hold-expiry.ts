@@ -1,12 +1,15 @@
 import {isUnsettledPayment} from './unsettled-payment.js';
-import type {PrismaClient} from '../generated/prisma/client.js';
+import type {PrismaClient,Prisma} from '../generated/prisma/client.js';
 import type {ChannelBinding} from '../funding/mock-channel.js';
 import {registrationLock,dbNow} from './domain.js';
 import {enqueue,openCase} from '../jobs/queue.js';
 function assertBinding(binding:ChannelBinding,owner:string){if(binding.channel!=='wechat'||!/^[a-f0-9]{64}$/.test(binding.merchantScope)||!binding.providerConfigId.trim()||!owner.trim())throw Error('Explicit formal expiry binding required');}
 export function createFormalHoldExpirer(db:PrismaClient,binding:ChannelBinding,owner:string){
  assertBinding(binding,owner);
- return async(registrationId:string)=>db.$transaction(async tx=>{
+ return async(registrationId:string)=>db.$transaction(tx=>expireFormalHoldInTransaction(tx,registrationId,binding,owner),{timeout:15000});
+}
+export async function expireFormalHoldInTransaction(tx:Prisma.TransactionClient,registrationId:string,binding:ChannelBinding,owner:string){
+ assertBinding(binding,owner);
   const reg=await registrationLock(tx,registrationId),hold=await tx.v11SeatHold.findUnique({where:{registrationId}}),now=await dbNow(tx);
   if(!hold)return {kind:'NO_HOLD' as const};
   if(hold.state==='EXPIRED')return {kind:'ALREADY_EXPIRED' as const};
@@ -15,7 +18,7 @@ export function createFormalHoldExpirer(db:PrismaClient,binding:ChannelBinding,o
   if(!intents.length||!intents.some(x=>!isUnsettledPayment(x)||x.merchantScope===binding.merchantScope))return {kind:'OUT_OF_SCOPE' as const};
   const member=await tx.v11Membership.findUnique({where:{registrationId}});
   const timelyEvidence=await tx.receivedEvent.count({where:{source:'wechat-query-v11',merchantScope:binding.merchantScope,verifiedAt:{lt:hold.expiresAt},OR:intents.map(x=>({normalizedPayload:{path:['sourceId'],equals:x.id}}))}});
-  if(reg.category==='WAITLIST'||hold.expiresAt.getTime()!==reg.acceptedAt.getTime()+600000||reg.eligibilityState!=='PENDING_PAYMENT'||!reg.active||reg.paidEffectiveAt||reg.cancelAcceptedAt||member||timelyEvidence
+  if((reg.category==='WAITLIST'&&reg.policy.status!=='FORMAL_RUNTIME')||hold.expiresAt.getTime()!==reg.acceptedAt.getTime()+600000||reg.eligibilityState!=='PENDING_PAYMENT'||!reg.active||reg.paidEffectiveAt||reg.cancelAcceptedAt||member||timelyEvidence
    ||intents.some(x=>!isUnsettledPayment(x)||x.merchantScope!==binding.merchantScope||x.providerConfigId!==binding.providerConfigId||x.totalCents!==reg.serviceFeeCents+reg.depositCents)){
    const financialCase=await openCase(tx,'V11_FORMAL_HOLD_EXPIRY_REVIEW',hold.id,owner);
    return {kind:'REVIEW_REQUIRED' as const,caseId:financialCase.id};
@@ -28,7 +31,6 @@ export function createFormalHoldExpirer(db:PrismaClient,binding:ChannelBinding,o
   await tx.auditLog.create({data:{action:'qualification.v11-formal-hold-expired',targetType:'V11SeatHold',targetId:hold.id,
    metadata:{scope:'FROZEN_FORMAL_HOLD_EXPIRY_ONLY',registrationId,ruleReference:'DR01-04',effectiveDeadline:hold.expiresAt.toISOString(),observedAt:now.toISOString(),queryCount:intents.length,channelClosed:false,membershipChanged:false}}});
   return {kind:'EXPIRED' as const};
- },{timeout:15000});
 }
 export async function scanFormalHoldExpiryBatch(db:PrismaClient,binding:ChannelBinding,owner:string,afterId?:string){
  assertBinding(binding,owner);const clock=await db.$queryRaw<Array<{now:Date}>>`SELECT clock_timestamp() AS now`;if(!clock[0])throw Error('Database expiry clock unavailable');

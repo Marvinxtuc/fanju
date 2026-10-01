@@ -31,7 +31,7 @@ export function createPaymentQueryIntake(db: PrismaClient, channel: ReturnType<t
       let formalExpiry = false;
       if (!current.active && isUnsettledPayment(current) && !registration.active
         && registration.eligibilityState === 'EXPIRED' && !registration.paidEffectiveAt
-        && !registration.cancelAcceptedAt && registration.category !== 'WAITLIST') {
+        && !registration.cancelAcceptedAt && (registration.category !== 'WAITLIST'||registration.policy.status==='FORMAL_RUNTIME')) {
         const hold = await tx.v11SeatHold.findUnique({ where: { registrationId: registration.id } });
         if (hold?.state === 'EXPIRED' && hold.releasedAt && hold.releasedAt >= hold.expiresAt
           && hold.expiresAt.getTime() === registration.acceptedAt.getTime() + 600000

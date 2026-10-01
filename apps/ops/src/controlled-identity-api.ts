@@ -31,6 +31,16 @@ export function createControlledIdentityClient(transport: Transport) {
     // Tokens stay in this closure; callers receive only the safe principal projection.
     current: () => session ? { ...session.principal } : null,
     logout() { generation++; session = null; },
+    async business<T>(path:string,method:'GET'|'POST'='GET',body?:unknown):Promise<T>{
+      const captured=session,epoch=generation;if(!captured)throw Error('请先登录');
+      const [resource,query]=path.split('?');if(query!==undefined&&(method!=='GET'||!['/api/v11/formal/supply-proposals','/api/v11/ops/formal/refund-requests'].includes(resource!)||!/^cursor=[A-Za-z0-9_.%:-]{1,480}$/.test(query)))throw Error('业务页码无效');
+      if(!/^\/api\/v11\/(?:formal\/(?:supply-proposals)|restaurant\/activities\/[A-Za-z0-9_.:-]+\/supply-proposals|ops\/(?:supply-proposals\/[A-Za-z0-9_.:-]+\/approve|formal\/(?:activities\/[A-Za-z0-9_.:-]+\/publish|refund-requests(?:\/[A-Za-z0-9_.:-]+\/decide)?|reconciliation\/(?:assess|differences\/[A-Za-z0-9_.:-]+\/close))))$/.test(resource!))throw Error('业务入口无效');
+      const response=await transport(path,{method,headers:{authorization:`Bearer ${captured.token}`,'content-type':'application/json'},...(method==='POST'?{body:JSON.stringify(body??{})}:{})});
+      if(generation!==epoch||session!==captured)throw Error('操作已取消');
+      if(response.status===401||response.status===403){generation++;session=null;throw Error('登录已失效或权限已变更');}
+      if(response.status<200||response.status>=300){const data=response.data as {error?:{code?:string}}|null;throw Error(data?.error?.code==='FORMAL_ACTION_AUTHORITY_UNAVAILABLE'?'此业务动作尚无有效授权，原资料已保留':'业务处理未完成，请核对资料或授权配置');}
+      if(!response.data||typeof response.data!=='object'||Array.isArray(response.data))throw Error('业务响应格式错误');return response.data as T;
+    },
     async login(username: string, password: string) {
       const epoch = ++generation; session = null;
       const data = await request("/api/v11/ops/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ username, password }) });

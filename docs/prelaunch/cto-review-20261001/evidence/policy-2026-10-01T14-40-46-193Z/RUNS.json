@@ -1,0 +1,55 @@
+{
+  "candidate": "083b9f905b463bb5850433f2860db6c0a3dd9be95139b2329c2a6eb814918d9b",
+  "scope": "PARTIAL_FORMAL_POLICY_ASSEMBLY_ENGINEERING_ONLY",
+  "baseline": "5b0510052f447051004d8f2ebac950bb99aa8dab",
+  "productionActivated": false,
+  "releaseAuthorized": false,
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "name": "api-build",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@timeleft-shanghai/api",
+        "build"
+      ],
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "authority-parameters",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@timeleft-shanghai/api",
+        "exec",
+        "vitest",
+        "run",
+        "src/prelaunch/formal-action-authority.test.ts",
+        "src/prelaunch/formal-business-parameters.test.ts"
+      ],
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "formal-policy-main-routes",
+      "command": [
+        "node",
+        "/tmp/fanju-prelaunch-resume-drafts/targeted-native.mjs",
+        "tests/prelaunch/formal-runtime-policy-native.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "secret-scan",
+      "command": [
+        "pnpm",
+        "check:secrets"
+      ],
+      "exitCode": 0,
+      "signal": null
+    }
+  ]
+}

@@ -4,7 +4,8 @@ import {isUnsettledPayment} from './unsettled-payment.js';
 // Shared evidence check for scheduling and send-time fencing. No writes or I/O.
 export async function hasFormalExpiryCloseAuthority(tx:Tx,reg:V11Registration,intent:V11PaymentIntent){
    if(intent.registrationId!==reg.id||intent.channel!=='wechat'||intent.active||!isUnsettledPayment(intent)
-    ||reg.active||reg.eligibilityState!=='EXPIRED'||reg.category==='WAITLIST'||reg.paidEffectiveAt||reg.cancelAcceptedAt||intent.totalCents!==reg.serviceFeeCents+reg.depositCents)return false;
+    ||reg.active||reg.eligibilityState!=='EXPIRED'||reg.paidEffectiveAt||reg.cancelAcceptedAt||intent.totalCents!==reg.serviceFeeCents+reg.depositCents)return false;
+   if(reg.category==='WAITLIST'&&(await tx.v11PolicySnapshot.findUniqueOrThrow({where:{id:reg.policyId}})).status!=='FORMAL_RUNTIME')return false;
    const hold=await tx.v11SeatHold.findUnique({where:{registrationId:reg.id}}),now=await dbNow(tx);
    if(!hold||hold.state!=='EXPIRED'||!hold.releasedAt||hold.releasedAt<hold.expiresAt||hold.expiresAt>now||hold.expiresAt.getTime()!==reg.acceptedAt.getTime()+600000)return false;
    const audit=await tx.auditLog.findFirst({where:{action:'qualification.v11-formal-hold-expired',targetType:'V11SeatHold',targetId:hold.id,metadata:{path:['effectiveDeadline'],equals:hold.expiresAt.toISOString()}}});

@@ -1,0 +1,419 @@
+{
+  "baselineCommit": "5b0510052f447051004d8f2ebac950bb99aa8dab",
+  "productionReady": false,
+  "gates": [
+    {
+      "id": "OP-03",
+      "type": "业务参数/实际资料",
+      "ownerRole": "产品、资金/财务",
+      "remainingDependencies": "默认F、D_MIN/MAX实值，收款主体与账户、票据安排",
+      "implementedBoundary": "参数加载/校验/报价快照/缺配置拒绝新收费可先做；不得填写示例作生产值。",
+      "impact": "ENG-01/03，真实新收费",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-04",
+      "type": "业务事件",
+      "ownerRole": "产品、资金、CTO",
+      "remainingDependencies": "取消/退款受理何时移除正式成员；不同申请类型事件表",
+      "implementedBoundary": "保留已定10分钟、UNKNOWN到期释放、晚到全退；成员移除与退款完成分离的接口可先做。",
+      "impact": "ENG-01/02，席位与成团",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-05",
+      "type": "业务边界与技术顺序",
+      "ownerRole": "产品、CTO、QA",
+      "remainingDependencies": "FIFO首次生效时钟、同刻排序、T-24新客类别、T-8未过期锁位收款、失效桌新客类别",
+      "implementedBoundary": "候补退出/转正事务先后与退款等号已定，不重开；仅残余分支保持明确阻塞。",
+      "impact": "ENG-01/02，队列/资格/退款",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-07",
+      "type": "餐厅履约例外",
+      "ownerRole": "产品、运营、餐厅合作",
+      "remainingDependencies": "T-8后最低继续人数、答复期限、失联、再次退人及核心变更边界",
+      "implementedBoundary": "确认载体/通知/超时任务/按配置分支可先做；不能自行决定少人数仍扣款。",
+      "impact": "履约与后期取消",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-08",
+      "type": "候补风险参数/交集",
+      "ownerRole": "产品、资金、CTO",
+      "remainingDependencies": "WAITLIST_MAX默认及逐场值、资金敞口、重复报名和退款后重报",
+      "implementedBoundary": "有限队列、上限校验、重入新序号已定可做；不能无限收费。",
+      "impact": "候补新收费/资金规模",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-09",
+      "type": "变更责任",
+      "ownerRole": "产品、运营、餐厅、资金",
+      "remainingDependencies": "新旧T适用、其他变更期限、补偿对象/金额/承担方和未回应",
+      "implementedBoundary": "原新版本、逐人选择、原受理时刻不可变可先做；不把候选补偿写成已批。",
+      "impact": "变更/取消/补偿",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-10",
+      "type": "资料范围",
+      "ownerRole": "产品、隐私、安全",
+      "remainingDependencies": "最小服务适配字段、证明清单/脱敏/渠道/访问/留存",
+      "implementedBoundary": "字段schema、最小权限、审计与合成材料测试可先做；真实材料采集需定案。",
+      "impact": "身份资料/特殊申诉/正式隐私",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-11",
+      "type": "审核SLA与执行时钟",
+      "ownerRole": "运营、资金、产品",
+      "remainingDependencies": "特殊/争议/补证完成时限、自动义务审批、每日批次与漏批升级",
+      "implementedBoundary": "24h普通审核、两个48h申请窗口不重开；通用计时/批次幂等/过期告警可先做。",
+      "impact": "ENG-02，批量退款/争议",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-12",
+      "type": "履约证明和止挂",
+      "ownerRole": "运营、餐厅合作",
+      "remainingDependencies": "午餐/跨午夜当晚、最长确认期限、失联、未扫码补录、违约事实",
+      "implementedBoundary": "确认/异常/未确认分开；补录权限和审计可先做，不能把漏确认当违约。",
+      "impact": "退D/履约争议",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-13",
+      "type": "送达与受理",
+      "ownerRole": "产品、运营、隐私/法务",
+      "remainingDependencies": "可靠送达、失败路径、证据不足沉默、通知字段、客服正式受理",
+      "implementedBoundary": "投递/送达/已读分层、实际acceptedAt、告警与人工待办可先做；不能只凭SENT启动不利计时。",
+      "impact": "ENG-03，争议/默认违约",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-14",
+      "type": "真实结算与翻案",
+      "ownerRole": "资金、财务、餐厅合作、CTO",
+      "remainingDependencies": "渠道/账户/日期/凭证/失败恢复、非争议结算、翻案垫付追回、账务口径",
+      "implementedBoundary": "应结/在途/实付/退款义务分离可先做；不得执行真实转账或把PLATFORM_RETAINED直接入收入。",
+      "impact": "ENG-02，餐厅结算",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OP-15",
+      "type": "用户权利与访问",
+      "ownerRole": "产品、隐私、安全",
+      "remainingDependencies": "注销中新报名/消息/撤回/期限，终态地址，导出更正留存共享",
+      "implementedBoundary": "未结义务索引、权限过滤、受控删除/恢复重放测试可先做；不能自动消灭钱款责任。",
+      "impact": "隐私与注销完整性",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-01",
+      "type": "专项结论",
+      "ownerRole": "法务、财务、产品",
+      "remainingDependencies": "费用成本、扣留条款、例外、告知与会计凭证",
+      "implementedBoundary": "保留业务选择与材料引用，不代出专业结论。",
+      "impact": "对应正式扣留/收入处理",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-02",
+      "type": "专项结论",
+      "ownerRole": "法务、运营、隐私",
+      "remainingDependencies": "异常事实、送达、沉默违约、两轮说明与纠错",
+      "implementedBoundary": "程序和合成测试可实现；专业结论未齐不启用自动不利处理。",
+      "impact": "默认违约/争议结算",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-03",
+      "type": "专项结论",
+      "ownerRole": "法务、产品、餐厅合作",
+      "remainingDependencies": "低人数继续的告知、用户退出及服务变更责任",
+      "implementedBoundary": "明确例外范围，不与一般变更混用。",
+      "impact": "低人数正式履约",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-04",
+      "type": "专项结论",
+      "ownerRole": "隐私、产品、法务",
+      "remainingDependencies": "性别必填必要性、成年资格及告知最小化",
+      "implementedBoundary": "不得以手机号证明成年/性别；测试数据不是实际专业签收。",
+      "impact": "实际字段/准入启用",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-05",
+      "type": "专项结论",
+      "ownerRole": "隐私、安全、法务、运营",
+      "remainingDependencies": "健康等证明最小范围、权限/保存/删除",
+      "implementedBoundary": "用合成材料测试，不实际采集敏感资料。",
+      "impact": "特殊申诉材料",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-06",
+      "type": "专项结论",
+      "ownerRole": "资金、财务、法务、CTO",
+      "remainingDependencies": "收款身份、渠道能力、D退款/补偿/平台保留、对账凭证",
+      "implementedBoundary": "内部资金模型可做；不能把资料hash校验当渠道或资金授权。",
+      "impact": "真实F/D收付/餐厅结算",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "RV-07",
+      "type": "专项结论",
+      "ownerRole": "产品、法务、餐厅合作",
+      "remainingDependencies": "付款前经营/餐厅信息和特殊饮食边界披露",
+      "implementedBoundary": "按待审正文实现展示；不得因能隐藏地址就认定披露充分。",
+      "impact": "正式收费披露",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "EXT-01",
+      "type": "平台能力核验",
+      "ownerRole": "小程序管理员、产品",
+      "remainingDependencies": "现有主体的认证/类目/隐私指引及V1.1能力范围",
+      "implementedBoundary": "核现有账号，不重复开户；记录时间与版本，不把浏览器安全阻断说成账号问题。",
+      "impact": "QA-01/上线",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "EXT-02",
+      "type": "商户能力核验",
+      "ownerRole": "商户管理员、资金、安全",
+      "remainingDependencies": "现有AppID绑定、支付退款能力、安全注入位置",
+      "implementedBoundary": "已有商户≠本轮已验收；不在聊天/Git传播密钥。",
+      "impact": "QA-02/真实渠道",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "EXT-03",
+      "type": "部署资源核验",
+      "ownerRole": "运维、安全",
+      "remainingDependencies": "目标环境、HTTPS域名/TLS/数据库与适用配置",
+      "implementedBoundary": "工程部署文件和隔离演练可先做；真实目标操作另有明确范围。",
+      "impact": "真机/REL-01",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "ENG-01",
+      "type": "工程未完成",
+      "ownerRole": "CTO、全栈、QA",
+      "remainingDependencies": "正式身份到供给/资料/报名/付款/席位/成团的完整装配与客户端接线；未决权益正式分支及实际环境边界见自审报告",
+      "implementedBoundary": "优先连续实现；必须测试拟发布业务路由，不能只测prelaunch页面。",
+      "impact": "正式业务可用性",
+      "status": "IMPLEMENTED_SCOPED_FORMAL_REGRESSION_PASS_GATE_REMAINS_CONDITIONAL",
+      "evidence": [
+        "FINAL_REGRESSION_SUMMARY.json",
+        "FORMAL_ENTRY_MATRIX.md",
+        "SELF_REVIEW_AND_REMEDIATION.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "ENG-02",
+      "type": "工程+真实验收",
+      "ownerRole": "后端、资金/运维、QA",
+      "remainingDependencies": "正式退款authorizer/进程/调度，差异结案、覆盖证明和真实商户验收；未决权益正式分支及实际环境边界见自审报告",
+      "implementedBoundary": "先完成安全默认关闭的完整装配与同代码隔离测试；真实出站另行授权。",
+      "impact": "资金闭环",
+      "status": "IMPLEMENTED_SCOPED_FORMAL_REGRESSION_PASS_GATE_REMAINS_CONDITIONAL",
+      "evidence": [
+        "FINAL_REGRESSION_SUMMARY.json",
+        "FORMAL_ENTRY_MATRIX.md",
+        "SELF_REVIEW_AND_REMEDIATION.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "ENG-03",
+      "type": "工程+政策材料",
+      "ownerRole": "CTO、产品、隐私/运营",
+      "remainingDependencies": "归档→正式运行快照→用户同意→业务授权→通知的全链；未决权益正式分支及实际环境边界见自审报告",
+      "implementedBoundary": "结构校验不代审批；可信授权与真实签收资料分离实现。",
+      "impact": "正式政策与业务一致",
+      "status": "IMPLEMENTED_SCOPED_FORMAL_REGRESSION_PASS_GATE_REMAINS_CONDITIONAL",
+      "evidence": [
+        "FINAL_REGRESSION_SUMMARY.json",
+        "FORMAL_ENTRY_MATRIX.md",
+        "SELF_REVIEW_AND_REMEDIATION.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "QA-01",
+      "type": "当前版本端到端验收",
+      "ownerRole": "小程序QA、平台管理员",
+      "remainingDependencies": "当前候选登录/手机号/设备/正式页面链路证据",
+      "implementedBoundary": "保留历史M3.1.1-B事实；本轮新链路需另验。",
+      "impact": "发布前",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "QA-02",
+      "type": "受控真实资金验收",
+      "ownerRole": "资金、QA、安全",
+      "remainingDependencies": "参与人/金额范围内实收/退款/查单/账单闭环",
+      "implementedBoundary": "只能用真实授权环境与凭据；不能拿本地合成0差异关闭。",
+      "impact": "真实收费",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "OPS-01",
+      "type": "运营履约能力",
+      "ownerRole": "运营、餐厅合作、资金",
+      "remainingDependencies": "真实逐场确认、实际客服、值守与异常责任人/签收",
+      "implementedBoundary": "文档模板不代实证；AI自审不代真实不同审核人员。",
+      "impact": "首场运营",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    },
+    {
+      "id": "REL-01",
+      "type": "生产环境验证",
+      "ownerRole": "运维、安全、发布负责人",
+      "remainingDependencies": "备份恢复、告警送达、灰度/回退和最终环境验收",
+      "implementedBoundary": "保留现有合成恢复证据，但不能转成生产完成。",
+      "impact": "上线放行",
+      "status": "EXTERNAL_INPUT_NOT_VERIFIED",
+      "evidence": [
+        "OPERATIONS_AND_DEPENDENCIES.md"
+      ],
+      "productionApproved": false,
+      "candidateId": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+    }
+  ],
+  "currentCandidate": "99fdde4786333de3b480fc7cf742858755db857a0839d0c4739a97aee098c7c9"
+}

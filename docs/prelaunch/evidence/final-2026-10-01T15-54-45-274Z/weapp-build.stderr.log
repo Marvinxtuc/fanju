@@ -1,0 +1,69 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 0/13 modules 1 active 
+ babel-loader › src/app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/14 dependen
+cies 0/13 modules 13 active 
+ ...gm5f4pyaqmjy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/co
+mp.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 51/137 depende
+ncies 0/28 modules 24 active 
+ ../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 159/178 depend
+encies 2/47 modules 45 active 
+ babel-loader › src/prelaunch-api.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 192/244 depend
+encies 17/63 modules 45 active 
+ ...orktrees/fanju-stage0-baseline/饭局/packages/shared/dist/rules/prelaunchCl
+ient.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 357/433 depend
+encies 41/109 modules 61 active 
+ ...@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/setPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 431/455 depend
+encies 49/123 modules 70 active 
+ ...de_modules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 546/555 depend
+encies 84/152 modules 68 active 
+ ...ules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/native-ap
+is.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (70%) finish module graph 
+ InnerGraphPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.34s
+

@@ -20,6 +20,14 @@ test('formal absolute hold expiry preserves unknown money and routes ambiguous q
    const intent=await db.v11PaymentIntent.create({data:{...binding,registrationId:reg.id,merchantOrderNo:prefix+suffix,totalCents:100,state:'UNKNOWN'}});
    return {reg,hold,intent};
   }
+  async function expiredWithoutAudit(suffix){
+   // Construct a synthetic corrupt historical state before any authority exists.
+   // Never erase committed immutable proof to fabricate this fixture.
+   const row=await setup(suffix,{active:false,eligibilityState:'EXPIRED'},{state:'EXPIRED',releasedAt:new Date(now)});
+   await db.v11PaymentIntent.update({where:{id:row.intent.id},data:{active:false}});
+   await db.durableJob.create({data:{kind:'V11_QUERY_PAYMENT',businessKey:'v11:formal-expire-query:'+row.intent.id,refId:row.intent.id,runAt:new Date(now)}});
+   return row;
+  }
   const expire=createFormalHoldExpirer(db,binding,owner),due=await setup('_due');
   await t.test('concurrent expiry releases capacity once, preserves UNKNOWN and commits one query task',async()=>{
    const results=await Promise.all([expire(due.reg.id),expire(due.reg.id)]);assert.deepEqual(results.map(x=>x.kind).sort(),['ALREADY_EXPIRED','EXPIRED']);
@@ -36,8 +44,8 @@ test('formal absolute hold expiry preserves unknown money and routes ambiguous q
    assert.equal((await intake(row.intent.id)).kind,'CLOSED_CONVERGED');
    assert.equal((await intake(row.intent.id)).kind,'CLOSED_CONVERGED');
    assert.equal((await db.v11PaymentIntent.findUniqueOrThrow({where:{id:row.intent.id}})).state,'UNKNOWN');
-   await db.auditLog.deleteMany({where:{action:'qualification.v11-formal-hold-expired',targetId:row.hold.id}});
-   assert.equal((await intake(row.intent.id)).kind,'UNCONFIRMED');
+   await assert.rejects(db.auditLog.deleteMany({where:{action:'qualification.v11-formal-hold-expired',targetId:row.hold.id}}));
+   const noProof=await expiredWithoutAudit('_closed_no_proof');assert.equal((await intake(noProof.intent.id)).kind,'UNCONFIRMED');
    const conflict=await setup('_closed_conflict');await expire(conflict.reg.id);
    await db.receivedEvent.create({data:{source:'wechat-query-v11',merchantScope:binding.merchantScope,eventKey:prefix+'_closure_success',payloadHash:'synthetic',normalizedPayload:{sourceId:conflict.intent.id},verificationMaterialId:binding.providerConfigId,verifiedAt:new Date(now)}});
    assert.equal((await intake(conflict.intent.id)).kind,'CONFLICT');
@@ -90,7 +98,7 @@ test('formal absolute hold expiry preserves unknown money and routes ambiguous q
    const first=await scheduleFormalCloseBatch(db,binding,owner);assert.ok(first.counts.scheduled>=1);assert.equal(first.channelCalled,false);
    const task=await db.durableJob.update({where:{businessKey:key},data:{state:'MANUAL',attempts:8,generation:4,errorClass:'DATA_CONFLICT'}});
    await scheduleFormalCloseBatch(db,binding,owner);const retained=await db.durableJob.findUniqueOrThrow({where:{businessKey:key}});assert.equal(retained.id,task.id);assert.equal(retained.state,'MANUAL');assert.equal(retained.generation,4);assert.equal(retained.attempts,8);assert.equal(retained.errorClass,'DATA_CONFLICT');
-   const missing=await setup('_missing_close_audit');await expire(missing.reg.id);await db.durableJob.delete({where:{businessKey:'v11:formal-expire-close:'+missing.intent.id}});await db.auditLog.deleteMany({where:{action:'qualification.v11-formal-hold-expired',targetId:missing.hold.id}});
+   const missing=await expiredWithoutAudit('_missing_close_audit');
    await scheduleFormalCloseBatch(db,binding,owner);assert.equal(await db.durableJob.count({where:{businessKey:'v11:formal-expire-close:'+missing.intent.id}}),0);assert.equal(await db.financialCase.count({where:{category:'V11_FORMAL_CLOSE_SWEEP_REVIEW',sourceRef:missing.intent.id}}),1);
    const ids=[];for(let n=0;n<51;n++){const row=await setup('_close_sweep_page_'+n);await expire(row.reg.id);ids.push(row.intent.id);await db.durableJob.delete({where:{businessKey:'v11:formal-expire-close:'+row.intent.id}});}
    let cursor,pages=0;do{const result=await scheduleFormalCloseBatch(db,binding,owner,cursor);cursor=result.nextCursor??undefined;pages++;assert.ok(pages<10);}while(cursor);

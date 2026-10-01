@@ -30,15 +30,16 @@ export function assertSimulationPolicy(policy: { bundleVersion: string; status: 
 export async function audit(tx: Tx, action: string, targetType: string, targetId: string, actor?: LocalPrincipal) {
   await tx.auditLog.create({ data: { action: `prelaunch.${action}`, targetType, targetId, metadata: { scope: "SIMULATION_ONLY", ...(actor ? { actorId: actor.id, personId: actor.personId } : {}) } } });
 }
-export async function requestRecord(tx: Tx, input: { businessKey: string; kind: string; userId?: string; registrationId?: string; payload: unknown; blockers?: readonly string[]; ownerActorId?: string; state?: string; acceptedAt?: Date }) {
+export async function requestRecord(tx: Tx, input: { businessKey: string; kind: string; userId?: string; registrationId?: string; payload: unknown; blockers?: readonly string[]; ownerActorId?: string; state?: string; acceptedAt?: Date; source?: 'FORMAL_BUSINESS_ROUTE' }) {
   const previous = await tx.v11Request.findUnique({ where: { businessKey: input.businessKey } });
   if (previous) {
-    if (previous.kind !== input.kind || previous.userId !== (input.userId ?? null) || previous.registrationId !== (input.registrationId ?? null)) reject(409, "IDEMPOTENCY_CONFLICT");
+    if (previous.kind !== input.kind || previous.userId !== (input.userId ?? null) || previous.registrationId !== (input.registrationId ?? null)
+      ||previous.source!==(input.source??'SIMULATION_ONLY')) reject(409, "IDEMPOTENCY_CONFLICT");
     return previous;
   }
   const owners = input.ownerActorId ? [] : await tx.v11Actor.findMany({ where: { role: "OPS", enabled: true }, orderBy: { id: "asc" }, take: 1 });
   return tx.v11Request.create({ data: { businessKey: input.businessKey, kind: input.kind, ...(input.userId ? { userId: input.userId } : {}), ...(input.registrationId ? { registrationId: input.registrationId } : {}),
-    source: "SIMULATION_ONLY", acceptedAt: input.acceptedAt ?? await dbNow(tx), state: input.state ?? (input.blockers?.length ? "BLOCKED_POLICY" : "ACCEPTED"),
+    source: input.source??"SIMULATION_ONLY", acceptedAt: input.acceptedAt ?? await dbNow(tx), state: input.state ?? (input.blockers?.length ? "BLOCKED_POLICY" : "ACCEPTED"),
     blockerIds: json(input.blockers ?? []), payload: json(input.payload), ...(input.ownerActorId || owners[0] ? { ownerActorId: input.ownerActorId ?? owners[0]!.id } : {}) } });
 }
 export async function notify(tx: Tx, registrationId: string, kind: string, key: string, requestId?: string) {
@@ -88,10 +89,11 @@ export async function refreshTable(tx: Tx, tableId: string, effectiveAt: Date) {
   if (decision.status === "BLOCKED_POLICY") await requestRecord(tx, { businessKey: `table-blocker:${table.id}:${table.version}`, kind: "LOW_PERSON_DECISION", payload: { tableId, count }, blockers: decision.blockerIds });
   return decision;
 }
-export async function assignFormal(tx: Tx, reg: V11Registration, at: Date) {
+export async function assignFormal(tx: Tx, reg: V11Registration, at: Date,formal?:{refresh:(tx:Tx,tableId:string,at:Date)=>Promise<unknown>;audit:(tx:Tx,tableId:string)=>Promise<unknown>}) {
   const supply = await tx.v11SupplyRevision.findUniqueOrThrow({ where: { id: reg.supplyId } });
+  if((supply.status==='FORMAL_APPROVED')!==!!formal)reject(409,'TABLE_ASSEMBLY_SCOPE_CONFLICT');
   const activity = await tx.activity.findUniqueOrThrow({ where: { id: reg.activityId } });
-  const tables = await tx.v11Table.findMany({ where: { activityId: reg.activityId, state: { not: "FAILED" } }, orderBy: { ordinal: "asc" } });
+  const tables = await tx.v11Table.findMany({ where: { activityId: reg.activityId, ...(formal?{supplyId:reg.supplyId}:{}), state: { not: "FAILED" } }, orderBy: { ordinal: "asc" } });
   let chosen: typeof tables[number] | undefined;
   const cap = supply.strategy === "FILL_TO_TARGET" ? supply.targetSize : supply.maxSize;
   const counts = new Map<string, number>();
@@ -111,7 +113,7 @@ export async function assignFormal(tx: Tx, reg: V11Registration, at: Date) {
     }
     scores.sort((a, b) => a.score - b.score || a.table.ordinal - b.table.ordinal);
     const chosen = scores[0]!.table;
-    if (chosen.id !== first.id) await audit(tx, "table.internal-soft-tiebreak", "V11Table", chosen.id);
+    if (chosen.id !== first.id){if(formal)await formal.audit(tx,chosen.id);else await audit(tx, "table.internal-soft-tiebreak", "V11Table", chosen.id);}
     return chosen;
   };
   if (at.getTime() <= activity.startsAt.getTime() - 24 * 3_600_000) {
@@ -122,7 +124,7 @@ export async function assignFormal(tx: Tx, reg: V11Registration, at: Date) {
   if (!chosen) reject(409, "NO_LEGAL_FORMAL_CAPACITY");
   await tx.v11Membership.create({ data: { registrationId: reg.id, tableId: chosen.id, joinedAt: at } });
   await tx.v11Registration.update({ where: { id: reg.id }, data: { eligibilityState: "FORMAL", paidEffectiveAt: reg.paidEffectiveAt ?? at, version: { increment: 1 } } });
-  await refreshTable(tx, chosen.id, at);
+  if(formal)await formal.refresh(tx,chosen.id,at);else await refreshTable(tx, chosen.id, at);
 }
 /** Owned simulation harness only: ordinal is transaction order, not approved official FIFO time. */
 export async function promoteWaitlist(tx: Tx, activityId: string, at: Date) {
@@ -146,10 +148,20 @@ export async function promoteWaitlist(tx: Tx, activityId: string, at: Date) {
     await audit(tx,"waitlist.promoted.simulation","V11Registration",reg.id);
   }
 }
-export async function createRegistration(db: PrismaClient, actor: LocalPrincipal, input: { activityId: string; supplyId: string; policyId: string; consentId: string; membership: "FORMAL" | "WAITLIST"; businessKey: string }) {
+export interface FormalRegistrationBoundary {
+ validateSupply(tx:Tx,actor:LocalPrincipal,supply:Prisma.V11SupplyRevisionGetPayload<{include:{policy:true}}>,membership:'FORMAL'|'WAITLIST'):Promise<void>;
+ validateProfile(tx:Tx,actor:LocalPrincipal,profile:Prisma.V11ProfileGetPayload<object>|null):Promise<boolean>;
+ validateConsent(tx:Tx,actor:LocalPrincipal,consent:Prisma.V11BundleConsentGetPayload<object>,policy:Prisma.V11PolicySnapshotGetPayload<object>):Promise<void>;
+ expire(tx:Tx,activityId:string,at:Date):Promise<void>;
+ created(tx:Tx,actor:LocalPrincipal,registration:V11Registration):Promise<void>;
+ allowConcurrentWaitlist?(tx:Tx):boolean;
+ admissionBlockers(tx:Tx,supply:Prisma.V11SupplyRevisionGetPayload<{include:{policy:true}}>,membership:'FORMAL'|'WAITLIST'):Promise<string[]>;
+}
+export async function createRegistration(db: PrismaClient, actor: LocalPrincipal, input: { activityId: string; supplyId: string; policyId: string; consentId: string; membership: "FORMAL" | "WAITLIST"; businessKey: string },formal?:FormalRegistrationBoundary) {
   requireRole(actor, "USER");
   if (!actor.userId) reject(403, "USER_ID_REQUIRED");
   return db.$transaction(async tx => {
+    const record=(v:Parameters<typeof requestRecord>[1])=>requestRecord(tx,{...v,...(formal?{source:'FORMAL_BUSINESS_ROUTE' as const}:{})});
     await activityLock(tx, input.activityId);
     await tx.$queryRaw`SELECT id FROM "User" WHERE id=${actor.userId} FOR UPDATE`;
     const at = await dbNow(tx);
@@ -157,54 +169,59 @@ export async function createRegistration(db: PrismaClient, actor: LocalPrincipal
     const supply = await tx.v11SupplyRevision.findUniqueOrThrow({ where: { id: input.supplyId }, include: { policy: true } });
     await tx.$queryRaw`SELECT id FROM "V11PolicySnapshot" WHERE id=${supply.policyId} FOR SHARE`;
     supply.policy = await tx.v11PolicySnapshot.findUniqueOrThrow({ where: { id: supply.policyId } });
-    assertSimulationPolicy(supply.policy);
-    if (supply.activityId !== activity.id || supply.policyId !== input.policyId || supply.status !== "SIMULATION_APPROVED") reject(409, "SUPPLY_NOT_APPROVED");
+    if(formal)await formal.validateSupply(tx,actor,supply,input.membership);else assertSimulationPolicy(supply.policy);
+    if (supply.activityId !== activity.id || supply.policyId !== input.policyId || supply.status !== (formal?"FORMAL_APPROVED":"SIMULATION_APPROVED")) reject(409, "SUPPLY_NOT_APPROVED");
     const user = await tx.user.findUniqueOrThrow({ where: { id: actor.userId! } });
     const profile = await tx.v11Profile.findUnique({ where: { userId: user.id } });
     const closing = await tx.v11Request.count({ where: { userId: user.id, kind: "RIGHT_CLOSURE", state: { not: "RESOLVED" } } });
-    const eligible = evaluateRegistrationEligibility({ loggedIn: true, phoneAuthorized: !!user.phone, gender: profile?.gender ?? null, adultEligibility: profile?.adultConfirmed ? "SIMULATION_CONFIRMED" : "UNRESOLVED", blacklisted: user.status !== "NORMAL", accountClosurePending: closing > 0, requiresSpecialAccommodation: profile?.adaptationConfirmed ? false : null });
+    const adultEligibility=formal?(await formal.validateProfile(tx,actor,profile)?'FORMAL_DECLARATION_VERIFIED':'UNRESOLVED'):(profile?.adultConfirmed?'SIMULATION_CONFIRMED':'UNRESOLVED');
+    const eligible = evaluateRegistrationEligibility({ loggedIn: true, phoneAuthorized: !!user.phone, gender: profile?.gender ?? null, adultEligibility, blacklisted: user.status !== "NORMAL", accountClosurePending: closing > 0, requiresSpecialAccommodation: profile?.adaptationConfirmed ? false : null });
     if (eligible.status !== "READY" || !eligible.effect?.allowed) reject(409, eligible.code, eligible.blockerIds);
     await tx.$queryRaw`SELECT id FROM "V11BundleConsent" WHERE id=${input.consentId} FOR SHARE`;
     const consent = await tx.v11BundleConsent.findUnique({ where: { id: input.consentId } });
     if (!consent || consent.userId !== user.id || consent.policyId !== supply.policyId) reject(409, "CONSENT_REQUIRED");
     const consentDocuments = object(supply.policy.docsJson).documents;
-    if (consent.source !== 'SIMULATION_ONLY' || !intactDraftConsentDocuments(consentDocuments)
+    if(formal)await formal.validateConsent(tx,actor,consent,supply.policy);
+    else if (consent.source !== 'SIMULATION_ONLY' || !intactDraftConsentDocuments(consentDocuments)
       || !matchesConsentDocuments(consentDocuments,consent.documentHashesJson,consent.publicHashesJson)) reject(409,'CONSENT_EVIDENCE_INVALID');
     const prior = await tx.v11Request.findUnique({ where: { businessKey: `registration:${input.businessKey}` } });
     if (prior) {
-      if (prior.userId !== user.id || object(prior.payload).activityId !== input.activityId || object(prior.payload).supplyId !== input.supplyId || object(prior.payload).membership !== input.membership || object(prior.payload).policyId !== input.policyId || object(prior.payload).consentId !== input.consentId) reject(409, "IDEMPOTENCY_CONFLICT");
+      if (prior.source!==(formal?'FORMAL_BUSINESS_ROUTE':'SIMULATION_ONLY')||prior.userId !== user.id || object(prior.payload).activityId !== input.activityId || object(prior.payload).supplyId !== input.supplyId || object(prior.payload).membership !== input.membership || object(prior.payload).policyId !== input.policyId || object(prior.payload).consentId !== input.consentId) reject(409, "IDEMPOTENCY_CONFLICT");
       return prior.registrationId ? tx.v11Registration.findUniqueOrThrow({ where: { id: prior.registrationId } }) : prior;
     }
     if (!["PUBLISHED", "REGISTRATION_OPEN"].includes(activity.status) || at >= activity.registrationEndsAt || at.getTime() >= activity.startsAt.getTime() - 8 * 3_600_000) reject(409, "REGISTRATION_CLOSED");
-    await expireHolds(tx, activity.id, at);
+    const formalBlockers=formal?await formal.admissionBlockers(tx,supply,input.membership):[];
+    if(formalBlockers.length)return record({businessKey:`registration:${input.businessKey}`,kind:'REGISTRATION',userId:user.id,payload:input,blockers:formalBlockers,acceptedAt:at});
+    if(formal)await formal.expire(tx,activity.id,at);else await expireHolds(tx, activity.id, at);
     if (await tx.v11Registration.count({ where: { userId: user.id, activityId: activity.id, active: true } })) reject(409, "ACTIVE_REGISTRATION_EXISTS");
     const t24 = activity.startsAt.getTime() - 24 * 3_600_000;
-    if (at.getTime() === t24) return requestRecord(tx, { businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-05"], acceptedAt: at });
+    if (at.getTime() === t24) return record({ businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-05"], acceptedAt: at });
     const formalCount = await tx.v11Membership.count({ where: { active: true, registration: { activityId: activity.id } } });
     const holdCount = await tx.v11SeatHold.count({ where: { state: "HELD", expiresAt: { gt: at }, registration: { activityId: activity.id, category: { not: "WAITLIST" } } } });
     let category = at.getTime() < t24 ? "ORDINARY" : "LATE_FORMED";
     const unresolvedRefunds = await tx.v11RefundInstruction.count({ where: { registration: { userId: user.id, activityId: activity.id }, state: { not: "CONFIRMED" } } });
     const unresolvedPayments = await tx.v11PaymentIntent.count({ where: { registration: { userId: user.id, activityId: activity.id }, state: { in: ["SUBMITTING", "UNKNOWN"] } } });
-    if (unresolvedRefunds || unresolvedPayments) return requestRecord(tx, { businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-08"], acceptedAt: at });
+    const unresolvedFormalObligations=formal?await tx.v11Request.count({where:{userId:user.id,registration:{activityId:activity.id},kind:'FORMAL_MANDATORY_REFUND',state:{notIn:['REFUND_CONFIRMED','NO_ADDITIONAL_REFUND','NO_FUNDS_CHANNEL_CLOSED']}}}):0;
+    if (unresolvedRefunds || unresolvedPayments || unresolvedFormalObligations) return record({ businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-08"], acceptedAt: at });
     if (input.membership === "WAITLIST") {
       const count = await tx.v11Registration.count({ where: { activityId: activity.id, eligibilityState: "WAITLIST", active: true } });
       const inFlight = await tx.v11Registration.count({ where: { activityId: activity.id, category: "WAITLIST", eligibilityState: "PENDING_PAYMENT", active: true } });
       const priorUnsettled = await tx.v11RefundInstruction.count({ where: { registration: { userId: user.id, activityId: activity.id }, state: { not: "CONFIRMED" } } });
-      const allowed = evaluateWaitlistAdmission({ validCount: count, limit: supply.waitlistMax, beforeT24: at.getTime() < t24, unresolvedPriorRegistration: priorUnsettled > 0, inFlightAdmissions: inFlight });
-      if (allowed.status !== "READY" || !allowed.effect?.createPayment) return requestRecord(tx, { businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: allowed.blockerIds.length ? allowed.blockerIds : ["OP-08"], acceptedAt: at });
+      const allowed = evaluateWaitlistAdmission({ validCount: count, limit: supply.waitlistMax, beforeT24: at.getTime() < t24, unresolvedPriorRegistration: priorUnsettled > 0, inFlightAdmissions: inFlight,...(formal?{concurrentExposureReserved:formal.allowConcurrentWaitlist?.(tx)===true}:{}) });
+      if (allowed.status !== "READY" || !allowed.effect?.createPayment) return record({ businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: allowed.blockerIds.length ? allowed.blockerIds : ["OP-08"], acceptedAt: at });
       if (formalCount + holdCount < supply.capacity) reject(409, "FORMAL_CAPACITY_AVAILABLE");
       category = "WAITLIST";
     } else {
       if (await tx.v11Registration.count({ where: { activityId: activity.id, eligibilityState: "WAITLIST", active: true } })) reject(409, "WAITLIST_HAS_PRIORITY", ["OP-05"]);
       if (formalCount + holdCount >= supply.capacity) reject(409, "FORMAL_CAPACITY_FULL");
-      if (at.getTime() > t24 && !(await tx.v11Table.count({ where: { activityId: activity.id, state: "FORMED", t24FormedAt: { not: null } } }))) return requestRecord(tx, { businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-05"], acceptedAt: at });
+      if (at.getTime() > t24 && !(await tx.v11Table.count({ where: { activityId: activity.id, state: "FORMED", t24FormedAt: { not: null } } }))) return record({ businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, payload: input, blockers: ["OP-05"], acceptedAt: at });
     }
     const reg = await tx.v11Registration.create({ data: { userId: user.id, activityId: activity.id, supplyId: supply.id, policyId: supply.policyId, consentId: consent.id, category,
-      serviceFeeCents: supply.serviceFeeCents, depositCents: supply.depositCents, acceptedAt: at, snapshot: json({ inputKey: input.businessKey, supply: supply.snapshot, policyDigest: supply.policy.bundleDigest, gender: profile!.gender, priceScope: "TEST_ONLY" }) } });
+      serviceFeeCents: supply.serviceFeeCents, depositCents: supply.depositCents, acceptedAt: at, snapshot: json({ inputKey: input.businessKey, supply: supply.snapshot, policyDigest: supply.policy.bundleDigest, gender: profile!.gender, priceScope: formal?"FORMAL_QUOTE":"TEST_ONLY" }) } });
     const hold = await tx.v11SeatHold.create({ data: { registrationId: reg.id, expiresAt: new Date(at.getTime() + 600_000) } });
-    await enqueue(tx, "V11_EXPIRE_HOLD", `v11:expire:${reg.id}`, reg.id, hold.expiresAt);
-    await requestRecord(tx, { businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, registrationId: reg.id, payload: input, acceptedAt: at, state: "RESOLVED" });
-    await audit(tx, "registration.create", "V11Registration", reg.id, actor);
+    if(formal)await formal.created(tx,actor,reg);else await enqueue(tx, "V11_EXPIRE_HOLD", `v11:expire:${reg.id}`, reg.id, hold.expiresAt);
+    await record({ businessKey: `registration:${input.businessKey}`, kind: "REGISTRATION", userId: user.id, registrationId: reg.id, payload: input, acceptedAt: at, state: "RESOLVED" });
+    if(!formal)await audit(tx, "registration.create", "V11Registration", reg.id, actor);
     return reg;
   });
 }
@@ -226,9 +243,9 @@ export async function reserveRefund(tx: Tx, reg: V11Registration, receiptId: str
   return reserveRefundBudget(tx, reg, receiptId, desired, key, LOCAL_MOCK_BINDING, runAt);
 }
 // Internal real-channel seam; production callers must use the authorized reserver.
-export async function reserveWechatRefundBudget(tx: Tx, reg: V11Registration, receiptId: string, desired: { F: number; D: number }, key: string, binding: ChannelBinding) {
+export async function reserveWechatRefundBudget(tx: Tx, reg: V11Registration, receiptId: string, desired: { F: number; D: number }, key: string, binding: ChannelBinding,runAt?:Date) {
   if (binding.channel !== 'wechat' || !/^[a-f0-9]{64}$/.test(binding.merchantScope) || !binding.providerConfigId) reject(409, 'ORIGINAL_CHANNEL_UNAVAILABLE');
-  return reserveRefundBudget(tx, reg, receiptId, desired, key, binding);
+  return reserveRefundBudget(tx, reg, receiptId, desired, key, binding,runAt);
 }
 async function reserveRefundBudget(tx: Tx, reg: V11Registration, receiptId: string, desired: { F: number; D: number }, key: string, binding: ChannelBinding, runAt?: Date) {
   if (![desired.F, desired.D].every(value => Number.isSafeInteger(value) && value >= 0 && value <= 2_147_483_647))
@@ -496,10 +513,12 @@ export async function registrationDetail(db: PrismaClient, actor: LocalPrincipal
     db.v11ReceiptBinding.findMany({ where: { registrationId: id }, include: { receipt: true } }), db.v11RefundInstruction.findMany({ where: { registrationId: id } }),
     db.v11Request.findMany({ where: { registrationId: id }, orderBy: { acceptedAt: "desc" }, take: 50 }), db.v11DeliveryProof.findMany({ where: { registrationId: id }, take: 50 }), db.v11PaymentIntent.findFirst({ where: { registrationId: id, active: true } }) ]);
   const visibility = getOwnTableVisibility({ membership: reg.eligibilityState === "FORMAL" ? "FORMAL" : reg.eligibilityState === "WAITLIST" ? "WAITLIST" : "NONE", memberValid: member?.active ?? false, ownTable: !!member, state: member ? tableState(member.table.state) : "WAITING", everFormed: member?.table.everFormed ?? false, terminalAccess: reg.active ? "ACTIVE" : "UNRESOLVED" });
+  const beforeFormalAddressUnlock=object(reg.snapshot).priceScope==='FORMAL_QUOTE'&&(await db.$transaction(dbNow)).getTime()<reg.activity.startsAt.getTime()-24*3600000;
+  const address=visibility.effect?.showAddress&&!beforeFormalAddressUnlock?reg.activity.restaurant.address:null;
   return { id: reg.id, activityId: reg.activityId, title: reg.activity.title, startsAt: reg.activity.startsAt, state: reg.eligibilityState, category: reg.category, tableState: member?.table.state ?? null, F: reg.serviceFeeCents, D: reg.depositCents, total: reg.serviceFeeCents + reg.depositCents, holdExpiresAt: hold?.expiresAt ?? null,
     policyId: reg.policyId, supplyId: reg.supplyId, acceptedAt: reg.acceptedAt, cancelAcceptedAt: reg.cancelAcceptedAt, queueOrdinal: reg.queueOrdinal?.toString() ?? null,
-    table: { state: member?.table.state ?? "WAITING", restaurantName: visibility.effect?.showName ? reg.activity.restaurant.name : null, address: visibility.effect?.showAddress ? reg.activity.restaurant.address : null },
-    restaurantName: visibility.effect?.showName ? reg.activity.restaurant.name : null, address: visibility.effect?.showAddress ? reg.activity.restaurant.address : null,
+    table: { state: member?.table.state ?? "WAITING", restaurantName: visibility.effect?.showName ? reg.activity.restaurant.name : null, address },
+    restaurantName: visibility.effect?.showName ? reg.activity.restaurant.name : null, address,
     payment: intent ? { id: intent.id, state: intent.state } : null, receipts: receipts.map(row => ({ id: row.receipt.id, amountCents: row.receipt.amountCents, classification: row.classification })),
     refunds: refunds.map(row => ({ id: row.id, F: row.serviceFeeCents, D: row.depositCents, total: row.totalCents, state: row.state })), requests: requests.map(publicRequest), notices: notices.map(row => ({ id: row.id, kind: row.kind, state: row.state, receivedAt: row.receivedAt })) };
 }

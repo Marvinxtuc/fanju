@@ -3,8 +3,11 @@ import { Button, Text, View } from "@tarojs/components";
 import { navigateTo, useDidShow, useDidHide } from "@tarojs/taro";
 import { listOrders, type OrderSummary } from "../../api";
 import { orderStatusLabel } from "../../order-status";
+import {formalBusinessEnabled} from '../../api';
+import {FormalOrderList} from '../../FormalOrderDetail';
 
-export default function OrderListPage(): JSX.Element {
+export default function OrderListPage():JSX.Element{return formalBusinessEnabled?<FormalOrderList/>:<LegacyOrderListPage/>;}
+function LegacyOrderListPage(): JSX.Element {
   const [orders, setOrders] = useState<OrderSummary[]>([]);
   const [cursor, setCursor] = useState<string | null>(null);
   const [error, setError] = useState("");

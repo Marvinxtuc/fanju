@@ -1,0 +1,21 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局[39m
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+[90mstderr[2m | tests/ui/formal-main-http-dom.test.tsx[2m > [22m[2mactual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount
+[22m[39mWarning: React does not recognize the `scrollY` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `scrolly` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+    at div
+    at /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/ui/formal-main-http-dom.test.tsx:42:57
+    at HomePage (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/src/pages/home/index.tsx:26:72)
+
+ [32m✓[39m tests/ui/formal-main-http-dom.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 18199[2mms[22m[39m
+   [33m[2m✓[22m[39m actual main activity/order and controlled ops components use formal HTTP supply/signup/receipt/refund routes and recover after remount [33m 18199[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 00:01:42
+[2m   Duration [22m 18.51s[2m (transform 85ms, setup 0ms, import 48ms, tests 18.20s, environment 156ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/cto-review-20261001/evidence/formal-dom-2026-10-01T16-01-41.567Z/vitest.json

@@ -1,0 +1,88 @@
+Datasource "db": PostgreSQL database "fanju_prelaunch_e2ca0d2ccf69_channel", schema "public" at "127.0.0.1:32772"
+
+26 migrations found in prisma/migrations
+
+Applying migration `20260624000000_initial`
+Applying migration `20260717000000_wechat_pay_channel_references`
+Applying migration `20260720000000_user_profile_table_sizes`
+Applying migration `20260720001000_reviews`
+Applying migration `20260929000000_funding_recovery_expand`
+Applying migration `20260929010000_receipt_paid_at`
+Applying migration `20260929020000_inventory_expand`
+Applying migration `20260929021000_inventory_cutover`
+Applying migration `20260929030000_formation_recovery_expand`
+Applying migration `20260929040000_profile_consent_expand`
+Applying migration `20260930000000_notification_inbox`
+Applying migration `20260930010000_worker_heartbeat`
+Applying migration `20260930020000_reconciliation_decision_order`
+Applying migration `20261001000000_prelaunch_v11_expand`
+Applying migration `20261001010000_v11_payment_preparation`
+Applying migration `20261001020000_v11_receipt_recorded_state`
+Applying migration `20261001030000_v11_refund_request_snapshot`
+Applying migration `20261001040000_v11_real_refund_binding`
+Applying migration `20261001050000_v11_policy_material_archive`
+Applying migration `20261001060000_v11_bill_comparison_snapshot`
+Applying migration `20261001070000_v11_bill_comparison_page`
+Applying migration `20261001080000_v11_bill_page_query_refs`
+Applying migration `20261001090000_v11_runtime_policy_binding`
+Applying migration `20261001100000_v11_formal_supply_consent_provenance`
+Applying migration `20261001110000_v11_formal_history_guards`
+Applying migration `20261001120000_v11_formal_audit_history`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20260624000000_initial/
+    └─ migration.sql
+  └─ 20260717000000_wechat_pay_channel_references/
+    └─ migration.sql
+  └─ 20260720000000_user_profile_table_sizes/
+    └─ migration.sql
+  └─ 20260720001000_reviews/
+    └─ migration.sql
+  └─ 20260929000000_funding_recovery_expand/
+    └─ migration.sql
+  └─ 20260929010000_receipt_paid_at/
+    └─ migration.sql
+  └─ 20260929020000_inventory_expand/
+    └─ migration.sql
+  └─ 20260929021000_inventory_cutover/
+    └─ migration.sql
+  └─ 20260929030000_formation_recovery_expand/
+    └─ migration.sql
+  └─ 20260929040000_profile_consent_expand/
+    └─ migration.sql
+  └─ 20260930000000_notification_inbox/
+    └─ migration.sql
+  └─ 20260930010000_worker_heartbeat/
+    └─ migration.sql
+  └─ 20260930020000_reconciliation_decision_order/
+    └─ migration.sql
+  └─ 20261001000000_prelaunch_v11_expand/
+    └─ migration.sql
+  └─ 20261001010000_v11_payment_preparation/
+    └─ migration.sql
+  └─ 20261001020000_v11_receipt_recorded_state/
+    └─ migration.sql
+  └─ 20261001030000_v11_refund_request_snapshot/
+    └─ migration.sql
+  └─ 20261001040000_v11_real_refund_binding/
+    └─ migration.sql
+  └─ 20261001050000_v11_policy_material_archive/
+    └─ migration.sql
+  └─ 20261001060000_v11_bill_comparison_snapshot/
+    └─ migration.sql
+  └─ 20261001070000_v11_bill_comparison_page/
+    └─ migration.sql
+  └─ 20261001080000_v11_bill_page_query_refs/
+    └─ migration.sql
+  └─ 20261001090000_v11_runtime_policy_binding/
+    └─ migration.sql
+  └─ 20261001100000_v11_formal_supply_consent_provenance/
+    └─ migration.sql
+  └─ 20261001110000_v11_formal_history_guards/
+    └─ migration.sql
+  └─ 20261001120000_v11_formal_audit_history/
+    └─ migration.sql
+
+All migrations have been successfully applied.

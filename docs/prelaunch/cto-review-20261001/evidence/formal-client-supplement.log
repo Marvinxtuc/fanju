@@ -1,0 +1,11 @@
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局
+
+ ✓ docs/prelaunch/cto-review-20261001/tests/formal-client-regression.test.ts (4 tests) 70ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  00:03:14
+   Duration  198ms (transform 30ms, setup 0ms, import 27ms, tests 70ms, environment 0ms)
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/cto-review-20261001/evidence/formal-client-supplement.json

@@ -8,7 +8,7 @@ import { createReceiptAllocator } from './receipt-allocation.js';
 import { createRefundQueryConfirmation } from './refund-query-confirmation.js';
 import {createLatePaymentRefundObligation} from './late-payment-refund-obligation.js';
 
-export function wechatQueryHandlers(db: PrismaClient, channel: ReturnType<typeof createWechatChannel>, caseOwner: string) {
+export function wechatQueryHandlers(db: PrismaClient, channel: ReturnType<typeof createWechatChannel>, caseOwner: string,onReceipt?:(receiptId:string)=>Promise<unknown>) {
   if (!caseOwner.trim()) throw Error('Financial case owner required');
   const intake = createPaymentQueryIntake(db, channel);
   const recordReceipt = createPaymentReceiptLedger(db, channel);
@@ -29,6 +29,7 @@ export function wechatQueryHandlers(db: PrismaClient, channel: ReturnType<typeof
         const receipt = await recordReceipt(result.eventId, lease);
         await allocate(receipt.receiptId, lease.refId, lease);
         await recordLateObligation(receipt.receiptId,lease.refId,lease);
+        if(onReceipt)await onReceipt(receipt.receiptId);
       }
     },
   };

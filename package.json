@@ -20,7 +20,10 @@
     "typecheck": "pnpm prepare:test && pnpm -r typecheck",
     "prepare:test": "pnpm db:generate && pnpm --filter @timeleft-shanghai/shared build",
     "test:ci": "pnpm prepare:test && node scripts/test-ci.mjs",
-    "verify:release": "node scripts/verify-release.mjs"
+    "verify:release": "node scripts/verify-release.mjs",
+    "start:formal-business-worker": "pnpm --filter @timeleft-shanghai/api exec node dist/prelaunch/formal-business-worker.js",
+    "start:formal-hold-expiry-worker": "pnpm --filter @timeleft-shanghai/api exec node dist/prelaunch/formal-hold-expiry-worker.js",
+    "start:formal-payment-close-worker": "pnpm --filter @timeleft-shanghai/api exec node dist/prelaunch/formal-payment-close-worker.js"
   },
   "devDependencies": {
     "@types/node": "26.0.0",

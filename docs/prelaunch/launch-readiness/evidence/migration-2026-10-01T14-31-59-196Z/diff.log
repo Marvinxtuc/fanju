@@ -1,0 +1,9 @@
+
+[*] Changed the `V11RuntimePolicyBinding` table
+  [-] Removed foreign key on columns (archiveId)
+  [-] Removed foreign key on columns (policyId)
+  [+] Added foreign key on columns (policyId)
+  [+] Added foreign key on columns (archiveId)
+
+Loaded Prisma config from prisma.config.ts.
+

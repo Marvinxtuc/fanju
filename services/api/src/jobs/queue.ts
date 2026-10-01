@@ -30,7 +30,7 @@ export async function claimJob(db: PrismaClient, owner: string, kinds?: string[]
   if (!owner.trim()) throw new Error("Worker owner required");
   if (channelScope && (channelScope.channel !== 'wechat' || !/^[a-f0-9]{64}$/.test(channelScope.merchantScope)
     || !channelScope.providerConfigId.trim() || channelScope.providerConfigId.length > 160 || !kinds?.length
-    || kinds.some(kind => !['V11_CLOSE_EXPIRED_PAYMENT','V11_QUERY_PAYMENT','V11_QUERY_REFUND'].includes(kind))))
+    || kinds.some(kind => !['V11_CLOSE_EXPIRED_PAYMENT','V11_QUERY_PAYMENT','V11_QUERY_REFUND','V11_WECHAT_REFUND','V11_FORMAL_LIFECYCLE'].includes(kind))))
     throw new Error('Explicit channel job scope and compatible kinds required');
   const scopeFilter = channelScope ? Prisma.sql`AND EXISTS (
           SELECT 1 FROM "V11PaymentIntent" p WHERE p.id = "DurableJob"."refId"
@@ -40,10 +40,16 @@ export async function claimJob(db: PrismaClient, owner: string, kinds?: string[]
             AND p."providerConfigId" = ${channelScope?.providerConfigId ?? null}
           UNION ALL
           SELECT 1 FROM "V11RefundInstruction" r WHERE r.id = "DurableJob"."refId"
-            AND "DurableJob".kind = 'V11_QUERY_REFUND'
+            AND "DurableJob".kind IN ('V11_QUERY_REFUND','V11_WECHAT_REFUND')
             AND r.channel = ${channelScope?.channel ?? null}
             AND r."merchantScope" = ${channelScope?.merchantScope ?? null}
             AND r."providerConfigId" = ${channelScope?.providerConfigId ?? null}
+          UNION ALL
+          SELECT 1 FROM "V11PaymentIntent" p WHERE p."registrationId" = "DurableJob"."refId"
+            AND "DurableJob".kind = 'V11_FORMAL_LIFECYCLE'
+            AND p.channel = ${channelScope?.channel ?? null}
+            AND p."merchantScope" = ${channelScope?.merchantScope ?? null}
+            AND p."providerConfigId" = ${channelScope?.providerConfigId ?? null}
         )` : Prisma.empty;
   const rows = await db.$queryRaw<Lease[]>`
     WITH next AS (

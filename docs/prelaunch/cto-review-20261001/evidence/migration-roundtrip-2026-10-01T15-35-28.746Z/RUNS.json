@@ -1,0 +1,74 @@
+{
+  "candidateId": "d299dd06a27efd452d3fa381a887b81b8c7e9999cc0f4aad1bd4a16bf8061e93",
+  "scope": "DISPOSABLE_OWNED_UP_EMPTY_DOWN_REBUILD",
+  "retainedHistoryRollbackAllowed": false,
+  "runs": [
+    {
+      "name": "up",
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "migrate",
+        "deploy"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "up-diff",
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "migrate",
+        "diff",
+        "--from-config-datasource",
+        "--to-schema",
+        "prisma/schema.prisma",
+        "--exit-code"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "guarded-empty-down",
+      "exitCode": 0
+    },
+    {
+      "name": "rebuild",
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "migrate",
+        "deploy"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "rebuild-diff",
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "migrate",
+        "diff",
+        "--from-config-datasource",
+        "--to-schema",
+        "prisma/schema.prisma",
+        "--exit-code"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "status",
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "migrate",
+        "status"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

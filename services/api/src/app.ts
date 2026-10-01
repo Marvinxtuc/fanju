@@ -2,6 +2,10 @@ import {channelWorkerMode} from './prelaunch/channel-worker-mode.js';
 import { createRefundNotificationTrigger } from './prelaunch/refund-notification-trigger.js';
 import { createPaymentNotificationTrigger } from './prelaunch/payment-notification-trigger.js';
 import { registerProductionIdentityRoutes } from './prelaunch/production-identity-routes.js';
+import { registerFormalBusinessRoutes } from './prelaunch/formal-business-routes.js';
+import type {createWechatChannel} from './prelaunch/wechat-channel.js';
+import type { RuntimeAuthoritySource } from './prelaunch/formal-runtime-policy.js';
+import {PrelaunchError} from './prelaunch/contracts.js';
 import { recoverPrepay, publishPrepay } from "./funding/prepay.js";
 import { persistTrustedEvent } from "./events/inbox.js";
 import { openCase } from "./jobs/queue.js";
@@ -62,6 +66,8 @@ export interface BuildAppOptions {
   providerEnv?: ProviderEnv;
   providerHttpClient?: ProviderHttpClient;
   wechatPayNotificationConfig?: WechatPayNotificationConfig;
+  formalRuntimeAuthoritySource?: RuntimeAuthoritySource;
+  formalChannel?: ReturnType<typeof createWechatChannel>;
 }
 
 export async function buildApp(options: BuildAppOptions = {}) {
@@ -106,6 +112,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
   await registerAuth(app, db, providerEnv, demoEnabled);
   registerAdminLogin(app);
   registerProductionIdentityRoutes(app, db, providerEnv, providers, demoEnabled);
+  await registerFormalBusinessRoutes(app, db, providerEnv, providers, demoEnabled, options.formalRuntimeAuthoritySource,options.formalChannel);
   const v11NotifyFlag = providerEnv.FEATURE_V11_PAYMENT_NOTIFICATIONS;
   if (v11NotifyFlag !== undefined && !['true','false'].includes(v11NotifyFlag)) throw Error('Invalid V1.1 payment notification flag');
   if (v11NotifyFlag === 'true' && (providers.payment.mode !== 'wechat' || !providerEnv.FINANCIAL_CASE_OWNER?.trim()))
@@ -128,6 +135,7 @@ export async function buildApp(options: BuildAppOptions = {}) {
 
 
   app.setErrorHandler((error, _request, reply) => {
+    if(error instanceof PrelaunchError)return reply.code(error.statusCode).send({version:'v11-business-1',error:{code:error.code,blockerIds:error.blockerIds}});
     if (error instanceof WechatPayNotificationError) {
       return reply.code(400).send({ error: "Invalid payment notification" });
     }

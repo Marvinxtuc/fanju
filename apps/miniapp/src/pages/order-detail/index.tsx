@@ -5,8 +5,11 @@ import { navigateTo, useRouter, useDidShow, useDidHide } from "@tarojs/taro";
 import { getOrderPage, continueOrderPayment, requestOrderCancel, submitOrderReport, submitOrderReview, type InboxNotification, type OrderDetail } from "../../api";
 
 import { orderStatusLabel } from "../../order-status";
+import {formalBusinessEnabled} from '../../api';
+import {FormalOrderDetail} from '../../FormalOrderDetail';
 
-export default function OrderDetailPage(): JSX.Element {
+export default function OrderDetailPage():JSX.Element{return formalBusinessEnabled?<FormalOrderDetail/>:<LegacyOrderDetailPage/>;}
+function LegacyOrderDetailPage(): JSX.Element {
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [notifications, setNotifications] = useState<InboxNotification[]>([]);
   const [notificationUnavailable, setNotificationUnavailable] = useState(false);

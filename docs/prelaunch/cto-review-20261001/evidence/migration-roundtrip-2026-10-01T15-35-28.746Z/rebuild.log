@@ -1,0 +1,26 @@
+Datasource "db": PostgreSQL database "fanju_prelaunch_209be97903c8_restore", schema "public" at "127.0.0.1:32772"
+
+26 migrations found in prisma/migrations
+
+Applying migration `20261001090000_v11_runtime_policy_binding`
+Applying migration `20261001100000_v11_formal_supply_consent_provenance`
+Applying migration `20261001110000_v11_formal_history_guards`
+Applying migration `20261001120000_v11_formal_audit_history`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261001090000_v11_runtime_policy_binding/
+    └─ migration.sql
+  └─ 20261001100000_v11_formal_supply_consent_provenance/
+    └─ migration.sql
+  └─ 20261001110000_v11_formal_history_guards/
+    └─ migration.sql
+  └─ 20261001120000_v11_formal_audit_history/
+    └─ migration.sql
+
+All migrations have been successfully applied.
+
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma/schema.prisma.

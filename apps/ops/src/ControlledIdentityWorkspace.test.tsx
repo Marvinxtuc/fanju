@@ -25,7 +25,7 @@ async function submit() {
 it("renders only the verified restaurant identity and clears login fields",async()=>{
   await submit();expect(mock.login).toHaveBeenCalledWith("restaurant-account","synthetic-password");
   expect(container.textContent).toContain("角色：餐厅");expect(container.textContent).toContain("授权餐厅：restaurant-test");
-  expect(container.textContent).toContain("业务功能尚未开放");expect(container.querySelector('input[type="password"]')).toBeNull();
+  expect(container.textContent).toContain("提交餐厅供给");expect(container.textContent).not.toContain("批准此供给及报价");expect(container.querySelector('input[type="password"]')).toBeNull();
 });
 it("returns to login on failed identity revalidation",async()=>{
   await submit();mock.refresh.mockRejectedValue(Error("登录已失效"));
@@ -44,7 +44,7 @@ const due={caseId:'case-test',evidenceConflict:false,obligation:{amountCents:100
 it('shows original due and confirmed remainder without declaring channel acceptance',async()=>{
  mock.login.mockResolvedValue({id:'ops-test',personId:'person-test',role:'OPS',userId:null,restaurantId:null,version:1});mock.obligations.mockResolvedValue({items:[due,{caseId:'conflict-test',evidenceConflict:true,obligation:null}],nextCursor:null});await submit();
  await act(async()=>[...container.querySelectorAll('button')].find(x=>x.textContent==='查看应退进度')!.click());
- expect(container.textContent).toContain('原应退：¥1.00');expect(container.textContent).toContain('剩余：¥0.60');expect(container.textContent).toContain('待渠道确认');expect(container.textContent).toContain('证据冲突，金额待核对');expect(container.textContent).toContain('退款执行尚未开放');
+ expect(container.textContent).toContain('原应退：¥1.00');expect(container.textContent).toContain('剩余：¥0.60');expect(container.textContent).toContain('待渠道确认');expect(container.textContent).toContain('证据冲突，金额待核对');expect(container.textContent).toContain('正式供给与退款');expect(container.textContent).not.toContain('已确认全退');
 });
 it('discards a pending funds response after logout and hides records on visibility loss',async()=>{
  mock.login.mockResolvedValue({id:'ops-test',personId:'person-test',role:'OPS',userId:null,restaurantId:null,version:1});let resolve!:(v:unknown)=>void;mock.obligations.mockImplementationOnce(()=>new Promise(r=>{resolve=r;}));await submit();
