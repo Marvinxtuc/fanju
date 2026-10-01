@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "pure_evidence_tests": 5,
+  "owned_bill_tests_including_parent": 10,
+  "overall_coverageState": "INCOMPLETE",
+  "real_merchant_verified": false,
+  "continuous_periods_complete": false,
+  "setup": "REFUND_PERIOD_COMPARISON_SETUP.md",
+  "candidate": "ac8bb1cacd79d2d49d9cc3e9d74751d4b6d6603e340f45c5353607b7876ea020",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-08-50-452Z/RUNS.json",
+  "final_steps": 28,
+  "api_tests": 289,
+  "cross_process_tests": 173
+}

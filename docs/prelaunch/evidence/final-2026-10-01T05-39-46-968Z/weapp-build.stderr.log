@@ -1,0 +1,71 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 0/13 modules 1 active 
+ babel-loader › src/app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/14 dependen
+cies 0/13 modules 13 active 
+ ...jy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 132/133 depend
+encies 0/45 modules 44 active 
+ ..._modules/.pnpm/@tarojs+runtime@4.2.0/node_modules/@tarojs/runtime/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 156/173 depend
+encies 6/56 modules 40 active 
+ ...bel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/arrayWithoutHol
+es.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 172/223 depend
+encies 19/61 modules 42 active 
+ ...abel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 346/412 depend
+encies 40/109 modules 60 active 
+ ...@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/setPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 430/442 depend
+encies 52/125 modules 66 active 
+ ...react-reconciler@0.29.0_react@18.3.1/node_modules/react-reconciler/constan
+ts.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 509/534 depend
+encies 76/150 modules 74 active 
+ ...de_modules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/uti
+ls.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (70%) finish module graph 
+ InnerGraphPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.22s
+

@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "53441580e59095c2419afea439aab49e67d02c059d658c76685191041a0f0df9",
+  "environment": "FRESH_OWNED_RESTORE_GENERATION",
+  "migrations": [
+    "20261001060000_v11_bill_comparison_snapshot",
+    "20261001070000_v11_bill_comparison_page",
+    "20261001080000_v11_bill_page_query_refs"
+  ],
+  "up": true,
+  "down": true,
+  "rebuild": true,
+  "existing_synthetic_user_preserved": true,
+  "page_query_columns_restored": true,
+  "page_immutable_trigger_restored": true,
+  "production_changed": false,
+  "releaseAuthorized": false,
+  "scriptSha256": "b1441b74ed8124901862139e03e34e5e9ef1d7904f54be0aeb4a5eb73a6a1464"
+}

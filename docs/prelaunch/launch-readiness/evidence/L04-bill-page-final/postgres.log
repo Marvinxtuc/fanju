@@ -1,0 +1,137 @@
+TAP version 13
+# Subtest: verified bill snapshot detects both directions without granting financial state
+    # Subtest: forged copied provenance and changed raw bytes fail before database writes
+    ok 1 - forged copied provenance and changed raw bytes fail before database writes
+      ---
+      duration_ms: 5.579
+      type: 'test'
+      ...
+    # Subtest: concurrent replay persists one snapshot, evidence, cases and query-only jobs
+    ok 2 - concurrent replay persists one snapshot, evidence, cases and query-only jobs
+      ---
+      duration_ms: 179.651666
+      type: 'test'
+      ...
+    # Subtest: a run UUID cannot be reused for a changed owner or release
+    ok 3 - a run UUID cannot be reused for a changed owner or release
+      ---
+      duration_ms: 19.930875
+      type: 'test'
+      ...
+    # Subtest: signed but malformed summary has no partial intake or audit
+    ok 4 - signed but malformed summary has no partial intake or audit
+      ---
+      duration_ms: 8.502542
+      type: 'test'
+      ...
+    # Subtest: a newer empty bill detects local receipts instead of declaring zero differences
+    ok 5 - a newer empty bill detects local receipts instead of declaring zero differences
+      ---
+      duration_ms: 49.035042
+      type: 'test'
+      ...
+    # Subtest: a persisted evidence conflict rolls back all earlier event and job writes
+    ok 6 - a persisted evidence conflict rolls back all earlier event and job writes
+      ---
+      duration_ms: 45.11025
+      type: 'test'
+      ...
+    # Subtest: conflicting gross amounts remain independent evidence without overwriting money
+    ok 7 - conflicting gross amounts remain independent evidence without overwriting money
+      ---
+      duration_ms: 72.3905
+      type: 'test'
+      ...
+    # Subtest: new snapshot can observe resolution without automatically closing old cases
+    ok 8 - new snapshot can observe resolution without automatically closing old cases
+      ---
+      duration_ms: 74.342959
+      type: 'test'
+      ...
+    # Subtest: trusted completion time exposes local refunds absent from the selected bill
+    ok 9 - trusted completion time exposes local refunds absent from the selected bill
+      ---
+      duration_ms: 218.888917
+      type: 'test'
+      ...
+    # Subtest: requested range finds the missing day from actual committed audit ordinals without writes
+    ok 10 - requested range finds the missing day from actual committed audit ordinals without writes
+      ---
+      duration_ms: 15.847625
+      type: 'test'
+      ...
+    # Subtest: range inspection pages actual audit history and keeps late-page conflicts blocking
+    ok 11 - range inspection pages actual audit history and keeps late-page conflicts blocking
+      ---
+      duration_ms: 116.528416
+      type: 'test'
+      ...
+    # Subtest: daily recovery uses committed audit and rejects changed identity without downloads
+    ok 12 - daily recovery uses committed audit and rejects changed identity without downloads
+      ---
+      duration_ms: 4.385708
+      type: 'test'
+      ...
+    # Subtest: bounded range restart consumes committed daily snapshots without duplicate downloads
+    ok 13 - bounded range restart consumes committed daily snapshots without duplicate downloads
+      ---
+      duration_ms: 33.486625
+      type: 'test'
+      ...
+    # Subtest: shared core phases use the entire verified bill for reverse checks and reject forged contexts
+    ok 14 - shared core phases use the entire verified bill for reverse checks and reject forged contexts
+      ---
+      duration_ms: 20.561166
+      type: 'test'
+      ...
+    # Subtest: persistent snapshot pins identity and restores original facts after later channel records
+    ok 15 - persistent snapshot pins identity and restores original facts after later channel records
+      ---
+      duration_ms: 424.502292
+      type: 'test'
+      ...
+    # Subtest: checkpoint commit is idempotent, immutable and verifies case/event/query evidence
+    ok 16 - checkpoint commit is idempotent, immutable and verifies case/event/query evidence
+      ---
+      duration_ms: 505.86175
+      type: 'test'
+      ...
+    # Subtest: paged finalization requires complete ranges and preserves full comparison counts and recovery
+    ok 17 - paged finalization requires complete ranges and preserves full comparison counts and recovery
+      ---
+      duration_ms: 2391.577458
+      type: 'test'
+      ...
+    # Subtest: zero forward rows still compare recorded funds and never treat missing pages as an empty day
+    ok 18 - zero forward rows still compare recorded funds and never treat missing pages as an empty day
+      ---
+      duration_ms: 57.520792
+      type: 'test'
+      ...
+    # Subtest: checkpoint insert failure rolls back page observations, cases and durable queries
+    ok 19 - checkpoint insert failure rolls back page observations, cases and durable queries
+      ---
+      duration_ms: 27.26025
+      type: 'test'
+      ...
+    # Subtest: range task pins scope and persists failed dates across retries
+    ok 20 - range task pins scope and persists failed dates across retries
+      ---
+      duration_ms: 17.833125
+      type: 'test'
+      ...
+    1..20
+ok 1 - verified bill snapshot detects both directions without granting financial state
+  ---
+  duration_ms: 4459.588042
+  type: 'test'
+  ...
+1..1
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4589.675667

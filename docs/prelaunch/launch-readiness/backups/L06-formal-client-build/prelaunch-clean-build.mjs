@@ -1,0 +1,35 @@
+import { spawn } from 'node:child_process';
+import { copyFileSync, cpSync, mkdirSync, symlinkSync, existsSync, readdirSync, lstatSync, readFileSync, writeFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { createHash } from 'node:crypto';
+import { root, verifyOwnedEnvironment, childEnvironment, redact } from './prelaunch-owned-env.mjs';
+import { assertAcceptanceArtifacts } from './prelaunch-artifact-visibility.mjs';
+import { captureCandidate } from './prelaunch-candidate-hash.mjs';
+const [scratch]=process.argv.slice(2);if(!scratch)throw Error('Owned scratch required');
+const {runtime,evidence}=await verifyOwnedEnvironment(scratch);
+const candidate=captureCandidate(root),runId=`clean-build-${new Date().toISOString().replaceAll(/[:.]/g,'-')}`;
+const buildRoot=resolve(runtime.scratch,runId),logs=resolve(root,'docs/prelaunch/evidence',runId);
+mkdirSync(buildRoot);mkdirSync(logs,{recursive:true});
+for(const entry of candidate.files){const source=resolve(root,entry.path);if(createHash('sha256').update(readFileSync(source)).digest('hex')!==entry.sha256)throw Error('Copy source drift');const dest=resolve(buildRoot,entry.path);mkdirSync(dirname(dest),{recursive:true});copyFileSync(source,dest);}
+// Only dependencies are linked; no dist/cache or generated application code is copied.
+symlinkSync(resolve(root,'node_modules'),resolve(buildRoot,'node_modules'),'dir');
+for(const dir of ['packages/shared','services/api','apps/ops','apps/miniapp'])if(existsSync(resolve(root,dir,'node_modules')))cpSync(resolve(root,dir,'node_modules'),resolve(buildRoot,dir,'node_modules'),{recursive:true,dereference:false,verbatimSymlinks:true});
+const env={...childEnvironment(runtime),TARO_APP_PRELAUNCH_ENABLED:'true',VITE_FANJU_PRELAUNCH_ENABLED:'true',VITE_API_BASE_URL:'http://127.0.0.1:3000'};
+const runs=[];
+for(const [name,cwd,args]of [['generate','.',['exec','prisma','generate']],['shared','packages/shared',['build']],['api','services/api',['build']],['ops','apps/ops',['build']],['weapp','apps/miniapp',['build']]]){
+ await verifyOwnedEnvironment(scratch);let stdout='',stderr='';const started_at=new Date().toISOString();
+ const result=await new Promise(done=>{const child=spawn('pnpm',args,{cwd:resolve(buildRoot,cwd),env,stdio:['ignore','pipe','pipe'],detached:true});const timer=setTimeout(()=>{try{process.kill(-child.pid,'SIGKILL');}catch{child.kill('SIGKILL');}},360_000);child.stdout.on('data',d=>stdout+=d);child.stderr.on('data',d=>stderr+=d);child.once('error',()=>{});child.once('close',(code,signal)=>{clearTimeout(timer);done({code,signal});});});
+ stdout=redact(stdout,runtime);stderr=redact(stderr,runtime);
+ const out=`docs/prelaunch/evidence/${runId}/${name}.stdout.log`,err=`docs/prelaunch/evidence/${runId}/${name}.stderr.log`;writeFileSync(resolve(root,out),stdout);writeFileSync(resolve(root,err),stderr);
+ const row={id:`${runId}-${name}`,category:'CLEAN_BUILD',candidate_id:candidate.candidate_id,runner:'native',command:JSON.stringify(['pnpm',...args]),cwd:resolve(buildRoot,cwd),started_at,finished_at:new Date().toISOString(),exit_code:result.code??-1,signal:result.signal,toolchain:{node:process.version},artifact_paths:[out,err],status:result.code===0?'PASS':'FAIL'};runs.push(row);
+ writeFileSync(resolve(logs,'RUNS.json'),JSON.stringify({candidate_id:candidate.candidate_id,environment:evidence,runs},null,2)+'\n');console.log(`${name} clean build: ${row.status}`);if(row.status!=='PASS')throw Error(`Clean build failed: ${name}`);
+}
+const visibility=await assertAcceptanceArtifacts(buildRoot);
+writeFileSync(resolve(logs,'ARTIFACT_VISIBILITY.json'),JSON.stringify({candidate_id:candidate.candidate_id,...visibility},null,2)+'\n');
+if(captureCandidate(root).candidate_id!==candidate.candidate_id)throw Error('Source drift during clean build');
+const files=[];
+function visit(dir,relative){for(const name of readdirSync(dir)){const path=resolve(dir,name),stat=lstatSync(path),rel=relative+'/'+name;if(stat.isSymbolicLink())throw Error('Build artifact symlink rejected');if(stat.isDirectory())visit(path,rel);else if(stat.isFile())files.push({path:rel,build_path:path,sha256:createHash('sha256').update(readFileSync(path)).digest('hex'),bytes:stat.size});}}
+for(const [name,dir]of [['shared','packages/shared/dist'],['api','services/api/dist'],['ops','apps/ops/dist'],['weapp','apps/miniapp/dist']]){if(!existsSync(resolve(buildRoot,dir)))throw Error('Expected native build output missing');visit(resolve(buildRoot,dir),'artifacts/'+name);}
+if(!files.some(f=>f.path==='artifacts/weapp/app.json')||!files.some(f=>f.path==='artifacts/ops/index.html')||!files.some(f=>f.path==='artifacts/api/prelaunch/server.js')||!files.some(f=>f.path==='artifacts/api/prelaunch/worker.js'))throw Error('Build entrypoints missing');
+writeFileSync(resolve(root,'docs/prelaunch/BUILD_ARTIFACT_MANIFEST.json'),JSON.stringify({candidate_id:candidate.candidate_id,build_root:buildRoot,artifact_visibility:visibility,dependency_provenance:'Locked existing dependencies linked; no install executed. Source/dist caches were not copied.',files},null,2)+'\n');
+console.log(`Clean build root: ${buildRoot}`);

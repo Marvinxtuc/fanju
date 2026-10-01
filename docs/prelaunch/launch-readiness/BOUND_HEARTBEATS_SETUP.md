@@ -1,0 +1,9 @@
+# 渠道范围心跳就绪检查
+
+2026-10-01。channelWorkerMode对channel/merchantScope/providerConfigId的固定元组计算摘要，生成query/close/expiry专属mode。worker同时保留通用mode供DB全局监控，正式ready只消费与API当前binding一致的专属mode、同RELEASE_VERSION和30秒内非未来DB时间。
+
+FEATURE_V11_FORMAL_PAYMENT_CLOSE或FEATURE_V11_FORMAL_HOLD_EXPIRY显式true时，API要求真实provider与query recovery；自定义REQUIRED_WORKER_MODES不能省略绑定query及启用worker的必需心跳。已有迁移、账单覆盖检查保留；ready不是政策或上线批准。
+
+24项owned定向测试含HTTP503/200组合通过：通用/错配置不可替代，缺少close或expiry拒绝，过期/未来/错release拒绝，全部匹配才200。先前38项及29步完整回归已通过；扩展矩阵的当前候选29步完整回归已全部通过且无源码漂移。未连接生产或真实商户，未配置外部告警接收渠道。
+
+回滚停用对应显式flag并停worker，恢复backups/L06-bound-heartbeats/app.ts与heartbeat.ts本次差异；从三个worker移除本次channelWorkerMode额外记录及import，保留之前领取隔离。不要将通用旧心跳当作当前商户验收。无schema迁移；保留历史心跳和审计。

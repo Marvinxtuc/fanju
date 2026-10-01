@@ -1,0 +1,17 @@
+
+> @timeleft-shanghai/miniapp@0.0.0 typecheck /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp
+> tsc -p tsconfig.json --noEmit
+
+src/pages/prelaunch/index.tsx(4,84): error TS2307: Cannot find module '@timeleft-shanghai/shared' or its corresponding type declarations.
+src/pages/prelaunch/index.tsx(43,67): error TS7006: Parameter 'rows' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(44,190): error TS7006: Parameter 'rows' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(44,263): error TS7006: Parameter 'rows' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(44,456): error TS7006: Parameter 'rights' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(81,173): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(82,347): error TS7006: Parameter 'd' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(82,436): error TS7006: Parameter 'd' implicitly has an 'any' type.
+src/pages/prelaunch/index.tsx(86,466): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/prelaunch-api.ts(2,62): error TS2307: Cannot find module '@timeleft-shanghai/shared' or its corresponding type declarations.
+src/prelaunch-api.ts(8,60): error TS7006: Parameter 'request' implicitly has an 'any' type.
+src/prelaunch-api.ts(16,9): error TS7006: Parameter 'session' implicitly has an 'any' type.
+ ELIFECYCLE  Command failed with exit code 2.

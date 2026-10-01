@@ -1,0 +1,21 @@
+{
+  "candidate": "8ae34dca125ff35374478ab0c75d38fe637fb289fad859c35b28748ac9c8eb2c",
+  "validation": {
+    "native_tests_including_wrapper": 20,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Actual child SIGKILL after injected refund-send entry",
+    "SUBMITTING, reserved budget and query recovery task persist across process termination",
+    "Successor queries and never submits again even on NOT_FOUND",
+    "Trusted synthetic query confirms retained obligation"
+  ],
+  "evidence": "evidence/L04-refund-process-crash",
+  "limits": [
+    "Process termination and PostgreSQL persistence real; transport/query/authorization synthetic",
+    "Successor lease installed explicitly in test; automatic scheduler takeover remains separate",
+    "No production dispatcher process or actual merchant crash acceptance"
+  ],
+  "rollback": "Remove refund-crash-child.mjs and restore native test from backups/L04-refund-process-crash after checking later edits; no production/schema changes."
+}

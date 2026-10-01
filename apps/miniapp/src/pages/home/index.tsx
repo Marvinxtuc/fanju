@@ -3,6 +3,7 @@ import { Button, ScrollView, Text, View } from "@tarojs/components";
 import { navigateTo } from "@tarojs/taro";
 
 import { listActivities, type ActivitySummary } from "../../api";
+import { prelaunchEnabled } from "../../prelaunch-api";
 
 const filters = ["今晚", "明天", "周末", "新店", "火锅", "日料", "Brunch", "低预算"];
 
@@ -46,7 +47,9 @@ export default function HomePage(): JSX.Element {
         </View>
 
         <View className="hero-actions">
+          {prelaunchEnabled ? <Button onClick={() => navigateTo({ url: "/pages/prelaunch/index" })}>本地验收工作区</Button> : null}
           <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/order-list/index" })}>我的订单</Button>
+          <Button className="button-secondary" onClick={() => navigateTo({ url: "/pages/money-records/index" })}>收款与退款记录</Button>
           <Button className="button-primary" onClick={openFirstActivity}>
             加入饭局
           </Button>
@@ -67,7 +70,7 @@ export default function HomePage(): JSX.Element {
       {error ? <Text className="error-text">错误：{error}</Text> : null}
 
       <View className="section">
-        <Text className="section-heading">今晚可加入</Text>
+        <Text className="section-heading">活动列表</Text>
         {activities.map((activity) => (
           <View className="meal-card" key={activity.id}>
             <View className="meal-card__top">
@@ -83,7 +86,6 @@ export default function HomePage(): JSX.Element {
             <View className="ticket-divider" />
             <View className="tag-row">
               <Text className="tag">公共餐厅</Text>
-              <Text className="tag tag--green">已实名</Text>
               <Text className="tag">服务费 {activity.serviceFeeCents / 100} 元</Text>
               <Text className="tag tag--red">{activity.status}</Text>
             </View>

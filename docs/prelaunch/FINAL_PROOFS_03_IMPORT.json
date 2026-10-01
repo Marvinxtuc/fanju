@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-01T01:17:46.453890+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/dispute-race-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/dispute-race-native.test.mjs",
+      "before": null,
+      "after": "57c9763b2a1722fc4f10cfd9435301534eeef102748c73609efcc33d31bb010e"
+    },
+    {
+      "path": "tests/prelaunch/p2-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/p2-native.test.mjs",
+      "before": null,
+      "after": "3241a55f132c3fd0a9888c8ce42169b5577b5572d0540a48843e974845f2e7f7"
+    },
+    {
+      "path": "scripts/prelaunch-artifact-visibility.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-artifact-peer/scripts/prelaunch-artifact-visibility.mjs",
+      "before": "5d352841ff749206df26e631ef3ef927f6c6e940d8e8776aead2d88e378e1f59",
+      "after": "8996b501d6c56d177cc47a94197bfd379b73cb6627ac3eb40d2d391a94f02f06"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_PROOFS_03/before",
+  "protected_unchanged": 33
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "owned_database_tests_including_parent": 25,
+  "legacy_reference_queries": "Observed in-application payment/refund numbers without V11 counterpart; exact scoped lookup in chunks of500",
+  "unrelated_and_other_application_legacy_excluded": true,
+  "required_legacy_match_preserved": true,
+  "captured_references_fixed_after_database_changes": true,
+  "facts_bound_to_exact_branded_plan": true,
+  "no_schema_or_dependency_change": true,
+  "releaseAuthorized": false,
+  "production_activated": false,
+  "remaining": [
+    "Full scoped V11 facts remain bounded by snapshot size/collection limits",
+    "Streamed acquisition and parsing",
+    "Matched payment/refund capacity workloads",
+    "Business parameters and actual merchant acceptance"
+  ],
+  "candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T08-13-04-225Z/RUNS.json",
+  "full_steps": 29,
+  "cross_process_tests": 216
+}

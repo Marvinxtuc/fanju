@@ -1,0 +1,77 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 0/13 modules 1 active 
+ babel-loader › src/app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/13 entries 13/13 dependen
+cies 1/13 modules 12 active 
+ ...jy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%)  
+ ....96_esbuild@_x7kzigfqbs57njkoepaeoxy3su/node_modules/postcss-loader/dist/c
+js.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 98/158 depende
+ncies 3/38 modules 35 active 
+ ...orktrees/fanju-stage0-baseline/饭局/packages/shared/dist/rules/prelaunchCl
+ient.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 154/205 depend
+encies 3/50 modules 47 active 
+ ...s/.pnpm/@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/type
+of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 277/411 depend
+encies 30/102 modules 68 active 
+ ...babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/iterableToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 421/437 depend
+encies 46/119 modules 72 active 
+ ...react-reconciler@0.29.0_react@18.3.1/node_modules/react-reconciler/constan
+ts.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 506/506 depend
+encies 69/150 modules 73 active 
+ ...dules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/componen
+ts.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/13 entries 512/533 depend
+encies 82/150 modules 68 active 
+ ...es/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/event-emitt
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (60%) 12/13 entries 555/555 depen
+dencies 156/160 modules 4 active 
+ css-loader › postcss-loader › src/app.css|0|||}}
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.27s
+

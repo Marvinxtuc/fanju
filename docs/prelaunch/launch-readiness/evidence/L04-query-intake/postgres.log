@@ -1,0 +1,77 @@
+TAP version 13
+# Subtest: preparation persists and serializes on owned PostgreSQL
+    # Subtest: twenty concurrent claims produce one durable submitting attempt
+    ok 1 - twenty concurrent claims produce one durable submitting attempt
+      ---
+      duration_ms: 142.455416
+      type: 'test'
+      ...
+    # Subtest: prepayment save does not confirm money and stale failures cannot undo it
+    ok 2 - prepayment save does not confirm money and stale failures cannot undo it
+      ---
+      duration_ms: 9.728958
+      type: 'test'
+      ...
+    # Subtest: unknown outcome cannot be claimed for another submission
+    ok 3 - unknown outcome cannot be claimed for another submission
+      ---
+      duration_ms: 17.529583
+      type: 'test'
+      ...
+    # Subtest: wrong binding and inactive intents reject without writes
+    ok 4 - wrong binding and inactive intents reject without writes
+      ---
+      duration_ms: 12.348166
+      type: 'test'
+      ...
+    # Subtest: database constraint rejects prepared state without a reference
+    ok 5 - database constraint rejects prepared state without a reference
+      ---
+      duration_ms: 5.570125
+      type: 'test'
+      ...
+    # Subtest: runner persists submitting before network and prepay before returning
+    ok 6 - runner persists submitting before network and prepay before returning
+      ---
+      duration_ms: 15.79175
+      type: 'test'
+      ...
+    # Subtest: runner timeout leaves unknown and cannot resend
+    ok 7 - runner timeout leaves unknown and cannot resend
+      ---
+      duration_ms: 13.199833
+      type: 'test'
+      ...
+    # Subtest: authorization rejection rolls back before a durable claim
+    ok 8 - authorization rejection rolls back before a durable claim
+      ---
+      duration_ms: 6.475166
+      type: 'test'
+      ...
+    # Subtest: canceled registration and expired hold cannot prepare a payment
+    ok 9 - canceled registration and expired hold cannot prepare a payment
+      ---
+      duration_ms: 16.464583
+      type: 'test'
+      ...
+    # Subtest: late trusted payment query survives cancellation and concurrent duplicate intake
+    ok 10 - late trusted payment query survives cancellation and concurrent duplicate intake
+      ---
+      duration_ms: 53.040959
+      type: 'test'
+      ...
+    1..10
+ok 1 - preparation persists and serializes on owned PostgreSQL
+  ---
+  duration_ms: 443.583417
+  type: 'test'
+  ...
+1..1
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 579.95625

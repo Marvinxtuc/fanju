@@ -1,0 +1,13 @@
+
+> @timeleft-shanghai/miniapp@0.0.0 test /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp
+> vitest run src/v11-identity.test.ts src/api.test.ts
+
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp
+
+
+ Test Files  2 passed (2)
+      Tests  28 passed (28)
+   Start at  10:51:09
+   Duration  234ms (transform 60ms, setup 0ms, import 65ms, tests 181ms, environment 0ms)
+

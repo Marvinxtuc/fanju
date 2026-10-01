@@ -1,0 +1,97 @@
+{
+  "at": "2026-10-01T01:15:15.760124+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/r4-core-queue/domain.ts",
+      "before": "7abc6d4e11155510ae7bee650d6062246aaf4b61d7165ad479774a0a2130e7f5",
+      "after": "7c2169843b230d04b1396ab013a007adb6de1960d081404731ff7f3753296b8d"
+    },
+    {
+      "path": "tests/prelaunch/core-queue-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/r4-core-queue/core-queue-native.test.mjs",
+      "before": null,
+      "after": "5e9f9b5895fa159af047cdf6660e63c18bbe7d9432a6f28f3719f0342382a006"
+    },
+    {
+      "path": "tests/prelaunch/proof-races-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/proof-races-native.test.mjs",
+      "before": null,
+      "after": "5fb2c84d66912c483591950cd4defe249af4772160fa5bfe72f9b6a15f85aaee"
+    },
+    {
+      "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-cache/apps/miniapp/src/pages/prelaunch/index.tsx",
+      "before": "e9e2eee628cfb85726484b561d7d78a15c874df6101be6761c865b6ed8687daa",
+      "after": "0cfe992197b4be974cfbbe8c29db6df7c643c6d2f1b9f654905e9bce13e5f614"
+    },
+    {
+      "path": "tests/ui/miniapp-prelaunch.test.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-cache/tests/ui/miniapp-prelaunch.test.tsx",
+      "before": "c97b8a2900ae9cb9e80a575a44c427d1f6dc637e81a526d0a0554112ebbb960a",
+      "after": "23cb65a66bc5db9444e458fb58cc2a5dfa5693257cf7704ae32fb21027d1d97c"
+    },
+    {
+      "path": "services/api/src/prelaunch/routes.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract/services/api/src/prelaunch/routes.ts",
+      "before": "b9add16a275207a08902a0fe4837254cad3894a7756f44e887d2fd69c002087c",
+      "after": "1b66cdb373cf1ba6fb2d7162e511a95de6b612eb9d5c1352bce8bc787170d2fd"
+    },
+    {
+      "path": "tests/prelaunch/http-journey-recovery.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract/tests/prelaunch/http-journey-recovery.test.mjs",
+      "before": "f364afe6b1295e45d436d82155ea94e9341d43954a0687e196991819f30dd754",
+      "after": "793e0d28a1686ba65651021486d95783fda894db85b13064d7fd267c487d4fca"
+    },
+    {
+      "path": "tests/prelaunch/aftersales-process.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract/tests/prelaunch/aftersales-process.test.mjs",
+      "before": "b5d3d89aaac600cc6f6992417b6b8606a0fd394d24096967b95a1ce71625a12b",
+      "after": "7f0450585e54d4aa6bf4e791d7cf2bc5c98dad799be1aa8ac04ab37768b20626"
+    },
+    {
+      "path": "tests/prelaunch/supply-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract/tests/prelaunch/supply-native.test.mjs",
+      "before": "19c895600cd8c75c3f8e7b0f527ad68e4b55f66d89973c25f87c5847f4bf6c4f",
+      "after": "8e49aa7e5f209dcec516f6666a917f2457601e2e7c6fda7e6c704666caebfaca"
+    },
+    {
+      "path": "tests/prelaunch/money-state.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract/tests/prelaunch/money-state.test.mjs",
+      "before": "6c6bca213c9fedfa671f182bf55e6bd943f2ff336499d9eef375a80e4ba5360c",
+      "after": "31aa0a245eedf0cb8e850ae4c99beb90e1777beb61fbf842f772d6d109d22712"
+    },
+    {
+      "path": "scripts/prelaunch-generate-reports.py",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-nested-report/scripts/prelaunch-generate-reports.py",
+      "before": "395a16c59a808524bf77b60a2d57236f5dd53944212b7bd376f5f8ddf4f8319c",
+      "after": "32f7ca29b223fc40fbec600063bb1795e0ff5a51d438b71f1dc8a4b0d28e5a78"
+    },
+    {
+      "path": "scripts/prelaunch-artifact-visibility.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-build-flags/scripts/prelaunch-artifact-visibility.mjs",
+      "before": null,
+      "after": "5d352841ff749206df26e631ef3ef927f6c6e940d8e8776aead2d88e378e1f59"
+    },
+    {
+      "path": "scripts/prelaunch-clean-build.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-build-flags/scripts/prelaunch-clean-build.mjs",
+      "before": "bacbce4b423a2531d9d4a8ebc3250fc6127fcaa797976cebd96e44f586dfbf2d",
+      "after": "3804d94ac2e7ffaf7fa2c727744b308f3c5fd0467f813c288311d9d30932d5fb"
+    },
+    {
+      "path": "scripts/prelaunch-owned-env.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-build-flags/scripts/prelaunch-owned-env.mjs",
+      "before": "7a74644c0d366450231452b43f2abf5dede59525e66e209f18ffbe49a09c17be",
+      "after": "d53cfcfc7843f6f7f2f6e39af6ff23695e6d3fec19c6af6a1990fb6b23748a23"
+    },
+    {
+      "path": "scripts/prelaunch-source-reproduce.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-build-flags/scripts/prelaunch-source-reproduce.mjs",
+      "before": "769d5e6bb8a7ca53471417eb5f79dc27fc08b921b51cc0822e32e56be6bb7f07",
+      "after": "0d2d6b1f725d48692b9b856d8c5495e1d61ff003cabec4e4d93fca887d2eb016"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_FIXES_01/before",
+  "protected_unchanged": 33
+}

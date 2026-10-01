@@ -1,0 +1,3 @@
+generate clean build: PASS
+shared clean build: PASS
+api clean build: FAIL

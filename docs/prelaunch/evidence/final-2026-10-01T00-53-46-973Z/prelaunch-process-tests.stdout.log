@@ -1,0 +1,229 @@
+TAP version 13
+# Subtest: owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+    # Subtest: HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+    ok 1 - HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+      ---
+      duration_ms: 373.033417
+      type: 'test'
+      ...
+    # Subtest: normal fulfillment schedules D once, preserves F, and can be read repeatedly
+    ok 2 - normal fulfillment schedules D once, preserves F, and can be read repeatedly
+      ---
+      duration_ms: 129.443667
+      type: 'test'
+      ...
+    # Subtest: two rounds retain explanation and require a different final reviewer person
+    ok 3 - two rounds retain explanation and require a different final reviewer person
+      ---
+      duration_ms: 268.817125
+      type: 'test'
+      ...
+    # Subtest: core restaurant change rejection preserves snapshot and separately records unresolved compensation
+    ok 4 - core restaurant change rejection preserves snapshot and separately records unresolved compensation
+      ---
+      duration_ms: 112.802708
+      type: 'test'
+      ...
+    # Subtest: privacy export excludes direct identifiers, closure retains obligations and original money facts
+    ok 5 - privacy export excludes direct identifiers, closure retains obligations and original money facts
+      ---
+      duration_ms: 102.194917
+      type: 'test'
+      ...
+    # Subtest: 20 competing refunds serialize component budgets and channel original-trade budget independently
+    ok 6 - 20 competing refunds serialize component budgets and channel original-trade budget independently
+      ---
+      duration_ms: 129.187708
+      type: 'test'
+      ...
+    # Subtest: A lease expiration B completion fences old A finish and retry
+    ok 7 - A lease expiration B completion fences old A finish and retry
+      ---
+      duration_ms: 7.876333
+      type: 'test'
+      ...
+    1..7
+ok 1 - owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+  ---
+  duration_ms: 1438.728125
+  type: 'test'
+  ...
+# Subtest: real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+not ok 2 - real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+  ---
+  duration_ms: 633.113958
+  type: 'test'
+  location: '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/prelaunch/http-journey-recovery.test.mjs:12:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"version":"prelaunch-v11-1","error":{"code":"POLICY_SOURCE_INVALID","blockerIds":[]}}
+    
+    409 !== 200
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 200
+  actual: 409
+  operator: 'strictEqual'
+  stack: |-
+    request (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/http-journey-recovery.test.mjs:44:47)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async TestContext.<anonymous> (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/http-journey-recovery.test.mjs:48:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+ok 3 - owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+  ---
+  duration_ms: 863.265083
+  type: 'test'
+  ...
+# Subtest: owned DB: unknown table state fails closed; cutoff prevents new promotion
+ok 4 - owned DB: unknown table state fails closed; cutoff prevents new promotion
+  ---
+  duration_ms: 34.141667
+  type: 'test'
+  ...
+# Subtest: R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+ok 5 - R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+  ---
+  duration_ms: 230.808334
+  type: 'test'
+  ...
+# Subtest: R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+ok 6 - R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+  ---
+  duration_ms: 153.832834
+  type: 'test'
+  ...
+# Subtest: R2-03: expired generation cannot pass locked lease fencing or write a business effect
+not ok 7 - R2-03: expired generation cannot pass locked lease fencing or write a business effect
+  ---
+  duration_ms: 16.532125
+  type: 'test'
+  location: '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/prelaunch/money-state.test.mjs:57:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    ownClaim (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/money-state.test.mjs:47:393)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async TestContext.<anonymous> (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/money-state.test.mjs:58:223)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+ok 8 - R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+  ---
+  duration_ms: 56.801417
+  type: 'test'
+  ...
+# Subtest: R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+ok 9 - R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+  ---
+  duration_ms: 59.66275
+  type: 'test'
+  ...
+# Subtest: R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+ok 10 - R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+  ---
+  duration_ms: 32.034208
+  type: 'test'
+  ...
+# Subtest: R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+ok 11 - R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+  ---
+  duration_ms: 47.644625
+  type: 'test'
+  ...
+# Subtest: R2-08: corrupted table state cannot create refund entitlement or erase membership
+ok 12 - R2-08: corrupted table state cannot create refund entitlement or erase membership
+  ---
+  duration_ms: 42.042459
+  type: 'test'
+  ...
+# Subtest: R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+not ok 13 - R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+  ---
+  duration_ms: 2.09925
+  type: 'test'
+  location: '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/prelaunch/money-state.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: 'POLICY_SOURCE_INVALID'
+  code: 'POLICY_SOURCE_INVALID'
+  stack: |-
+    reject (file:///private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T00-54-41-187Z/services/api/dist/prelaunch/contracts.js:20:67)
+    importFrozenPolicy (file:///private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T00-54-41-187Z/services/api/dist/prelaunch/policy.js:15:13)
+    async TestContext.<anonymous> (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/money-state.test.mjs:76:119)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+ok 14 - component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+  ---
+  duration_ms: 78.016334
+  type: 'test'
+  ...
+# Subtest: native API: immutable supply revision, scoped history, queue and financial-case role checks
+ok 15 - native API: immutable supply revision, scoped history, queue and financial-case role checks
+  ---
+  duration_ms: 173.744833
+  type: 'test'
+  ...
+# Subtest: restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+not ok 16 - restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+  ---
+  duration_ms: 1043.607625
+  type: 'test'
+  location: '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/prelaunch/restore-reconciliation.test.mjs:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-recovery.mjs:18
+      if(result.status!==0) throw new Error(`Owned backup operation failed: ${redact(result.stderr.toString(),source)}`);
+                                  ^
+    
+    Error: Owned backup operation failed: pg_restore: error: could not execute query: ERROR:  schema "public" already exists
+    Command was: CREATE SCHEMA public;
+    
+    
+    
+        at docker (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-recovery.mjs:18:31)
+        at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-recovery.mjs:43:1
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    
+    Node.js v22.23.1
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    docker (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-recovery.mjs:18:31)
+    file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-recovery.mjs:43:1
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    TestContext.<anonymous> (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/tests/prelaunch/restore-reconciliation.test.mjs:41:10)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..16
+# tests 23
+# suites 0
+# pass 19
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5384.375208

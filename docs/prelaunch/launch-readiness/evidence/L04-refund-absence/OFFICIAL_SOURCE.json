@@ -1,0 +1,7 @@
+{
+  "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791904",
+  "checked_date": "2026-10-01",
+  "raw_html_sha256": "51ee5ca392a1cae91ff03ad88ed1baba188be706bfa33c5512043916cd47fa7a",
+  "excerpt": "  如何生成签名           404        MCH_NOT_EXISTS        MCHID不存在        请检查商户号是否正确，商户号获取方式请参考     普通商户模式开发必要参数说明           404        RESOURCE_NOT_EXISTS        退款单不存在        请检查商户退款单号是否有误以及订单状态是否正确，如：未支付          500        SYSTEM_ERROR        系统超时        请不要更换商户退款单号，请使用相同参数再次调用API。         &nbsp;   &nbsp;            文档是否有帮助       是     否         LLM请",
+  "protocol": "404 RESOURCE_NOT_EXISTS means refund order absent; MCH_NOT_EXISTS is separate; signature verification remains mandatory"
+}

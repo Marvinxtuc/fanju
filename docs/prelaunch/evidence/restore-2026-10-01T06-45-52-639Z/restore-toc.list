@@ -1,0 +1,332 @@
+;
+; Archive created at 2026-10-01 06:45:53 UTC
+;     dbname: fanju_prelaunch_77808c4335ea
+;     TOC Entries: 321
+;     Compression: gzip
+;     Dump Version: 1.15-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 16.14
+;     Dumped by pg_dump version: 16.14
+;
+;
+; Selected TOC Entries:
+;
+; 4; 2615 2200 SCHEMA - public pg_database_owner -- pre-existing empty public schema preserved
+4140; 0 0 COMMENT - SCHEMA public pg_database_owner
+909; 1247 482228 TYPE public ActivityStatus fj_a755def387dc
+903; 1247 482216 TYPE public AdminRole fj_a755def387dc
+927; 1247 482312 TYPE public NotificationStatus fj_a755def387dc
+912; 1247 482250 TYPE public OrderStatus fj_a755def387dc
+915; 1247 482276 TYPE public PaymentStatus fj_a755def387dc
+918; 1247 482284 TYPE public RefundStatus fj_a755def387dc
+924; 1247 482304 TYPE public ReportStatus fj_a755def387dc
+906; 1247 482222 TYPE public RestaurantStatus fj_a755def387dc
+921; 1247 482296 TYPE public TableGroupStatus fj_a755def387dc
+900; 1247 482209 TYPE public UserStatus fj_a755def387dc
+268; 1255 482708 FUNCTION public protect_receipt_fact() fj_a755def387dc
+269; 1255 482710 FUNCTION public protect_receipt_paid_at() fj_a755def387dc
+270; 1255 483263 FUNCTION public v11_policy_material_archive_immutable() fj_a755def387dc
+223; 1259 482361 TABLE public Activity fj_a755def387dc
+221; 1259 482344 TABLE public AdminUser fj_a755def387dc
+241; 1259 482724 TABLE public AgreementPolicy fj_a755def387dc
+231; 1259 482436 TABLE public AuditLog fj_a755def387dc
+230; 1259 482428 TABLE public Blacklist fj_a755def387dc
+234; 1259 482578 TABLE public ChannelReceipt fj_a755def387dc
+220; 1259 482336 TABLE public ConsentRecord fj_a755def387dc
+237; 1259 482605 TABLE public DurableJob fj_a755def387dc
+239; 1259 482626 TABLE public FinancialCase fj_a755def387dc
+240; 1259 482635 TABLE public MockChannelTransaction fj_a755def387dc
+232; 1259 482444 TABLE public Notification fj_a755def387dc
+224; 1259 482374 TABLE public Order fj_a755def387dc
+225; 1259 482383 TABLE public Payment fj_a755def387dc
+236; 1259 482596 TABLE public ReceivedEvent fj_a755def387dc
+238; 1259 482618 TABLE public ReconciliationBatch fj_a755def387dc
+243; 1259 482756 SEQUENCE public ReconciliationBatch_decisionOrdinal_seq fj_a755def387dc
+4141; 0 0 SEQUENCE OWNED BY public ReconciliationBatch_decisionOrdinal_seq fj_a755def387dc
+226; 1259 482393 TABLE public Refund fj_a755def387dc
+235; 1259 482587 TABLE public RefundObligation fj_a755def387dc
+229; 1259 482419 TABLE public Report fj_a755def387dc
+222; 1259 482352 TABLE public Restaurant fj_a755def387dc
+233; 1259 482548 TABLE public Review fj_a755def387dc
+227; 1259 482402 TABLE public TableGroup fj_a755def387dc
+228; 1259 482411 TABLE public TableMember fj_a755def387dc
+218; 1259 482319 TABLE public User fj_a755def387dc
+219; 1259 482328 TABLE public UserProfile fj_a755def387dc
+244; 1259 482766 TABLE public V11Actor fj_a755def387dc
+262; 1259 482959 TABLE public V11Attendance fj_a755def387dc
+247; 1259 482799 TABLE public V11BundleConsent fj_a755def387dc
+264; 1259 482978 TABLE public V11ChangeChoice fj_a755def387dc
+263; 1259 482968 TABLE public V11CoreChange fj_a755def387dc
+260; 1259 482941 TABLE public V11Decision fj_a755def387dc
+261; 1259 482949 TABLE public V11DeliveryProof fj_a755def387dc
+257; 1259 482903 TABLE public V11Disposition fj_a755def387dc
+256; 1259 482894 TABLE public V11FundComponent fj_a755def387dc
+252; 1259 482853 TABLE public V11Membership fj_a755def387dc
+254; 1259 482870 TABLE public V11PaymentIntent fj_a755def387dc
+267; 1259 483244 TABLE public V11PolicyMaterialArchive fj_a755def387dc
+245; 1259 482777 TABLE public V11PolicySnapshot fj_a755def387dc
+266; 1259 482997 TABLE public V11PrivacyDisposition fj_a755def387dc
+246; 1259 482787 TABLE public V11Profile fj_a755def387dc
+255; 1259 482885 TABLE public V11ReceiptBinding fj_a755def387dc
+258; 1259 482913 TABLE public V11RefundInstruction fj_a755def387dc
+249; 1259 482818 TABLE public V11Registration fj_a755def387dc
+259; 1259 482929 TABLE public V11Request fj_a755def387dc
+250; 1259 482831 TABLE public V11SeatHold fj_a755def387dc
+265; 1259 482986 TABLE public V11SettlementObligation fj_a755def387dc
+248; 1259 482808 TABLE public V11SupplyRevision fj_a755def387dc
+251; 1259 482841 TABLE public V11Table fj_a755def387dc
+253; 1259 482862 TABLE public V11TableEvent fj_a755def387dc
+242; 1259 482746 TABLE public WorkerHeartbeat fj_a755def387dc
+217; 1259 482199 TABLE public _prisma_migrations fj_a755def387dc
+3594; 2604 482757 DEFAULT public ReconciliationBatch decisionOrdinal fj_a755def387dc
+4089; 0 482361 TABLE DATA public Activity fj_a755def387dc
+4087; 0 482344 TABLE DATA public AdminUser fj_a755def387dc
+4107; 0 482724 TABLE DATA public AgreementPolicy fj_a755def387dc
+4097; 0 482436 TABLE DATA public AuditLog fj_a755def387dc
+4096; 0 482428 TABLE DATA public Blacklist fj_a755def387dc
+4100; 0 482578 TABLE DATA public ChannelReceipt fj_a755def387dc
+4086; 0 482336 TABLE DATA public ConsentRecord fj_a755def387dc
+4103; 0 482605 TABLE DATA public DurableJob fj_a755def387dc
+4105; 0 482626 TABLE DATA public FinancialCase fj_a755def387dc
+4106; 0 482635 TABLE DATA public MockChannelTransaction fj_a755def387dc
+4098; 0 482444 TABLE DATA public Notification fj_a755def387dc
+4090; 0 482374 TABLE DATA public Order fj_a755def387dc
+4091; 0 482383 TABLE DATA public Payment fj_a755def387dc
+4102; 0 482596 TABLE DATA public ReceivedEvent fj_a755def387dc
+4104; 0 482618 TABLE DATA public ReconciliationBatch fj_a755def387dc
+4092; 0 482393 TABLE DATA public Refund fj_a755def387dc
+4101; 0 482587 TABLE DATA public RefundObligation fj_a755def387dc
+4095; 0 482419 TABLE DATA public Report fj_a755def387dc
+4088; 0 482352 TABLE DATA public Restaurant fj_a755def387dc
+4099; 0 482548 TABLE DATA public Review fj_a755def387dc
+4093; 0 482402 TABLE DATA public TableGroup fj_a755def387dc
+4094; 0 482411 TABLE DATA public TableMember fj_a755def387dc
+4084; 0 482319 TABLE DATA public User fj_a755def387dc
+4085; 0 482328 TABLE DATA public UserProfile fj_a755def387dc
+4110; 0 482766 TABLE DATA public V11Actor fj_a755def387dc
+4128; 0 482959 TABLE DATA public V11Attendance fj_a755def387dc
+4113; 0 482799 TABLE DATA public V11BundleConsent fj_a755def387dc
+4130; 0 482978 TABLE DATA public V11ChangeChoice fj_a755def387dc
+4129; 0 482968 TABLE DATA public V11CoreChange fj_a755def387dc
+4126; 0 482941 TABLE DATA public V11Decision fj_a755def387dc
+4127; 0 482949 TABLE DATA public V11DeliveryProof fj_a755def387dc
+4123; 0 482903 TABLE DATA public V11Disposition fj_a755def387dc
+4122; 0 482894 TABLE DATA public V11FundComponent fj_a755def387dc
+4118; 0 482853 TABLE DATA public V11Membership fj_a755def387dc
+4120; 0 482870 TABLE DATA public V11PaymentIntent fj_a755def387dc
+4133; 0 483244 TABLE DATA public V11PolicyMaterialArchive fj_a755def387dc
+4111; 0 482777 TABLE DATA public V11PolicySnapshot fj_a755def387dc
+4132; 0 482997 TABLE DATA public V11PrivacyDisposition fj_a755def387dc
+4112; 0 482787 TABLE DATA public V11Profile fj_a755def387dc
+4121; 0 482885 TABLE DATA public V11ReceiptBinding fj_a755def387dc
+4124; 0 482913 TABLE DATA public V11RefundInstruction fj_a755def387dc
+4115; 0 482818 TABLE DATA public V11Registration fj_a755def387dc
+4125; 0 482929 TABLE DATA public V11Request fj_a755def387dc
+4116; 0 482831 TABLE DATA public V11SeatHold fj_a755def387dc
+4131; 0 482986 TABLE DATA public V11SettlementObligation fj_a755def387dc
+4114; 0 482808 TABLE DATA public V11SupplyRevision fj_a755def387dc
+4117; 0 482841 TABLE DATA public V11Table fj_a755def387dc
+4119; 0 482862 TABLE DATA public V11TableEvent fj_a755def387dc
+4108; 0 482746 TABLE DATA public WorkerHeartbeat fj_a755def387dc
+4083; 0 482199 TABLE DATA public _prisma_migrations fj_a755def387dc
+4142; 0 0 SEQUENCE SET public ReconciliationBatch_decisionOrdinal_seq fj_a755def387dc
+3709; 2606 482373 CONSTRAINT public Activity Activity_pkey fj_a755def387dc
+3704; 2606 482351 CONSTRAINT public AdminUser AdminUser_pkey fj_a755def387dc
+3782; 2606 482732 CONSTRAINT public AgreementPolicy AgreementPolicy_pkey fj_a755def387dc
+3744; 2606 482443 CONSTRAINT public AuditLog AuditLog_pkey fj_a755def387dc
+3741; 2606 482435 CONSTRAINT public Blacklist Blacklist_pkey fj_a755def387dc
+3757; 2606 482586 CONSTRAINT public ChannelReceipt ChannelReceipt_pkey fj_a755def387dc
+3701; 2606 482343 CONSTRAINT public ConsentRecord ConsentRecord_pkey fj_a755def387dc
+3766; 2606 482617 CONSTRAINT public DurableJob DurableJob_pkey fj_a755def387dc
+3774; 2606 482634 CONSTRAINT public FinancialCase FinancialCase_pkey fj_a755def387dc
+3779; 2606 482642 CONSTRAINT public MockChannelTransaction MockChannelTransaction_pkey fj_a755def387dc
+3748; 2606 482452 CONSTRAINT public Notification Notification_pkey fj_a755def387dc
+3714; 2606 482382 CONSTRAINT public Order Order_pkey fj_a755def387dc
+3723; 2606 482392 CONSTRAINT public Payment Payment_pkey fj_a755def387dc
+3762; 2606 482604 CONSTRAINT public ReceivedEvent ReceivedEvent_pkey fj_a755def387dc
+3770; 2606 482625 CONSTRAINT public ReconciliationBatch ReconciliationBatch_pkey fj_a755def387dc
+3760; 2606 482595 CONSTRAINT public RefundObligation RefundObligation_pkey fj_a755def387dc
+3731; 2606 482401 CONSTRAINT public Refund Refund_pkey fj_a755def387dc
+3739; 2606 482427 CONSTRAINT public Report Report_pkey fj_a755def387dc
+3707; 2606 482360 CONSTRAINT public Restaurant Restaurant_pkey fj_a755def387dc
+3752; 2606 482555 CONSTRAINT public Review Review_pkey fj_a755def387dc
+3734; 2606 482410 CONSTRAINT public TableGroup TableGroup_pkey fj_a755def387dc
+3736; 2606 482418 CONSTRAINT public TableMember TableMember_pkey fj_a755def387dc
+3698; 2606 482335 CONSTRAINT public UserProfile UserProfile_pkey fj_a755def387dc
+3695; 2606 482327 CONSTRAINT public User User_pkey fj_a755def387dc
+3789; 2606 482775 CONSTRAINT public V11Actor V11Actor_pkey fj_a755def387dc
+3848; 2606 482966 CONSTRAINT public V11Attendance V11Attendance_pkey fj_a755def387dc
+3797; 2606 482806 CONSTRAINT public V11BundleConsent V11BundleConsent_pkey fj_a755def387dc
+3855; 2606 482984 CONSTRAINT public V11ChangeChoice V11ChangeChoice_pkey fj_a755def387dc
+3852; 2606 482976 CONSTRAINT public V11CoreChange V11CoreChange_pkey fj_a755def387dc
+3843; 2606 482948 CONSTRAINT public V11Decision V11Decision_pkey fj_a755def387dc
+3846; 2606 482957 CONSTRAINT public V11DeliveryProof V11DeliveryProof_pkey fj_a755def387dc
+3832; 2606 482910 CONSTRAINT public V11Disposition V11Disposition_pkey fj_a755def387dc
+3827; 2606 482901 CONSTRAINT public V11FundComponent V11FundComponent_pkey fj_a755def387dc
+3814; 2606 482860 CONSTRAINT public V11Membership V11Membership_pkey fj_a755def387dc
+3822; 2606 482883 CONSTRAINT public V11PaymentIntent V11PaymentIntent_pkey fj_a755def387dc
+3865; 2606 483255 CONSTRAINT public V11PolicyMaterialArchive V11PolicyMaterialArchive_pkey fj_a755def387dc
+3792; 2606 482785 CONSTRAINT public V11PolicySnapshot V11PolicySnapshot_pkey fj_a755def387dc
+3861; 2606 483004 CONSTRAINT public V11PrivacyDisposition V11PrivacyDisposition_pkey fj_a755def387dc
+3794; 2606 482797 CONSTRAINT public V11Profile V11Profile_pkey fj_a755def387dc
+3824; 2606 482892 CONSTRAINT public V11ReceiptBinding V11ReceiptBinding_pkey fj_a755def387dc
+3837; 2606 482925 CONSTRAINT public V11RefundInstruction V11RefundInstruction_pkey fj_a755def387dc
+3805; 2606 482828 CONSTRAINT public V11Registration V11Registration_pkey fj_a755def387dc
+3840; 2606 482938 CONSTRAINT public V11Request V11Request_pkey fj_a755def387dc
+3808; 2606 482839 CONSTRAINT public V11SeatHold V11SeatHold_pkey fj_a755def387dc
+3858; 2606 482995 CONSTRAINT public V11SettlementObligation V11SettlementObligation_pkey fj_a755def387dc
+3801; 2606 482816 CONSTRAINT public V11SupplyRevision V11SupplyRevision_pkey fj_a755def387dc
+3818; 2606 482868 CONSTRAINT public V11TableEvent V11TableEvent_pkey fj_a755def387dc
+3812; 2606 482851 CONSTRAINT public V11Table V11Table_pkey fj_a755def387dc
+3786; 2606 482753 CONSTRAINT public WorkerHeartbeat WorkerHeartbeat_pkey fj_a755def387dc
+3693; 2606 482207 CONSTRAINT public _prisma_migrations _prisma_migrations_pkey fj_a755def387dc
+3710; 1259 482457 INDEX public Activity_status_startsAt_idx fj_a755def387dc
+3705; 1259 482456 INDEX public AdminUser_username_key fj_a755def387dc
+3780; 1259 482733 INDEX public AgreementPolicy_one_active fj_a755def387dc
+3745; 1259 482468 INDEX public AuditLog_targetType_targetId_idx fj_a755def387dc
+3742; 1259 482467 INDEX public Blacklist_userId_key fj_a755def387dc
+3754; 1259 482644 INDEX public ChannelReceipt_channel_merchantScope_channelTradeNo_key fj_a755def387dc
+3755; 1259 482643 INDEX public ChannelReceipt_merchantScope_merchantOrderNo_idx fj_a755def387dc
+3702; 1259 482455 INDEX public ConsentRecord_userId_agreementVersion_idx fj_a755def387dc
+3764; 1259 482647 INDEX public DurableJob_businessKey_key fj_a755def387dc
+3767; 1259 482648 INDEX public DurableJob_state_runAt_idx fj_a755def387dc
+3772; 1259 482650 INDEX public FinancialCase_caseKey_key fj_a755def387dc
+3775; 1259 482651 INDEX public FinancialCase_state_deadline_idx fj_a755def387dc
+3776; 1259 482652 INDEX public MockChannelTransaction_businessKey_key fj_a755def387dc
+3777; 1259 482653 INDEX public MockChannelTransaction_channelNo_key fj_a755def387dc
+3746; 1259 482723 INDEX public Notification_businessKey_key fj_a755def387dc
+3749; 1259 482745 INDEX public Notification_userId_status_createdAt_id_idx fj_a755def387dc
+3711; 1259 482734 INDEX public Order_consentRecordId_idx fj_a755def387dc
+3712; 1259 482717 INDEX public Order_one_active_registration_key fj_a755def387dc
+3715; 1259 482459 INDEX public Order_status_idx fj_a755def387dc
+3716; 1259 482718 INDEX public Order_userId_activityId_idx fj_a755def387dc
+3717; 1259 482461 INDEX public Payment_callbackNonce_key fj_a755def387dc
+3718; 1259 482460 INDEX public Payment_channelTradeNo_key fj_a755def387dc
+3719; 1259 482544 INDEX public Payment_merchantOrderNo_key fj_a755def387dc
+3720; 1259 482690 INDEX public Payment_one_active_per_order fj_a755def387dc
+3721; 1259 482462 INDEX public Payment_orderId_status_idx fj_a755def387dc
+3724; 1259 482545 INDEX public Payment_prepayId_key fj_a755def387dc
+3763; 1259 482646 INDEX public ReceivedEvent_source_merchantScope_eventKey_key fj_a755def387dc
+3768; 1259 482649 INDEX public ReconciliationBatch_merchantScope_period_sourceHash_key fj_a755def387dc
+3771; 1259 482765 INDEX public ReconciliationBatch_scope_period_decisionOrdinal_idx fj_a755def387dc
+3758; 1259 482645 INDEX public RefundObligation_businessKey_key fj_a755def387dc
+3725; 1259 482464 INDEX public Refund_callbackNonce_key fj_a755def387dc
+3726; 1259 482463 INDEX public Refund_channelRefundNo_key fj_a755def387dc
+3727; 1259 482546 INDEX public Refund_merchantRefundNo_key fj_a755def387dc
+3728; 1259 482654 INDEX public Refund_obligationId_key fj_a755def387dc
+3729; 1259 482465 INDEX public Refund_orderId_status_idx fj_a755def387dc
+3750; 1259 482556 INDEX public Review_orderId_key fj_a755def387dc
+3753; 1259 482557 INDEX public Review_userId_createdAt_idx fj_a755def387dc
+3732; 1259 482722 INDEX public TableGroup_activityId_generation_ordinal_key fj_a755def387dc
+3737; 1259 482466 INDEX public TableMember_tableGroupId_orderId_key fj_a755def387dc
+3699; 1259 482454 INDEX public UserProfile_userId_key fj_a755def387dc
+3696; 1259 482453 INDEX public User_wechatOpenid_key fj_a755def387dc
+3787; 1259 482776 INDEX public V11Actor_personId_idx fj_a755def387dc
+3849; 1259 482967 INDEX public V11Attendance_registrationId_key fj_a755def387dc
+3798; 1259 482807 INDEX public V11BundleConsent_userId_policyId_idx fj_a755def387dc
+3853; 1259 482985 INDEX public V11ChangeChoice_changeId_registrationId_key fj_a755def387dc
+3850; 1259 482977 INDEX public V11CoreChange_businessKey_key fj_a755def387dc
+3844; 1259 482958 INDEX public V11DeliveryProof_noticeKey_key fj_a755def387dc
+3829; 1259 482911 INDEX public V11Disposition_businessKey_key fj_a755def387dc
+3830; 1259 482912 INDEX public V11Disposition_componentId_state_idx fj_a755def387dc
+3828; 1259 482902 INDEX public V11FundComponent_receiptId_kind_key fj_a755def387dc
+3815; 1259 482861 INDEX public V11Membership_registrationId_key fj_a755def387dc
+3819; 1259 483227 INDEX public V11PaymentIntent_active_registration_key fj_a755def387dc
+3820; 1259 482884 INDEX public V11PaymentIntent_merchantOrderNo_key fj_a755def387dc
+3862; 1259 483262 INDEX public V11PolicyMaterialArchive_bundleId_version_releaseVersion_key fj_a755def387dc
+3863; 1259 483261 INDEX public V11PolicyMaterialArchive_materialSha256_key fj_a755def387dc
+3790; 1259 482786 INDEX public V11PolicySnapshot_bundleDigest_key fj_a755def387dc
+3859; 1259 483005 INDEX public V11PrivacyDisposition_businessKey_key fj_a755def387dc
+3795; 1259 482798 INDEX public V11Profile_userId_key fj_a755def387dc
+3825; 1259 482893 INDEX public V11ReceiptBinding_receiptId_key fj_a755def387dc
+3833; 1259 482926 INDEX public V11RefundInstruction_businessKey_key fj_a755def387dc
+3834; 1259 482928 INDEX public V11RefundInstruction_channelRefundNo_key fj_a755def387dc
+3835; 1259 482927 INDEX public V11RefundInstruction_merchantRefundNo_key fj_a755def387dc
+3802; 1259 483226 INDEX public V11Registration_active_user_activity_key fj_a755def387dc
+3803; 1259 482829 INDEX public V11Registration_activityId_eligibilityState_idx fj_a755def387dc
+3806; 1259 482830 INDEX public V11Registration_userId_createdAt_id_idx fj_a755def387dc
+3838; 1259 482939 INDEX public V11Request_businessKey_key fj_a755def387dc
+3841; 1259 482940 INDEX public V11Request_state_kind_idx fj_a755def387dc
+3809; 1259 482840 INDEX public V11SeatHold_registrationId_key fj_a755def387dc
+3856; 1259 482996 INDEX public V11SettlementObligation_businessKey_key fj_a755def387dc
+3799; 1259 482817 INDEX public V11SupplyRevision_activityId_revision_key fj_a755def387dc
+3816; 1259 482869 INDEX public V11TableEvent_businessKey_key fj_a755def387dc
+3810; 1259 482852 INDEX public V11Table_activityId_ordinal_key fj_a755def387dc
+3783; 1259 482754 INDEX public WorkerHeartbeat_mode_instanceId_key fj_a755def387dc
+3784; 1259 482755 INDEX public WorkerHeartbeat_mode_lastPolledAt_idx fj_a755def387dc
+3937; 2620 482709 TRIGGER public ChannelReceipt receipt_fact_guard fj_a755def387dc
+3938; 2620 482711 TRIGGER public ChannelReceipt receipt_paid_at_immutable fj_a755def387dc
+3939; 2620 483264 TRIGGER public V11PolicyMaterialArchive v11_policy_material_archive_immutable fj_a755def387dc
+3868; 2606 482479 FK CONSTRAINT public Activity Activity_restaurantId_fkey fj_a755def387dc
+3882; 2606 482534 FK CONSTRAINT public AuditLog AuditLog_actorId_fkey fj_a755def387dc
+3881; 2606 482529 FK CONSTRAINT public Blacklist Blacklist_userId_fkey fj_a755def387dc
+3888; 2606 482675 FK CONSTRAINT public ChannelReceipt ChannelReceipt_orderId_fkey fj_a755def387dc
+3889; 2606 482670 FK CONSTRAINT public ChannelReceipt ChannelReceipt_paymentId_fkey fj_a755def387dc
+3867; 2606 482474 FK CONSTRAINT public ConsentRecord ConsentRecord_userId_fkey fj_a755def387dc
+3883; 2606 482740 FK CONSTRAINT public Notification Notification_activityId_fkey fj_a755def387dc
+3884; 2606 482735 FK CONSTRAINT public Notification Notification_orderId_fkey fj_a755def387dc
+3885; 2606 482539 FK CONSTRAINT public Notification Notification_userId_fkey fj_a755def387dc
+3869; 2606 482489 FK CONSTRAINT public Order Order_activityId_fkey fj_a755def387dc
+3870; 2606 482484 FK CONSTRAINT public Order Order_userId_fkey fj_a755def387dc
+3871; 2606 482494 FK CONSTRAINT public Payment Payment_orderId_fkey fj_a755def387dc
+3890; 2606 482685 FK CONSTRAINT public RefundObligation RefundObligation_orderId_fkey fj_a755def387dc
+3891; 2606 482680 FK CONSTRAINT public RefundObligation RefundObligation_receiptId_fkey fj_a755def387dc
+3872; 2606 482665 FK CONSTRAINT public Refund Refund_obligationId_fkey fj_a755def387dc
+3873; 2606 482499 FK CONSTRAINT public Refund Refund_orderId_fkey fj_a755def387dc
+3874; 2606 482655 FK CONSTRAINT public Refund Refund_paymentId_fkey fj_a755def387dc
+3875; 2606 482660 FK CONSTRAINT public Refund Refund_receiptId_fkey fj_a755def387dc
+3879; 2606 482524 FK CONSTRAINT public Report Report_orderId_fkey fj_a755def387dc
+3880; 2606 482519 FK CONSTRAINT public Report Report_userId_fkey fj_a755def387dc
+3886; 2606 482563 FK CONSTRAINT public Review Review_orderId_fkey fj_a755def387dc
+3887; 2606 482558 FK CONSTRAINT public Review Review_userId_fkey fj_a755def387dc
+3876; 2606 482504 FK CONSTRAINT public TableGroup TableGroup_activityId_fkey fj_a755def387dc
+3877; 2606 482514 FK CONSTRAINT public TableMember TableMember_orderId_fkey fj_a755def387dc
+3878; 2606 482509 FK CONSTRAINT public TableMember TableMember_tableGroupId_fkey fj_a755def387dc
+3866; 2606 482469 FK CONSTRAINT public UserProfile UserProfile_userId_fkey fj_a755def387dc
+3892; 2606 483011 FK CONSTRAINT public V11Actor V11Actor_restaurantId_fkey fj_a755def387dc
+3893; 2606 483006 FK CONSTRAINT public V11Actor V11Actor_userId_fkey fj_a755def387dc
+3926; 2606 483176 FK CONSTRAINT public V11Attendance V11Attendance_registrationId_fkey fj_a755def387dc
+3927; 2606 483181 FK CONSTRAINT public V11Attendance V11Attendance_restaurantActorId_fkey fj_a755def387dc
+3895; 2606 483026 FK CONSTRAINT public V11BundleConsent V11BundleConsent_policyId_fkey fj_a755def387dc
+3896; 2606 483021 FK CONSTRAINT public V11BundleConsent V11BundleConsent_userId_fkey fj_a755def387dc
+3930; 2606 483196 FK CONSTRAINT public V11ChangeChoice V11ChangeChoice_changeId_fkey fj_a755def387dc
+3931; 2606 483201 FK CONSTRAINT public V11ChangeChoice V11ChangeChoice_registrationId_fkey fj_a755def387dc
+3928; 2606 483186 FK CONSTRAINT public V11CoreChange V11CoreChange_activityId_fkey fj_a755def387dc
+3929; 2606 483191 FK CONSTRAINT public V11CoreChange V11CoreChange_supplyId_fkey fj_a755def387dc
+3922; 2606 483161 FK CONSTRAINT public V11Decision V11Decision_actorId_fkey fj_a755def387dc
+3923; 2606 483156 FK CONSTRAINT public V11Decision V11Decision_requestId_fkey fj_a755def387dc
+3924; 2606 483171 FK CONSTRAINT public V11DeliveryProof V11DeliveryProof_registrationId_fkey fj_a755def387dc
+3925; 2606 483166 FK CONSTRAINT public V11DeliveryProof V11DeliveryProof_requestId_fkey fj_a755def387dc
+3916; 2606 483126 FK CONSTRAINT public V11Disposition V11Disposition_componentId_fkey fj_a755def387dc
+3915; 2606 483121 FK CONSTRAINT public V11FundComponent V11FundComponent_receiptId_fkey fj_a755def387dc
+3908; 2606 483086 FK CONSTRAINT public V11Membership V11Membership_registrationId_fkey fj_a755def387dc
+3909; 2606 483091 FK CONSTRAINT public V11Membership V11Membership_tableId_fkey fj_a755def387dc
+3911; 2606 483101 FK CONSTRAINT public V11PaymentIntent V11PaymentIntent_registrationId_fkey fj_a755def387dc
+3936; 2606 483256 FK CONSTRAINT public V11PolicyMaterialArchive V11PolicyMaterialArchive_submittedBy_fkey fj_a755def387dc
+3934; 2606 483216 FK CONSTRAINT public V11PrivacyDisposition V11PrivacyDisposition_requestId_fkey fj_a755def387dc
+3935; 2606 483221 FK CONSTRAINT public V11PrivacyDisposition V11PrivacyDisposition_userId_fkey fj_a755def387dc
+3894; 2606 483016 FK CONSTRAINT public V11Profile V11Profile_userId_fkey fj_a755def387dc
+3912; 2606 483111 FK CONSTRAINT public V11ReceiptBinding V11ReceiptBinding_intentId_fkey fj_a755def387dc
+3913; 2606 483106 FK CONSTRAINT public V11ReceiptBinding V11ReceiptBinding_receiptId_fkey fj_a755def387dc
+3914; 2606 483116 FK CONSTRAINT public V11ReceiptBinding V11ReceiptBinding_registrationId_fkey fj_a755def387dc
+3917; 2606 483136 FK CONSTRAINT public V11RefundInstruction V11RefundInstruction_receiptId_fkey fj_a755def387dc
+3918; 2606 483131 FK CONSTRAINT public V11RefundInstruction V11RefundInstruction_registrationId_fkey fj_a755def387dc
+3900; 2606 483051 FK CONSTRAINT public V11Registration V11Registration_activityId_fkey fj_a755def387dc
+3901; 2606 483066 FK CONSTRAINT public V11Registration V11Registration_consentId_fkey fj_a755def387dc
+3902; 2606 483056 FK CONSTRAINT public V11Registration V11Registration_policyId_fkey fj_a755def387dc
+3903; 2606 483061 FK CONSTRAINT public V11Registration V11Registration_supplyId_fkey fj_a755def387dc
+3904; 2606 483046 FK CONSTRAINT public V11Registration V11Registration_userId_fkey fj_a755def387dc
+3919; 2606 483151 FK CONSTRAINT public V11Request V11Request_ownerActorId_fkey fj_a755def387dc
+3920; 2606 483141 FK CONSTRAINT public V11Request V11Request_registrationId_fkey fj_a755def387dc
+3921; 2606 483146 FK CONSTRAINT public V11Request V11Request_userId_fkey fj_a755def387dc
+3905; 2606 483071 FK CONSTRAINT public V11SeatHold V11SeatHold_registrationId_fkey fj_a755def387dc
+3932; 2606 483211 FK CONSTRAINT public V11SettlementObligation V11SettlementObligation_componentId_fkey fj_a755def387dc
+3933; 2606 483206 FK CONSTRAINT public V11SettlementObligation V11SettlementObligation_registrationId_fkey fj_a755def387dc
+3897; 2606 483031 FK CONSTRAINT public V11SupplyRevision V11SupplyRevision_activityId_fkey fj_a755def387dc
+3898; 2606 483041 FK CONSTRAINT public V11SupplyRevision V11SupplyRevision_policyId_fkey fj_a755def387dc
+3899; 2606 483036 FK CONSTRAINT public V11SupplyRevision V11SupplyRevision_restaurantId_fkey fj_a755def387dc
+3910; 2606 483096 FK CONSTRAINT public V11TableEvent V11TableEvent_tableId_fkey fj_a755def387dc
+3906; 2606 483076 FK CONSTRAINT public V11Table V11Table_activityId_fkey fj_a755def387dc
+3907; 2606 483081 FK CONSTRAINT public V11Table V11Table_supplyId_fkey fj_a755def387dc

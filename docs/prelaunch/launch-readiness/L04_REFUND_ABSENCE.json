@@ -1,0 +1,24 @@
+{
+  "candidate": "918ad50d6cdc72f08a392e662bb009505c7d396cdfde7550df113b38c738921b",
+  "validation": {
+    "provider_response_channel_tests": 44,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-absence",
+  "official_source": "https://pay.weixin.qq.com/doc/v3/merchant/4012791904",
+  "confirmed": [
+    "Signed exact 404 RESOURCE_NOT_EXISTS maps refund NOT_FOUND",
+    "Payment query does not misclassify refund error as absent payment",
+    "Unsigned 404, plain error object, unrelated ORDER_NOT_EXIST and wrong status reject",
+    "MCH_NOT_EXISTS remains failure"
+  ],
+  "limits": [
+    "No merchant network call; offline signed transport and injected provider tests",
+    "NOT_FOUND is not authorization to refund or permission to change refund number",
+    "Real dispatcher/unknown submission recovery still pending"
+  ],
+  "rollback": "Restore providers.ts/tests from backups/L04_refund_absence; remove only matching absence handling and assertions in channel/response tests. Retain previous changes."
+}

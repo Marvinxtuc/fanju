@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:28:02.065204+00:00",
+  "files": [
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.test.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-session-list/packages/shared/src/rules/prelaunchClient.test.ts",
+      "before": "b43fce30d2332958a2642617b508e41bdf708dda33fa6c4dce6da68aee184514",
+      "after": "4889596e5d443004afd0e41daa00388b5cfe3ed7c48c71450674b269655239c5"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-session-list/packages/shared/src/rules/prelaunchClient.ts",
+      "before": "a019e67e6510c9b251b14917bfa4f659fb9344a5d4ffcb063dc5a45df1d5e967",
+      "after": "23ba592e6beb2104fafdb28895a0da77b0a0b95daa4311a967d996b6097d991c"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_SESSION_10/before",
+  "protected_unchanged": 33
+}

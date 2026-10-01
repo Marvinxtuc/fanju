@@ -1,0 +1,4 @@
+
+> @timeleft-shanghai/api@0.0.0 build /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/build/services/api
+> tsc -p tsconfig.json
+

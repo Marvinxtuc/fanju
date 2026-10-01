@@ -1,0 +1,27 @@
+{
+  "candidate": "69c750ab624d1f60b427916a367a73142f63fc66f5b0559d8e2c8b6a935b15cc",
+  "validation": {
+    "native_tests_including_wrapper": 20,
+    "startup_tests": 4,
+    "legacy_readiness_selected": 1,
+    "legacy_readiness_unexecuted": 58,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Notification-enabled API requires explicit release version",
+    "Query heartbeat required even when custom worker mode list omits it",
+    "Readiness checks five V1.1 migrations, completion and absence of rollback",
+    "Worker heartbeat must match exact release version and be fresh",
+    "Loopback HTTP returns 503 for missing, wrong-version and expired heartbeat; 200 for matching heartbeat",
+    "Missing required migration fails readiness without altering migration metadata"
+  ],
+  "evidence": "evidence/L06-query-readiness",
+  "limits": [
+    "Synthetic owned DB and injected heartbeat; production monitoring and process liveness not established",
+    "Runtime readiness does not certify policy, channel acceptance or release readiness",
+    "Current candidate full regression pending"
+  ],
+  "rollback": "Restore app.ts/heartbeat.ts/native test from backups/L06-query-readiness after checking later edits; no schema/production data change."
+}

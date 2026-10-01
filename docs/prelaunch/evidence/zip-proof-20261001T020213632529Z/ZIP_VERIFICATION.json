@@ -1,0 +1,28 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "zip": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/provisional-delivery-20261001-01/FANJU_PRELAUNCH_REVIEW.zip",
+  "zip_sha256": "739f8ede9b93615b6e5ab03694a6a46d5dfc32e33d49c29c0bac7dc5736f90d9",
+  "zip_bytes": 5516362,
+  "crc_pass": true,
+  "safe_extraction": true,
+  "files_hash_size_checked": 1590,
+  "package_checker_exit": 0,
+  "package_checker": {
+    "result": "STRUCTURE_ONLY_PASS",
+    "stats": {
+      "scope": "STRUCTURE_AND_HASH_LINKS_ONLY",
+      "business_correctness_verified": false,
+      "release_authorized": false,
+      "files_checked": 1590,
+      "rules": 104,
+      "scenarios": 139,
+      "tasks": 24,
+      "linked_runs": 38,
+      "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+      "delivery_status": "INCOMPLETE_ENGINEERING"
+    },
+    "errors": []
+  },
+  "source_artifacts_identity": "Same frozen candidate and verified build byte inventory; provisional documents may be finalized afterwards",
+  "delivery": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW"
+}

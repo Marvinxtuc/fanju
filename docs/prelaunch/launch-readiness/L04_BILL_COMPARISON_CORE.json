@@ -1,0 +1,28 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-30-49-554Z/RUNS.json",
+  "owned_database_tests_including_parent": 16,
+  "comparison_plan": "PROCESS_LOCAL_VERIFIED_IMMUTABLE_PROJECTION",
+  "facts": "PROCESS_LOCAL_DATABASE_CAPTURE_BOUND_TO_SCOPE_CONFIG",
+  "phases": [
+    "FORWARD",
+    "REVERSE_RECEIPTS",
+    "REVERSE_REFUNDS"
+  ],
+  "old_full_comparison_path_uses_core": true,
+  "persistent_snapshot_implemented": false,
+  "persistent_checkpoint_implemented": false,
+  "new_schema": false,
+  "releaseAuthorized": false,
+  "remaining": [
+    "Persistent validated financial snapshot and identity",
+    "Atomic result/checkpoint batches",
+    "Final aggregate audit and range readiness compatibility",
+    "Cross-process crash recovery",
+    "Current-candidate high-volume measurement",
+    "Bounded necessary legacy reference capture",
+    "Streamed file processing and real acceptance"
+  ],
+  "candidate": "babb2bb4a500512432de7a8aeedb519c50a553cd743e4f219f47567ade8d89e1",
+  "full_steps": 29
+}

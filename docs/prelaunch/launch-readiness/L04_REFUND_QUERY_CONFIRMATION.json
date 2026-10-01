@@ -1,0 +1,25 @@
+{
+  "candidate": "08ad35b52c395d604aa7f7c49c8ec34aab8707207d8d21688ab3abcfc9a1d4d6",
+  "validation": {
+    "native_tests_including_wrappers": 23,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-query-confirmation",
+  "confirmed": [
+    "Non-success query retains reserved budget",
+    "Ten concurrent success queries yield one confirmation audit and completed reservation",
+    "Original transaction, channel config, component split and total must agree",
+    "Conflicting evidence persists MANUAL and financial case without reversing earlier success",
+    "Query worker now admits V11_QUERY_REFUND, not V11_WECHAT_REFUND dispatch"
+  ],
+  "limits": [
+    "Synthetic channel response with owned PostgreSQL; no real refund submitted",
+    "Refund success_time absent in current provider contract; no invented completion timestamp",
+    "Real query trigger and dispatcher, signed callback and production policy authorization still pending",
+    "Current merchant credentials and deployment acceptance not verified"
+  ],
+  "rollback": "Remove refund-query-confirmation.ts and added handler/worker/test code, preserving historical fund records."
+}

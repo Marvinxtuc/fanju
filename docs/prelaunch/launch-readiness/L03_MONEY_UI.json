@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "formal_money_page": "pages/money-records/index",
+  "money_dom_tests": 4,
+  "combined_dom_tests": 16,
+  "owned_postgres_tests_including_parent": 8,
+  "real_device_verified": false,
+  "merchant_verified": false,
+  "policy_activated": false,
+  "setup": "MONEY_UI_SETUP.md",
+  "candidate": "13a6713ade6cbe9982c8794df99dd1e43938790076aa01ed342bbee32d8cb49d",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-39-12-561Z/RUNS.json",
+  "final_steps": 28,
+  "cross_process_tests": 157,
+  "miniapp_tests": 36
+}

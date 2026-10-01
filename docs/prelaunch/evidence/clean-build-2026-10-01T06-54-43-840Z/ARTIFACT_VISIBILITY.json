@@ -1,0 +1,17 @@
+{
+  "candidate_id": "4f1ca4167df2ec97ee2ccab8f2b8645e2d7e4848d08779ab7c293c2f61e2d570",
+  "ops": {
+    "generated_entry_render": "PASS",
+    "workspace_query": "?workspace=prelaunch",
+    "rendered_title": "饭局 · 本地验收工作区",
+    "api_origin": "http://127.0.0.1:3000",
+    "environment_flag": "VITE_FANJU_PRELAUNCH_ENABLED=true",
+    "scope": "Native Vite generated entry evaluated in jsdom without network; not real browser/API E2E"
+  },
+  "weapp": {
+    "route": "pages/prelaunch/index",
+    "generated_route_present": true,
+    "environment_flag": "TARO_APP_PRELAUNCH_ENABLED=true",
+    "scope": "Taro route/artifact only; not WeChat device launch"
+  }
+}

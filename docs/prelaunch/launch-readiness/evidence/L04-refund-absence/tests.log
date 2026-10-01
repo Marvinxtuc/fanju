@@ -1,0 +1,13 @@
+
+> @timeleft-shanghai/api@0.0.0 test /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+> vitest run src/wechat-response.test.ts src/providers.test.ts src/prelaunch/wechat-channel.test.ts
+
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+
+
+ Test Files  3 passed (3)
+      Tests  44 passed (44)
+   Start at  11:16:39
+   Duration  10.20s (transform 99ms, setup 0ms, import 216ms, tests 10.38s, environment 0ms)
+

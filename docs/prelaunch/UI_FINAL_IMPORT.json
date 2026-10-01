@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.tsx",
+      "expectedOriginalSha256": "c0dc1d21a631f2cc5b8621a2cf07fe321d77698f96eae571118954e001c354cf",
+      "draftSha256": "02c0298902f4130d5cb324544903447e6780cd4cda36e83c29e927d73dc05df6"
+    },
+    {
+      "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+      "expectedOriginalSha256": "fd2782dd72ee01503d63ff091980c6609c08cd34949dbfc68742ce625d67cab2",
+      "draftSha256": "e9e2eee628cfb85726484b561d7d78a15c874df6101be6761c865b6ed8687daa"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.test.tsx",
+      "expectedOriginalSha256": "f163027aa1352287e9ce37971a916dc3df6c5b35893c2d21b8bfbf9ded65bc2f",
+      "draftSha256": "95cdcf8d2daaf8667eeb2de344eb56827a7ce163d96e68c85369a003433d0b39"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/ui-wave2/before"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "owned_postgres_tests_including_parent": 6,
+  "real_channel_verified": false,
+  "bill_period_consumer_complete": false,
+  "schema_changed": false,
+  "setup": "REFUND_COMPLETION_TIME_SETUP.md",
+  "candidate": "a1e452ea253e2183d0883d522add1ca2e1cd5be9584bf6024a58655a1ae3db7e",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-03-49-097Z/RUNS.json",
+  "final_steps": 28,
+  "api_tests": 284,
+  "cross_process_tests": 172,
+  "bill_period_consumer": "L04_REFUND_PERIOD.json: consumer implemented with synthetic evidence; full period closure not completed"
+}

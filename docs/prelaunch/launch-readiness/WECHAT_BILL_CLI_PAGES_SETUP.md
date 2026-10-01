@@ -1,0 +1,13 @@
+# CLI分页接入与强杀恢复
+
+2026-10-01。仅工程实施，未部署或调用真实商户。
+
+单日和连续账期CLI保留原feature开关，改用reconcileDownloadedWechatBillResumable。无最终审计的新任务默认采用持久快照和500行原子分页；仅已有唯一v3最终审计可以进入旧版重放。已有v4采用分页恢复，未知版本、多条审计或v3与快照混合直接拒绝；分页异常不降级到旧单事务。单日恢复把审计读取、身份检查和存储证据校验放在同一个RepeatableRead事务内。
+
+24项owned定向测试通过，包括真实CLI子进程、单日新v4、单日旧v3重放、连续账期新v4及再次恢复时零渠道请求。合成网络fixture只拦截指定账单请求并生成合成签名，其他网络socket仍受owned网络保护，不代表真实渠道联调。
+
+SIGKILL覆盖两种边界：在检查点插入前用仅匹配测试snapshot UUID的数据库trigger和advisory锁阻塞开放事务，确认子进程确实等待后强杀，观察、案件、查询任务和页均为0；在页已提交后收到子进程提交回执，再强杀，页保留且没有最终审计。两者都由另一个进程重新获取合成签名账单并完成对账，最后只有一条最终审计。临时trigger/function/lock均在finally清理，仅清理测试前缀数据。
+
+完整回归见L04_BILL_CLI_PAGES.json。原30000条工程测量保留在L04_BILL_PAGE_CAPACITY.json，属于前一候选，不能宣称本轮已重测。匹配支付/退款容量、流式处理、必要legacy投影、正式业务参数和真实验收仍待完成。
+
+回滚先停CLI调用，再恢复backups/L04-bill-cli-pages中两份CLI和runner的本轮差异，移除resumable模块。已提交snapshot/pages/案件/查询任务/审计保持；回滚后旧CLI不能消费v4任务，不得为回退删除证据或换用新UUID掩盖未完成任务。

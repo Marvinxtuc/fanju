@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:07:35.725291+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/r4-membership/domain.ts",
+      "before": "24956906ba5c0ce0b91c462c55272c0fc6134b21b13cb46d07a3a3e11e8775f3",
+      "after": "7abc6d4e11155510ae7bee650d6062246aaf4b61d7165ad479774a0a2130e7f5"
+    },
+    {
+      "path": "tests/prelaunch/membership-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/r4-membership/membership-native.test.mjs",
+      "before": null,
+      "after": "0958550b71715d7b2910cc7f19a22c495a1e2f6a4347bb671d601fb5c5b33d9d"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/MEMBERSHIP_FIX_PLAN/before",
+  "protected_unchanged": 33
+}

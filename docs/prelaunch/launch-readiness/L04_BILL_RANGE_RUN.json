@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "b0da8fc832f3c19766227794f731c429b45e241a9a85a726334b855f75379c0e",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-23-20-980Z/RUNS.json",
+  "final_steps": 28,
+  "runner_unit_tests": 4,
+  "range_and_runner_tests": 9,
+  "owned_bill_tests_including_parent": 13,
+  "api_tests": 298,
+  "cross_process_tests": 176,
+  "coverageState": "INCOMPLETE",
+  "releaseAuthorized": false,
+  "real_merchant_verified": false,
+  "production_readiness_connected": false,
+  "no_config_cli_exit": 1,
+  "setup": "WECHAT_BILL_RANGE_RUN_SETUP.md",
+  "persistent_task_identity": true,
+  "persistent_failure_history": true
+}

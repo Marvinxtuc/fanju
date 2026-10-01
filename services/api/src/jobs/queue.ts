@@ -1,8 +1,9 @@
 import { randomUUID } from "node:crypto";
-import type { PrismaClient, Prisma, DurableJob } from "../generated/prisma/client.js";
+import { Prisma, type PrismaClient, type DurableJob } from "../generated/prisma/client.js";
 
 export type Transaction = Prisma.TransactionClient;
 export type Lease = DurableJob & { leaseOwner: string; leaseUntil: Date };
+export type ChannelJobScope = { channel: string; merchantScope: string; providerConfigId: string };
 const LEASE_MS = 30_000;
 const MAX_ATTEMPTS = 8;
 
@@ -25,14 +26,32 @@ export async function openCase(tx: Transaction, category: string, sourceRef: str
 }
 
 // Claiming and fencing use the database clock; a worker's local clock never extends a lease.
-export async function claimJob(db: PrismaClient, owner: string, kinds?: string[]): Promise<Lease | null> {
+export async function claimJob(db: PrismaClient, owner: string, kinds?: string[], channelScope?: ChannelJobScope): Promise<Lease | null> {
   if (!owner.trim()) throw new Error("Worker owner required");
+  if (channelScope && (channelScope.channel !== 'wechat' || !/^[a-f0-9]{64}$/.test(channelScope.merchantScope)
+    || !channelScope.providerConfigId.trim() || channelScope.providerConfigId.length > 160 || !kinds?.length
+    || kinds.some(kind => !['V11_CLOSE_EXPIRED_PAYMENT','V11_QUERY_PAYMENT','V11_QUERY_REFUND'].includes(kind))))
+    throw new Error('Explicit channel job scope and compatible kinds required');
+  const scopeFilter = channelScope ? Prisma.sql`AND EXISTS (
+          SELECT 1 FROM "V11PaymentIntent" p WHERE p.id = "DurableJob"."refId"
+            AND "DurableJob".kind IN ('V11_CLOSE_EXPIRED_PAYMENT','V11_QUERY_PAYMENT')
+            AND p.channel = ${channelScope?.channel ?? null}
+            AND p."merchantScope" = ${channelScope?.merchantScope ?? null}
+            AND p."providerConfigId" = ${channelScope?.providerConfigId ?? null}
+          UNION ALL
+          SELECT 1 FROM "V11RefundInstruction" r WHERE r.id = "DurableJob"."refId"
+            AND "DurableJob".kind = 'V11_QUERY_REFUND'
+            AND r.channel = ${channelScope?.channel ?? null}
+            AND r."merchantScope" = ${channelScope?.merchantScope ?? null}
+            AND r."providerConfigId" = ${channelScope?.providerConfigId ?? null}
+        )` : Prisma.empty;
   const rows = await db.$queryRaw<Lease[]>`
     WITH next AS (
       SELECT "id" FROM "DurableJob"
       WHERE (("state" IN ('READY', 'RETRY') AND "runAt" <= clock_timestamp())
          OR ("state" = 'RUNNING' AND "leaseUntil" <= clock_timestamp()))
         AND (${kinds ?? null}::text[] IS NULL OR "kind" = ANY(${kinds ?? null}::text[]))
+        ${scopeFilter}
       ORDER BY "runAt", "id" FOR UPDATE SKIP LOCKED LIMIT 1
     )
     UPDATE "DurableJob" AS j SET "state" = 'RUNNING', "leaseOwner" = ${owner},
@@ -72,8 +91,8 @@ export async function retryJob(db: PrismaClient, lease: Lease, owner: string, er
 }
 
 export type JobHandler = (lease: Lease) => Promise<void>;
-export async function runOne(db: PrismaClient, owner: string, caseOwner: string, handlers: Record<string, JobHandler>, kinds?: string[]) {
-  const lease = await claimJob(db, owner, kinds);
+export async function runOne(db: PrismaClient, owner: string, caseOwner: string, handlers: Record<string, JobHandler>, kinds?: string[], channelScope?: ChannelJobScope) {
+  const lease = await claimJob(db, owner, kinds, channelScope);
   if (!lease) return false;
   const handler = handlers[lease.kind];
   // Repeated process deaths still consume the budget. Do not make a ninth channel call.

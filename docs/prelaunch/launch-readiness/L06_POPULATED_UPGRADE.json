@@ -1,0 +1,32 @@
+{
+  "candidate": "fab9c49003fdece592bd1f60563b538ee2c5d97448260cf69c2a11fa10a3ae73",
+  "validation": {
+    "full_SQL_chain": 18,
+    "refund_instruction_states": [
+      "NEW",
+      "SUBMITTING",
+      "UNKNOWN",
+      "CONFIRMED"
+    ],
+    "receipt_rows": 4,
+    "component_rows": 8,
+    "disposition_rows": 8,
+    "event_rows": 3,
+    "job_rows": 4,
+    "prior_columns_preserved": true,
+    "historical_request_snapshots": "NULL_NOT_INFERRED",
+    "payment_intent_migration_tests": 1,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/upgrade-2026-10-01T03-25-45-882Z/UPGRADE.json",
+  "payment_intent_evidence": "evidence/L06-upgrade/payment-intent.log",
+  "reproduce": "node scripts/prelaunch-upgrade-rehearsal.mjs <owned-scratch>",
+  "limits": [
+    "Complete SQL upgrade in fresh owned synthetic database, not actual production history",
+    "Payment intent case uses prior table extracted from baseline in isolated transaction; full populated registration/payment graph still pending",
+    "Prisma deploy bookkeeping tested separately by prelaunch-migration-rehearsal.mjs",
+    "Production permissions, volume, business reconciliation and real channel validation remain open"
+  ],
+  "rollback": "Remove only new upgrade rehearsal script; prior owned generations preserved and no shared/production data changed."
+}

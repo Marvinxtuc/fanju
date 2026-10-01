@@ -1,0 +1,2071 @@
+{
+  "rules": [
+    {
+      "id": "BAS-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "BAS-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "BAS-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "sha256": "72e75fc96fc651cd8374edde8aa203ff73d2a8cccc026ef9f299038705053ee4"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "sha256": "72e75fc96fc651cd8374edde8aa203ff73d2a8cccc026ef9f299038705053ee4"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-09",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "USR-10",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FEE-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FEE-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FEE-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FEE-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "VEN-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/routes.ts",
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-09",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-10",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-11",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-12",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-13",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-14",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-15",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FORM-16",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-09",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "WL-10",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "INFO-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "INFO-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "INFO-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "REF-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/domain.ts",
+          "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "FUL-09",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-08",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-09",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-10",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-11",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-12",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-13",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-14",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "DISP-15",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "EXC-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "EXC-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "EXC-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "EXC-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-05",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-06",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "CHG-07",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "OPS-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "OPS-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": true,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "OPS-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "services/api/src/prelaunch/contracts.ts",
+          "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "PRI-01",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "PRI-02",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "PRI-03",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    },
+    {
+      "id": "PRI-04",
+      "api_local_source_review": "PASS_NO_KNOWN_UNPATCHED_DEFECT",
+      "review_scope": "API_AND_DOMAIN_LOCAL_SIMULATION_BRANCHES",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "sha256": "823bd1a0b0c8bc7fb38c9cce3c24a25ffe9d1a680c1d153b712d05aaabfd5296"
+        },
+        {
+          "file": "services/api/src/prelaunch/aftersales.ts",
+          "sha256": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+        }
+      ],
+      "ui_separate_review_required": false,
+      "formal_policy_gate": "SEPARATE_OP_RV_UNCHANGED",
+      "runtime_verification": "BIND_FINAL_EXACT_TEST_ASSERTIONS",
+      "review_note": "Old generic direct-native gap not retained as code defect; API_R2_FINAL_DRAFT describes current fixes and limits."
+    }
+  ],
+  "count": 104,
+  "unpatched_api_semantic_defects_known": [],
+  "does_not_claim_104_end_to_end_pass": true
+}

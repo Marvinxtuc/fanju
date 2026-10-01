@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:30:45.856867+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/aftersales-matrix-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/aftersales-iso-correction.test.mjs",
+      "before": "93b6657aa22994baaee316664d93ffc732ca58915744848b7e3ef8a7f450e2b3",
+      "after": "b9e5988e7ca2d3c99c60ae2380389ebf6507704209bff6829fad60ea22c06957"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_ISO_12/before",
+  "protected_unchanged": 33
+}

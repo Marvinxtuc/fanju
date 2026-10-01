@@ -1,0 +1,10 @@
+{
+  "candidate_id": "e49a1a635947987c4571a6a35882b9b8cc12afa8f61827d0fba0cf373f286724",
+  "scope": "FORMAL_CLIENT_ARTIFACTS_ENGINEERING_ONLY",
+  "opsPreviewDisabled": true,
+  "weappPreviewRouteExcluded": true,
+  "apiOrigin": "https://api.synthetic-fanju.cn",
+  "realDomainVerified": false,
+  "realDeviceVerified": false,
+  "releaseAuthorized": false
+}

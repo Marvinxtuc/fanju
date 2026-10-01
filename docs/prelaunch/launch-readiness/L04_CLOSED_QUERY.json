@@ -1,0 +1,22 @@
+{
+  "candidate": "80d3334f79f0b9bc35116498615b6535c75746cbc42cac124b6139e4c003c8b5",
+  "status": "PASS_ENGINEERING_ONLY",
+  "targeted_tests_including_wrapper": 23,
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-00-42-000Z/RUNS.json",
+  "scope": "Trusted CLOSED query observation for already inactive/CLOSED local intent only",
+  "confirmed": [
+    "No successful money evidence: query can complete without repeated false manual escalation",
+    "Receipt conflicts retain receipt and classify closure observation MANUAL",
+    "Missing/PENDING results remain unconfirmed",
+    "Lease lost during channel query prevents observation writes",
+    "No registration, intent, fund component or bill coverage mutation"
+  ],
+  "limits": [
+    "Synthetic channel with real owned PostgreSQL only",
+    "No actual merchant execution or production deployment",
+    "Formal business-policy activation and complete bill coverage remain unfinished"
+  ],
+  "rollback": "Restore payment-query-intake.ts and native test from backups/L04-closed-query; preserve existing evidence and query jobs",
+  "final_steps": 28,
+  "cross_process_tests": 140
+}

@@ -1,3 +1,7 @@
+import {channelWorkerMode} from './prelaunch/channel-worker-mode.js';
+import { createRefundNotificationTrigger } from './prelaunch/refund-notification-trigger.js';
+import { createPaymentNotificationTrigger } from './prelaunch/payment-notification-trigger.js';
+import { registerProductionIdentityRoutes } from './prelaunch/production-identity-routes.js';
 import { recoverPrepay, publishPrepay } from "./funding/prepay.js";
 import { persistTrustedEvent } from "./events/inbox.js";
 import { openCase } from "./jobs/queue.js";
@@ -45,6 +49,7 @@ import {
   type ProviderEnv,
 } from "./providers.js";
 import {
+  WechatPayNotificationError,
   verifyPaymentNotification,
   verifyRefundNotification,
   type WechatPayNotificationConfig,
@@ -100,8 +105,32 @@ export async function buildApp(options: BuildAppOptions = {}) {
     methods: ["GET", "HEAD", "POST", "PUT", "DELETE"] });
   await registerAuth(app, db, providerEnv, demoEnabled);
   registerAdminLogin(app);
+  registerProductionIdentityRoutes(app, db, providerEnv, providers, demoEnabled);
+  const v11NotifyFlag = providerEnv.FEATURE_V11_PAYMENT_NOTIFICATIONS;
+  if (v11NotifyFlag !== undefined && !['true','false'].includes(v11NotifyFlag)) throw Error('Invalid V1.1 payment notification flag');
+  if (v11NotifyFlag === 'true' && (providers.payment.mode !== 'wechat' || !providerEnv.FINANCIAL_CASE_OWNER?.trim()))
+    throw Error('Real payment notifications require real provider and explicit case owner');
+  const v11PaymentNotification = v11NotifyFlag === 'true'
+    ? createPaymentNotificationTrigger(db, bindingFor(providerEnv, 'wechat'), caseOwner) : undefined;
+  const v11RefundNotifyFlag = providerEnv.FEATURE_V11_REFUND_NOTIFICATIONS;
+  if (v11RefundNotifyFlag !== undefined && !['true','false'].includes(v11RefundNotifyFlag)) throw Error('Invalid V1.1 refund notification flag');
+  if (v11RefundNotifyFlag === 'true' && (providers.refund.mode !== 'wechat' || !providerEnv.FINANCIAL_CASE_OWNER?.trim()))
+    throw Error('Real refund notifications require real provider and explicit case owner');
+  const v11RefundNotification = v11RefundNotifyFlag === 'true'
+    ? createRefundNotificationTrigger(db, bindingFor(providerEnv, 'wechat'), caseOwner) : undefined;
+  const v11WorkerFlags = [providerEnv.FEATURE_V11_FORMAL_PAYMENT_CLOSE,providerEnv.FEATURE_V11_FORMAL_HOLD_EXPIRY];
+  if(v11WorkerFlags.some(flag=>flag!==undefined&&!['true','false'].includes(flag)))throw Error('Invalid formal worker flag');
+  const v11RecoveryRequired = v11NotifyFlag === 'true' || v11RefundNotifyFlag === 'true' || v11WorkerFlags.includes('true');
+  if(v11WorkerFlags.includes('true')&&(providers.payment.mode!=='wechat'||providers.refund.mode!=='wechat'||providerEnv.FEATURE_V11_QUERY_RECOVERY!=='true'))throw Error('Formal workers require real providers and query recovery');
+  if (v11RecoveryRequired && !providerEnv.RELEASE_VERSION?.trim()) throw Error('V1.1 recovery readiness requires explicit release version');
+
+
+
 
   app.setErrorHandler((error, _request, reply) => {
+    if (error instanceof WechatPayNotificationError) {
+      return reply.code(400).send({ error: "Invalid payment notification" });
+    }
     if (error instanceof ZodError) {
       return reply.code(400).send({
         error: "Validation failed",
@@ -138,13 +167,19 @@ export async function buildApp(options: BuildAppOptions = {}) {
 
   app.get("/health", async () => ({ ok: true }));
   app.get("/ready", async (_request, reply) => {
-    const requiredModes = (providerEnv.REQUIRED_WORKER_MODES?.trim()
+    const configuredModes = (providerEnv.REQUIRED_WORKER_MODES?.trim()
       || (providerEnv.NODE_ENV === "production" ? "events-only,inbox-only" : ""))
       .split(",").map(mode => mode.trim()).filter(Boolean);
+    const requiredModes = [...new Set([...configuredModes, ...(v11RecoveryRequired ? [channelWorkerMode('v11-wechat-query',bindingFor(providerEnv,'wechat'))] : []),
+      ...(providerEnv.FEATURE_V11_FORMAL_PAYMENT_CLOSE==='true'?[channelWorkerMode('v11-formal-payment-close',bindingFor(providerEnv,'wechat'))]:[]),
+      ...(providerEnv.FEATURE_V11_FORMAL_HOLD_EXPIRY==='true'?[channelWorkerMode('v11-formal-hold-expiry',bindingFor(providerEnv,'wechat'))]:[])])];
     try {
       const bill = providerEnv.NEW_PAYMENTS_ENABLED === "true" ? {
         scope: paymentBinding.merchantScope, period: providerEnv.REQUIRED_BILL_PERIOD! } : undefined;
-      const result = await checkReadiness(db, requiredModes, bill);
+      const result = await checkReadiness(db, requiredModes, bill, v11RecoveryRequired ? {
+        version: providerEnv.RELEASE_VERSION!.trim(), migrations: ['20261001000000_prelaunch_v11_expand',
+          '20261001010000_v11_payment_preparation','20261001020000_v11_receipt_recorded_state',
+          '20261001030000_v11_refund_request_snapshot','20261001040000_v11_real_refund_binding'] } : undefined);
       return reply.code(result.ok ? 200 : 503).send(result);
     } catch {
       return reply.code(503).send({ ok: false, missingModes: requiredModes, billCovered: null });
@@ -1653,6 +1688,10 @@ export async function buildApp(options: BuildAppOptions = {}) {
       request.headers,
       options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv),
     );
+    if (v11PaymentNotification) {
+      const trigger = await v11PaymentNotification(callback, String(request.headers["wechatpay-serial"]));
+      if (trigger.handled) return { code: "SUCCESS", idempotent: trigger.duplicate };
+    }
     const saved = await persistTrustedEvent(db, {
       source: "wechat-payment-callback", eventKey: callback.eventId,
       verificationMaterialId: String(request.headers["wechatpay-serial"]),
@@ -1670,6 +1709,10 @@ export async function buildApp(options: BuildAppOptions = {}) {
     if (!rawBody) return reply.code(400).send({ error: "Missing raw callback body" });
     const callback = verifyRefundNotification(rawBody, request.headers,
       options.wechatPayNotificationConfig ?? notificationConfigFromEnv(providerEnv));
+    if (v11RefundNotification) {
+      const trigger = await v11RefundNotification(callback, String(request.headers["wechatpay-serial"]));
+      if (trigger.handled) return { code: "SUCCESS", idempotent: trigger.duplicate };
+    }
     const saved = await persistTrustedEvent(db, {
       source: "wechat-refund-callback", eventKey: callback.eventId,
       verificationMaterialId: String(request.headers["wechatpay-serial"]),

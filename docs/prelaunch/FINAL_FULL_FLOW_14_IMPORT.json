@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-01T01:33:03.982419+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/http-journey-recovery.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-empty-journey/tests/prelaunch/http-journey-recovery.test.mjs",
+      "before": "793e0d28a1686ba65651021486d95783fda894db85b13064d7fd267c487d4fca",
+      "after": "c762c15a1171ca3677949605eca8b4f007be12f66a9e0be932b14f4d785ccc8e"
+    },
+    {
+      "path": "scripts/prelaunch-source-reproduce.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-repro-tests/scripts/prelaunch-source-reproduce.mjs",
+      "before": "0d2d6b1f725d48692b9b856d8c5495e1d61ff003cabec4e4d93fca887d2eb016",
+      "after": "f9c6ded43c4cf3ab36a3e7a3903b7d09d99b805a79ff98300bf30e51f5fc5db7"
+    },
+    {
+      "path": "services/api/src/prelaunch/aftersales.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/settled-correction-aftersales.ts",
+      "before": "1d1058a0a325047cacf899eaf16f3e7f54e8b4f672f81d8d0adf17aa53adb570",
+      "after": "2b00dd82c53909cb5f0be459adcb1be9cfd6358c8766027110b5a6cf24a4b80c"
+    },
+    {
+      "path": "tests/prelaunch/settled-correction-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/settled-correction-native.test.mjs",
+      "before": null,
+      "after": "1aa1233faafa53a8abad060f1ad18faed3ddcc080eabcaddeee86b890efa7c0a"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_FULL_FLOW_14/before",
+  "protected_unchanged": 33
+}

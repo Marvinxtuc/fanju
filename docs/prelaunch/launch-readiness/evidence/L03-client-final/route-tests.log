@@ -1,0 +1,16 @@
+
+> @timeleft-shanghai/api@0.0.0 test /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+> vitest run src/prelaunch/production-identity-routes.test.ts
+
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+
+{"level":30,"time":1790823070364,"pid":47085,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/api/v11/identity","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790823070365,"pid":47085,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","msg":"Route GET:/api/v11/identity not found"}
+{"level":30,"time":1790823070367,"pid":47085,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":404},"responseTime":1.784416913986206,"msg":"request completed"}
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  10:51:09
+   Duration  391ms (transform 147ms, setup 0ms, import 264ms, tests 46ms, environment 0ms)
+

@@ -1,0 +1,4 @@
+network-guard: PASS; exit=0; passed=N/A failed=N/A skipped=N/A
+legacy-worker-build: PASS; exit=0; passed=N/A failed=N/A skipped=N/A
+legacy-worker-process: PASS; exit=0; passed=1 failed=0 skipped=0
+Legacy consumer compatibility evidence: /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/worker-compat-2026-10-01T07-54-54-757Z

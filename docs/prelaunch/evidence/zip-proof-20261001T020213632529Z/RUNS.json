@@ -1,0 +1,109 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "runs": [
+    {
+      "id": "zip-proof-20261001T020213632529Z-zip-verification",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+      "runner": "native",
+      "command": "[\"python3\", \"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW/docs/prelaunch/tools/check_handoff.py\", \"--root\", \"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW",
+      "started_at": "2026-10-01T02:02:13.632811+00:00",
+      "finished_at": "2026-10-01T02:02:14.062413+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "toolchain": {
+        "python": "3.14.4",
+        "zipfile": "Python standard library"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ZIP_VERIFICATION.json"
+      ],
+      "stdout_sha256": "cddd7d1a7d302c0f22e0e29a0bb563dc3c29154fb64606da51772b8054e1bc15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifact_sha256": {
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stdout.log": "cddd7d1a7d302c0f22e0e29a0bb563dc3c29154fb64606da51772b8054e1bc15",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ZIP_VERIFICATION.json": "0f57dd19729bedb90cc29d013e38e595d72823cfce2588bd841146e8af75b23e"
+      }
+    },
+    {
+      "id": "zip-proof-20261001T020213632529Z-source-reproduction",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+      "runner": "native",
+      "command": "[\"node\", \"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW/source/scripts/prelaunch-source-reproduce.mjs\", \"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW\", \"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced\", \"/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/extract/FANJU_PRELAUNCH_REVIEW",
+      "started_at": "2026-10-01T02:02:14.062487+00:00",
+      "finished_at": "2026-10-01T02:02:30.159917+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "toolchain": {
+        "node": "v22.23.1",
+        "dependency": "Explicit identical-lockfile dependencies reused; no network install or new DB runtime"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/REPRODUCTION.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.tests.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.tests.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.tests.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ARTIFACT_VISIBILITY.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.tests.json",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stdout.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stderr.log",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stdout.log"
+      ],
+      "stdout_sha256": "ebd2ba9931dfc5535e63392178c4ce78a0e813ccd0f4dd05c1b80d5945a4ef9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifact_sha256": {
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stdout.log": "ebd2ba9931dfc5535e63392178c4ce78a0e813ccd0f4dd05c1b80d5945a4ef9c",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stderr.log": "fa0087e0749244ce9e49276e747ab033d5ad0fc2de821994918264ed1808482a",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/REPRODUCTION.json": "16d5d5c5e5f155c6ab58148ccd6c3fc85602c5cb38ef1d172c24c24bc32d3709",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.tests.json": "81404030b36e6bec54101ce484f840d6082d54fc744de2956cf6e41552fda18f",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stdout.log": "62fe76a1b177abb4b69dd765b9972f37a05d8c21124c6ae339dddf7e43ee5bc0",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stderr.log": "8adb01873e8904a0aa6d65ac9b93846849e1301639b86d46075ab33862d969e4",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stdout.log": "f88a61a4e82299e4b5e563bcc7cf63228d003ef786f41e24edcbd2972344769d",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stdout.log": "126064e4347cfdfb040f7e96ae0bf5b641ca7ae50d0c22210020dbbb7a70fc7a",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stderr.log": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.tests.json": "2a5b5d30895a5541ebd0b553a76f75ea9875de520db3e944251b2c255fd16a97",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stdout.log": "d53dbda1a25ebae5c50d1a43906c6cf0ec751864152dbf226d3b94fe0a58fde4",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stdout.log": "0b7466092b3e19b3f3c48ed82fbafb3fb877e126b39366697d6b101f4977e15e",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stdout.log": "bc7e380df82485327c5346ee0c593cf443c09d18fc8a020b71f955422fd2e357",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stderr.log": "2ddfa3cfa33eb09b33943e9b9bb4fc133d9ba6a2860dc78f865c8a3b70281dfe",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stdout.log": "20df6184ceab22bc17a8317bb48fb76a400fed11d9b46b33c73e5492e0d12cd3",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.tests.json": "5d704fdbae30c01be2605b0195efd32de34b8088f8a1d270a720a6a86042c43e",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ARTIFACT_VISIBILITY.json": "79da35729335ec51d923add8b72c69787ad393be2e841bd7742c8f04c165c1d0",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.tests.json": "d699e7f5a4865d88ce47a3a8083e52bd45496891d97db09c0f5049237ef40033",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stdout.log": "3ff078fadb11c2ff4096b69234278c0e316df99f3a834cd9bf5536646ba9e965",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stdout.log": "05e3dd09713b1039120446f7e96229a8186163480ccbe5c8238d61de508ca7fc"
+      }
+    }
+  ]
+}

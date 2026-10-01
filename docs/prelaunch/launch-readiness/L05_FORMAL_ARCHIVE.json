@@ -1,0 +1,27 @@
+{
+  "candidate": "19c36e723919d9ec0d803dfd6f885872666a2cbfde7d8c0dbc25b7a5939d95ba",
+  "status": "PASS_ENGINEERING_ONLY",
+  "postgres_tests_including_wrapper": 7,
+  "migration_count": 19,
+  "fresh_deploy_status_diff": "PASS",
+  "populated_upgrade": "PASS_PRIOR_COLUMNS_PRESERVED",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-21-24-912Z/RUNS.json",
+  "migration_evidence": "evidence/migration-2026-10-01T04-20-33-734Z",
+  "upgrade_evidence": "evidence/upgrade-2026-10-01T04-20-57-025Z",
+  "scope": "IMMUTABLE_MATERIAL_ARCHIVE_ONLY",
+  "activation": "NOT_ASSESSED",
+  "release_authorized": false,
+  "limits": [
+    "No actual OP/RV conclusions manufactured",
+    "No runtime policy/consent/financial authority mounted",
+    "No production migration or real merchant operation",
+    "Submitted role verified against current DB; formal session authentication is caller responsibility"
+  ],
+  "rollback": "Before deployment restore schema backup and remove added archive code/migration/test. After deployment retain expand table/data/migration history and roll back application assembly.",
+  "final_steps": 28,
+  "cross_process_tests": 149,
+  "backup_restore_tables": 50,
+  "archive_rows_restored": 1,
+  "restore_evidence": "docs/prelaunch/evidence/restore-2026-10-01T04-23-12-289Z/RESTORE.json",
+  "restored_archive_update_rejected": true
+}

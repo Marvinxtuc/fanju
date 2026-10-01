@@ -1,0 +1,62 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/baseline-run/packages/shared[39m
+
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22maccepts the complete imported bundle as valid integrity, with all 104 rules, 15 OP and 7 RV[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: USER_AGREEMENT[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: PRIVACY_NOTICE[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: REFUND_POLICY[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a declared body hash inconsistent with its full text[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects changed full text even when the original declared hash is retained[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects edited text with a newly recomputed candidate hash instead of trusting candidate expectations[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not normalize full text or line endings before hashing[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a baseline hash inconsistent with the pinned approved input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects edited baseline bytes with a candidate-supplied matching hash[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mismatched baseline document ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing Rule ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicate Rule IDs even with exactly 104 entries[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects unknown Rule IDs even with exactly 104 entries[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22maccepts reordered complete identities without sorting or changing input[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing OP[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing RV[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects an OP forged as Approved[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects an RV forged as Approved[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicated and unknown OP identities[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicated and unknown RV identities[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed top-level bundle version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed top-level bundle ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a user body from a different bundle[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed user-body bundle version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed document version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed document ID despite correct body bytes[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicate and unknown user-body identities[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mkeeps REBASED_DRAFT not activatable even when every text/hash is correct[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a forged non-draft bundle status[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a forged non-draft body status[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mcannot forge approval by passing approved=true or approvalEvidence[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects nested approval claims instead of accepting a new trust source[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not inherit a legacy Gate PASS[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not inherit a legacy single AgreementPolicy[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not let candidates supply their own trusted manifest[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mreturns only fixed codes, fields, indexes and pinned missing IDs, never secret or user data[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mis deterministic and does not mutate deeply frozen valid input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not mutate deeply frozen invalid input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #0[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #1[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #2[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #3[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #4[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #5[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed or oversized collections and invalid text types[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects candidate getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects ruleIds array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects documents array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects openDecisions array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects specialReviews array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects sparse arrays and non-JSON array properties[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m52 passed[39m[22m[90m (52)[39m
+[2m   Start at [22m 06:37:59
+[2m   Duration [22m 181ms[2m (transform 36ms, setup 0ms, import 50ms, tests 21ms, environment 0ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/baseline-2026-09-30T22-37-55-223Z/a1-tests.json

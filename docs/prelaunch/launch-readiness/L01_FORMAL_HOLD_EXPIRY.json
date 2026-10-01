@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "4176f90249a8fd4f9189d5b5dcd264cba66eb3b1ce7af5221801acba5dbdb8f2",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-04-36-794Z/RUNS.json",
+  "final_steps": 29,
+  "owned_database_tests_including_parent": 8,
+  "cross_process_tests": 193,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "setup": "FORMAL_HOLD_EXPIRY_SETUP.md",
+  "confirmed": [
+    "Atomic expiry preserves UNKNOWN payment state and records original query task and audit",
+    "Conflicting rights or timely payment evidence retained for review",
+    "Pagination and shared-runtime SIGTERM tested",
+    "Late full-refund obligation uses absolute expiry deadline"
+  ],
+  "remaining": [
+    "Real channel closure observation and closure worker",
+    "Production readiness integration",
+    "Formal business assembly and real merchant acceptance"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:22:17.561031+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/security-input.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-security/tests/prelaunch/security-input.test.mjs",
+      "before": null,
+      "after": "886cf76a4c47d3e473aa4732d4bc18670316f51a7d18a44e65a5f1c593bd54b1"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_SECURITY_05/before",
+  "protected_unchanged": 33
+}

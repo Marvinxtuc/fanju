@@ -1,0 +1,199 @@
+{
+  "at": "2026-10-01T02:02:54.890899+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ARTIFACT_VISIBILITY.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ARTIFACT_VISIBILITY.json",
+      "before": null,
+      "after": "79da35729335ec51d923add8b72c69787ad393be2e841bd7742c8f04c165c1d0"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/REPRODUCTION.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/REPRODUCTION.json",
+      "before": null,
+      "after": "16d5d5c5e5f155c6ab58148ccd6c3fc85602c5cb38ef1d172c24c24bc32d3709"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/RUNS.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/RUNS.json",
+      "before": null,
+      "after": "22ddc02bef78119058ddfdfd6ca1862efb4aca70d5e440c1b0435453ccc44d6e"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ZIP_VERIFICATION.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ZIP_VERIFICATION.json",
+      "before": null,
+      "after": "0f57dd19729bedb90cc29d013e38e595d72823cfce2588bd841146e8af75b23e"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/api.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/api.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/api.stdout.log",
+      "before": null,
+      "after": "f88a61a4e82299e4b5e563bcc7cf63228d003ef786f41e24edcbd2972344769d"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/generate.stderr.log",
+      "before": null,
+      "after": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/generate.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/generate.stdout.log",
+      "before": null,
+      "after": "05e3dd09713b1039120446f7e96229a8186163480ccbe5c8238d61de508ca7fc"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-dom-native.stderr.log",
+      "before": null,
+      "after": "8adb01873e8904a0aa6d65ac9b93846849e1301639b86d46075ab33862d969e4"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-dom-native.stdout.log",
+      "before": null,
+      "after": "20df6184ceab22bc17a8317bb48fb76a400fed11d9b46b33c73e5492e0d12cd3"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-dom-native.tests.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-dom-native.tests.json",
+      "before": null,
+      "after": "2a5b5d30895a5541ebd0b553a76f75ea9875de520db3e944251b2c255fd16a97"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-tests.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-tests.stdout.log",
+      "before": null,
+      "after": "0b7466092b3e19b3f3c48ed82fbafb3fb877e126b39366697d6b101f4977e15e"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/miniapp-tests.tests.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/miniapp-tests.tests.json",
+      "before": null,
+      "after": "5d704fdbae30c01be2605b0195efd32de34b8088f8a1d270a720a6a86042c43e"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ops-tests.stderr.log",
+      "before": null,
+      "after": "2ddfa3cfa33eb09b33943e9b9bb4fc133d9ba6a2860dc78f865c8a3b70281dfe"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ops-tests.stdout.log",
+      "before": null,
+      "after": "62fe76a1b177abb4b69dd765b9972f37a05d8c21124c6ae339dddf7e43ee5bc0"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops-tests.tests.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ops-tests.tests.json",
+      "before": null,
+      "after": "d699e7f5a4865d88ce47a3a8083e52bd45496891d97db09c0f5049237ef40033"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ops.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/ops.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/ops.stdout.log",
+      "before": null,
+      "after": "126064e4347cfdfb040f7e96ae0bf5b641ca7ae50d0c22210020dbbb7a70fc7a"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/shared-tests.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/shared-tests.stdout.log",
+      "before": null,
+      "after": "3ff078fadb11c2ff4096b69234278c0e316df99f3a834cd9bf5536646ba9e965"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared-tests.tests.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/shared-tests.tests.json",
+      "before": null,
+      "after": "81404030b36e6bec54101ce484f840d6082d54fc744de2956cf6e41552fda18f"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/shared.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/shared.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/shared.stdout.log",
+      "before": null,
+      "after": "d53dbda1a25ebae5c50d1a43906c6cf0ec751864152dbf226d3b94fe0a58fde4"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/source-reproduction.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/source-reproduction.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/source-reproduction.stdout.log",
+      "before": null,
+      "after": "ebd2ba9931dfc5535e63392178c4ce78a0e813ccd0f4dd05c1b80d5945a4ef9c"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/weapp.stderr.log",
+      "before": null,
+      "after": "fa0087e0749244ce9e49276e747ab033d5ad0fc2de821994918264ed1808482a"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/weapp.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/weapp.stdout.log",
+      "before": null,
+      "after": "bc7e380df82485327c5346ee0c593cf443c09d18fc8a020b71f955422fd2e357"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stderr.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/zip-verification.stderr.log",
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-proof-20261001T020213632529Z/zip-verification.stdout.log",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/evidence/zip-verification.stdout.log",
+      "before": null,
+      "after": "cddd7d1a7d302c0f22e0e29a0bb563dc3c29154fb64606da51772b8054e1bc15"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-timeout-history/ZIP_TIMEOUT_HISTORY.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ZIP_TIMEOUT_HISTORY.md",
+      "before": null,
+      "after": "d65a12b74726022b8cb3ae84c310fa8b83c053f72e4eb8afa7634b93cb5267e7"
+    },
+    {
+      "path": "docs/prelaunch/evidence/zip-timeout-history/INITIAL_PARTIAL_REPRODUCTION.json",
+      "source": "/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/REPRODUCTION.json",
+      "before": null,
+      "after": "60298d1c64e65c10ba0cf1483e4d1e6eb94acf2fc135cef9e8f7a84737a1dba7"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_ZIP_PROOF_23/before",
+  "protected_unchanged": 33
+}

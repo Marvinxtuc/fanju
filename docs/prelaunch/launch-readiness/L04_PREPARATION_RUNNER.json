@@ -1,0 +1,23 @@
+{
+  "candidate": "5804c589a70dd0f1ecc43dfa9f700173df8f9d27f322b3e14969d059676efbf2",
+  "validation": {
+    "migration_cases": 1,
+    "persistence_runner_cases": 7,
+    "parent_wrapper": 1,
+    "total": 9,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-preparation-runner",
+  "migration_scope": "Prior V11PaymentIntent CREATE TABLE and mock constraint extracted verbatim from baseline migration; complete new SQL run once in isolated transactional schema; existing mock row preserved. Transaction rolled back, no shared table modified by this migration test. Not a full production schema deploy rehearsal.",
+  "runner_scope": "Real owned PostgreSQL persistence with synthetic channel response/timeout; no WeChat network or real funds.",
+  "pending": [
+    "Formal principal/policy/hold authorization in production route",
+    "Query recovery/event application for existing or unknown channel orders",
+    "Worker lease and cancellation race integration",
+    "Real environment, real-device and payment acceptance"
+  ],
+  "rollback": "Remove added runner and migration test; restore prior native test backup if needed by removing only runner-related additions. No external deployment performed."
+}

@@ -1,0 +1,13 @@
+
+> @timeleft-shanghai/api@0.0.0 test /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+> vitest run src/providers.test.ts
+
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+
+
+ Test Files  1 passed (1)
+      Tests  19 passed (19)
+   Start at  10:54:44
+   Duration  403ms (transform 31ms, setup 0ms, import 62ms, tests 252ms, environment 0ms)
+

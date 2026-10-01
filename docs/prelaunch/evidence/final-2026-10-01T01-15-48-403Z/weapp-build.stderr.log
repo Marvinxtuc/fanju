@@ -1,0 +1,72 @@
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/12 entries 12/12 dependen
+cies 0/12 modules 3 active 
+ babel-loader › src/pages/home/index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 12/12 dependen
+cies 1/12 modules 11 active 
+ ...jy4l4xlktq/node_modules/@tarojs/webpack5-runner/dist/template/custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 90/146 depende
+ncies 3/36 modules 33 active 
+ ...orktrees/fanju-stage0-baseline/饭局/packages/shared/dist/rules/prelaunchCl
+ient.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 146/204 depend
+encies 7/53 modules 41 active 
+ ...de_modules/.pnpm/@tarojs+runtime@4.2.0/node_modules/@tarojs/runtime/dist/e
+nv.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 314/396 depend
+encies 31/106 modules 66 active 
+ ...@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/getPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 384/422 depend
+encies 47/117 modules 68 active 
+ ...de_modules/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 468/486 depend
+encies 63/134 modules 69 active 
+ .../@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/readOnlyErr
+or.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (14%) 1/12 entries 501/518 depend
+encies 77/148 modules 71 active 
+ ...es/.pnpm/@tarojs+shared@4.2.0/node_modules/@tarojs/shared/dist/runtime-hoo
+ks.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (60%) 11/12 entries 539/539 depen
+dencies 153/157 modules 4 active 
+ css-loader › postcss-loader › src/app.css
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+✔ Webpack
+  Compiled successfully in 2.11s
+

@@ -1,0 +1,4 @@
+
+> @timeleft-shanghai/ops@0.0.0 typecheck /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops
+> tsc -p tsconfig.json --noEmit
+

@@ -1,0 +1,43 @@
+{
+  "candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "status": "PASS_ENGINEERING_MEASUREMENT",
+  "environment": "OWNED_SYNTHETIC_POSTGRES",
+  "paymentRows": 10000,
+  "refundRows": 1000,
+  "rawBytes": 3516923,
+  "snapshotBytes": 9702582,
+  "elapsedMs": 26741,
+  "resumeMs": 248,
+  "pages": 44,
+  "queryJobs": 11000,
+  "finalAudits": 1,
+  "matchedCountsAndGlobalQueryDedupVerified": true,
+  "financialFactsUnchanged": true,
+  "individualFinancialFieldFingerprintVerified": true,
+  "result": {
+    "runId": "9474e35d-7e2c-442a-a65c-b861e22120bc",
+    "billDate": "2026-09-30",
+    "totalBillRows": 11000,
+    "outsideApplicationRows": 0,
+    "applicationPaymentRows": 10000,
+    "applicationRefundRows": 1000,
+    "legacyRows": 0,
+    "differences": 0,
+    "paymentQueriesQueued": 10000,
+    "refundQueriesQueued": 1000,
+    "recordedPaymentRowsInPeriod": 10000,
+    "confirmedRefundsWithoutTrustedPeriod": 0,
+    "confirmedRefundsInPeriod": 1000,
+    "refundTimeConflicts": 0,
+    "scope": "BILL_AND_RECORDED_FUNDS_SNAPSHOT",
+    "coverageState": "INCOMPLETE",
+    "refundPeriodCoverage": "OBSERVED",
+    "releaseAuthorized": false
+  },
+  "releaseAuthorized": false,
+  "limits": [
+    "Synthetic local workload only; no real merchant or production capacity guarantee",
+    "File and snapshot limits remain unchanged"
+  ],
+  "scriptSha256": "e49e68170ffa2c1e231dee5ca8930d4f592dc28082fa04e9cb7b8b4fb9930406"
+}

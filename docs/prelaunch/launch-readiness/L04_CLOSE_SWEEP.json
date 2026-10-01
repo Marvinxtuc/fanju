@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-25-10-300Z/RUNS.json",
+  "final_steps": 29,
+  "targeted_tests": 12,
+  "cross_process_tests": 197,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "channel_called": false,
+  "setup": "FORMAL_CLOSE_SWEEP_SETUP.md",
+  "confirmed": [
+    "Atomic bounded historical pages share send-time expiry authority",
+    "Stable business key restores missing tasks and preserves MANUAL history",
+    "Foreign binding ignored and missing audit sent to unique review case",
+    "51 historical rows traversed with cursor"
+  ],
+  "remaining": [
+    "Production invocation and scheduling",
+    "Child-process fault matrix",
+    "Readiness/alerts and real merchant acceptance"
+  ],
+  "backup": "backups/L04-close-sweep/"
+}

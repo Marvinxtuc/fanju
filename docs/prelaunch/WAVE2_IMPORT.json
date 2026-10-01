@@ -1,0 +1,227 @@
+{
+  "at": "2026-10-01T00:52:37.966722+00:00",
+  "files": [
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/scripts/prelaunch-final-verify.mjs",
+      "before": "caed695c3b7fbbe5932a6426eadbe986845ba202d4377cfa07c85a8f05b775c4",
+      "after": "e1c58bc6367939fb3f6b3af3359934cb978ed45eff2a29e75ecd1bbed00f5092"
+    },
+    {
+      "path": "scripts/prelaunch-package.py",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/scripts/prelaunch-package.py",
+      "before": "2b8add9bf8f4f9af8a54d45a07d9554714885e8a485f057c217bff9ab1273b05",
+      "after": "ba753f2ff3316f0c9d92af2d03204c9061e052540413fc9680b94819b14f65a8"
+    },
+    {
+      "path": "scripts/prelaunch-owned-env.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/scripts/prelaunch-owned-env.mjs",
+      "before": "546b5131ab33cb8394fc0863cc69415eb0492eb940c57689f4ef035c8a4bee64",
+      "after": "38950e93450ff1e49015e1e0d7cc32e47a3fcaaece5b168210054b606d3bfdb5"
+    },
+    {
+      "path": "scripts/prelaunch-recovery.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/scripts/prelaunch-recovery.mjs",
+      "before": "f784d54533bbcad9fbf5a6766963df0fb2a2283759e5d19d503ae2db5395d7b8",
+      "after": "e4cc3c187e4dab93665ea521f6cb7ca42bc3d2f3d80c229d77991d49864d2fda"
+    },
+    {
+      "path": "tests/prelaunch/aftersales-process.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/tests/prelaunch/aftersales-process.test.mjs",
+      "before": "c11038a08ec7104b51423d406459eb333c56bbdceeb175b69748c4d7865b8b41",
+      "after": "b5d3d89aaac600cc6f6992417b6b8606a0fd394d24096967b95a1ce71625a12b"
+    },
+    {
+      "path": "tests/prelaunch/http-journey-recovery.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/tests/prelaunch/http-journey-recovery.test.mjs",
+      "before": null,
+      "after": "0ef67ce837ad33c57e680a63fe99f797b216a4aa1d3e29dccf14165c286387bb"
+    },
+    {
+      "path": "tests/prelaunch/restore-reconciliation.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/tests/prelaunch/restore-reconciliation.test.mjs",
+      "before": null,
+      "after": "3d49c4110795501365fa9e8bbb75b2d37e7b610770555407fbd86a36db768566"
+    },
+    {
+      "path": "tests/ui/miniapp-prelaunch.test.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/tests/ui/miniapp-prelaunch.test.tsx",
+      "before": "0ba20b4b60a4999199a3164b364aebb0a1103e49cdd793f6a4739907f8f9d54c",
+      "after": "c97b8a2900ae9cb9e80a575a44c427d1f6dc637e81a526d0a0554112ebbb960a"
+    },
+    {
+      "path": "apps/ops/vitest.prelaunch.config.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa/apps/ops/vitest.prelaunch.config.ts",
+      "before": null,
+      "after": "563c7ee59093db5ac61d73371b2970d02f8f857dfe6a88af061468972040b7b1"
+    },
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/domain.ts",
+      "before": "d5536f766792aa15c37330800a44cdb328129ed6a7c148f323fb9c2972c7d27b",
+      "after": "9531cbb51cbaea4689cbc11a73f9a1731faeecedd5434a4421b643666cac9034"
+    },
+    {
+      "path": "services/api/src/prelaunch/policy.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/policy.ts",
+      "before": "bae8f1a7976107f44970bab77fbbd0d774178e97404a92db363d00d4472aced4",
+      "after": "bae8f1a7976107f44970bab77fbbd0d774178e97404a92db363d00d4472aced4"
+    },
+    {
+      "path": "services/api/src/prelaunch/routes.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/routes.ts",
+      "before": "b6ea29dc4685ce9ebac5294428cb4d626682050fae503300095bd93a128a2107",
+      "after": "b9add16a275207a08902a0fe4837254cad3894a7756f44e887d2fd69c002087c"
+    },
+    {
+      "path": "services/api/src/prelaunch/server.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/server.ts",
+      "before": "34c5fceb441bef9941a8e96e27b6cfb5082c7a67831a49f789dc9708b30794da",
+      "after": "34c5fceb441bef9941a8e96e27b6cfb5082c7a67831a49f789dc9708b30794da"
+    },
+    {
+      "path": "services/api/src/prelaunch/worker.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/worker.ts",
+      "before": "dae906d823709de55338e79bf5fc9222bad43d3b6e93f168305220e4ce30777d",
+      "after": "dae906d823709de55338e79bf5fc9222bad43d3b6e93f168305220e4ce30777d"
+    },
+    {
+      "path": "services/api/src/prelaunch/finance.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/finance.ts",
+      "before": null,
+      "after": "f45b24d30a5bf865aa79baae121a888eac0ae9a1b6ae5fb8a2c4345572a3bc8c"
+    },
+    {
+      "path": "tests/prelaunch/money-state.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/tests/money-state.test.mjs",
+      "before": null,
+      "after": "f0d88d9a7cdfe1d524d62634767db830f5d78f7f99fcad1788b653e8e1724375"
+    },
+    {
+      "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/miniapp/src/pages/prelaunch/index.tsx",
+      "before": "3645d4bc07b42db18b442d53f7451d2f30a76130229f7a23a5bdca744be990f9",
+      "after": "fd2782dd72ee01503d63ff091980c6609c08cd34949dbfc68742ce625d67cab2"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/src/PrelaunchWorkspace.tsx",
+      "before": "b9c56660719601e885a9a955bbc8dd50b5030712b0819cfbea5b5f9071cf2e8a",
+      "after": "c0dc1d21a631f2cc5b8621a2cf07fe321d77698f96eae571118954e001c354cf"
+    },
+    {
+      "path": "apps/ops/src/prelaunch-time.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/src/prelaunch-time.ts",
+      "before": "59f840123f298b0b1abf2d9a95699423f581ecf437604f7dd65131438d9af6e8",
+      "after": "59f840123f298b0b1abf2d9a95699423f581ecf437604f7dd65131438d9af6e8"
+    },
+    {
+      "path": "apps/ops/src/prelaunch-time.test.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/src/prelaunch-time.test.ts",
+      "before": "dca533503497cd34bfed9c4eaedb1bc239d86b02f2a161d9d2d7633e12bef6a7",
+      "after": "dca533503497cd34bfed9c4eaedb1bc239d86b02f2a161d9d2d7633e12bef6a7"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.test.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/src/PrelaunchWorkspace.test.tsx",
+      "before": "f163027aa1352287e9ce37971a916dc3df6c5b35893c2d21b8bfbf9ded65bc2f",
+      "after": "f163027aa1352287e9ce37971a916dc3df6c5b35893c2d21b8bfbf9ded65bc2f"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/packages/shared/src/rules/prelaunchClient.ts",
+      "before": "852b0b1b99af1437d441c578ae5b5459bf1c4a46731560758acb55383f7b7b82",
+      "after": "a019e67e6510c9b251b14917bfa4f659fb9344a5d4ffcb063dc5a45df1d5e967"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.test.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/packages/shared/src/rules/prelaunchClient.test.ts",
+      "before": "d1a8c1bef77edf4c66b48d5ada0fa02acf171a55d6656d95649d32cfc5c9b093",
+      "after": "b43fce30d2332958a2642617b508e41bdf708dda33fa6c4dce6da68aee184514"
+    },
+    {
+      "path": "apps/ops/package.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/package.json",
+      "before": "1144afefe463934fc11b34ea78098c4cc79e97a01f3b8ca248fed9d76716b091",
+      "after": "bfef9e47dcb067f923f8f994245d4fd08b648c76445d5b0f4c72165cab1dddda"
+    },
+    {
+      "path": "apps/miniapp/package.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/miniapp/package.json",
+      "before": "d65e2b47fee7e8e8c092e3ac30ebb564fc7262c3c398714ad056be585589ee3f",
+      "after": "070b0434b2dd963f14d40ee64d66e365b6fb4678e844f48532d5f33278be91da"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/packages/shared/package.json",
+      "before": "8185fac7c48c032385a9ffa348b50c6f72b41bf246db807096e314ae8db30726",
+      "after": "b08a261140acf4b4faba4122eb721448bb61d56c92754c16537278aa8caccb01"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/pnpm-lock.yaml",
+      "before": "28dcb0f67dc47ffac59cfa6a5b1d159c448e1a7a63781930b3b6b9e0a47dba13",
+      "after": "84d4d895f46f494294c3724df3f05117911ee0dd296165087e6bc34b38c96689"
+    },
+    {
+      "path": "apps/miniapp/src/prelaunch-api.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/miniapp/src/prelaunch-api.ts",
+      "before": "113d07fab725189d0109236876643f46400ca9b6abe006774f3274e92f6e45b9",
+      "after": "7ff3a0c03da2946f89b0813be0abd0115cb4a2620c075bcff53698365c6f6c45"
+    },
+    {
+      "path": "apps/ops/src/prelaunch-api.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui/apps/ops/src/prelaunch-api.ts",
+      "before": "a7d4271f50f2c6d8bd62d6dc11ddf64adee0a24600dfce8033cd785fbdc5a2d4",
+      "after": "ee95c8f9c006bb3a8ce356ab773d9cd88b15e71002ecde297dcddabfc6e523f9"
+    },
+    {
+      "path": "services/api/src/prelaunch/aftersales.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/main/services/api/src/prelaunch/aftersales.ts",
+      "before": "1431e9961718ea19f70547df20d99d5116a07304109a7e324ec87af12e0c8492",
+      "after": "1431e9961718ea19f70547df20d99d5116a07304109a7e324ec87af12e0c8492"
+    },
+    {
+      "path": "services/api/src/prelaunch/reconciliation.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/main/services/api/src/prelaunch/reconciliation.ts",
+      "before": null,
+      "after": "0d3bd283a804a6eae5211ef45bc87d4adf682a2f036f063465f908f48a26bff9"
+    }
+  ],
+  "protected_hashes": {
+    "docs/policy/BUSINESS_RULES_BASELINE.md": "38f06f87684d2aee70dd8853391085af22da399cbdd5e2771b26ba54925376ec",
+    "docs/policy/CODEX_NEXT_TASK.md": "68973dcfc9946633a0b5fcc0769ece3e8c00067be1a12878d3c3035861bdbaad",
+    "docs/policy/CONSISTENCY_REPORT.md": "0a3f7aeb862154e9f4a701f12744df1bff53dce5b4325bf8855ec57cc6bb0d9e",
+    "docs/policy/OPEN_DECISION_REVIEW.md": "7e1b177698826d117a64c8d2de7552db287e79bde32f998150786d648a422965",
+    "docs/policy/POLICY_DECISION_PROPOSALS.md": "80d398e572d2821088589f467a76ec1b6d1d0180b73b79fd41b1a15be5b47dde",
+    "docs/policy/POLICY_GAP_ANALYSIS.md": "dab681614df0f91201b6cbedba631eab894b9b3614220e2351897b4598f528b6",
+    "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md": "41ca1f220f61ec8ddbb83ce8809be088a8944787e0276c6742f6044f1b654505",
+    "docs/policy/POLICY_REBASE_CHANGELOG.md": "540b4b407f5d239edd9823a053bd780f8b81f97d4046665f21a44ffcd34f5ae5",
+    "docs/policy/POLICY_REBASE_V1_1_CHANGELOG.md": "0548ac0a7d9472326e475990e75de64ecaf5423b09672f9764a5c73044f1d7aa",
+    "docs/policy/POLICY_TECH_DESIGN.md": "899b43dcae7d519810c1f73520c49df311aec82dc533ff5339c941f29ce0e002",
+    "docs/policy/POLICY_V1_1_BUNDLE_MANIFEST.json": "64b0f33a18ee98095b838dab0271b6974e93a29f065fba8d356c9de164f0c8c9",
+    "docs/policy/POLICY_V1_1_CONSISTENCY_REPORT.md": "9f0e0a0b57c23676ffa34433e13bd327132d7bd096f0e4670ad427c68346c058",
+    "docs/policy/POLICY_WORK_PACKAGES.md": "fb5ec4dde5b44c89a3c0cccc40002508e03955296ee8270ba15c36194c854b09",
+    "docs/policy/PRIVACY_NOTICE.md": "2d7a4b00404a07fed3b27f2526718224b58c3ec5e4027146ee4e8e8847ec7b40",
+    "docs/policy/README.md": "f85c36facadfeb527661fd22b1be03013a0237f81355facc321204979d7e4516",
+    "docs/policy/REFUND_POLICY.md": "c5b1207fde76a3d853df4eaac56b58ca8bdad5e2f20cb3f0d539071b7c4003d7",
+    "docs/policy/RESTAURANT_SERVICE_STANDARD.md": "9b7b679f0669e08cdcaa5a1b0a6ac882534592da17fca3e7136f3d1a3eec1761",
+    "docs/policy/SHA256SUMS_V1_1.txt": "c2982d2c7f0af730c544f8893da1e110d675b2652fff0ae540a22dfe36465435",
+    "docs/policy/TRACEABILITY_INDEX.json": "5b60aecc60afd049a48be1630726277bb25254741b7e1bb01d384450941073f0",
+    "docs/policy/USER_AGREEMENT.md": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+    "docs/policy/WP10_A1_REVIEW.md": "9e48adcc56b73a2a34ce3938a79cee49766dbdd86b02f4d77c04a356fbe0882d",
+    "docs/policy/WP10_A_REVIEW.md": "4c82799d332b824f20d92c725992b71639f6a84938cbb7f3bc4562d2b9e05810",
+    "docs/policy/sources/FJ_DR01_DR02_DECISION_FREEZE_V1_1_INPUT.md": "0268f125663f3a31f9ebb0c8c49870bb2f3df9d47776e2c54439f162b1508743",
+    "docs/policy/sources/REFERENCE_NOTES.md": "e1b0a6f5643f0b245257e8074301b72810de758d151bed36d0ad563495e8f129",
+    "docs/policy/sources/fanju_policy_cto_checklist_2026-09-30.md": "45d488d8f7a618a3df4924057e06250e6fa8d6b49af955008a7d2a9d9236200d",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/BUSINESS_RULES_BASELINE.md": "48357a92e9d84e816f84948149363834746c3cfd9d1936df228c7ae280f0c187",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/PRIVACY_NOTICE.md": "ecf1a9ffbe7a54b71c9291cacb36d12e0d6b47657cf6b9386789c9b1cb5fe912",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/REFUND_POLICY.md": "4fddec3eb1a3a74f1de94d49385ef8d1c5f1ea16c7f14293b5526fa1daf8e93e",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/SHA256SUMS": "56550ec2ce795315250fda8b9147781d45f5e7b6c78c4c7afb8a2210fad1e7f4",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/TRACEABILITY_INDEX.json": "f7792323105aad37b4f9fc20c7054657f7dbf458488d91c06dfaf6961be34dba",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/USER_AGREEMENT.md": "daa90ce2e21e5b421c7b1a5303fe5a2a0b7e0245e131d0d748ac990b9b935599",
+    "packages/shared/src/rules/policyBundle.test.ts": "5a9b4a327a02666cc912665950cc5b6be5b2064227044e2d3299af78fa44f58c",
+    "packages/shared/src/rules/policyBundle.ts": "ce5fa6c69555de62adba71c32efcfaf07a588358ec659fa2c695a8e034086ada"
+  },
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/wave2-before"
+}

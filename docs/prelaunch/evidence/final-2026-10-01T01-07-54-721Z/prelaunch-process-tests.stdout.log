@@ -1,0 +1,285 @@
+TAP version 13
+# Subtest: owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+    # Subtest: HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+    ok 1 - HTTP readiness, authenticated profile, strict input, roles, token revocation and no private response
+      ---
+      duration_ms: 395.442375
+      type: 'test'
+      ...
+    # Subtest: normal fulfillment schedules D once, preserves F, and can be read repeatedly
+    ok 2 - normal fulfillment schedules D once, preserves F, and can be read repeatedly
+      ---
+      duration_ms: 137.801875
+      type: 'test'
+      ...
+    # Subtest: two rounds retain explanation and require a different final reviewer person
+    ok 3 - two rounds retain explanation and require a different final reviewer person
+      ---
+      duration_ms: 280.17775
+      type: 'test'
+      ...
+    # Subtest: core restaurant change rejection preserves snapshot and separately records unresolved compensation
+    ok 4 - core restaurant change rejection preserves snapshot and separately records unresolved compensation
+      ---
+      duration_ms: 106.97375
+      type: 'test'
+      ...
+    # Subtest: privacy export excludes direct identifiers, closure retains obligations and original money facts
+    ok 5 - privacy export excludes direct identifiers, closure retains obligations and original money facts
+      ---
+      duration_ms: 109.256042
+      type: 'test'
+      ...
+    # Subtest: 20 competing refunds serialize component budgets and channel original-trade budget independently
+    ok 6 - 20 competing refunds serialize component budgets and channel original-trade budget independently
+      ---
+      duration_ms: 138.086667
+      type: 'test'
+      ...
+    # Subtest: A lease expiration B completion fences old A finish and retry
+    ok 7 - A lease expiration B completion fences old A finish and retry
+      ---
+      duration_ms: 9.375709
+      type: 'test'
+      ...
+    1..7
+ok 1 - owned HTTP app and real PostgreSQL aftersales preserve rights, budgets, reviewer identities and immutable snapshots
+  ---
+  duration_ms: 1482.087291
+  type: 'test'
+  ...
+# Subtest: PRE008: twenty concurrent startPayment calls across two Prisma clients preserve one merchant intent
+ok 2 - PRE008: twenty concurrent startPayment calls across two Prisma clients preserve one merchant intent
+  ---
+  duration_ms: 346.493375
+  type: 'test'
+  ...
+# Subtest: PRE016: twenty concurrent formal registrations across two Prisma clients contest exactly one final seat
+ok 3 - PRE016: twenty concurrent formal registrations across two Prisma clients contest exactly one final seat
+  ---
+  duration_ms: 434.172542
+  type: 'test'
+  ...
+# Subtest: PRE013: native orphan trusted payment and refund events persist MANUAL cases without qualification
+ok 4 - PRE013: native orphan trusted payment and refund events persist MANUAL cases without qualification
+  ---
+  duration_ms: 83.246583
+  type: 'test'
+  ...
+# Subtest: PRE009: native PAYMENT accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+ok 5 - PRE009: native PAYMENT accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+  ---
+  duration_ms: 282.704042
+  type: 'test'
+  ...
+# Subtest: PRE009: native REFUND accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+ok 6 - PRE009: native REFUND accepted channel timeout persists UNKNOWN then queries one original fact to CONFIRMED
+  ---
+  duration_ms: 226.65275
+  type: 'test'
+  ...
+# Subtest: PRE010: native PAYMENT callback success before original timeout remains CONFIRMED and keeps one effect
+ok 7 - PRE010: native PAYMENT callback success before original timeout remains CONFIRMED and keeps one effect
+  ---
+  duration_ms: 197.24025
+  type: 'test'
+  ...
+# Subtest: PRE010: native REFUND callback success before original timeout remains CONFIRMED and keeps one effect
+ok 8 - PRE010: native REFUND callback success before original timeout remains CONFIRMED and keeps one effect
+  ---
+  duration_ms: 113.94125
+  type: 'test'
+  ...
+# Subtest: PRE044: native event transaction fails before ACK and rolls back all effects then repeated persistence commits once
+ok 9 - PRE044: native event transaction fails before ACK and rolls back all effects then repeated persistence commits once
+  ---
+  duration_ms: 79.212375
+  type: 'test'
+  ...
+# Subtest: real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+ok 10 - real owned HTTP supply-to-payment-to-cancellation journey survives separate worker deaths after channel success
+  ---
+  duration_ms: 3117.265709
+  type: 'test'
+  ...
+# Subtest: R4: individual core-change rejection invalidates remaining table hides address and lawful new payment restores formation
+ok 11 - R4: individual core-change rejection invalidates remaining table hides address and lawful new payment restores formation
+  ---
+  duration_ms: 736.32475
+  type: 'test'
+  ...
+# Subtest: R4: delayed T24 materialization reconstructs historical formation and never fails an already formed cutoff table
+ok 12 - R4: delayed T24 materialization reconstructs historical formation and never fails an already formed cutoff table
+  ---
+  duration_ms: 232.23275
+  type: 'test'
+  ...
+# Subtest: owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+ok 13 - owned DB: released pending hold promotes earliest persistent ordinal, exit remains ended
+  ---
+  duration_ms: 1059.180333
+  type: 'test'
+  ...
+# Subtest: owned DB: unknown table state fails closed; cutoff prevents new promotion
+ok 14 - owned DB: unknown table state fails closed; cutoff prevents new promotion
+  ---
+  duration_ms: 37.765958
+  type: 'test'
+  ...
+# Subtest: R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+ok 15 - R2-01: T24 processing then pending waitlist success keeps receipt, ends eligibility and reserves full refund
+  ---
+  duration_ms: 243.666584
+  type: 'test'
+  ...
+# Subtest: R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+ok 16 - R2-02: delayed T24 reconstructs leftAt history without replacing current INVALIDATED state
+  ---
+  duration_ms: 157.941708
+  type: 'test'
+  ...
+# Subtest: R2-03: expired generation cannot pass locked lease fencing or write a business effect
+ok 17 - R2-03: expired generation cannot pass locked lease fencing or write a business effect
+  ---
+  duration_ms: 21.3545
+  type: 'test'
+  ...
+# Subtest: R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+ok 18 - R2-04: cancel commit before old PAY job dispatch creates only CLOSED merchant fact, no collection
+  ---
+  duration_ms: 47.956666
+  type: 'test'
+  ...
+# Subtest: R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+ok 19 - R2-05: successful event acceptance commits qualification at verifiedAt before ACK and replay is idempotent
+  ---
+  duration_ms: 36.770875
+  type: 'test'
+  ...
+# Subtest: R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+ok 20 - R2-06: formal re-entry preserves and blocks a prior UNKNOWN payment after seat release
+  ---
+  duration_ms: 29.940584
+  type: 'test'
+  ...
+# Subtest: R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+ok 21 - R2-07: cancellation with another businessKey returns original acceptedAt and table decision
+  ---
+  duration_ms: 46.469792
+  type: 'test'
+  ...
+# Subtest: R2-08: corrupted table state cannot create refund entitlement or erase membership
+ok 22 - R2-08: corrupted table state cannot create refund entitlement or erase membership
+  ---
+  duration_ms: 49.011875
+  type: 'test'
+  ...
+# Subtest: R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+ok 23 - R2-09: frozen source valid but stored snapshot corrupted is refused without rewriting history
+  ---
+  duration_ms: 31.30925
+  type: 'test'
+  ...
+# Subtest: component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+ok 24 - component summary and financial case: D refund then F complement conserve budgets; unknown case cannot close
+  ---
+  duration_ms: 117.7015
+  type: 'test'
+  ...
+# Subtest: native API: immutable supply revision, scoped history, queue and financial-case role checks
+ok 25 - native API: immutable supply revision, scoped history, queue and financial-case role checks
+  ---
+  duration_ms: 153.362291
+  type: 'test'
+  ...
+# Subtest: restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+ok 26 - restored owned PostgreSQL discovers post-backup channel success and replays newer privacy correction without reviving expired seats
+  ---
+  duration_ms: 2334.974292
+  type: 'test'
+  ...
+# Subtest: R2 new binding: foreign payment and refund bindings preserve MANUAL events without mock fallback
+not ok 27 - R2 new binding: foreign payment and refund bindings preserve MANUAL events without mock fallback
+  ---
+  duration_ms: 154.59425
+  type: 'test'
+  location: '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/prelaunch/review-safety-native.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: 'new row for relation "V11PaymentIntent" violates check constraint "V11PaymentIntent_mock_only"'
+  code: 'ERR_TEST_FAILURE'
+  name: 'DriverAdapterError'
+  stack: |-
+    PrismaPgAdapter.onError (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+adapter-pg@7.8.0/node_modules/@prisma/adapter-pg/dist/index.js:678:11)
+    PrismaPgAdapter.performIO (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+adapter-pg@7.8.0/node_modules/@prisma/adapter-pg/dist/index.js:673:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async PrismaPgAdapter.queryRaw (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+adapter-pg@7.8.0/node_modules/@prisma/adapter-pg/dist/index.js:604:30)
+    async e.interpretNode (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:11:44621)
+    async e.interpretNode (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:11:45065)
+    async e.interpretNode (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:11:43744)
+    async e.interpretNode (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:11:46285)
+    async e.run (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:11:43335)
+    async e.execute (/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/.pnpm/@prisma+client@7.8.0_prisma@7.8.0_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j723ikbpncosxntc4jeg2yg2te/node_modules/@prisma/client/runtime/client.js:57:815)
+  ...
+# Subtest: R2 new notice: concurrent receives preserve one receivedAt and sequential retries return the same clock
+ok 28 - R2 new notice: concurrent receives preserve one receivedAt and sequential retries return the same clock
+  ---
+  duration_ms: 203.962709
+  type: 'test'
+  ...
+# Subtest: R2 new change: canonical identical retry preserves one change and conflicting compensation rejects
+ok 29 - R2 new change: canonical identical retry preserves one change and conflicting compensation rejects
+  ---
+  duration_ms: 26.956958
+  type: 'test'
+  ...
+# Subtest: R2 new reconciliation: APPLIED event with missing receipt binding opens case and never counts false recovery
+ok 30 - R2 new reconciliation: APPLIED event with missing receipt binding opens case and never counts false recovery
+  ---
+  duration_ms: 605.500875
+  type: 'test'
+  ...
+# Subtest: R2 parser: native malformed JSON oversized body and unsupported media return sanitized 400 413 415
+ok 31 - R2 parser: native malformed JSON oversized body and unsupported media return sanitized 400 413 415
+  ---
+  duration_ms: 59.647291
+  type: 'test'
+  ...
+# Subtest: scanner exempts only a complete 64-hex token and retains adjacent/punctuated phone matches
+ok 32 - scanner exempts only a complete 64-hex token and retains adjacent/punctuated phone matches
+  ---
+  duration_ms: 0.614375
+  type: 'test'
+  ...
+# Subtest: actual scanner CLI accepts embedded numeric hash but rejects a standalone synthetic phone
+ok 33 - actual scanner CLI accepts embedded numeric hash but rejects a standalone synthetic phone
+  ---
+  duration_ms: 309.237625
+  type: 'test'
+  ...
+# Subtest: VEN04 VEN05: native supply bounds restaurant signature approval and immutable revision gates
+ok 34 - VEN04 VEN05: native supply bounds restaurant signature approval and immutable revision gates
+  ---
+  duration_ms: 353.070542
+  type: 'test'
+  ...
+# Subtest: VEN06: native FILL_TO_TARGET streams two bounded tables never splits formed members and promotes queue head
+ok 35 - VEN06: native FILL_TO_TARGET streams two bounded tables never splits formed members and promotes queue head
+  ---
+  duration_ms: 1278.0345
+  type: 'test'
+  ...
+# Subtest: VEN06: native FILL_TO_MAX streams two bounded tables never splits formed members and promotes queue head
+ok 36 - VEN06: native FILL_TO_MAX streams two bounded tables never splits formed members and promotes queue head
+  ---
+  duration_ms: 896.5325
+  type: 'test'
+  ...
+1..36
+# tests 43
+# suites 0
+# pass 42
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17250.306417

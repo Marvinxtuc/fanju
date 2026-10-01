@@ -1,0 +1,176 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "items": [
+    {
+      "id": "OP-03",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "实际金额、收费主体、账户和票据未定；真实收费关闭",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：实际金额、收费主体、账户和票据未定；真实收费关闭",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。实际金额、收费主体、账户和票据未定；真实收费关闭"
+    },
+    {
+      "id": "OP-04",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "成员减少生效时点未定；保留申请时刻与待处理效果，不依据退款状态推断移除",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：成员减少生效时点未定；保留申请时刻与待处理效果，不依据退款状态推断移除",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。成员减少生效时点未定；保留申请时刻与待处理效果，不依据退款状态推断移除"
+    },
+    {
+      "id": "OP-05",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "FIFO时钟、截止支付与新客类别残余参数未定；不得作为生产默认",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：FIFO时钟、截止支付与新客类别残余参数未定；不得作为生产默认",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。FIFO时钟、截止支付与新客类别残余参数未定；不得作为生产默认"
+    },
+    {
+      "id": "OP-07",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "最低继续人数、失联及反复退人条件未定；相关收费准入关闭",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：最低继续人数、失联及反复退人条件未定；相关收费准入关闭",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。最低继续人数、失联及反复退人条件未定；相关收费准入关闭"
+    },
+    {
+      "id": "OP-08",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "在途支付、重复资格与敞口交集未定；不得无限付费候补",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：在途支付、重复资格与敞口交集未定；不得无限付费候补",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。在途支付、重复资格与敞口交集未定；不得无限付费候补"
+    },
+    {
+      "id": "OP-09",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "新旧T、其他变更超时和补偿范围未定；不得代替用户选择",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：新旧T、其他变更超时和补偿范围未定；不得代替用户选择",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。新旧T、其他变更超时和补偿范围未定；不得代替用户选择"
+    },
+    {
+      "id": "OP-10",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "真实采集字段、材料和保留范围未获批准；不引入健康档案",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：真实采集字段、材料和保留范围未获批准；不引入健康档案",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。真实采集字段、材料和保留范围未获批准；不引入健康档案"
+    },
+    {
+      "id": "OP-11",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "正式批次、补证、审核SLA与自动义务审批未定",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：正式批次、补证、审核SLA与自动义务审批未定",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。正式批次、补证、审核SLA与自动义务审批未定"
+    },
+    {
+      "id": "OP-12",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "当晚跨日、最长失联和补录标准未定",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：当晚跨日、最长失联和补录标准未定",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。当晚跨日、最长失联和补录标准未定"
+    },
+    {
+      "id": "OP-13",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "正式送达含义、默认违约前提、通知字段与客服受理未批",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：正式送达含义、默认违约前提、通知字段与客服受理未批",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。正式送达含义、默认违约前提、通知字段与客服受理未批"
+    },
+    {
+      "id": "OP-14",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "真实账户、渠道、周期和翻案垫付主体未定；不得支付真实餐厅",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：真实账户、渠道、周期和翻案垫付主体未定；不得支付真实餐厅",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。真实账户、渠道、周期和翻案垫付主体未定；不得支付真实餐厅"
+    },
+    {
+      "id": "OP-15",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "注销中新报名、撤回、终态地址与保留期限未决；不默认改变权益",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "由获授权业务负责人明确并签收上述残余参数、适用范围与生效条件：注销中新报名、撤回、终态地址与保留期限未决；不默认改变权益",
+      "handling": "保留已确认规则与客户已知义务；仅阻断该未决参数对应的生产正向效果。注销中新报名、撤回、终态地址与保留期限未决；不默认改变权益"
+    },
+    {
+      "id": "RV-01",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "保证金性质与成团扣留专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供保证金性质与成团扣留专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-02",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "默认违约与送达专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供默认违约与送达专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-03",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "低人数例外专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供低人数例外专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-04",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "性别与成年信息最小化专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供性别与成年信息最小化专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-05",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "敏感材料专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供敏感材料专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-06",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "收付与结算专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供收付与结算专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    },
+    {
+      "id": "RV-07",
+      "kind": "POLICY",
+      "state": "OPEN",
+      "description": "披露与保障专项真实角色签收尚未提供",
+      "owner_role": "User-authorized policy/business or specialist review owner",
+      "required_input": "提供披露与保障专项的真实专业审查、责任角色和签收证据；SIMULATION_ONLY记录不得替代",
+      "handling": "保留生产准入阻断和客户已知责任处理；合成前置记录只用于验证机制，不写真实政策APPROVED"
+    }
+  ]
+}

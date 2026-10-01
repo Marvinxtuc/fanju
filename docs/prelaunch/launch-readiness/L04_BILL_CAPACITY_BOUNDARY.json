@@ -1,0 +1,29 @@
+{
+  "candidate": "d2b9de60fd62da98471f4cdad306af730ee61c37038adaa7291bdec15785ba95",
+  "status": "MEASURED_ENGINEERING_ONLY",
+  "environment": "OWNED_SYNTHETIC_POSTGRES",
+  "workload": "ALL_APPLICATION_PAYMENT_ROWS_WITHOUT_LOCAL_INTENTS",
+  "rows": [
+    {
+      "rows": 30000,
+      "bytes": 8198359,
+      "elapsedMs": 30241,
+      "errorCode": "P2028",
+      "status": "REJECTED",
+      "events": 0,
+      "cases": 0,
+      "audits": 0,
+      "atomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    }
+  ],
+  "releaseAuthorized": false,
+  "limits": [
+    "Local measurements only; not production capacity or merchant acceptance",
+    "No local intent/refund matching workload measured",
+    "Existing file/row and transaction limits retained"
+  ],
+  "scriptSha256": "9b1926dd1c735845ac46d18294d10b6a7fa336456989f23593688b478ec83983",
+  "script_path": "docs/prelaunch/evidence/bill-capacity-2026-10-01/bill-capacity-boundary.mjs",
+  "source_candidate_rechecked_after_run": "d2b9de60fd62da98471f4cdad306af730ee61c37038adaa7291bdec15785ba95"
+}

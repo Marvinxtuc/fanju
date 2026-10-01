@@ -1,0 +1,34 @@
+{
+  "candidate": "35ceb6d209c923c302b2ae71d2d6e04f24a3dfbf9449d4c9f495edbac86cd74c",
+  "files": [
+    "prisma/schema.prisma",
+    "prisma/migrations/20261001010000_v11_payment_preparation/migration.sql",
+    "services/api/src/prelaunch/payment-preparation.ts",
+    "tests/prelaunch/payment-preparation-native.test.mjs"
+  ],
+  "validation": {
+    "native_cases": 5,
+    "native_parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "database_scope": "Task-owned PostgreSQL only. No main checkout or production database touched. Synthetic fixture prefix preparation_native_.",
+  "migration_evidence": "Columns were applied first, channel binding expansion subsequently applied after detecting old mock-only constraint. Final combined migration has not yet been tested from a fresh baseline in one execution.",
+  "invariants": [
+    "20 claims yield one SUBMITTING attempt",
+    "PREPARED never means payment CONFIRMED",
+    "UNKNOWN cannot be claimed for resubmission",
+    "Stale failure cannot revert saved prepayment",
+    "Invalid PREPARED without prepayId rejected by database"
+  ],
+  "evidence": "evidence/L04-preparation",
+  "rollback": "Restore schema backup and remove new store/test/migration before external deployment. Applied DB rollback requires no unresolved submission/prepayment or real intents; preserve recovery references, never delete obligations to force rollback. See SQL comments.",
+  "pending": [
+    "Fresh-baseline complete migration verification",
+    "Formal route authorization/policy/hold locks",
+    "Prepayment orchestrator and worker integration",
+    "Trusted event application and current real-channel acceptance"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "candidate_id": "fab9c49003fdece592bd1f60563b538ee2c5d97448260cf69c2a11fa10a3ae73",
+  "environment": {
+    "task_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+    "owner_id": "fanju-prelaunch-20261001-b48140fda0c1",
+    "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+    "context": "colima",
+    "container": "fj-prelaunch-a755def387dc-db",
+    "container_id": "b29cdc54fe324bdff7beb22755314e5ac78502fae6936fdf1cf912af2ea7e249",
+    "image_id": "sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb",
+    "volume": "fj-prelaunch-a755def387dc-data",
+    "network": "fj-prelaunch-a755def387dc-net",
+    "network_internal": false,
+    "network_outbound_masquerade": false,
+    "client_network_allowlist_required": true,
+    "host": "127.0.0.1",
+    "host_port": 32772,
+    "database": "fanju_prelaunch_7aa5f4fefeb3_empty",
+    "database_owner": "fj_a755def387dc",
+    "database_marker_verified": true,
+    "postgres_version": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "production_authorized": false,
+    "existing_database_connected": false,
+    "verified_at": "2026-10-01T03:25:45.879Z"
+  },
+  "applied": [
+    {
+      "name": "20260624000000_initial",
+      "sha256": "0a6c5d79ff6ba3476d407bc809be34a9628e86cc2aaac8313c0e85eac03170c1"
+    },
+    {
+      "name": "20260717000000_wechat_pay_channel_references",
+      "sha256": "8710209579e835f13d529b396c9410aabf87124da31fdd498ad10c286dcc1e22"
+    },
+    {
+      "name": "20260720000000_user_profile_table_sizes",
+      "sha256": "37357b8c3d08916389b0883ddd8167b6ac7a78e1a9b7816f57f6a912257399b1"
+    },
+    {
+      "name": "20260720001000_reviews",
+      "sha256": "9c21e64a11e7f790bf1ea45e0033505d45847998baadd7a45ebd58636a0fb4c5"
+    },
+    {
+      "name": "20260929000000_funding_recovery_expand",
+      "sha256": "aa0228a9540e79213db6b97bd9ecba868b1aea910508572c110d006deba2065b"
+    },
+    {
+      "name": "20260929010000_receipt_paid_at",
+      "sha256": "b6844359f2cceb4798ca7b0af23e844c5a6bca0a0dc139b9d21267288ca7de53"
+    },
+    {
+      "name": "20260929020000_inventory_expand",
+      "sha256": "11ea730de1a2e8fffa7aed7797230d6dc792275f8765e3ab3185c267014d849d"
+    },
+    {
+      "name": "20260929021000_inventory_cutover",
+      "sha256": "f60d41b15f06def838eff1afff15cb588f03543de1dcde776facf0615900ebde"
+    },
+    {
+      "name": "20260929030000_formation_recovery_expand",
+      "sha256": "971bc88b3e6d8c0a041a41437f5e1975d3d9aa9c22d1a2bab98b695e21e93d9a"
+    },
+    {
+      "name": "20260929040000_profile_consent_expand",
+      "sha256": "481610ab539394d568ca4b71c940fc4fc5b1491160c1c3150a3b3da8797b5668"
+    },
+    {
+      "name": "20260930000000_notification_inbox",
+      "sha256": "15ea86d7568043448931a5e877583d22591cfbd65e6877e41874157d8368cbe8"
+    },
+    {
+      "name": "20260930010000_worker_heartbeat",
+      "sha256": "ac2cad8907d8238fe4a0ba14a2c180e81b2313854fdbaf7daac773ce00e5e277"
+    },
+    {
+      "name": "20260930020000_reconciliation_decision_order",
+      "sha256": "8e3327c8079c3884195bdae570c985663daaf14d5cee5805e3af9ea1910c4a7b"
+    },
+    {
+      "name": "20261001000000_prelaunch_v11_expand",
+      "sha256": "26789defd618b56125a86ecb73101771402f8b9d48f36ad6e9ebd156315b2c36"
+    },
+    {
+      "name": "20261001010000_v11_payment_preparation",
+      "sha256": "32083c714fccfe7ff0651bcfb355ef445e7e57b9fe2864ac74e2fd6a90862f18"
+    },
+    {
+      "name": "20261001020000_v11_receipt_recorded_state",
+      "sha256": "130ff989f0c352c47b9fa0e69680eeb17d07c6366a9292c376ec576256aa1d79"
+    },
+    {
+      "name": "20261001030000_v11_refund_request_snapshot",
+      "sha256": "84ed53bee2cf7602ed310d0d544d78c44a4b20b28be59336ef668a5149304f5f"
+    },
+    {
+      "name": "20261001040000_v11_real_refund_binding",
+      "sha256": "389e76258d8acd0dd5f6ef5dd79b8d1214391ea57ae4c79e31c559f712e67844"
+    }
+  ],
+  "counts": {
+    "ChannelReceipt": 4,
+    "V11RefundInstruction": 4,
+    "V11FundComponent": 8,
+    "V11Disposition": 8,
+    "ReceivedEvent": 3,
+    "DurableJob": 4
+  },
+  "prior_columns_preserved": true,
+  "historical_request_snapshots_remain_null": true,
+  "scope": "Complete SQL chain, synthetic refund obligations/events/jobs. Prisma deployment bookkeeping was verified separately. Payment intent rows covered by separate migration test; production history not used."
+}

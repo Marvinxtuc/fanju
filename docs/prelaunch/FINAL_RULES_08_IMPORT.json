@@ -1,0 +1,61 @@
+{
+  "at": "2026-10-01T01:26:27.305993+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/time-preferences.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/services/api/src/prelaunch/time-preferences.ts",
+      "before": null,
+      "after": "b5f57686cac9d61d4be41bce2544b87e03d20323a352f90cfb66afaf865d0b08"
+    },
+    {
+      "path": "services/api/src/prelaunch/routes.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/services/api/src/prelaunch/routes.ts",
+      "before": "1b66cdb373cf1ba6fb2d7162e511a95de6b612eb9d5c1352bce8bc787170d2fd",
+      "after": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+    },
+    {
+      "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/apps/miniapp/src/pages/prelaunch/index.tsx",
+      "before": "0cfe992197b4be974cfbbe8c29db6df7c643c6d2f1b9f654905e9bce13e5f614",
+      "after": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/apps/ops/src/PrelaunchWorkspace.tsx",
+      "before": "02c0298902f4130d5cb324544903447e6780cd4cda36e83c29e927d73dc05df6",
+      "after": "688416c1f751a062de640deb46399f3b0ee7469d6327132213d02c66f8365c06"
+    },
+    {
+      "path": "tests/prelaunch/time-preferences-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/tests/prelaunch/time-preferences-native.test.mjs",
+      "before": null,
+      "after": "08e8bba6b705eb759dbd52f3f83b4885c4e9f46add0a2ad3627796c0bac452a9"
+    },
+    {
+      "path": "tests/ui/miniapp-prelaunch.test.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-times/tests/ui/miniapp-prelaunch.test.tsx",
+      "before": "23cb65a66bc5db9444e458fb58cc2a5dfa5693257cf7704ae32fb21027d1d97c",
+      "after": "ce2114220971f60dbc24249e8610282ba6cd8cd1e140e97fe2aba2d265d9b54c"
+    },
+    {
+      "path": "tests/prelaunch/http-dom-joint.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-joint-toolchain/tests/prelaunch/http-dom-joint.test.mjs",
+      "before": "18365ebaf32a3a294ad33113a6cfc77881c95f830a7a4f3f818dbff226381730",
+      "after": "752ef15319b6dab1bb05f167c908221f79aaa6019e8b48d26ecc13783c65b62d"
+    },
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/soft-table-tie/domain.ts",
+      "before": "7c2169843b230d04b1396ab013a007adb6de1960d081404731ff7f3753296b8d",
+      "after": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+    },
+    {
+      "path": "tests/prelaunch/soft-table-tie-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/soft-table-tie/soft-table-tie-native.test.mjs",
+      "before": null,
+      "after": "54e843a9482b153137f823a2ba150e55f434e88ad38ff88cea42f02b7be24f19"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_RULES_08/before",
+  "protected_unchanged": 33
+}

@@ -9,8 +9,9 @@ import {
   type PolicyIssueCode,
 } from "./policyBundle.js";
 
-// Only approved local policy documents are read. No environment, DB or real materials.
-const policyRoot = new URL("../../../../docs/policy/", import.meta.url);
+// Pinned V1.0 historical test data, separate from current policies and runtime configuration.
+// No environment, DB or real materials are read; historical OP/RV states grant no activation.
+const policyRoot = new URL("./__fixtures__/policy-v1.0/", import.meta.url);
 const readPolicy = (name: string) => readFileSync(new URL(name, policyRoot), "utf8");
 const digest = (text: string) => createHash("sha256").update(text, "utf8").digest("hex");
 const index = JSON.parse(readPolicy("TRACEABILITY_INDEX.json")) as {
@@ -55,7 +56,7 @@ const fixture: PolicyBundleInput = {
   specialReviews: index.special_reviews.map(({ id, status }) => ({ id, status })),
 };
 
-// Tests mutate cloned DTOs, never the approved fixture or policy files.
+// Tests mutate cloned DTOs, never historical fixture files or current policy documents.
 const candidate = () => structuredClone(fixture);
 function rejects(input: unknown, code: PolicyIssueCode): PolicyBundleValidation {
   const result = validatePolicyBundle(input);

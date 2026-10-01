@@ -1,0 +1,128 @@
+{
+  "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+  "environment": {
+    "task_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+    "owner_id": "fanju-prelaunch-20261001-b48140fda0c1",
+    "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+    "context": "colima",
+    "container": "fj-prelaunch-a755def387dc-db",
+    "container_id": "b29cdc54fe324bdff7beb22755314e5ac78502fae6936fdf1cf912af2ea7e249",
+    "image_id": "sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb",
+    "volume": "fj-prelaunch-a755def387dc-data",
+    "network": "fj-prelaunch-a755def387dc-net",
+    "network_internal": false,
+    "network_outbound_masquerade": false,
+    "client_network_allowlist_required": true,
+    "host": "127.0.0.1",
+    "host_port": 32772,
+    "database": "fanju_prelaunch_87e189996ee4",
+    "database_owner": "fj_a755def387dc",
+    "database_marker_verified": true,
+    "postgres_version": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "production_authorized": false,
+    "existing_database_connected": false,
+    "verified_at": "2026-10-01T06:26:18.902Z"
+  },
+  "runs": [
+    {
+      "id": "clean-build-2026-10-01T06-26-18-936Z-generate",
+      "category": "CLEAN_BUILD",
+      "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"generate\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-26-18-936Z",
+      "started_at": "2026-10-01T06:26:19.065Z",
+      "finished_at": "2026-10-01T06:26:20.010Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/generate.stdout.log",
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/generate.stderr.log"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "clean-build-2026-10-01T06-26-18-936Z-shared",
+      "category": "CLEAN_BUILD",
+      "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-26-18-936Z/packages/shared",
+      "started_at": "2026-10-01T06:26:20.078Z",
+      "finished_at": "2026-10-01T06:26:20.792Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/shared.stdout.log",
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/shared.stderr.log"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "clean-build-2026-10-01T06-26-18-936Z-api",
+      "category": "CLEAN_BUILD",
+      "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-26-18-936Z/services/api",
+      "started_at": "2026-10-01T06:26:20.860Z",
+      "finished_at": "2026-10-01T06:26:23.844Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/api.stdout.log",
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/api.stderr.log"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "clean-build-2026-10-01T06-26-18-936Z-ops",
+      "category": "CLEAN_BUILD",
+      "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-26-18-936Z/apps/ops",
+      "started_at": "2026-10-01T06:26:23.902Z",
+      "finished_at": "2026-10-01T06:26:25.019Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/ops.stdout.log",
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/ops.stderr.log"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "clean-build-2026-10-01T06-26-18-936Z-weapp",
+      "category": "CLEAN_BUILD",
+      "candidate_id": "4f39d54cdd7dd736dc7b7deb8924f99062a6b2c46b1829dbeeec08adfc68ae67",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-26-18-936Z/apps/miniapp",
+      "started_at": "2026-10-01T06:26:25.089Z",
+      "finished_at": "2026-10-01T06:26:29.656Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/weapp.stdout.log",
+        "docs/prelaunch/evidence/clean-build-2026-10-01T06-26-18-936Z/weapp.stderr.log"
+      ],
+      "status": "PASS"
+    }
+  ]
+}

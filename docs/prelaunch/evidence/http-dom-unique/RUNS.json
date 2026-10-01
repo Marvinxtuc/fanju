@@ -1,0 +1,38 @@
+{
+  "candidate_id": "dd803c6c9cf0541c0ff74d96c873b9038a1ae7ea6d2ba17a13ed9c6d8a6055bf",
+  "runs": [
+    {
+      "id": "ui_http_cc7dafc274bc47f4a3002df6516965d6-owned-http-react-dom",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "dd803c6c9cf0541c0ff74d96c873b9038a1ae7ea6d2ba17a13ed9c6d8a6055bf",
+      "source_snapshot_after": "dd803c6c9cf0541c0ff74d96c873b9038a1ae7ea6d2ba17a13ed9c6d8a6055bf",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--config\",\"/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/tests/ui/vitest.http-dom.config.mts\",\"--configLoader\",\"native\",\"--no-cache\",\"--reporter=json\",\"--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/http-dom-evidence/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.json\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:21:35.188Z",
+      "finished_at": "2026-10-01T01:21:36.455Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0,
+      "artifact_paths": [
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.stdout.log",
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.stderr.log",
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.json"
+      ],
+      "artifact_sha256": {
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.stdout.log": "9f69a775381f4a02380b63fcadd9b51fd82f9ed032021001194e72e6c1290d90",
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/http-dom-unique/ui_http_cc7dafc274bc47f4a3002df6516965d6/vitest.json": "a52486b879002c521437667f4b05930d7d7a1d79e67f30143e087190578bc802"
+      },
+      "stdout_sha256": "9f69a775381f4a02380b63fcadd9b51fd82f9ed032021001194e72e6c1290d90",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "counting_scope": "NESTED_DOM_PROOF_NOT_ADDITIVE_TO_PARENT_NODE_WRAPPER",
+      "counts_toward_final_total": false,
+      "scope": "Owned real HTTP with React DOM/native surface adapters; no native device or actual payment popup"
+    }
+  ]
+}

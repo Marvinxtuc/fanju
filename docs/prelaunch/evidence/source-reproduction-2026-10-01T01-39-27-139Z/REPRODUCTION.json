@@ -1,0 +1,1686 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "source_verified": true,
+  "git_required": false,
+  "dependency_provenance": "Explicit existing dependencies reused with identical lockfile; no fresh install or cross-machine verification",
+  "fresh_dependency_install_verified": false,
+  "database_runtime_reproduced": false,
+  "test_scope": "Shared pure tests, miniapp and ops unit tests, React DOM tests; API DB/HTTP/worker behavior is separately proven by final owned candidate",
+  "network_guard": "All child TCP/TLS/HTTP/fetch sockets forbidden",
+  "runs": [
+    {
+      "name": "generate",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/generate.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/generate.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "generate"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-01T01:39:27.300Z",
+      "finished_at": "2026-10-01T01:39:28.162Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "2da3f759e66b75f0447208c5e048284206b10e9514fcabe5ff62ddc6c4ddbbf3",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093"
+    },
+    {
+      "name": "shared",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "packages/shared",
+      "started_at": "2026-10-01T01:39:28.163Z",
+      "finished_at": "2026-10-01T01:39:28.890Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "d4f03d94736edbbb200c261ec93fbb759f25796d7276b9948411e1f7dba0be82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/api.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/api.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "services/api",
+      "started_at": "2026-10-01T01:39:28.890Z",
+      "finished_at": "2026-10-01T01:39:31.518Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "321518db6456e8ccd9016ca6d8f3e0797add60a750ee6adc83e36a1c896c746a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ops",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "apps/ops",
+      "started_at": "2026-10-01T01:39:31.518Z",
+      "finished_at": "2026-10-01T01:39:32.683Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "cf3410ac20e227e3598e050d1c156fee61d78878be11753a49b0bc103de0df67",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "weapp",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/weapp.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/weapp.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "apps/miniapp",
+      "started_at": "2026-10-01T01:39:32.683Z",
+      "finished_at": "2026-10-01T01:39:37.339Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "81d23ac1e1980bc1177695d8ac5444a59b4333654b19266b05c3722a5aa5d745",
+      "stderr_sha256": "187db1c3b9eb678dbff38e84d033b100f7d1ebf94fbb973983132f5ed4c6e205"
+    },
+    {
+      "name": "shared-tests",
+      "tests": {
+        "passed": 226,
+        "failed": 0,
+        "skipped": 0,
+        "todo": 0,
+        "report_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared-tests.tests.json",
+        "report_sha256": "6b73c8257e587ef6c62cc18696e78ae3d30fd2467472ec165de6051a5589c7cd",
+        "exact_titles": [
+          {
+            "full_title": "WP10-A pinned local policy bundle validator accepts the complete imported bundle as valid integrity, with all 104 rules, 15 OP and 7 RV",
+            "title": "accepts the complete imported bundle as valid integrity, with all 104 rules, 15 OP and 7 RV",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing user body: USER_AGREEMENT",
+            "title": "rejects a missing user body: USER_AGREEMENT",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing user body: PRIVACY_NOTICE",
+            "title": "rejects a missing user body: PRIVACY_NOTICE",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing user body: REFUND_POLICY",
+            "title": "rejects a missing user body: REFUND_POLICY",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a declared body hash inconsistent with its full text",
+            "title": "rejects a declared body hash inconsistent with its full text",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects changed full text even when the original declared hash is retained",
+            "title": "rejects changed full text even when the original declared hash is retained",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects edited text with a newly recomputed candidate hash instead of trusting candidate expectations",
+            "title": "rejects edited text with a newly recomputed candidate hash instead of trusting candidate expectations",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator does not normalize full text or line endings before hashing",
+            "title": "does not normalize full text or line endings before hashing",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a baseline hash inconsistent with the pinned approved input",
+            "title": "rejects a baseline hash inconsistent with the pinned approved input",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects edited baseline bytes with a candidate-supplied matching hash",
+            "title": "rejects edited baseline bytes with a candidate-supplied matching hash",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mismatched baseline document ID",
+            "title": "rejects a mismatched baseline document ID",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing Rule ID",
+            "title": "rejects a missing Rule ID",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects duplicate Rule IDs even with exactly 104 entries",
+            "title": "rejects duplicate Rule IDs even with exactly 104 entries",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects unknown Rule IDs even with exactly 104 entries",
+            "title": "rejects unknown Rule IDs even with exactly 104 entries",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator accepts reordered complete identities without sorting or changing input",
+            "title": "accepts reordered complete identities without sorting or changing input",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing OP",
+            "title": "rejects a missing OP",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a missing RV",
+            "title": "rejects a missing RV",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects an OP forged as Approved",
+            "title": "rejects an OP forged as Approved",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects an RV forged as Approved",
+            "title": "rejects an RV forged as Approved",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects duplicated and unknown OP identities",
+            "title": "rejects duplicated and unknown OP identities",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects duplicated and unknown RV identities",
+            "title": "rejects duplicated and unknown RV identities",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mixed top-level bundle version",
+            "title": "rejects a mixed top-level bundle version",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mixed top-level bundle ID",
+            "title": "rejects a mixed top-level bundle ID",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a user body from a different bundle",
+            "title": "rejects a user body from a different bundle",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mixed user-body bundle version",
+            "title": "rejects a mixed user-body bundle version",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mixed document version",
+            "title": "rejects a mixed document version",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a mixed document ID despite correct body bytes",
+            "title": "rejects a mixed document ID despite correct body bytes",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects duplicate and unknown user-body identities",
+            "title": "rejects duplicate and unknown user-body identities",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator keeps REBASED_DRAFT not activatable even when every text/hash is correct",
+            "title": "keeps REBASED_DRAFT not activatable even when every text/hash is correct",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a forged non-draft bundle status",
+            "title": "rejects a forged non-draft bundle status",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects a forged non-draft body status",
+            "title": "rejects a forged non-draft body status",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator cannot forge approval by passing approved=true or approvalEvidence",
+            "title": "cannot forge approval by passing approved=true or approvalEvidence",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects nested approval claims instead of accepting a new trust source",
+            "title": "rejects nested approval claims instead of accepting a new trust source",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator does not inherit a legacy Gate PASS",
+            "title": "does not inherit a legacy Gate PASS",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator does not inherit a legacy single AgreementPolicy",
+            "title": "does not inherit a legacy single AgreementPolicy",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator does not let candidates supply their own trusted manifest",
+            "title": "does not let candidates supply their own trusted manifest",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator returns only fixed codes, fields, indexes and pinned missing IDs, never secret or user data",
+            "title": "returns only fixed codes, fields, indexes and pinned missing IDs, never secret or user data",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator is deterministic and does not mutate deeply frozen valid input",
+            "title": "is deterministic and does not mutate deeply frozen valid input",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator does not mutate deeply frozen invalid input",
+            "title": "does not mutate deeply frozen invalid input",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #0",
+            "title": "rejects malformed top-level input #0",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #1",
+            "title": "rejects malformed top-level input #1",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #2",
+            "title": "rejects malformed top-level input #2",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #3",
+            "title": "rejects malformed top-level input #3",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #4",
+            "title": "rejects malformed top-level input #4",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed top-level input #5",
+            "title": "rejects malformed top-level input #5",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects malformed or oversized collections and invalid text types",
+            "title": "rejects malformed or oversized collections and invalid text types",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects candidate getters without invoking them",
+            "title": "rejects candidate getters without invoking them",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects ruleIds array index getters without invoking them",
+            "title": "rejects ruleIds array index getters without invoking them",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects documents array index getters without invoking them",
+            "title": "rejects documents array index getters without invoking them",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects openDecisions array index getters without invoking them",
+            "title": "rejects openDecisions array index getters without invoking them",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects specialReviews array index getters without invoking them",
+            "title": "rejects specialReviews array index getters without invoking them",
+            "status": "passed"
+          },
+          {
+            "full_title": "WP10-A pinned local policy bundle validator rejects sparse arrays and non-JSON array properties",
+            "title": "rejects sparse arrays and non-JSON array properties",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply separates F/D in one quote and keeps restaurant meal collection direct",
+            "title": "separates F/D in one quote and keeps restaurant meal collection direct",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"min\":5,\"target\":4}",
+            "title": "rejects invalid supply {\"min\":5,\"target\":4}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"max\":9}",
+            "title": "rejects invalid supply {\"max\":9}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"maxTables\":0}",
+            "title": "rejects invalid supply {\"maxTables\":0}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"D\":900}",
+            "title": "rejects invalid supply {\"D\":900}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"D_MIN\":9100,\"D_MAX\":9000}",
+            "title": "rejects invalid supply {\"D_MIN\":9100,\"D_MAX\":9000}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply rejects invalid supply {\"allocationStrategy\":\"UNLIMITED\"}",
+            "title": "rejects invalid supply {\"allocationStrategy\":\"UNLIMITED\"}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply does not invent missing D_MIN",
+            "title": "does not invent missing D_MIN",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply does not invent missing D_MAX",
+            "title": "does not invent missing D_MAX",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply does not invent missing WAITLIST_MAX",
+            "title": "does not invent missing WAITLIST_MAX",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply requires each party's attestation and never derives restaurant consent from ops",
+            "title": "requires each party's attestation and never derives restaurant consent from ops",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply never supplies a missing default F",
+            "title": "never supplies a missing default F",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: F/D snapshots and supply validates integer cents rather than floats or unsafe totals",
+            "title": "validates integer cents rather than floats or unsafe totals",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification grants qualification only for complete F+D before expiry",
+            "title": "grants qualification only for complete F+D before expiry",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification UNKNOWN never counts toward min",
+            "title": "UNKNOWN never counts toward min",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification FAILED never counts toward min",
+            "title": "FAILED never counts toward min",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification PENDING never counts toward min",
+            "title": "PENDING never counts toward min",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification trusted success at 600000 releases and refunds without reviving",
+            "title": "trusted success at 600000 releases and refunds without reviving",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification trusted success at 600001 releases and refunds without reviving",
+            "title": "trusted success at 600001 releases and refunds without reviving",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification UNKNOWN releases at the logical deadline while retaining recovery",
+            "title": "UNKNOWN releases at the logical deadline while retaining recovery",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification records mismatched actual receipts for a full obligation instead of qualification",
+            "title": "records mismatched actual receipts for a full obligation instead of qualification",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification blocks payment crossing T8 before its ten-minute timer expires",
+            "title": "blocks payment crossing T8 before its ten-minute timer expires",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: absolute ten-minute qualification rejects reverse time or unsafe amounts",
+            "title": "rejects reverse time or unsafe amounts",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=86400001",
+            "title": "current unformed Δ=86400001",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=86400000",
+            "title": "current unformed Δ=86400000",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=86399999",
+            "title": "current unformed Δ=86399999",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=28800001",
+            "title": "current unformed Δ=28800001",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=28800000",
+            "title": "current unformed Δ=28800000",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current unformed Δ=28799999",
+            "title": "current unformed Δ=28799999",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current formed Δ=86400001 preserves business disposition, no revenue recognition",
+            "title": "current formed Δ=86400001 preserves business disposition, no revenue recognition",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current formed Δ=86400000 preserves business disposition, no revenue recognition",
+            "title": "current formed Δ=86400000 preserves business disposition, no revenue recognition",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix current formed Δ=86399999 preserves business disposition, no revenue recognition",
+            "title": "current formed Δ=86399999 preserves business disposition, no revenue recognition",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix explicit late-formed Δ=28800001",
+            "title": "explicit late-formed Δ=28800001",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix explicit late-formed Δ=28800000",
+            "title": "explicit late-formed Δ=28800000",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix explicit late-formed Δ=28799999",
+            "title": "explicit late-formed Δ=28799999",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix the original acceptedAt controls a delayed review",
+            "title": "the original acceptedAt controls a delayed review",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix PLATFORM_CANCEL preserves full refunds and distinct compensation",
+            "title": "PLATFORM_CANCEL preserves full refunds and distinct compensation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix RESTAURANT_CANCEL preserves full refunds and distinct compensation",
+            "title": "RESTAURANT_CANCEL preserves full refunds and distinct compensation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix CORE_CHANGE_REJECTED preserves full refunds and distinct compensation",
+            "title": "CORE_CHANGE_REJECTED preserves full refunds and distinct compensation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix WAITLIST_EXPIRED establishes full obligation",
+            "title": "WAITLIST_EXPIRED establishes full obligation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix FORMATION_FAILED establishes full obligation",
+            "title": "FORMATION_FAILED establishes full obligation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix LATE_RECEIPT establishes full obligation",
+            "title": "LATE_RECEIPT establishes full obligation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix waitlist exits refund irrespective of hours or other tables' state",
+            "title": "waitlist exits refund irrespective of hours or other tables' state",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix normal restaurant-confirmed fulfillment refunds only D",
+            "title": "normal restaurant-confirmed fulfillment refunds only D",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix exception D_ONLY permits no invented percentage",
+            "title": "exception D_ONLY permits no invented percentage",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix exception F_AND_D permits no invented percentage",
+            "title": "exception F_AND_D permits no invented percentage",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix missing category blocks money disposition without losing the request",
+            "title": "missing category blocks money disposition without losing the request",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix post-start self cancellation cannot be silently treated as no-show",
+            "title": "post-start self cancellation cannot be silently treated as no-show",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix unsafe funding or negative times are rejected",
+            "title": "unsafe funding or negative times are rejected",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix component budgets deduct successful and unknown/in-flight refunds",
+            "title": "component budgets deduct successful and unknown/in-flight refunds",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: cancellation event/time/component matrix next-day batches follow Shanghai natural day across UTC midnight",
+            "title": "next-day batches follow Shanghai natural day across UTC midnight",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy reaching min forms immediately below target",
+            "title": "reaching min forms immediately below target",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy below min invalidates formed history without deleting it",
+            "title": "below min invalidates formed history without deleting it",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy T24 still below min finally fails",
+            "title": "T24 still below min finally fails",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy a T24-failed table never revives even after an apparent later min",
+            "title": "a T24-failed table never revives even after an apparent later min",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy only formed-at-T24 history allows direct middle-window recovery",
+            "title": "only formed-at-T24 history allows direct middle-window recovery",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy T8 stops recruiting and preserves the restaurant decision carrier",
+            "title": "T8 stops recruiting and preserves the restaurant decision carrier",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy own formed table reveals name and address immediately before T24",
+            "title": "own formed table reveals name and address immediately before T24",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy invalidated keeps name, hides address; restore reopens",
+            "title": "invalidated keeps name, hides address; restore reopens",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy other tables/waitlist/invalid members get no address: {\"ownTable\":false}",
+            "title": "other tables/waitlist/invalid members get no address: {\"ownTable\":false}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy other tables/waitlist/invalid members get no address: {\"membership\":\"WAITLIST\"}",
+            "title": "other tables/waitlist/invalid members get no address: {\"membership\":\"WAITLIST\"}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy other tables/waitlist/invalid members get no address: {\"memberValid\":false}",
+            "title": "other tables/waitlist/invalid members get no address: {\"memberValid\":false}",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy terminal address matrix remains unresolved",
+            "title": "terminal address matrix remains unresolved",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy finite strategies allocate new FIFO members, preserving already committed tables",
+            "title": "finite strategies allocate new FIFO members, preserving already committed tables",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: formation history, own-table access and supply strategy target preference yields to max/maxTables and never loses members",
+            "title": "target preference yields to max/maxTables and never loses members",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits exit-first establishes one refund, rejects later promotion",
+            "title": "exit-first establishes one refund, rejects later promotion",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits promotion-first grants exactly one seat and later exit is formal cancellation",
+            "title": "promotion-first grants exactly one seat and later exit is formal cancellation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits stale transaction replay produces no second effect",
+            "title": "stale transaction replay produces no second effect",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits T24 expires remaining qualification and establishes obligation independently of payout",
+            "title": "T24 expires remaining qualification and establishes obligation independently of payout",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits promotion never continues into the post-T24 window",
+            "title": "promotion never continues into the post-T24 window",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits unpaid waitlist never gains eligibility",
+            "title": "unpaid waitlist never gains eligibility",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits admission limit=null",
+            "title": "admission limit=null",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits admission limit=0",
+            "title": "admission limit=0",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits admission limit=2",
+            "title": "admission limit=2",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits admission limit=3",
+            "title": "admission limit=3",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: paid waitlist race and limits concurrent exposure and unsettled prior refunds stay OP08",
+            "title": "concurrent exposure and unsettled prior refunds stay OP08",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates minimal synthetic eligibility has no time-preference requirement",
+            "title": "minimal synthetic eligibility has no time-preference requirement",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates special accommodation is refused before charging without sensitive details",
+            "title": "special accommodation is refused before charging without sensitive details",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates unresolved adult/adaptation/new registration during closure are isolated",
+            "title": "unresolved adult/adaptation/new registration during closure are isolated",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates account closure accepts requests while preserving unsettled responsibilities",
+            "title": "account closure accepts requests while preserving unsettled responsibilities",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates a restaurant change refusal preserves full obligation and unspecified extra compensation",
+            "title": "a restaurant change refusal preserves full obligation and unspecified extra compensation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates real delivery definition never becomes approved merely by a timestamp",
+            "title": "real delivery definition never becomes approved merely by a timestamp",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business scaffolding with explicit unresolved operational gates a final reviewer must be a different person, not just another account",
+            "title": "a final reviewer must be a different person, not just another account",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only INITIAL_EXPLANATION has its own 48h clock",
+            "title": "INITIAL_EXPLANATION has its own 48h clock",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only FINAL_REVIEW_APPLICATION has its own 48h clock",
+            "title": "FINAL_REVIEW_APPLICATION has its own 48h clock",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only only synthetic configured restaurant deadline turns no response into a refund",
+            "title": "only synthetic configured restaurant deadline turns no response into a refund",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request scan and missing confirmation do not create refund or user violation",
+            "title": "scan and missing confirmation do not create refund or user violation",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request normal confirmation creates only D next Shanghai day, not completed refund",
+            "title": "normal confirmation creates only D next Shanghai day, not completed refund",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request restaurant abnormal marker creates review without immediate deductions",
+            "title": "restaurant abnormal marker creates review without immediate deductions",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request a restaurant result lacking confirmation cannot be forged from the scan",
+            "title": "a restaurant result lacking confirmation cannot be forged from the scan",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request special denial restores original cancellation rights without moving its time",
+            "title": "special denial restores original cancellation rights without moving its time",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request member-removal timing stays explicitly OP04",
+            "title": "member-removal timing stays explicitly OP04",
+            "status": "passed"
+          },
+          {
+            "full_title": "approved business: confirmation, rejection and preserved request exact T24 payment cannot invent its joining classification",
+            "title": "exact T24 payment cannot invent its joining classification",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: queue authority remains explicit a lawful new request goes to the new tail and never regains old priority",
+            "title": "a lawful new request goes to the new tail and never regains old priority",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: queue authority remains explicit real ordering clock remains blocked",
+            "title": "real ordering clock remains blocked",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: queue authority remains explicit expired queue rebooking remains OP08 and does not revive the queue",
+            "title": "expired queue rebooking remains OP08 and does not revive the queue",
+            "status": "passed"
+          },
+          {
+            "full_title": "PROPOSAL_HARNESS: queue authority remains explicit new reentry sequence cannot claim an old sequence",
+            "title": "new reentry sequence cannot claim an old sequence",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client requires explicit login and makes no request without a session",
+            "title": "requires explicit login and makes no request without a session",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client logs in without accepting a client-provided role",
+            "title": "logs in without accepting a client-provided role",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client rejects a legacy response",
+            "title": "rejects a legacy response",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client clears only the matching expired session",
+            "title": "clears only the matching expired session",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client rejects an old response after the account changes without clearing the new session",
+            "title": "rejects an old response after the account changes without clearing the new session",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client retains recoverable context after network interruption",
+            "title": "retains recoverable context after network interruption",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client accepts 202 as pending rather than inventing channel success",
+            "title": "accepts 202 as pending rather than inventing channel success",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client reports policy blockers without reflecting untrusted private fields",
+            "title": "reports policy blockers without reflecting untrusted private fields",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client rejects invalid paths //outside before network access",
+            "title": "rejects invalid paths //outside before network access",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client rejects invalid paths /../secret before network access",
+            "title": "rejects invalid paths /../secret before network access",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client rejects invalid paths /orders#secret before network access",
+            "title": "rejects invalid paths /orders#secret before network access",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client formats both components without calling retained deposit accounting income",
+            "title": "formats both components without calling retained deposit accounting income",
+            "status": "passed"
+          },
+          {
+            "full_title": "prelaunch versioned client never echoes unknown error text",
+            "title": "never echoes unknown error text",
+            "status": "passed"
+          },
+          {
+            "full_title": "complete cursor recovery keeps financial rows beyond the first 100 without depending on UI counts",
+            "title": "keeps financial rows beyond the first 100 without depending on UI counts",
+            "status": "passed"
+          },
+          {
+            "full_title": "complete cursor recovery rejects a repeating cursor rather than hanging or silently truncating",
+            "title": "rejects a repeating cursor rather than hanging or silently truncating",
+            "status": "passed"
+          },
+          {
+            "full_title": "shows order clocks in the Shanghai calendar rather than the browser timezone",
+            "title": "shows order clocks in the Shanghai calendar rather than the browser timezone",
+            "status": "passed"
+          },
+          {
+            "full_title": "never combines paginated personal rows when login changes between page promises",
+            "title": "never combines paginated personal rows when login changes between page promises",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority verifies frozen complete source and exact public bodies, always NOT_ACTIVATABLE",
+            "title": "verifies frozen complete source and exact public bodies, always NOT_ACTIVATABLE",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects malformed outer input without echoing it",
+            "title": "rejects malformed outer input without echoing it",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects malformed outer input without echoing it",
+            "title": "rejects malformed outer input without echoing it",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects malformed outer input without echoing it",
+            "title": "rejects malformed outer input without echoing it",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects malformed outer input without echoing it",
+            "title": "rejects malformed outer input without echoing it",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects missing body",
+            "title": "rejects missing body",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects duplicate body",
+            "title": "rejects duplicate body",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects source tamper",
+            "title": "rejects source tamper",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects source hash",
+            "title": "rejects source hash",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects public hash",
+            "title": "rejects public hash",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects baseline bytes",
+            "title": "rejects baseline bytes",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects baseline ID",
+            "title": "rejects baseline ID",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects baseline digest",
+            "title": "rejects baseline digest",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects manifest bytes",
+            "title": "rejects manifest bytes",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects missing rule",
+            "title": "rejects missing rule",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects duplicate rule",
+            "title": "rejects duplicate rule",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects unknown rule",
+            "title": "rejects unknown rule",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects missing OP",
+            "title": "rejects missing OP",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects duplicate OP",
+            "title": "rejects duplicate OP",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects missing RV",
+            "title": "rejects missing RV",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects duplicate RV",
+            "title": "rejects duplicate RV",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects OP forged approval",
+            "title": "rejects OP forged approval",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects RV forged approval",
+            "title": "rejects RV forged approval",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects document version mixing",
+            "title": "rejects document version mixing",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects document ID mixing",
+            "title": "rejects document ID mixing",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects document bundle mixing",
+            "title": "rejects document bundle mixing",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects bundle version mixing",
+            "title": "rejects bundle version mixing",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects approved true",
+            "title": "rejects approved true",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects old Gate PASS",
+            "title": "rejects old Gate PASS",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects old AgreementPolicy",
+            "title": "rejects old AgreementPolicy",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority rejects pretend activated",
+            "title": "rejects pretend activated",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority never returns the candidate body, unknown ID, exception text or fake secret",
+            "title": "never returns the candidate body, unknown ID, exception text or fake secret",
+            "status": "passed"
+          },
+          {
+            "full_title": "V1.1 integrity, separate from business/legal/release authority no Node crypto, DB, environment or fetch dependency is browser-exported",
+            "title": "no Node crypto, DB, environment or fetch dependency is browser-exported",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence extracts only literal public slice and retains exact newlines",
+            "title": "extracts only literal public slice and retains exact newlines",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence rejects malformed/internal region",
+            "title": "rejects malformed/internal region",
+            "status": "passed"
+          },
+          {
+            "full_title": "public-body extraction and acceptance evidence captured three-text explicit confirmation is draft evidence, never approval",
+            "title": "captured three-text explicit confirmation is draft evidence, never approval",
+            "status": "passed"
+          },
+          {
+            "full_title": "forbidden visible copy allows restaurant-experience copy",
+            "title": "allows restaurant-experience copy",
+            "status": "passed"
+          },
+          {
+            "full_title": "forbidden visible copy finds forbidden positioning words",
+            "title": "finds forbidden positioning words",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity status allows publish flow and hides drafts",
+            "title": "allows publish flow and hides drafts",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity status rejects terminal transitions",
+            "title": "rejects terminal transitions",
+            "status": "passed"
+          },
+          {
+            "full_title": "order status allows payment success once",
+            "title": "allows payment success once",
+            "status": "passed"
+          },
+          {
+            "full_title": "order status rejects paying closed orders",
+            "title": "rejects paying closed orders",
+            "status": "passed"
+          },
+          {
+            "full_title": "table formation forms a standard six-person table",
+            "title": "forms a standard six-person table",
+            "status": "passed"
+          },
+          {
+            "full_title": "table formation splits nine people into two valid tables",
+            "title": "splits nine people into two valid tables",
+            "status": "passed"
+          },
+          {
+            "full_title": "table formation does not form with three people",
+            "title": "does not form with three people",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity info visibility shows only basic info before grouping",
+            "title": "shows only basic info before grouping",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity info visibility shows restaurant after grouping before T-24",
+            "title": "shows restaurant after grouping before T-24",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity info visibility shows address at T-24 for valid grouped users",
+            "title": "shows address at T-24 for valid grouped users",
+            "status": "passed"
+          },
+          {
+            "full_title": "activity info visibility does not show info to refunded users",
+            "title": "does not show info to refunded users",
+            "status": "passed"
+          },
+          {
+            "full_title": "refund decisions auto-refunds group failures",
+            "title": "auto-refunds group failures",
+            "status": "passed"
+          },
+          {
+            "full_title": "refund decisions requires ops review before T-24",
+            "title": "requires ops review before T-24",
+            "status": "passed"
+          },
+          {
+            "full_title": "refund decisions requires ops review within T-24",
+            "title": "requires ops review within T-24",
+            "status": "passed"
+          },
+          {
+            "full_title": "pricing uses service fee as the order amount",
+            "title": "uses service fee as the order amount",
+            "status": "passed"
+          },
+          {
+            "full_title": "pricing rejects invalid service fee amounts",
+            "title": "rejects invalid service fee amounts",
+            "status": "passed"
+          }
+        ]
+      },
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared-tests.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared-tests.stderr.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared-tests.tests.json"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--no-cache",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/shared-tests.tests.json",
+        "--no-file-parallelism"
+      ],
+      "cwd": "packages/shared",
+      "started_at": "2026-10-01T01:39:37.339Z",
+      "finished_at": "2026-10-01T01:39:38.424Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "8d55bbe823c9dab741aa42b529be2c1cb2c5f94fd3b4c824d63588fe7c8e5680",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "miniapp-tests",
+      "tests": {
+        "passed": 21,
+        "failed": 0,
+        "skipped": 0,
+        "todo": 0,
+        "report_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-tests.tests.json",
+        "report_sha256": "3ce1e148edb0b19d2c2d1179d8379d87cbf8cdebb85f75671074e041be9fc105",
+        "exact_titles": [
+          {
+            "full_title": "client identity and payment boundaries sends a JSON object for bodyless payment confirmation and notification-read actions",
+            "title": "sends a JSON object for bodyless payment confirmation and notification-read actions",
+            "status": "passed"
+          },
+          {
+            "full_title": "client identity and payment boundaries keeps a new session when an older request returns a late 401",
+            "title": "keeps a new session when an older request returns a late 401",
+            "status": "passed"
+          },
+          {
+            "full_title": "client identity and payment boundaries uses WeChat login on cold start and never silently binds a mock phone",
+            "title": "uses WeChat login on cold start and never silently binds a mock phone",
+            "status": "passed"
+          },
+          {
+            "full_title": "client identity and payment boundaries does not manufacture an identity when WeChat authorization fails",
+            "title": "does not manufacture an identity when WeChat authorization fails",
+            "status": "passed"
+          },
+          {
+            "full_title": "client identity and payment boundaries keeps the created order but never simulates payment when real params are absent",
+            "title": "keeps the created order but never simulates payment when real params are absent",
+            "status": "passed"
+          },
+          {
+            "full_title": "client identity and payment boundaries clears a rejected session but retains pending order context without replay",
+            "title": "clears a rejected session but retains pending order context without replay",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery finds a server order after local order cache is cleared and honors an explicit ID",
+            "title": "finds a server order after local order cache is cleared and honors an explicit ID",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery rejects a late successful private response after account change",
+            "title": "rejects a late successful private response after account change",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery does not invoke a cashier or simulate success when blocked: { requiresReview: true }",
+            "title": "does not invoke a cashier or simulate success when blocked: { requiresReview: true }",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery does not invoke a cashier or simulate success when blocked: { processing: true }",
+            "title": "does not invoke a cashier or simulate success when blocked: { processing: true }",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery does not invoke a cashier or simulate success when blocked: { payable: false }",
+            "title": "does not invoke a cashier or simulate success when blocked: { payable: false }",
+            "status": "passed"
+          },
+          {
+            "full_title": "order recovery preserves the pending order when the cashier is canceled and can retry that order",
+            "title": "preserves the pending order when the cashier is canceled and can retry that order",
+            "status": "passed"
+          },
+          {
+            "full_title": "shares one login between parallel order and notification requests",
+            "title": "shares one login between parallel order and notification requests",
+            "status": "passed"
+          },
+          {
+            "full_title": "never simulates a WeChat payment even in a demo build",
+            "title": "never simulates a WeChat payment even in a demo build",
+            "status": "passed"
+          },
+          {
+            "full_title": "keeps order details available during a notification outage",
+            "title": "keeps order details available during a notification outage",
+            "status": "passed"
+          },
+          {
+            "full_title": "discards an already loaded order if the parallel notification request expires the session",
+            "title": "discards an already loaded order if the parallel notification request expires the session",
+            "status": "passed"
+          },
+          {
+            "full_title": "formatClientError shows a Taro-style errMsg so client-side request failures are actionable",
+            "title": "shows a Taro-style errMsg so client-side request failures are actionable",
+            "status": "passed"
+          },
+          {
+            "full_title": "formatClientError redacts sensitive values before showing a client error",
+            "title": "redacts sensitive values before showing a client error",
+            "status": "passed"
+          },
+          {
+            "full_title": "formatClientError keeps the fallback for unknown error shapes",
+            "title": "keeps the fallback for unknown error shapes",
+            "status": "passed"
+          },
+          {
+            "full_title": "profile form submission returns field errors for an incomplete form",
+            "title": "returns field errors for an incomplete form",
+            "status": "passed"
+          },
+          {
+            "full_title": "profile form submission accepts the form defaults and normalizes list fields",
+            "title": "accepts the form defaults and normalizes list fields",
+            "status": "passed"
+          }
+        ]
+      },
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-tests.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-tests.stderr.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-tests.tests.json"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--no-cache",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-tests.tests.json",
+        "--no-file-parallelism"
+      ],
+      "cwd": "apps/miniapp",
+      "started_at": "2026-10-01T01:39:38.424Z",
+      "finished_at": "2026-10-01T01:39:39.311Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "75af8664c263b5c8d068a8ec86ffa207612749def721b6fdddaab62b49016cdf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ops-tests",
+      "tests": {
+        "passed": 15,
+        "failed": 0,
+        "skipped": 0,
+        "todo": 0,
+        "report_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops-tests.tests.json",
+        "report_sha256": "7dfcb02c54e3447b20436576dfb6976f74beaded276b1b84ccca8ffea2cd8ac0",
+        "exact_titles": [
+          {
+            "full_title": "controlled prelaunch ops DOM allows scoped restaurant binding without client role escalation",
+            "title": "allows scoped restaurant binding without client role escalation",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM accepts activity cancellation with a persistent business key",
+            "title": "accepts activity cancellation with a persistent business key",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM exposes real rights processing rather than a static privacy notice",
+            "title": "exposes real rights processing rather than a static privacy notice",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM preserves all disclosed fixed fees when creating a new revision",
+            "title": "preserves all disclosed fixed fees when creating a new revision",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM renders server component buckets independently of first-page counts",
+            "title": "renders server component buckets independently of first-page counts",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM claims a server-authorized financial case with no invented channel result",
+            "title": "claims a server-authorized financial case with no invented channel result",
+            "status": "passed"
+          },
+          {
+            "full_title": "controlled prelaunch ops DOM does not blanket approve requests without a reason",
+            "title": "does not blanket approve requests without a reason",
+            "status": "passed"
+          },
+          {
+            "full_title": "formatCandidateProfile only formats table-planning preferences and includes budget and table sizes",
+            "title": "only formats table-planning preferences and includes budget and table sizes",
+            "status": "passed"
+          },
+          {
+            "full_title": "labelled Shanghai activity time preserves midnight and date across the UTC boundary",
+            "title": "preserves midnight and date across the UTC boundary",
+            "status": "passed"
+          },
+          {
+            "full_title": "labelled Shanghai activity time rejects invalid or ambiguous input 2026-02-30T12:00",
+            "title": "rejects invalid or ambiguous input 2026-02-30T12:00",
+            "status": "passed"
+          },
+          {
+            "full_title": "labelled Shanghai activity time rejects invalid or ambiguous input 2026-10-02T24:30",
+            "title": "rejects invalid or ambiguous input 2026-10-02T24:30",
+            "status": "passed"
+          },
+          {
+            "full_title": "labelled Shanghai activity time rejects invalid or ambiguous input 2026-10-02",
+            "title": "rejects invalid or ambiguous input 2026-10-02",
+            "status": "passed"
+          },
+          {
+            "full_title": "labelled Shanghai activity time rejects invalid or ambiguous input 2026-10-02T12:00Z",
+            "title": "rejects invalid or ambiguous input 2026-10-02T12:00Z",
+            "status": "passed"
+          },
+          {
+            "full_title": "async operations across session changes does not let an old mutation trigger private-data refresh after logout",
+            "title": "does not let an old mutation trigger private-data refresh after logout",
+            "status": "passed"
+          },
+          {
+            "full_title": "async operations across session changes rejects old responses after relogin even when a token string is reused",
+            "title": "rejects old responses after relogin even when a token string is reused",
+            "status": "passed"
+          }
+        ]
+      },
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops-tests.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops-tests.stderr.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops-tests.tests.json"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--no-cache",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/ops-tests.tests.json",
+        "--no-file-parallelism"
+      ],
+      "cwd": "apps/ops",
+      "started_at": "2026-10-01T01:39:39.311Z",
+      "finished_at": "2026-10-01T01:39:40.471Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "f99fc787155b2553db7a8e6de507e22b5b7e19ce40242d1a5aaed957c72f354c",
+      "stderr_sha256": "d7f3e2fc2e114ccc6f491b8480ff40d98b0146d6ac5909c053f005b7aff25b0e"
+    },
+    {
+      "name": "miniapp-dom-native",
+      "tests": {
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "todo": 0,
+        "report_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-dom-native.tests.json",
+        "report_sha256": "d5615ad4c1a8b8dcd43e91d58103f5dfb1b01783fd49a2295a17897c40808a14",
+        "exact_titles": [
+          {
+            "full_title": "synthetic native component user journeys keeps orders usable when the independent inbox fails",
+            "title": "keeps orders usable when the independent inbox fails",
+            "status": "passed"
+          },
+          {
+            "full_title": "synthetic native component user journeys sends strict change rejection without substituting ordinary cancellation",
+            "title": "sends strict change rejection without substituting ordinary cancellation",
+            "status": "passed"
+          },
+          {
+            "full_title": "synthetic native component user journeys shows component refund UNKNOWN instead of claiming arrival",
+            "title": "shows component refund UNKNOWN instead of claiming arrival",
+            "status": "passed"
+          },
+          {
+            "full_title": "synthetic native component user journeys retains blocked applications without fabricating a payable registration",
+            "title": "retains blocked applications without fabricating a payable registration",
+            "status": "passed"
+          },
+          {
+            "full_title": "synthetic native component user journeys accepts closure while preserving uncompleted obligations",
+            "title": "accepts closure while preserving uncompleted obligations",
+            "status": "passed"
+          },
+          {
+            "full_title": "address cache requires a current server authorization hides the old address before a failed detail reload",
+            "title": "hides the old address before a failed detail reload",
+            "status": "passed"
+          },
+          {
+            "full_title": "address cache requires a current server authorization manual refresh clears prior authorization even when subsequent requests fail",
+            "title": "manual refresh clears prior authorization even when subsequent requests fail",
+            "status": "passed"
+          },
+          {
+            "full_title": "address cache requires a current server authorization never displays an invalidated table address even if an old payload carries it",
+            "title": "never displays an invalidated table address even if an old payload carries it",
+            "status": "passed"
+          },
+          {
+            "full_title": "USR06 presentation priority retains all activities places preferred activities first across collected pages, preserving equal-priority order and every other activity",
+            "title": "places preferred activities first across collected pages, preserving equal-priority order and every other activity",
+            "status": "passed"
+          },
+          {
+            "full_title": "USR06 presentation priority retains all activities empty preferences retain server ordering and do not remove or disable activities",
+            "title": "empty preferences retain server ordering and do not remove or disable activities",
+            "status": "passed"
+          },
+          {
+            "full_title": "BR09/54 amount presentation and pending refund semantics shows total F+D excluding estimated restaurant meal cost",
+            "title": "shows total F+D excluding estimated restaurant meal cost",
+            "status": "passed"
+          },
+          {
+            "full_title": "BR09/54 amount presentation and pending refund semantics WAITING_BATCH and UNKNOWN remain distinct from refunded or money-arrived facts",
+            "title": "WAITING_BATCH and UNKNOWN remain distinct from refunded or money-arrived facts",
+            "status": "passed"
+          }
+        ]
+      },
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-dom-native.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-dom-native.stderr.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-dom-native.tests.json"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--no-cache",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/source-reproduction-2026-10-01T01-39-27-139Z-build/miniapp-dom-native.tests.json",
+        "--no-file-parallelism",
+        "--config",
+        "vitest.prelaunch.config.ts"
+      ],
+      "cwd": "apps/ops",
+      "started_at": "2026-10-01T01:39:40.471Z",
+      "finished_at": "2026-10-01T01:39:41.290Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "ff9f55828debcbebd013f6f922b14d463c8e0f96b842edd95d2bc024c3157ade",
+      "stderr_sha256": "7a4f8ae7a8aad155d3d61d5f8f291acce137c54bb1f494c95541302a2b23459c"
+    }
+  ],
+  "artifact_visibility": {
+    "ops": {
+      "generated_entry_render": "PASS",
+      "workspace_query": "?workspace=prelaunch",
+      "rendered_title": "饭局 · 本地验收工作区",
+      "api_origin": "http://127.0.0.1:3000",
+      "environment_flag": "VITE_FANJU_PRELAUNCH_ENABLED=true",
+      "scope": "Native Vite generated entry evaluated in jsdom without network; not real browser/API E2E"
+    },
+    "weapp": {
+      "route": "pages/prelaunch/index",
+      "generated_route_present": true,
+      "environment_flag": "TARO_APP_PRELAUNCH_ENABLED=true",
+      "scope": "Taro route/artifact only; not WeChat device launch"
+    }
+  }
+}

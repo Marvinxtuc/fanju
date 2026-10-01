@@ -1,0 +1,71 @@
+TAP version 13
+# Subtest: preparation persists and serializes on owned PostgreSQL
+    # Subtest: twenty concurrent claims produce one durable submitting attempt
+    ok 1 - twenty concurrent claims produce one durable submitting attempt
+      ---
+      duration_ms: 141.894584
+      type: 'test'
+      ...
+    # Subtest: prepayment save does not confirm money and stale failures cannot undo it
+    ok 2 - prepayment save does not confirm money and stale failures cannot undo it
+      ---
+      duration_ms: 8.925708
+      type: 'test'
+      ...
+    # Subtest: unknown outcome cannot be claimed for another submission
+    ok 3 - unknown outcome cannot be claimed for another submission
+      ---
+      duration_ms: 16.760583
+      type: 'test'
+      ...
+    # Subtest: wrong binding and inactive intents reject without writes
+    ok 4 - wrong binding and inactive intents reject without writes
+      ---
+      duration_ms: 12.788833
+      type: 'test'
+      ...
+    # Subtest: database constraint rejects prepared state without a reference
+    ok 5 - database constraint rejects prepared state without a reference
+      ---
+      duration_ms: 5.51975
+      type: 'test'
+      ...
+    # Subtest: runner persists submitting before network and prepay before returning
+    ok 6 - runner persists submitting before network and prepay before returning
+      ---
+      duration_ms: 16.62125
+      type: 'test'
+      ...
+    # Subtest: runner timeout leaves unknown and cannot resend
+    ok 7 - runner timeout leaves unknown and cannot resend
+      ---
+      duration_ms: 15.17175
+      type: 'test'
+      ...
+    # Subtest: authorization rejection rolls back before a durable claim
+    ok 8 - authorization rejection rolls back before a durable claim
+      ---
+      duration_ms: 7.111875
+      type: 'test'
+      ...
+    # Subtest: canceled registration and expired hold cannot prepare a payment
+    ok 9 - canceled registration and expired hold cannot prepare a payment
+      ---
+      duration_ms: 17.684083
+      type: 'test'
+      ...
+    1..9
+ok 1 - preparation persists and serializes on owned PostgreSQL
+  ---
+  duration_ms: 401.4405
+  type: 'test'
+  ...
+1..1
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 534.250125

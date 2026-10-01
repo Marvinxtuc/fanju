@@ -1,0 +1,27 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "owned_database_tests_including_parent": 21,
+  "phase_ranges": "FORWARD, REVERSE_RECEIPTS, REVERSE_REFUNDS; fixed500, exact terminal end; empty phases permitted",
+  "final_version": "v11-bill-snapshot-4",
+  "counts_match_legacy_501_rows": true,
+  "empty_bill_reverse_checks_verified": true,
+  "concurrent_finalize_single_audit_verified": true,
+  "fresh_process_full_resume_verified": true,
+  "missing_page_blocks_finalize_recovery_and_range": true,
+  "audit_corruption_rejected": true,
+  "global_query_reference_deduplication": true,
+  "releaseAuthorized": false,
+  "production_activated": false,
+  "remaining": [
+    "Production CLI assembly and legacy replay routing",
+    "SIGKILL before/after page commit",
+    "Matched intent/refund and recovery capacity workloads",
+    "Streaming and bounded legacy fact references",
+    "Business decisions and actual merchant acceptance"
+  ],
+  "candidate": "bbe811caa4194af75ae338cc3917ef9c0f6de502f8d50694d3f3b59c7d0b1821",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T08-00-50-872Z/RUNS.json",
+  "full_steps": 29,
+  "cross_process_tests": 212,
+  "capacity_measurement": "L04_BILL_PAGE_CAPACITY.json"
+}

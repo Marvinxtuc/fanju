@@ -1,0 +1,16 @@
+{
+  "result": "STRUCTURE_ONLY_PASS",
+  "stats": {
+    "scope": "STRUCTURE_AND_HASH_LINKS_ONLY",
+    "business_correctness_verified": false,
+    "release_authorized": false,
+    "files_checked": 1590,
+    "rules": 104,
+    "scenarios": 139,
+    "tasks": 24,
+    "linked_runs": 38,
+    "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+    "delivery_status": "INCOMPLETE_ENGINEERING"
+  },
+  "errors": []
+}

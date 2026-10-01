@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "c652d54671b23058f3a847fd3eed11cdac1a37927ff53937c12550790653e4d8",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-42-07-210Z/RUNS.json",
+  "final_steps": 29,
+  "api_tests": 303,
+  "cross_process_tests": 179,
+  "formal_manifest": "docs/prelaunch/FORMAL_CLIENT_BUILD_MANIFEST.json",
+  "releaseAuthorized": false,
+  "real_domain_verified": false,
+  "real_device_verified": false,
+  "deployed": false,
+  "setup": "FORMAL_CLIENT_BUILD_SETUP.md",
+  "failed_run_retained": "docs/prelaunch/evidence/final-2026-10-01T05-39-46-968Z/RUNS.json",
+  "failure_resolution": "Added build-only local process type declaration; miniapp typecheck and full rerun pass without new dependency"
+}

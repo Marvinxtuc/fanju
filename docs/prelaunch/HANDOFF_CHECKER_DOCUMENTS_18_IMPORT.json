@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-01T01:38:05.176397+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/tools/check_handoff.py",
+      "source": "/Users/marvin.x/Documents/Codex/2026-10-01/task/handoff-input/FANJU_PRELAUNCH_MASTER_V1_1_20261001/tools/check_handoff.py",
+      "before": null,
+      "after": "a03d6ffc17859199b9942885bfccbc7b83383348d141603723d6adefc31eee0e"
+    },
+    {
+      "path": "docs/prelaunch/tools/verify_pack.py",
+      "source": "/Users/marvin.x/Documents/Codex/2026-10-01/task/handoff-input/FANJU_PRELAUNCH_MASTER_V1_1_20261001/tools/verify_pack.py",
+      "before": null,
+      "after": "4d97f74ee28cea6e60092738f0028ad668faf67e12f65661283da1a8b6037398"
+    },
+    {
+      "path": "docs/prelaunch/acceptance/HANDOFF_CONTRACT.json",
+      "source": "/Users/marvin.x/Documents/Codex/2026-10-01/task/handoff-input/FANJU_PRELAUNCH_MASTER_V1_1_20261001/acceptance/HANDOFF_CONTRACT.json",
+      "before": null,
+      "after": "c3ab9e456119fda88a881e349ae3fa73cd80d4e1d93b862ae9fb7ffcb1ce19c9"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/HANDOFF_CHECKER_DOCUMENTS_18/before",
+  "protected_unchanged": 33
+}

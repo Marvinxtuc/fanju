@@ -1106,6 +1106,12 @@ describeDb("api mock MVP flow", () => {
 
   it("paginates more than one hundred mixed-state orders and activities without truncating seat totals", async () => {
     const admin = await loginAdmin("o1-pages");
+    // Ops lists are global. Preserve unrelated owned fixtures and assert the exact complete universe.
+    const [baselineActivities, baselineOrders] = await Promise.all([
+      prisma.activity.findMany({ select: { id: true } }),
+      prisma.order.findMany({ select: { id: true, capacityHeld: true } }),
+    ]);
+    const baselineHeld = baselineOrders.filter(row => row.capacityHeld).length;
     const created = await Promise.all(Array.from({ length: 151 }, () => createOpenActivity(admin)));
     const token = await loginUser("o1-page-owner");
     const states = [OrderStatus.PENDING_PAYMENT, OrderStatus.CANCELED, OrderStatus.REFUNDED, OrderStatus.PAID_PENDING_GROUP, OrderStatus.COMPLETED];
@@ -1135,15 +1141,19 @@ describeDb("api mock MVP flow", () => {
       do {
         const response = await app.inject({ method: "GET", url: `${path}${after ? `?cursor=${encodeURIComponent(after)}` : ""}`, headers: auth(admin) });
         expect(response.statusCode).toBe(200);
-        expect(response.json().total).toBe(151);
+        expect(response.json().total).toBe(151 + (field === "activities" ? baselineActivities.length : baselineOrders.length));
         rows.push(...response.json()[field]); after = response.json().nextCursor;
       } while (after);
-      expect(rows).toHaveLength(151);
-      expect(new Set(rows.map(row => row.id)).size).toBe(151);
+      const baseline = field === "activities" ? baselineActivities : baselineOrders;
+      const ownIds = field === "activities" ? created : created.map((_id, index) => scoped(`page-order-${index}`));
+      expect(rows).toHaveLength(151 + baseline.length);
+      expect(new Set(rows.map(row => row.id)).size).toBe(151 + baseline.length);
+      expect(new Set(rows.map(row => row.id))).toEqual(new Set([...baseline.map(row => row.id), ...ownIds]));
+      expect(rows.filter(row => ownIds.includes(row.id))).toHaveLength(151);
       if (field === "activities") {
         for (let index = 0; index < created.length; index++)
           expect(rows.find(row => row.id === created[index])?.heldSeats).toBe(index % 5 === 1 || index % 5 === 2 ? 0 : 1);
-        expect(rows.reduce((sum, row) => sum + row.heldSeats!, 0)).toBe(91);
+        expect(rows.reduce((sum, row) => sum + row.heldSeats!, 0)).toBe(91 + baselineHeld);
       }
     }
   }, 30_000);

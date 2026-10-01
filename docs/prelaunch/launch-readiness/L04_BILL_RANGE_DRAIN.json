@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-08-13-957Z/RUNS.json",
+  "unit_tests": 14,
+  "owned_native_tests_including_parent": 17,
+  "process_signals": [
+    "SIGTERM",
+    "SIGINT"
+  ],
+  "controlled_resume_verified": true,
+  "range_identity_unchanged": true,
+  "coverageState": "INCOMPLETE",
+  "releaseAuthorized": false,
+  "funds_POST": false,
+  "remaining": [
+    "Single-day file size above 32MiB or 100000 rows",
+    "Large-file download and comparison recovery",
+    "Difference closure",
+    "Production scheduling and grace-period acceptance",
+    "Real merchant acceptance"
+  ],
+  "candidate": "e49a1a635947987c4571a6a35882b9b8cc12afa8f61827d0fba0cf373f286724",
+  "full_steps": 29
+}

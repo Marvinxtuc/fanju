@@ -1,0 +1,32 @@
+{
+  "candidate": "c89388abf93e935588cc4eeac6818fea234c120134a470da390e18d76629e263",
+  "validation": {
+    "postgres_cases": 11,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-query-worker",
+  "worker_entry": "node services/api/dist/prelaunch/wechat-query-worker.js --once",
+  "startup_requirements": [
+    "FEATURE_V11_QUERY_RECOVERY=true",
+    "Explicit DATABASE_URL, FINANCIAL_CASE_OWNER, RELEASE_VERSION",
+    "PAYMENT_PROVIDER=wechat and REFUND_PROVIDER=wechat",
+    "Existing WeChat provider config validation and secret injection"
+  ],
+  "confirmed": [
+    "Expired lease prevents channel I/O",
+    "Lost generation during channel query prevents evidence persistence",
+    "Query worker only claims V11_QUERY_PAYMENT",
+    "Conflicting evidence routes job to MANUAL with DATA_CONFLICT"
+  ],
+  "limits": [
+    "No real query worker process started against merchant",
+    "Handler MANUAL/queue integration still requires process-level test",
+    "Formal enqueue trigger and event/receipt/qualification processing pending",
+    "No charging or refund submission performed"
+  ],
+  "rollback": "Remove two new worker/handler files and only optional-lease changes/test case from payment-query-intake.ts and native test."
+}

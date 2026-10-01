@@ -1,0 +1,24 @@
+{
+  "candidate": "d6b06e1ac3b98ec3fe06debcc5454f57bfe3987577a39a7ee40eb5d80ffc7af8",
+  "validation": {
+    "native_tests_including_wrapper": 19,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Signed raw loopback HTTP persists trigger and durable query task",
+    "Task handler trusted synthetic query records late payment receipt and exact component sum",
+    "Canceled registration remains inactive and intent CLOSED after money recovery",
+    "Refund task trusted query confirms instruction and completes two reserved dispositions once",
+    "Finished lease replay rejected",
+    "Tests scope manual-event/case assertions to own prefix and tolerate retained previous synthetic data"
+  ],
+  "evidence": "evidence/L04-notification-recovery",
+  "limits": [
+    "Real crypto/HTTP/PostgreSQL with synthetic keys and query facts; no actual merchant network",
+    "Handler invoked with leased task in test; standalone worker process/crash remains separate",
+    "Original callback trigger stays RECEIVED as recovery hint, distinct from applied refund-query event",
+    "No formal qualification/seat activation or real financial acceptance"
+  ],
+  "rollback": "Restore only native test from backups/L04-notification-recovery after inspecting later edits; no production or schema change."
+}

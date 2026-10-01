@@ -1,0 +1,25 @@
+{
+  "candidate": "3a776475ba1cac3e94480723f0af6784b4b504ce0238c5227cb295ec01b131d3",
+  "status": "PASS_ENGINEERING_ONLY",
+  "unit_test_files": 1,
+  "postgres_http_tests": 6,
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-15-30-485Z/RUNS.json",
+  "scope": "DRAFT_CONSENT_INTEGRITY_AND_ADMISSION_REVALIDATION",
+  "formal_policy_activated": false,
+  "confirmed": [
+    "Consent policy read/validation/write under one transaction lock",
+    "Exact three-document full/public hash maps; no extra keys",
+    "Admission share-locks and rereads policy/consent before matching evidence",
+    "Damaged source/正文/hash records cause no registration or payment write",
+    "21 synthetic fixture files now carry actual test-only documents and SHA256 values"
+  ],
+  "limits": [
+    "Formal immutable runtime snapshot/consent and authority not assembled",
+    "No actual user consent, merchant or production deployment"
+  ],
+  "rollback": "Restore domain/routes and native fixtures from backups/L05-consent; remove new consent-evidence source/test and synthetic-consent fixture",
+  "joint_http_dom_targeted": "PASS",
+  "previous_attempts": "Source-drift attempt and one failed empty-document UI fixture run retained; not counted as PASS",
+  "final_steps": 28,
+  "cross_process_tests": 142
+}

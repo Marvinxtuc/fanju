@@ -1,0 +1,21 @@
+{
+  "candidate": "fad0b02fe2fb0d2b48ffcc0adb5cbefcf277e6c6e33385b66d7a8d13c63d82a5",
+  "validation": {
+    "gate_safety_tests": 7,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Per-gate evidence scope prevents implementation evidence replacing professional signoff, real device, real channel or production environment evidence",
+    "Evidence binds declared working candidate",
+    "Evidence symlink ancestors and outside-root resolution rejected",
+    "Link-complete result still explicitly forbids release authorization"
+  ],
+  "evidence": "evidence/L08-gate-evidence",
+  "limits": [
+    "Checks evidence linkage, not truth or adequacy of attached content",
+    "Working candidate supplied by readiness manifest; verifier does not independently recapture source",
+    "29 release conditions remain unresolved including 19 OP/RV"
+  ],
+  "rollback": "Restore checker from backups/L08-gate-evidence after reviewing subsequent edits; remove only new readiness-evidence test."
+}

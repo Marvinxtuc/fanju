@@ -1,0 +1,8 @@
+file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-clean-build.mjs:29
+if(captureCandidate(root).candidate_id!==candidate.candidate_id)throw Error('Source drift during clean build');
+                                                                      ^
+
+Error: Source drift during clean build
+    at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-clean-build.mjs:29:71
+
+Node.js v22.23.1

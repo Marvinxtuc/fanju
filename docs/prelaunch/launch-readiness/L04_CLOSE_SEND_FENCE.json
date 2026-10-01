@@ -1,0 +1,18 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "46432a9c1199fca29a73d06b387c911b7f2c0f1cc4fcc7a9f81e5b6213540069",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-13-39-316Z/RUNS.json",
+  "final_steps": 29,
+  "api_tests": 308,
+  "cross_process_tests": 194,
+  "targeted_tests": 46,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "channel_close_sent": false,
+  "setup": "FORMAL_CLOSE_SEND_SETUP.md",
+  "remaining": [
+    "Durable active closure worker and nonempty authorizer",
+    "Production assembly and real merchant acceptance"
+  ],
+  "backup": "backups/L04-close-send-fence/"
+}

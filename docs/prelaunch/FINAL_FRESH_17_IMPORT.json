@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:37:22.741667+00:00",
+  "files": [
+    {
+      "path": "scripts/prelaunch-owned-env.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fresh-final/scripts/prelaunch-owned-env.mjs",
+      "before": "d53cfcfc7843f6f7f2f6e39af6ff23695e6d3fec19c6af6a1990fb6b23748a23",
+      "after": "63a33038ff9e79fc8fd051a6df86db04728b7691f7644e04f0d79b9dc12beddd"
+    },
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fresh-final/scripts/prelaunch-final-verify.mjs",
+      "before": "836ee6483bced75fd4128942d435e8c0846182fe30a4b84286cdba6b0d70ca2e",
+      "after": "b3a7d264a85e030d695585af46dcfd473b6161380671385eccd85909c757687b"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_FRESH_17/before",
+  "protected_unchanged": 33
+}

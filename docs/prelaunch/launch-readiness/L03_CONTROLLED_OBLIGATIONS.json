@@ -1,0 +1,20 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "prior_full_candidate": "6ef42dcb74f7b74da06c37f5bb812d5a65ab4f929c495521518c923465edf678",
+  "prior_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T06-49-16-299Z/RUNS.json",
+  "prior_full_steps": 29,
+  "owned_targeted_tests": 16,
+  "identity_route_tests": 11,
+  "releaseAuthorized": false,
+  "dispatchAuthorized": false,
+  "first_http_failure": "Expected401 but existing version-binding mismatch returns403; assertion corrected and disabled-account401 added without authority changes",
+  "remaining": [
+    "Formal execution authority and batch",
+    "Real environment acceptance"
+  ],
+  "ui_targeted_tests": 18,
+  "ops_typecheck": "PASS",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T06-58-50-483Z/RUNS.json",
+  "candidate": "6dc8f3492551ad225da99c72be2d7f059d888fe7fcd2275d1220dcd9766aedbc",
+  "full_steps": 29
+}

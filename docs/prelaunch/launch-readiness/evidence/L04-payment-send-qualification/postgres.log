@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: preparation persists and serializes on owned PostgreSQL
+    # Subtest: twenty concurrent claims produce one durable submitting attempt
+    ok 1 - twenty concurrent claims produce one durable submitting attempt
+      ---
+      duration_ms: 141.055667
+      type: 'test'
+      ...
+    # Subtest: prepayment save does not confirm money and stale failures cannot undo it
+    ok 2 - prepayment save does not confirm money and stale failures cannot undo it
+      ---
+      duration_ms: 11.638417
+      type: 'test'
+      ...
+    # Subtest: unknown outcome cannot be claimed for another submission
+    ok 3 - unknown outcome cannot be claimed for another submission
+      ---
+      duration_ms: 19.131333
+      type: 'test'
+      ...
+    # Subtest: cancellation during channel query blocks prepayment send and retains recovery
+    ok 4 - cancellation during channel query blocks prepayment send and retains recovery
+      ---
+      duration_ms: 17.556917
+      type: 'test'
+      ...
+    # Subtest: wrong binding and inactive intents reject without writes
+    ok 5 - wrong binding and inactive intents reject without writes
+      ---
+      duration_ms: 12.430083
+      type: 'test'
+      ...
+    # Subtest: database constraint rejects prepared state without a reference
+    ok 6 - database constraint rejects prepared state without a reference
+      ---
+      duration_ms: 5.220416
+      type: 'test'
+      ...
+    # Subtest: runner persists submitting before network and prepay before returning
+    ok 7 - runner persists submitting before network and prepay before returning
+      ---
+      duration_ms: 17.583333
+      type: 'test'
+      ...
+    # Subtest: runner timeout leaves unknown and cannot resend
+    ok 8 - runner timeout leaves unknown and cannot resend
+      ---
+      duration_ms: 17.14425
+      type: 'test'
+      ...
+    # Subtest: authorization rejection rolls back before a durable claim
+    ok 9 - authorization rejection rolls back before a durable claim
+      ---
+      duration_ms: 7.087667
+      type: 'test'
+      ...
+    # Subtest: canceled registration and expired hold cannot prepare a payment
+    ok 10 - canceled registration and expired hold cannot prepare a payment
+      ---
+      duration_ms: 13.891667
+      type: 'test'
+      ...
+    # Subtest: late trusted payment query survives cancellation and concurrent duplicate intake
+    ok 11 - late trusted payment query survives cancellation and concurrent duplicate intake
+      ---
+      duration_ms: 455.491417
+      type: 'test'
+      ...
+    # Subtest: expired lease cannot query and lease loss during query cannot persist
+    ok 12 - expired lease cannot query and lease loss during query cannot persist
+      ---
+      duration_ms: 10.230459
+      type: 'test'
+      ...
+    # Subtest: query handler persists success and escalates conflict under a live lease
+    ok 13 - query handler persists success and escalates conflict under a live lease
+      ---
+      duration_ms: 35.279875
+      type: 'test'
+      ...
+    # Subtest: recovery job identity conflict rolls back the submission claim
+    ok 14 - recovery job identity conflict rolls back the submission claim
+      ---
+      duration_ms: 9.39075
+      type: 'test'
+      ...
+    # Subtest: refund budget rejects invalid components and cross-receipt business key reuse
+    ok 15 - refund budget rejects invalid components and cross-receipt business key reuse
+      ---
+      duration_ms: 27.664041
+      type: 'test'
+      ...
+    1..15
+ok 1 - preparation persists and serializes on owned PostgreSQL
+  ---
+  duration_ms: 953.971125
+  type: 'test'
+  ...
+1..1
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1111.186042

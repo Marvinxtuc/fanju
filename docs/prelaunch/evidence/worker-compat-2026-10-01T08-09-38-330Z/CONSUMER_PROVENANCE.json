@@ -1,0 +1,8 @@
+{
+  "consumer": "STARTING_272_SOURCE_PLUS_CURRENT_LEGACY_WORKER_ALLOWLIST",
+  "baseline_id": "06f4f51487642bddfa9253b986cf7e47d03f2a2202cbb224747eeecf160c2487",
+  "worker_source_sha256": "055c0adc1f6aab0fa307ab33cb2fd6589e6e0342eb8f7f886c500ed5526a185d",
+  "current_schema": "ADDITIVE_V11",
+  "synthetic_only": true,
+  "production_authorized": false
+}

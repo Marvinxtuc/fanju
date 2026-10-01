@@ -1,0 +1,22 @@
+{
+  "candidate": "0454f82327ec3601a7cba839e1e2aebcf4a8cabdd86bbc59b6848ca93bd1cf6e",
+  "validation": {
+    "native_tests_including_wrapper": 16,
+    "channel_tests": 16,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Mandatory channel send guard runs after absence query and before prepayment provider call",
+    "Runner reauthorizes current registration, hold expiry, amount, binding and claim version under registration lock",
+    "Cancellation during query prevents prepayment submission and retains UNKNOWN/recovery obligation"
+  ],
+  "evidence": "evidence/L04-payment-send-qualification",
+  "limits": [
+    "Synthetic transport and authorization only",
+    "Cancellation after final guard can still race with channel I/O; close/query and late receipt handling required",
+    "Formal payment API, policy authorizer, prepay resume and client requestPayment remain pending"
+  ],
+  "rollback": "Restore only five affected files from backups/L04-payment-send-qualification after checking later edits; no schema or production data change."
+}

@@ -7,6 +7,7 @@ import {
   ensureMockUser,
   demoModeEnabled,
   loginWithWechatProvider,
+  initializeAvailableV11Identity,
 } from "../../api";
 import { formatClientError } from "./client-error";
 
@@ -24,7 +25,8 @@ export default function MockAuthPage(): JSX.Element {
 
   async function handleWechatLogin(): Promise<void> {
     try {
-      await loginWithWechatProvider();
+      const authToken = await loginWithWechatProvider();
+      await initializeAvailableV11Identity(authToken);
       setMessage("微信登录已完成");
     } catch (error) {
       setMessage(formatClientError(error, "微信登录失败"));

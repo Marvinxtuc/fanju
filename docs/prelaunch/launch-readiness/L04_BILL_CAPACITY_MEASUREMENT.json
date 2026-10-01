@@ -1,0 +1,50 @@
+{
+  "candidate": "d2b9de60fd62da98471f4cdad306af730ee61c37038adaa7291bdec15785ba95",
+  "status": "MEASURED_ENGINEERING_ONLY",
+  "environment": "OWNED_SYNTHETIC_POSTGRES",
+  "workload": "ALL_APPLICATION_PAYMENT_ROWS_WITHOUT_LOCAL_INTENTS",
+  "rows": [
+    {
+      "rows": 100,
+      "bytes": 27353,
+      "elapsedMs": 564,
+      "status": "COMMITTED",
+      "events": 100,
+      "cases": 100,
+      "audits": 1,
+      "atomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    },
+    {
+      "rows": 1000,
+      "bytes": 270356,
+      "elapsedMs": 1880,
+      "status": "COMMITTED",
+      "events": 1000,
+      "cases": 1000,
+      "audits": 1,
+      "atomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    },
+    {
+      "rows": 10000,
+      "bytes": 2718359,
+      "elapsedMs": 16962,
+      "status": "COMMITTED",
+      "events": 10000,
+      "cases": 10000,
+      "audits": 1,
+      "atomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    }
+  ],
+  "releaseAuthorized": false,
+  "limits": [
+    "Local measurements only; not production capacity or merchant acceptance",
+    "No local intent/refund matching workload measured",
+    "Existing file/row and transaction limits retained"
+  ],
+  "scriptSha256": "47becd8777c59dae5a3997239e058b9891e3e8b641cb0c711e82a0e24c70e921",
+  "script_path": "docs/prelaunch/evidence/bill-capacity-2026-10-01/bill-capacity.mjs",
+  "source_candidate_rechecked_after_run": "d2b9de60fd62da98471f4cdad306af730ee61c37038adaa7291bdec15785ba95"
+}

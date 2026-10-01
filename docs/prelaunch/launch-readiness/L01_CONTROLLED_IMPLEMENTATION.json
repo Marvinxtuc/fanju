@@ -1,0 +1,25 @@
+{
+  "candidate_id": "9caebd28c56890be82e551d6af82b82dac038da686d5827c2d08102b85f61e3f",
+  "baseline_candidate": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "scope": "L01 formal user provisioning + dedicated controlled session + default-off route assembly",
+  "unit_tests": {
+    "passed": 62,
+    "failed": 0,
+    "raw": "docs/prelaunch/launch-readiness/evidence/L01-controlled-final/identity.stdout.log"
+  },
+  "native_tests": {
+    "passed": 14,
+    "failed": 0,
+    "includes_parent_wrappers": true,
+    "scope": "5 PostgreSQL/Fastify identity cases plus7 native HTTP aftersales cases;2 parent wrappers",
+    "raw": "docs/prelaunch/launch-readiness/evidence/L01-controlled-final/postgres.stdout.log"
+  },
+  "api_typecheck": "PASS",
+  "api_build": "PASS",
+  "check_secrets": "PASS after scanner flagged a function-call token assignment; renamed local variable without altering scanner",
+  "check_copy": "PASS",
+  "frozen_paths_unchanged": 33,
+  "security_correction": "Initial legacy OPS account mapping replaced before deployment by dedicated controlled audience/account configuration to prevent restaurant/reviewer legacy privilege access",
+  "initial_postgres_failure": "Raw SELECT advisory-lock void result was unsupported; executeRaw lock now verified under20-way concurrency",
+  "remaining": "No real provider calls or production enablement; full104/139baseline evidence not automatically transferred to this new candidate"
+}

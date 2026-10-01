@@ -1,0 +1,23 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-18-13-667Z/RUNS.json",
+  "download_unit_tests": 12,
+  "owned_native_tests_including_parent": 18,
+  "fresh_process_recovery_verified": true,
+  "fresh_signed_metadata_required": true,
+  "cache_is_authority": false,
+  "download_token_persisted": false,
+  "coverageState": "INCOMPLETE",
+  "releaseAuthorized": false,
+  "production_activated": false,
+  "remaining": [
+    "Single-day size beyond 32MiB and 100000 rows",
+    "Large-file streamed parsing and resumable DB comparison",
+    "Formal retention policy and production cache location",
+    "Difference closure and real merchant acceptance"
+  ],
+  "first_full_failure": "docs/prelaunch/evidence/final-2026-10-01T07-15-24-727Z/RUNS.json",
+  "failure_reason": "New synthetic token placeholder matched existing length-based scanner. Fixture changed to established fixture-bill value; scanner policy unchanged.",
+  "candidate": "d2b9de60fd62da98471f4cdad306af730ee61c37038adaa7291bdec15785ba95",
+  "full_steps": 29
+}

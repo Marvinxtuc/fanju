@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:32:14.030507+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/remaining-scenarios-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/remaining-scenarios-native.test.mjs",
+      "before": null,
+      "after": "b552e8909ee08aabd666ad90d69b141eb52ae111589423004ef23cf71380f362"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_REMAINING_13/before",
+  "protected_unchanged": 33
+}

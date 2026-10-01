@@ -1,0 +1,24 @@
+{
+  "candidate": "e222f38b83d0879e6e32c780003733e23b24c9b9dd84ad729cc93401725ad309",
+  "validation": {
+    "native_tests_including_wrappers": 23,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-request-snapshot",
+  "confirmed": [
+    "New instructions save original cumulative targets independently of incremental refund amount",
+    "Same key with changed cumulative target rejects",
+    "10 concurrent same-receipt retries return one instruction and reserve one increment",
+    "Idempotency lookup runs after existing receipt budget lock"
+  ],
+  "migration": "20261001030000_v11_refund_request_snapshot applied only to owned isolated PostgreSQL; nullable legacy fields are not backfilled with guesses.",
+  "limits": [
+    "Legacy null snapshots return prior instruction unchanged; exact historical target equality cannot be proven",
+    "No actual WeChat refund dispatch",
+    "Full production migration/deployment rehearsal and real acceptance remain pending"
+  ],
+  "rollback": "Restore schema/domain from backups/L04_refund_request_snapshot; remove new migration before external deploy. Applied DB column removal requires exporting snapshots and checking active obligations; never delete obligations to force rollback."
+}

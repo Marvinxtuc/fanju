@@ -1,0 +1,12 @@
+file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-owned-env.mjs:174
+    } else throw new Error('PRELAUNCH_UNOWNED_LISTENER_FORBIDDEN');
+                 ^
+
+Error: PRELAUNCH_UNOWNED_LISTENER_FORBIDDEN
+    at net.Server.listen (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-owned-env.mjs:174:18)
+    at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:53:31537
+    at new Promise (<anonymous>)
+    at createIpcServer (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:53:31515)
+    at async file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:55:459
+
+Node.js v22.23.1

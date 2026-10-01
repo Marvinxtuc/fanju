@@ -9,6 +9,10 @@
     ".": {
       "types": "./src/index.ts",
       "import": "./dist/index.js"
+    },
+    "./prelaunch-client": {
+      "types": "./dist/rules/prelaunchClient.d.ts",
+      "import": "./dist/rules/prelaunchClient.js"
     }
   },
   "scripts": {

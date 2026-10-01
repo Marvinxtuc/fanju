@@ -1,59 +1,64 @@
-# 饭局V1.0政策包｜阅读、导入与授权边界
+# 饭局政策包 V1.1｜阅读与授权边界
 
-| 项目 | 当前事实 |
+| 项目 | 本轮事实 |
 | :--- | :--- |
-| 政策包版本 | FJ-POLICY-V1.0-20260930-REBASE-01 |
-| 上游基线 | FJ-BUSINESS-BASELINE-20260930-V1.0；原文未修改 |
-| 原基线SHA-256 | `48357a92e9d84e816f84948149363834746c3cfd9d1936df228c7ae280f0c187` |
-| 五份派生文件 | REBASED_DRAFT；已对齐文字，未批准发布、未设生效日 |
-| 已完成范围 | 六文件组装、规则映射、文档检查及本地Codex交接材料 |
-| 工作区接入 | 首次连接和按用户要求重试均返回HTTP 404；未读到最新本地源码 |
-| 远端只读核对 | 开发分支bc25f5b；main c0b5a9f；不是清单报告的本地整改版本 |
-| 仓库导入 / 代码Gap / 代码开发 | 未执行 / 未执行 / 未执行 |
-| 生产、真实微信和资金 | 本轮不授权，也未执行 |
+| 任务 | FJ-POLICY-REBASE-V1.1；仅政策、设计、追溯文档 |
+| 当前政策束 | FJ-POLICY-V1.1-20261001-REBASE-01 |
+| 当前基线 | FJ-BUSINESS-BASELINE-20261001-V1.1；在V1.0上准确合入15项业务决定 |
+| 上游新增输入 | FJ-DR01-DR02-DECISIONS-20261001-V1；APPROVED_AS_BUSINESS_INPUT |
+| 文档状态 | REBASED_DRAFT；未批准启用、未设生效日 |
+| 业务未闭合 | 3项OP CLOSED、4项PARTIALLY_CLOSED、8项OPEN；7项RV REVIEW_REQUIRED |
+| 实际工作区 | /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局 |
+| 分支 / 起始HEAD | codex/fanju-stage0-baseline / 003200820922d11b374b84a9e756d4d763bea3f2 |
+| 本轮测试 | 91项业务验收目标均NOT_RUN；未运行源码测试、DB、migration、构建或外部调用 |
+| 实施与启用 | 未修改业务源码及运行配置；未激活政策；未提交、推送或部署 |
 
-## 1. 六份主文件
+## 1. 当前六份主文档
 
 | 层级 | 文件 | 用途 |
 | :--- | :--- | :--- |
-| 业务来源 | [BUSINESS_RULES_BASELINE.md](BUSINESS_RULES_BASELINE.md) | 本轮100项问答归并，保留104个显式规则ID及未闭合表 |
-| 用户政策 | [USER_AGREEMENT.md](USER_AGREEMENT.md) | 用户完整条款草案、付款前提示与正文范围 |
-| 用户政策 | [PRIVACY_NOTICE.md](PRIVACY_NOTICE.md) | 最小资料、实际共享、证明材料、留存与注销流程要求 |
-| 餐厅履约 | [RESTAURANT_SERVICE_STANDARD.md](RESTAURANT_SERVICE_STANDARD.md) | 逐场参数、签收、到场确认、异常与补偿责任 |
-| 资金政策 | [REFUND_POLICY.md](REFUND_POLICY.md) | F/D分项、窗口、责任、申诉、原路与批次 |
-| 实施证据 | [POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md](POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md) | 30核对域、104规则目录、64原场景和12新增跨模块场景、候选工作包 |
+| 业务事实 | [BUSINESS_RULES_BASELINE.md](BUSINESS_RULES_BASELINE.md) | 保留104 Rule ID、Q01—100历史，合入15项上游决定与当前OP/RV |
+| 用户协议 | [USER_AGREEMENT.md](USER_AGREEMENT.md) | 准入、费用、报名/候补、成团、取消与履约条款草案 |
+| 隐私 | [PRIVACY_NOTICE.md](PRIVACY_NOTICE.md) | 最小字段、价格/履约历史、实际共享、材料及权利边界 |
+| 餐厅履约 | [RESTAURANT_SERVICE_STANDARD.md](RESTAURANT_SERVICE_STANDARD.md) | 逐场D提议与审核、标准排桌策略revision、确认与结算前置 |
+| 退款政策 | [REFUND_POLICY.md](REFUND_POLICY.md) | 一笔F+D分项、当前状态与时间矩阵、原路退款、申诉/结算 |
+| 实施验收 | [POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md](POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md) | 104规则目录、64 BR + 12 RB + 15 DR目标及候选工作包 |
 
-建议先读基线第1、10、17节，再按退款→餐厅→隐私→用户协议→实施矩阵阅读。源码、PRD和AGENTS用于核实现状和工程约束，不因业务基线“优先”而被自动覆写。
+建议先读新增[决策输入](sources/FJ_DR01_DR02_DECISION_FREEZE_V1_1_INPUT.md)、基线第4/6/7/8/10/17节，再阅读派生政策和设计。上游文件以原始字节复制，SHA-256为 `0268f125663f3a31f9ebb0c8c49870bb2f3df9d47776e2c54439f162b1508743`。批准业务输入不等于整版政策批准、专项审查通过、实现验收或收费许可。
 
-本包不更改上游基线原文字节。基线的“当次未修订五文档”“建议归档路径”等历史交付说明依然保留；本README记录此次新增工作。原基线状态也没有被悄悄改成Approved。
+## 2. 本轮追溯与设计
 
-## 2. 配套材料不是新增经营政策
+- [POLICY_REBASE_V1_1_CHANGELOG.md](POLICY_REBASE_V1_1_CHANGELOG.md)：15项前后变化、OP/RV变化、保留待定值与范围。
+- [OPEN_DECISION_REVIEW.md](OPEN_DECISION_REVIEW.md)：当前15 OP / 7 RV，区分已闭合内容和残余交集。
+- [TRACEABILITY_INDEX.json](TRACEABILITY_INDEX.json)：104规则、三组验收目标、上游决定、文档身份/摘要的机器索引；不是运行配置。
+- [POLICY_TECH_DESIGN.md](POLICY_TECH_DESIGN.md)、[POLICY_WORK_PACKAGES.md](POLICY_WORK_PACKAGES.md)：同步业务输入后的候选技术设计与包依赖；不形成代码实施授权。
+- [POLICY_V1_1_CONSISTENCY_REPORT.md](POLICY_V1_1_CONSISTENCY_REPORT.md)：文档检查结果、未运行项和剩余阻塞。
+- [POLICY_V1_1_BUNDLE_MANIFEST.json](POLICY_V1_1_BUNDLE_MANIFEST.json)、[SHA256SUMS_V1_1.txt](SHA256SUMS_V1_1.txt)：本版全文摘要与可重算bundle摘要。
 
-| 文件 | 用法 |
-| :--- | :--- |
-| [POLICY_REBASE_CHANGELOG.md](POLICY_REBASE_CHANGELOG.md) | 五份旧稿到本版的实质变化、继承项与输入哈希 |
-| [OPEN_DECISION_REVIEW.md](OPEN_DECISION_REVIEW.md) | 原样保留15个OP和7个RV；按少量评审包处理，不再开启100题问答 |
-| [CODEX_NEXT_TASK.md](CODEX_NEXT_TASK.md) | 本地可执行的文档导入、实际代码差分和候选设计任务；完成后停止 |
-| [CONSISTENCY_REPORT.md](CONSISTENCY_REPORT.md) | 本次实际文档检查结果及不能据此证明的事项 |
-| [TRACEABILITY_INDEX.json](TRACEABILITY_INDEX.json) | 机器可读规则/测试定位索引，**不是运行配置或Schema** |
-| [sources/REFERENCE_NOTES.md](sources/REFERENCE_NOTES.md) | 来源、历史版本及专项复核参考；不替代人工批准 |
+`UA-V1-*`、`PN-V1-*`等条款锚点为稳定定位标识，V1.1继续保留；正文控制ID、版本、bundle及全文摘要统一升版，不把锚点名称当作错误版本。
 
-原`START_HERE.md`里的D01—D16和旧IA/QA-P编号仅作历史材料，不是本轮重新收集业务决定的入口。本包不覆盖用户下载目录中的旧原件；导入仓库前须先审查已有同名文件。旧安全、幂等、对账、恢复测试不能因政策升版而删除。
+## 3. 历史证据与版本隔离
 
-## 3. 对齐的含义与限制
+V1.0原基线全文及18份政策/分析文档保存在Git提交 `b47c0fefb3c4392a742696fc8f14004c011313e1`。原基线SHA-256为 `48357a92e9d84e816f84948149363834746c3cfd9d1936df228c7ae280f0c187`。当前基线是有授权的V1.1修订，不能继续声称当前文件逐字节未变。
 
-已明确业务采用同一口径；确实未决的事项在六文件中保持未决。**文档之间无相反的已批准答案，不等于所有交集已经有答案。**不允许删除OP/RV提示后把草案直接展示给用户；应先补批准决定并升版。
+下列文件保留V1.0历史内容：POLICY_GAP_ANALYSIS.md、POLICY_DECISION_PROPOSALS.md、POLICY_REBASE_CHANGELOG.md、CONSISTENCY_REPORT.md、CODEX_NEXT_TASK.md及sources/REFERENCE_NOTES.md。原输入SHA256SUMS位于原ZIP外层，未导入仓库。旧报告的404、远端版本和当时待定项只描述当时，不代表本轮实际工作区或当前决定；以本轮变更记录/索引为准。原ZIP中的SHA256SUMS用于V1.0原包，不能在修订后的当前目录当作V1.1校验清单运行。
 
-尤其保留：服务费金额及定价方式待定；T-24h至T-8h成团失效、曾成团后待成团者取消、未成团取消的两个等号、候补竞争、特殊申诉和多类审核时限、实际补偿结算等。成团后=24h的D归餐厅是明确决定，不能和其他未签收等号混淆。
+WP10-A源码、测试和WP10_A_REVIEW.md保持Git `003200820922d11b374b84a9e756d4d763bea3f2` 的原字节。本地V1.0范围已由用户授权固化；没有V1.1实现或启用权限继承。validator固定V1.0输入；其原测试fixture读取当前政策路径，V1.1正文与固定摘要不同，历史52项通过不能代表当前通过。后续版本化fixture/validator兼容需单独设计与授权；本轮不改源码、不重跑该测试来宣称新版本通过。
 
-三份用户文本中PUBLIC_DRAFT标记只划定候选正文；**不应包含内部任务、证据表或评审材料对外发布**。当前候选正文也因待定项尚不可启用。版本绑定应保留三份全文及其映射，不能把隐私处理都塞进一项捆绑同意。
+## 4. 仍需人工闭合的参数与交集
 
-## 4. 继续推进的最小动作
+- OP-01/02/06=CLOSED；OP-03/04/05/08=PARTIALLY_CLOSED；其余8项OPEN。CLOSED仅关闭主体业务选择，实际实现、逐场确认和专项审查仍须证据。
+- F默认金额、D_MIN、D_MAX、WAITLIST_MAX统一默认数字继续TBD；不填写未确认补偿金额和结算账户。逐场上限未配置不开放候补收费；D范围数值未有权配置/签收不启用真实保证金收费。
+- 取消/退款受理的成员移除时点，FIFO时钟与同刻排序，恰好T-24新加入类别，报名截止后但10分钟内收款，以及失效桌新加入类别，继续按OP-04/05保留。
+- PLATFORM_RETAINED仅是D的业务处置；不自动认定ACCOUNTING_REVENUE。实际资金/会计/税务/结算及七项RV仍需独立评审。
 
-本地Codex读取[下一轮任务](CODEX_NEXT_TASK.md)，先核对工作区与包哈希；确认没有文档冲突后导入`docs/policy/`，再对实际代码只读分析，交回四份文档。无需先把全部OP答完才能定位代码；但相关实现及真实资金启用必须等对应审批。
+三份用户文本的PUBLIC_DRAFT只划定候选正文，不是上线内容。不得删除待定/阻塞标识直接发布；应保存对应政策束的全文、文档ID与摘要，并分别落实告知和必要同意。
 
-本轮可进行文档导入、只读差分与候选设计。**不能据本包直接修改业务代码、Schema、状态机、依赖、部署或执行数据库脚本；不得调用真实微信、处理真实资金、提交/推送Git。**如AGENTS规定更严格的写入范围，按更严格边界报告阻塞。后续每个代码工作包单独授权。
+## 5. 摘要口径与复核
 
-## 5. 下一道验收
+1. 所有document SHA-256均对文件当前UTF-8原始字节计算，不做空白/换行归一化；包括源输入及政策正文以外的控制信息。
+2. manifest的bundle_payload含bundle_id、bundle_version、document_status及按path排序的14个document记录（path、document_id、document_version、sha256）。将payload以Python `json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')`序列化后求SHA-256。
+3. manifest自身与SHA256SUMS_V1_1.txt不进入bundle_payload，避免循环引用。清单另包含manifest本身，合计15文件。摘要只是完整性证据，不是可信审批。
+4. 在仓库根目录执行 `shasum -a 256 -c docs/policy/SHA256SUMS_V1_1.txt` 可复核清单。manifest复核按上述同一序列化规则重算bundle_payload即可。
 
-本地交回`POLICY_GAP_ANALYSIS.md`、`POLICY_DECISION_PROPOSALS.md`、`POLICY_TECH_DESIGN.md`、`POLICY_WORK_PACKAGES.md`。审核其真实定位、金额/状态一致性、OP/RV处理、迁移兼容和最小首包，再批准实施。没有本地证据时不得出具“全部已实现”。
+本轮交付后停止等待人工审核，不进入WP10-B、WP03/WP04/WP05/WP06或其他实施包；禁止把业务决定或文档摘要当作部署/收费批准。

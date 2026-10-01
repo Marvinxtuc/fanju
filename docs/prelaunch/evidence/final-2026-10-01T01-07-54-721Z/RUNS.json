@@ -1,0 +1,790 @@
+{
+  "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+  "environment": {
+    "task_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+    "owner_id": "fanju-prelaunch-20261001-b48140fda0c1",
+    "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+    "context": "colima",
+    "container": "fj-prelaunch-a755def387dc-db",
+    "container_id": "b29cdc54fe324bdff7beb22755314e5ac78502fae6936fdf1cf912af2ea7e249",
+    "image_id": "sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb",
+    "volume": "fj-prelaunch-a755def387dc-data",
+    "network": "fj-prelaunch-a755def387dc-net",
+    "network_internal": false,
+    "network_outbound_masquerade": false,
+    "client_network_allowlist_required": true,
+    "host": "127.0.0.1",
+    "host_port": 32772,
+    "database": "fanju_prelaunch_a755def387dc",
+    "database_owner": "fj_a755def387dc",
+    "database_marker_verified": true,
+    "postgres_version": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "production_authorized": false,
+    "existing_database_connected": false,
+    "verified_at": "2026-10-01T01:07:54.699Z"
+  },
+  "runs": [
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-network-guard",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"--input-type=module\",\"-e\",\"import assert from 'node:assert/strict';import net from 'node:net';import https from 'node:https';import tls from 'node:tls';\\nawait assert.rejects(fetch('https://api.weixin.qq.com/'),/PRELAUNCH_EXTERNAL_NETWORK_FORBIDDEN/);\\nassert.throws(()=>net.connect({host:'127.0.0.1',port:5432}),/PRELAUNCH_EXTERNAL_NETWORK_FORBIDDEN/);\\nassert.throws(()=>net.connect({host:'127.0.0.1',port:1}),/PRELAUNCH_UNOWNED_LOOPBACK_FORBIDDEN/);\\nassert.throws(()=>net.connect({host:'localhost',port:3000}),/PRELAUNCH_EXTERNAL_NETWORK_FORBIDDEN/);\\nassert.throws(()=>https.request('https://api.mch.weixin.qq.com/'),/PRELAUNCH_EXTERNAL_NETWORK_FORBIDDEN/);\\nassert.throws(()=>tls.connect({host:'example.com',port:443}),/PRELAUNCH_EXTERNAL_NETWORK_FORBIDDEN/);\\nconsole.log('Six explicit unowned destinations rejected before socket creation');\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:54.808Z",
+      "finished_at": "2026-10-01T01:07:54.893Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/network-guard.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/network-guard.stderr.log"
+      ],
+      "stdout_sha256": "dc78fb615f8dcafc5ba1996ed3c6bd49de164b83ae3b261220d42816ddfba7c0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-channel-migrate",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"migrate\",\"deploy\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:54.979Z",
+      "finished_at": "2026-10-01T01:07:55.691Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/channel-migrate.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/channel-migrate.stderr.log"
+      ],
+      "stdout_sha256": "7072376df8d7bf286b73b68f03916f1efba1db911bb2252e4a0473a025c6b39d",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-tool-versions",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"--version\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:55.777Z",
+      "finished_at": "2026-10-01T01:07:56.000Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/tool-versions.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/tool-versions.stderr.log"
+      ],
+      "stdout_sha256": "6627910d790eca1f86ba054fd12cd6b3d5b96cdcf32d6a3d642ffb78af02179c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-native-toolchain",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"--input-type=module\",\"-e\",\"import {createRequire} from 'node:module'; const req=createRequire(process.cwd()+'/package.json'); console.log('Node',process.version); for(const name of ['vitest','typescript','prisma'])console.log(name,req(name+'/package.json').version); const mini=createRequire(process.cwd()+'/apps/miniapp/package.json'); console.log('Taro',mini('@tarojs/cli/package.json').version); const ops=createRequire(process.cwd()+'/apps/ops/package.json'); console.log('Vite',ops('vite/package.json').version);\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:56.084Z",
+      "finished_at": "2026-10-01T01:07:56.173Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/native-toolchain.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/native-toolchain.stderr.log"
+      ],
+      "stdout_sha256": "6b7722c29603092e1403a8252525de2d9da14aa1ba395869b5a03a491a90e7e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-schema-validate",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"validate\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:56.260Z",
+      "finished_at": "2026-10-01T01:07:56.989Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/schema-validate.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/schema-validate.stderr.log"
+      ],
+      "stdout_sha256": "bd1aa83cef7b43f4ccbc011cb2229a422adb5bd6634078ce81aa80e71ef6f4a9",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-migrate-deploy",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"migrate\",\"deploy\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:57.078Z",
+      "finished_at": "2026-10-01T01:07:57.792Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/migrate-deploy.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/migrate-deploy.stderr.log"
+      ],
+      "stdout_sha256": "c82d1a956bb0195dcebfa9dd2a2f733b66cd3c1fea93373f7f806ce444c66852",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-generate",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"generate\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:57.881Z",
+      "finished_at": "2026-10-01T01:07:58.774Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/generate.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/generate.stderr.log"
+      ],
+      "stdout_sha256": "f63a8cb97cf9f007648e475073491947b9f84a6f2f05e7e943740a4154f0fa25",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-schema-diff",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"prisma\",\"migrate\",\"diff\",\"--from-config-datasource\",\"--to-schema\",\"prisma/schema.prisma\",\"--script\",\"--exit-code\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:07:58.861Z",
+      "finished_at": "2026-10-01T01:07:59.597Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/schema-diff.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/schema-diff.stderr.log"
+      ],
+      "stdout_sha256": "e69c9f21be2b53770b13ea52bf6c4f304a9fc86b41f1e932729ec2de45574341",
+      "stderr_sha256": "04243fac449156c0326b2fbb17ec68f3575b23d47faf13efc78b8e7631f446e5",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-shared-build",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/packages/shared",
+      "started_at": "2026-10-01T01:07:59.705Z",
+      "finished_at": "2026-10-01T01:08:00.469Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-build.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-build.stderr.log"
+      ],
+      "stdout_sha256": "e57381ec8ad62231cb07943f85d9e204a69161c04b209b5dec67579ed90380c0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-a1-frozen-52",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"src/rules/policyBundle.test.ts\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/a1-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/packages/shared",
+      "started_at": "2026-10-01T01:08:00.555Z",
+      "finished_at": "2026-10-01T01:08:01.133Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/a1-frozen-52.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/a1-frozen-52.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/a1-tests.json"
+      ],
+      "stdout_sha256": "c73ed397e3d558302ed3b68767edb3fa90bec1e29f689df786278be2adcc55ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 52,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-shared-tests",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/packages/shared",
+      "started_at": "2026-10-01T01:08:01.224Z",
+      "finished_at": "2026-10-01T01:08:02.409Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-tests.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-tests.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-tests.json"
+      ],
+      "stdout_sha256": "9ea1ab769e00387241bb51762585edb1a5a9235abe8228f136686e0b86457c3a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 225,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-shared-typecheck",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"typecheck\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/packages/shared",
+      "started_at": "2026-10-01T01:08:02.494Z",
+      "finished_at": "2026-10-01T01:08:03.208Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-typecheck.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/shared-typecheck.stderr.log"
+      ],
+      "stdout_sha256": "7f9c656a549f2a92aa8ee1531ed558b998b05ef474fa16c957ea479b2e0d6032",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-api-tests",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api",
+      "started_at": "2026-10-01T01:08:03.293Z",
+      "finished_at": "2026-10-01T01:08:28.472Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-tests.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-tests.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-tests.json"
+      ],
+      "stdout_sha256": "c0e0af735e3c968f0cbdc81ec572f5b9071322113f2a229b6fbcaa3c49add8f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 160,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-api-typecheck",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"typecheck\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api",
+      "started_at": "2026-10-01T01:08:28.545Z",
+      "finished_at": "2026-10-01T01:08:30.874Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-typecheck.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-typecheck.stderr.log"
+      ],
+      "stdout_sha256": "73c4737f3c0d2f5a8c763458d8c9281dd3b0d8621312aebece93dd04848a6d59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-miniapp-tests",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp",
+      "started_at": "2026-10-01T01:08:30.960Z",
+      "finished_at": "2026-10-01T01:08:31.971Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-tests.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-tests.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-tests.json"
+      ],
+      "stdout_sha256": "6b0bc73bbcadc31fceb322a30c5ae53571d678bc0dca1fbf278874851d469b8a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-miniapp-typecheck",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"typecheck\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp",
+      "started_at": "2026-10-01T01:08:32.057Z",
+      "finished_at": "2026-10-01T01:08:32.883Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-typecheck.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-typecheck.stderr.log"
+      ],
+      "stdout_sha256": "581c61e5a8d63a9308fc1e3898cd60e28762ff5892125b48e205b1f81452960b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-ops-tests",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops",
+      "started_at": "2026-10-01T01:08:32.968Z",
+      "finished_at": "2026-10-01T01:08:34.187Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-tests.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-tests.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-tests.json"
+      ],
+      "stdout_sha256": "c5b862f46b5a838d4a9060ad324666868f704ba001b1cf1c9d82b9e7739e4efb",
+      "stderr_sha256": "79276bd31a3f2bce4b852b83287d178e44d46386bb54230cc48381940d173b14",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-ops-typecheck",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"typecheck\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops",
+      "started_at": "2026-10-01T01:08:34.275Z",
+      "finished_at": "2026-10-01T01:08:35.269Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-typecheck.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-typecheck.stderr.log"
+      ],
+      "stdout_sha256": "1a70fd236bf36ee5b3f45e9c6cd63e5a52f4b16086207e0967446fc032e5ea20",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-api-build",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api",
+      "started_at": "2026-10-01T01:08:35.358Z",
+      "finished_at": "2026-10-01T01:08:38.005Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-build.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/api-build.stderr.log"
+      ],
+      "stdout_sha256": "7577ff8c670b6ff83d1f2bfd7477890c515a4797666efb9971d1a655d1f1f41c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-ops-build",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops",
+      "started_at": "2026-10-01T01:08:38.093Z",
+      "finished_at": "2026-10-01T01:08:38.789Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-build.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/ops-build.stderr.log"
+      ],
+      "stdout_sha256": "e41adc8699ec251b24c7428d56b46e4614baf62de98d39ff933acd3918e7e576",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-weapp-build",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"build\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp",
+      "started_at": "2026-10-01T01:08:38.875Z",
+      "finished_at": "2026-10-01T01:08:42.956Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/weapp-build.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/weapp-build.stderr.log"
+      ],
+      "stdout_sha256": "61b345c8f08778ff94d9aed5cd1cd39a5487a546c0b4f4950bf3c489a5243cd5",
+      "stderr_sha256": "6184fde9947b21afe51a793849c4260641f4b7a8d223aa17631abb1988a8722b",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-check-copy",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"--import\",\"tsx\",\"scripts/check-visible-copy.ts\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:08:43.041Z",
+      "finished_at": "2026-10-01T01:08:43.185Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/check-copy.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/check-copy.stderr.log"
+      ],
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-check-secrets",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"--import\",\"tsx\",\"scripts/check-secrets.ts\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:08:43.273Z",
+      "finished_at": "2026-10-01T01:08:43.500Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/check-secrets.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/check-secrets.stderr.log"
+      ],
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-miniapp-dom-native",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--config\",\"vitest.prelaunch.config.ts\",\"--no-cache\",\"--reporter=verbose\",\"--reporter=json\",\"--outputFile=/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-dom-tests.json\",\"--no-file-parallelism\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops",
+      "started_at": "2026-10-01T01:08:43.583Z",
+      "finished_at": "2026-10-01T01:08:44.404Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-dom-native.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-dom-native.stderr.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/miniapp-dom-tests.json"
+      ],
+      "stdout_sha256": "e012adc6c57ead231d5af1d22dfe84fca35226f04afe12f3699419c33e9bc103",
+      "stderr_sha256": "b47c40fffcee5962b68cb3c8a84daecde2b6818c446001ae15d9eff021d829db",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-clean-source-build",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"scripts/prelaunch-clean-build.mjs\",\"/tmp/fanju-prelaunch-20261001-b48140fda0c1\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:08:44.488Z",
+      "finished_at": "2026-10-01T01:08:55.751Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/clean-source-build.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/clean-source-build.stderr.log"
+      ],
+      "stdout_sha256": "4e5b9745928192f46c8d8b29d0fb598eaa8a3d685d70ab2eeb95cf91426afe61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-legacy-worker-compat-final",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"scripts/prelaunch-verify.mjs\",\"worker-compat\",\"/tmp/fanju-prelaunch-20261001-b48140fda0c1\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:08:55.838Z",
+      "finished_at": "2026-10-01T01:08:58.952Z",
+      "exit_code": 0,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/legacy-worker-compat-final.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/legacy-worker-compat-final.stderr.log"
+      ],
+      "stdout_sha256": "3f44cebb10d14b383e01d99cc1739732e3d5ae817d361e73a164384383ff4b7e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "todo": null
+    },
+    {
+      "id": "final-2026-10-01T01-07-54-721Z-prelaunch-process-tests",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "56daf818edb1783046c66eee6c1f2ebc26a4f6d3c8f665364166900705f0e76c",
+      "runner": "native",
+      "command": "[\"/opt/homebrew/Cellar/node@22/22.23.1/bin/node\",\"--test\",\"--test-concurrency=1\",\"tests/prelaunch/aftersales-process.test.mjs\",\"tests/prelaunch/concurrency-native.test.mjs\",\"tests/prelaunch/finance-fault-native.test.mjs\",\"tests/prelaunch/http-journey-recovery.test.mjs\",\"tests/prelaunch/membership-native.test.mjs\",\"tests/prelaunch/money-state.test.mjs\",\"tests/prelaunch/restore-reconciliation.test.mjs\",\"tests/prelaunch/review-safety-native.test.mjs\",\"tests/prelaunch/secret-scan.test.mjs\",\"tests/prelaunch/supply-native.test.mjs\"]",
+      "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+      "started_at": "2026-10-01T01:08:59.026Z",
+      "finished_at": "2026-10-01T01:09:16.345Z",
+      "exit_code": 1,
+      "signal": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "artifact_paths": [
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/prelaunch-process-tests.stdout.log",
+        "docs/prelaunch/evidence/final-2026-10-01T01-07-54-721Z/prelaunch-process-tests.stderr.log"
+      ],
+      "stdout_sha256": "191088a9c7f43b2c95c484021954b7f06a15eb28c12b1fc6aed10576386e2b3b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "FAIL",
+      "source_drift_during_run": false,
+      "passed": 42,
+      "failed": 1,
+      "skipped": 0,
+      "todo": 0
+    }
+  ]
+}

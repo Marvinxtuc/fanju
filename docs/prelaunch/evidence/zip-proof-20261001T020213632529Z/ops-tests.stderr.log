@@ -1,0 +1,796 @@
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mallows scoped restaurant binding without client role escalation
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2maccepts activity cancellation with a persistent business key
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mexposes real rights processing rather than a static privacy notice
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mpreserves all disclosed fixed fees when creating a new revision
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mrenders server component buckets independently of first-page counts
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mrenders server component buckets independently of first-page counts
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mrenders server component buckets independently of first-page counts
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mrenders server component buckets independently of first-page counts
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mrenders server component buckets independently of first-page counts
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mclaims a server-authorized financial case with no invented channel result
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mdoes not blanket approve requests without a reason
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mdoes not blanket approve requests without a reason
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+Warning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mdoes not blanket approve requests without a reason
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+Warning: The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mdoes not blanket approve requests without a reason
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+    at Form (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:1486:17)
+    at section
+    at main
+    at PrelaunchWorkspace (/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T020213632529Z/reproduced/build/apps/ops/src/PrelaunchWorkspace.tsx:32:66)
+
+[90mstderr[2m | src/PrelaunchWorkspace.test.tsx[2m > [22m[2mcontrolled prelaunch ops DOM[2m > [22m[2mdoes not blanket approve requests without a reason
+[22m[39mWarning: The current testing environment is not configured to support act(...)
+

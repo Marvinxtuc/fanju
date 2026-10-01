@@ -1,0 +1,28 @@
+{
+  "candidate": "7c5409f87d776aa6c495ee45c913d333c5f54fb0d33fdc2b72df1ce99a7e777f",
+  "source_files": 360,
+  "scope": "controlled identity client and mounted workspace",
+  "entry": "ops URL ?workspace=controlled",
+  "checks": {
+    "client_and_dom_tests": 15,
+    "ops_typecheck": "PASS",
+    "ops_build": "PASS",
+    "copy_scan": "PASS",
+    "secret_scan": "PASS",
+    "frozen_baseline_unchanged": 33
+  },
+  "evidence_dir": "evidence/L03-controlled-client",
+  "security": [
+    "Dedicated /api/v11/ops login and verification only; no legacy ops calls",
+    "Session stays in closure memory, never browser storage",
+    "Reject USER, malformed restaurant binding, changed actor version and contract",
+    "Logout/unmount cancel late responses; stale 401 preserves new login",
+    "Production transport requires HTTPS, rejects redirects and credential-bearing base URLs"
+  ],
+  "limitations": [
+    "Business controls deliberately absent until production routes exist",
+    "No current real-account browser login performed",
+    "No deployment, payment, refund or professional sign-off proven"
+  ],
+  "rollback": "Restore main.tsx from backups/L03_controlled_client/main.tsx and remove the four new controlled identity client/UI files only."
+}

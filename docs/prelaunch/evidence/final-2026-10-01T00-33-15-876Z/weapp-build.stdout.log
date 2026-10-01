@@ -1,0 +1,79 @@
+
+> @timeleft-shanghai/miniapp@0.0.0 build /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp
+> NODE_ENV=production taro build --type weapp
+
+👽 Taro v4.2.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+
+✖ Errors: 
+
+resolve '@timeleft-shanghai/shared' in '/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/src/pages/prelaunch'
+  Parsed request is a module
+  using description file: /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/package.json (relative path: ./src/pages/prelaunch)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/src/pages/prelaunch/node_modules doesn't exist or is not a directory
+      /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/src/pages/node_modules doesn't exist or is not a directory
+      /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/src/node_modules doesn't exist or is not a directory
+      looking for modules in /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules
+        single file module
+          using description file: /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/package.json (relative path: ./node_modules/@timeleft-shanghai/shared)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.jsx doesn't exist
+            .ts
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.ts doesn't exist
+            .tsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.tsx doesn't exist
+            .mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.mjs doesn't exist
+            .vue
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared.vue doesn't exist
+        /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp/node_modules/@timeleft-shanghai/shared doesn't exist
+      /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/node_modules doesn't exist or is not a directory
+      looking for modules in /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules
+        single file module
+          using description file: /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/package.json (relative path: ./node_modules/@timeleft-shanghai/shared)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.jsx doesn't exist
+            .ts
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.ts doesn't exist
+            .tsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.tsx doesn't exist
+            .mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.mjs doesn't exist
+            .vue
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared.vue doesn't exist
+        /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/node_modules/@timeleft-shanghai/shared doesn't exist
+      /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/node_modules doesn't exist or is not a directory
+      /Users/marvin.x/.codex/worktrees/node_modules doesn't exist or is not a directory
+      /Users/marvin.x/.codex/node_modules doesn't exist or is not a directory
+      /Users/marvin.x/node_modules doesn't exist or is not a directory
+      /Users/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+
+ ELIFECYCLE  Command failed with exit code 1.

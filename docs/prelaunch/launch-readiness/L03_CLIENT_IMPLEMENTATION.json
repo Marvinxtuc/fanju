@@ -1,0 +1,30 @@
+{
+  "candidate": "438d60ec3fd271acb28f066ed469dc05d2707a1bd1f2a190f8327a0d5ea824b6",
+  "source_files": 356,
+  "scope": "L03 miniapp identity initialization",
+  "checks": {
+    "client_tests": {
+      "passed": 28,
+      "log": "evidence/L03-client-final/client-tests.log"
+    },
+    "route_tests": {
+      "passed": 9,
+      "log": "evidence/L03-client-final/route-tests.log"
+    },
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy_scan": "PASS",
+    "secret_scan": "PASS"
+  },
+  "prior_turn_verified": [
+    "miniapp typecheck PASS",
+    "weapp build PASS with placeholder HTTPS and demo/prelaunch disabled"
+  ],
+  "limits": [
+    "No deployed domain verification",
+    "No current real-device identity verification",
+    "No business activation",
+    "No real payment or refund"
+  ],
+  "rollback": "Restore three original files from backups/L03_client_identity and remove apps/miniapp/src/v11-identity.test.ts; preserve unrelated changes."
+}

@@ -1,0 +1,13 @@
+Datasource "db": PostgreSQL database "fanju_prelaunch_a755def387dc", schema "public" at "127.0.0.1:32772"
+
+14 migrations found in prisma/migrations
+
+Applying migration `20261001000000_prelaunch_v11_expand`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261001000000_prelaunch_v11_expand/
+    └─ migration.sql
+
+All migrations have been successfully applied.

@@ -1,0 +1,4 @@
+
+> @timeleft-shanghai/shared@0.0.0 build /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T03-34-45-217Z/packages/shared
+> tsc -p tsconfig.json
+

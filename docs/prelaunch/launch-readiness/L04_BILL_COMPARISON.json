@@ -1,0 +1,17 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "csv_unit_tests": 8,
+  "owned_postgres_tests_including_parent": 9,
+  "scope": "BILL_AND_RECORDED_PAYMENT_SNAPSHOT",
+  "coverageState": "INCOMPLETE",
+  "refund_period_coverage": "UNRESOLVED",
+  "real_merchant_verified": false,
+  "policy_activation_assessed": false,
+  "setup": "WECHAT_BILL_COMPARISON_SETUP.md",
+  "candidate": "52b1df42698fb1e05b09fb4dd41692dfb32115b07edd016e2a90ef940e15561f",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-58-56-695Z/RUNS.json",
+  "final_steps": 28,
+  "api_tests": 283,
+  "cross_process_tests": 166,
+  "no_configuration_cli_exit": 1
+}

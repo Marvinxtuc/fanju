@@ -1,0 +1,3383 @@
+{
+  "candidate_id": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "build_root": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z",
+  "artifact_visibility": {
+    "ops": {
+      "generated_entry_render": "PASS",
+      "workspace_query": "?workspace=prelaunch",
+      "rendered_title": "饭局 · 本地验收工作区",
+      "api_origin": "http://127.0.0.1:3000",
+      "environment_flag": "VITE_FANJU_PRELAUNCH_ENABLED=true",
+      "scope": "Native Vite generated entry evaluated in jsdom without network; not real browser/API E2E"
+    },
+    "weapp": {
+      "route": "pages/prelaunch/index",
+      "generated_route_present": true,
+      "environment_flag": "TARO_APP_PRELAUNCH_ENABLED=true",
+      "scope": "Taro route/artifact only; not WeChat device launch"
+    }
+  },
+  "dependency_provenance": "Locked existing dependencies linked; no install executed. Source/dist caches were not copied.",
+  "files": [
+    {
+      "path": "artifacts/shared/index.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/index.d.ts",
+      "sha256": "d918e602a9caad59b5960a8855c525991773a1d3633003d5044e38b115305872",
+      "bytes": 395
+    },
+    {
+      "path": "artifacts/shared/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/index.js",
+      "sha256": "a09447ac85ae12ed4da179e14d31e401c9a0f1dd5547afaf1965b04084dc2c4d",
+      "bytes": 428
+    },
+    {
+      "path": "artifacts/shared/index.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/index.js.map",
+      "sha256": "898cbd9b5bbbac4fc1bf461100bb1271a2b43b6de1db7c617cdc96bdffde0689",
+      "bytes": 330
+    },
+    {
+      "path": "artifacts/shared/rules/activity.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/activity.d.ts",
+      "sha256": "b084bc30974b1e53d3b80ba2b8a4399c1479e15f84aa9789953c05cd0daacdf1",
+      "bytes": 533
+    },
+    {
+      "path": "artifacts/shared/rules/activity.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/activity.js",
+      "sha256": "4f420288c9fa8768aa87b5a58e075ab904d0c69712d03eca079b15ff8eba1edc",
+      "bytes": 1108
+    },
+    {
+      "path": "artifacts/shared/rules/activity.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/activity.js.map",
+      "sha256": "b26ae86ef864c74a38eb83bba6d2369aa57e93b245678ba62c83f5b855a6dbd2",
+      "bytes": 1090
+    },
+    {
+      "path": "artifacts/shared/rules/addressUnlock.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/addressUnlock.d.ts",
+      "sha256": "22959cd8945d9d6b49f77d9e1c6a804e0a682d234a200836eec8f2d648fa9e69",
+      "bytes": 485
+    },
+    {
+      "path": "artifacts/shared/rules/addressUnlock.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/addressUnlock.js",
+      "sha256": "378b03eb0932a240a4e658948ac9ce32b5d4b69ed0b106efd069502eb8cc3b9e",
+      "bytes": 626
+    },
+    {
+      "path": "artifacts/shared/rules/addressUnlock.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/addressUnlock.js.map",
+      "sha256": "3025608b6aa0ff7f7301ee5d9d3db4fd9f686ba08b9a740229ab38ed48f9c9eb",
+      "bytes": 693
+    },
+    {
+      "path": "artifacts/shared/rules/forbiddenWords.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/forbiddenWords.d.ts",
+      "sha256": "90e7083dafcec228e61cbf5d0ddaa902603b6cecfc221628b10b817c82f03393",
+      "bytes": 502
+    },
+    {
+      "path": "artifacts/shared/rules/forbiddenWords.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/forbiddenWords.js",
+      "sha256": "e2f92716b28d2d665bd6c8ef9f0a2ec05c011ce8e6c7296831a165abfcfa884f",
+      "bytes": 848
+    },
+    {
+      "path": "artifacts/shared/rules/forbiddenWords.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/forbiddenWords.js.map",
+      "sha256": "1b5a858980001334b938c54a365d6bc1e0faefe56b7630dd4f14f750a3248141",
+      "bytes": 939
+    },
+    {
+      "path": "artifacts/shared/rules/order.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/order.d.ts",
+      "sha256": "2bd0779f087d15dce35a857849395f52248ec2118f0c03dffbd1edad5804e160",
+      "bytes": 547
+    },
+    {
+      "path": "artifacts/shared/rules/order.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/order.js",
+      "sha256": "ac3c399d6e300a544a15f4a794a3af6c99dbc8fd86af2b313f084d20655c8718",
+      "bytes": 1284
+    },
+    {
+      "path": "artifacts/shared/rules/order.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/order.js.map",
+      "sha256": "c03a59ceaebe32d692b85dd115517afe8a2d9dce66bb697dfaae45f232bbe571",
+      "bytes": 1208
+    },
+    {
+      "path": "artifacts/shared/rules/policyBundle.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/policyBundle.d.ts",
+      "sha256": "15252e5a562337c21993f89074922b81669ed03a57f73ea1f01f685b6f83c6e2",
+      "bytes": 3123
+    },
+    {
+      "path": "artifacts/shared/rules/policyBundle.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/policyBundle.js",
+      "sha256": "1aee63a2f0bafff48d103fe0a7311b53798a06b7748db7e071c5e89515cc8ed3",
+      "bytes": 10154
+    },
+    {
+      "path": "artifacts/shared/rules/policyBundle.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/policyBundle.js.map",
+      "sha256": "317821b2cce523fdcccde680190db59a14b1a20aef86e86e63939a73528f8a25",
+      "bytes": 9697
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchBusiness.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchBusiness.d.ts",
+      "sha256": "a987785e9d25e572f65fae3d2ff7a81f33e1da9a239ed78d4560a3cc6ad34717",
+      "bytes": 10412
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchBusiness.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchBusiness.js",
+      "sha256": "5101c7d5a69d81dc9f53a082791e8b11764da9499465383444da8aa578ba6de0",
+      "bytes": 21993
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchBusiness.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchBusiness.js.map",
+      "sha256": "4b0e5077d5aaf77b4f309062edce2787e16d33a2108273d617a068612e9d372b",
+      "bytes": 22927
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchClient.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchClient.d.ts",
+      "sha256": "0323ce13fcc79ff3f73addbd0ac57e9569ed2c0a02a3156006118f280644ff25",
+      "bytes": 2497
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchClient.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchClient.js",
+      "sha256": "dc8d90dd8285f6c5228b9b11a462075fd72f12dac2696d9f510ed9782d17b932",
+      "bytes": 5728
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchClient.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchClient.js.map",
+      "sha256": "60ebe5f3944c90a7b896cd2a86b86e00a208eb1be72398746937d8bde02cd8d8",
+      "bytes": 5708
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchPolicy.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchPolicy.d.ts",
+      "sha256": "17c05834c125e26cb1896417a537db4d0e85e14928261d360ad18726677d153d",
+      "bytes": 2849
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchPolicy.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchPolicy.js",
+      "sha256": "65c83afcd86b5555afd44b0e7c6146627df1f8355c4763b9427f52230242abc9",
+      "bytes": 8281
+    },
+    {
+      "path": "artifacts/shared/rules/prelaunchPolicy.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/prelaunchPolicy.js.map",
+      "sha256": "e272036284ed18215bbb3e9f6ea9b178144d00a81d25863bc282b991c39dbc39",
+      "bytes": 7930
+    },
+    {
+      "path": "artifacts/shared/rules/pricing.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/pricing.d.ts",
+      "sha256": "582e8161380eb60798008896da6cd2cd851c344492c95601757d328b94f490ed",
+      "bytes": 178
+    },
+    {
+      "path": "artifacts/shared/rules/pricing.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/pricing.js",
+      "sha256": "8c08d5fa8a5cec70eee9a2ebff921d03e592757e13db2d5f6c0ed571e62e49f0",
+      "bytes": 278
+    },
+    {
+      "path": "artifacts/shared/rules/pricing.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/pricing.js.map",
+      "sha256": "7d4e2690814b9f3efbfdd22c94ba151b6c4ece0ef1b04b584e32c81beb114562",
+      "bytes": 318
+    },
+    {
+      "path": "artifacts/shared/rules/refund.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/refund.d.ts",
+      "sha256": "b4f4014ecc939756f8a269e7ed1f5d3e7e0bc5a8592083384bb97d39d2552abe",
+      "bytes": 786
+    },
+    {
+      "path": "artifacts/shared/rules/refund.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/refund.js",
+      "sha256": "4a2a46c0e3dc7ef3ac1b2f876c858f62497215991478a9229541be809c1a1407",
+      "bytes": 1084
+    },
+    {
+      "path": "artifacts/shared/rules/refund.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/refund.js.map",
+      "sha256": "29815e7e794e16d69f30c97f9afcf1586cdb8ece9b2e89a0a72b2b485239e190",
+      "bytes": 1078
+    },
+    {
+      "path": "artifacts/shared/rules/table.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/table.d.ts",
+      "sha256": "c05411d1c6c18b271a15e6c32187431d0bdab8b574f105627670b4d3e70a4e91",
+      "bytes": 562
+    },
+    {
+      "path": "artifacts/shared/rules/table.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/table.js",
+      "sha256": "a512748a035b5313b6222f29db6dc40b0e9242ee34b8489957aa6e63c3ac122f",
+      "bytes": 2282
+    },
+    {
+      "path": "artifacts/shared/rules/table.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/packages/shared/dist/rules/table.js.map",
+      "sha256": "15d50fda67a336feaaee51423361f4578a6f880dd199350d16ceb9a622086fb2",
+      "bytes": 2279
+    },
+    {
+      "path": "artifacts/api/admin-auth.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/admin-auth.d.ts",
+      "sha256": "e4f3c8d3a8abb3884e6b331bb4a0ec0b5485a54a1f7a4d307d351ee6b7f7f363",
+      "bytes": 561
+    },
+    {
+      "path": "artifacts/api/admin-auth.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/admin-auth.js",
+      "sha256": "f1813a2f32f2dbaf4ba3ffd8b1ae3edd084c659f98b0570adae46347702f476f",
+      "bytes": 3567
+    },
+    {
+      "path": "artifacts/api/admin-auth.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/admin-auth.js.map",
+      "sha256": "968e2e00af264ab84fd902716c233ec082e85714ac678285619fc57fd2aa2324",
+      "bytes": 4306
+    },
+    {
+      "path": "artifacts/api/app.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/app.d.ts",
+      "sha256": "e3e959c9bb8aa0a84cfc515f2ca7a945d2ffcb6ca820fa8ae5bb86027535edf1",
+      "bytes": 827
+    },
+    {
+      "path": "artifacts/api/app.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/app.js",
+      "sha256": "ce78ca13c0e5380702ad01923e2c528130de56f7e8584cc1e54aac5083933cda",
+      "bytes": 108010
+    },
+    {
+      "path": "artifacts/api/app.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/app.js.map",
+      "sha256": "cf45baa890cf77e52a4cabac4a5ff7d5792105edcce9497824ddc3397b79baf2",
+      "bytes": 115158
+    },
+    {
+      "path": "artifacts/api/auth.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/auth.d.ts",
+      "sha256": "d2a2030b0ddeacc6ddf57f3bfcaecbe3196789a84cd4bbddb990378caacfd9cf",
+      "bytes": 1430
+    },
+    {
+      "path": "artifacts/api/auth.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/auth.js",
+      "sha256": "6e282934e5965dd08022684847087f91ca001f9d229de696e803c903396c0510",
+      "bytes": 4244
+    },
+    {
+      "path": "artifacts/api/auth.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/auth.js.map",
+      "sha256": "d3a40dbc6508bf4e39a3b7c382a9bd9563058870d781226917651e5ca43781ff",
+      "bytes": 4755
+    },
+    {
+      "path": "artifacts/api/config.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/config.d.ts",
+      "sha256": "fb7dfcf444bd77ea16cedd20750dabc3b8d38f106235b1770b166724ab3132c8",
+      "bytes": 847
+    },
+    {
+      "path": "artifacts/api/config.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/config.js",
+      "sha256": "a3eaf6c2224c2bb55643a372b5e5e4db6e20ca4d176711b2a0cc66f40c9f1be9",
+      "bytes": 4110
+    },
+    {
+      "path": "artifacts/api/config.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/config.js.map",
+      "sha256": "89a2f680124642af3abc36615c57dfb020ed555b0e15aa2901417351f239e8db",
+      "bytes": 3752
+    },
+    {
+      "path": "artifacts/api/events/inbox.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/events/inbox.d.ts",
+      "sha256": "68fd27c947b619eb389740aadfb1fc464c47866d72d1b33a6173418368d20619",
+      "bytes": 2301
+    },
+    {
+      "path": "artifacts/api/events/inbox.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/events/inbox.js",
+      "sha256": "3ddae424bdb7e45f5665e09e732dba9bb1d1df686e3269fc188d11cf6a02a95d",
+      "bytes": 3766
+    },
+    {
+      "path": "artifacts/api/events/inbox.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/events/inbox.js.map",
+      "sha256": "5a0693d143a32bcee12e8ada4d00add525361aa659acf3a57ead14bf59336790",
+      "bytes": 4361
+    },
+    {
+      "path": "artifacts/api/funding/intents.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/intents.d.ts",
+      "sha256": "ad8881006f1114030324b47aa5df51ed9b5cdaf67209df67c37b412f67404432",
+      "bytes": 1003
+    },
+    {
+      "path": "artifacts/api/funding/intents.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/intents.js",
+      "sha256": "44e334307a5d8e964b0ae9cffb4a1f2357852a80cffdbe212b097c4c3b302d45",
+      "bytes": 2207
+    },
+    {
+      "path": "artifacts/api/funding/intents.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/intents.js.map",
+      "sha256": "9e710128cdf41b7a0e9af0f9597e5658dfe772ca30bc1d76ca32ca1eed36f046",
+      "bytes": 2351
+    },
+    {
+      "path": "artifacts/api/funding/legacy.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/legacy.d.ts",
+      "sha256": "5c4e07281122a38217393e5574c9b0f8712c2d5564e15b3e3d6ac00fd6888f28",
+      "bytes": 569
+    },
+    {
+      "path": "artifacts/api/funding/legacy.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/legacy.js",
+      "sha256": "3a9379c5bd7873bca6431019016a0e3975a61d98f2886af440af2bcd722cf4ef",
+      "bytes": 4164
+    },
+    {
+      "path": "artifacts/api/funding/legacy.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/legacy.js.map",
+      "sha256": "68f960229f889c815df32369cc9c8d5c419237e6a86be7f9b001476d3b44b060",
+      "bytes": 4109
+    },
+    {
+      "path": "artifacts/api/funding/mock-channel.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/mock-channel.d.ts",
+      "sha256": "fee949c0d0ebe90ef0a04060d03014e705ef7c3e9033b6acdec5c4ac6e369922",
+      "bytes": 1711
+    },
+    {
+      "path": "artifacts/api/funding/mock-channel.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/mock-channel.js",
+      "sha256": "ec4346135e52ec831ed854c908dfa7d75e7a66abdc579b042d3a6f89391d729b",
+      "bytes": 4392
+    },
+    {
+      "path": "artifacts/api/funding/mock-channel.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/mock-channel.js.map",
+      "sha256": "3a441752523a22ec9adf8c8b71470932b9eea08467a50c2072ca8cb87bc0c746",
+      "bytes": 3524
+    },
+    {
+      "path": "artifacts/api/funding/prepay.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/prepay.d.ts",
+      "sha256": "07920b78352f14675f068bfb12998b84cdf1cf29d0860393568559f3e21d9a75",
+      "bytes": 2386
+    },
+    {
+      "path": "artifacts/api/funding/prepay.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/prepay.js",
+      "sha256": "fd161e3499edf615862615fe84d3348eecaeea149571fe8f1225255fe7faa84e",
+      "bytes": 5750
+    },
+    {
+      "path": "artifacts/api/funding/prepay.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/prepay.js.map",
+      "sha256": "f5ae254d17fd8101d12ad01c0a388b28895c8fffb629964a7dc183b9cbfd26c4",
+      "bytes": 5609
+    },
+    {
+      "path": "artifacts/api/funding/receipts.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/receipts.d.ts",
+      "sha256": "b8f40377240279c9c6ac9d51e63bdc6b85c5b9799789b998815f5af5fe8ee84b",
+      "bytes": 5438
+    },
+    {
+      "path": "artifacts/api/funding/receipts.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/receipts.js",
+      "sha256": "6f4d83c3b0eaca6872d47b102230496b79276135c4f862c18818bf4098650797",
+      "bytes": 5784
+    },
+    {
+      "path": "artifacts/api/funding/receipts.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/receipts.js.map",
+      "sha256": "5f78f16f9a10e44ccd1ece7c592f7a3ce81da815d561558ae467895240fc20eb",
+      "bytes": 6437
+    },
+    {
+      "path": "artifacts/api/funding/recovery.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/recovery.d.ts",
+      "sha256": "fc963c62bec183e3b81d91be57626b060d5402793ece2dfa3cabff380ffe930a",
+      "bytes": 395
+    },
+    {
+      "path": "artifacts/api/funding/recovery.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/recovery.js",
+      "sha256": "4862ecaca72a71f579237d6ced76a0be5bebf6645dd26808708517e758adbf78",
+      "bytes": 2953
+    },
+    {
+      "path": "artifacts/api/funding/recovery.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/recovery.js.map",
+      "sha256": "fc3db6a789d2e388ad031a9f498ea9b0f14ee5d55bcdd3d0c7c58e2ebe92ce9c",
+      "bytes": 2741
+    },
+    {
+      "path": "artifacts/api/funding/refunds.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/refunds.d.ts",
+      "sha256": "ad7da02d4b52cda488cc96e8b7db6da297f785f1288b950b5762eba83e9e4109",
+      "bytes": 2462
+    },
+    {
+      "path": "artifacts/api/funding/refunds.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/refunds.js",
+      "sha256": "3362e491c704ccdaf20f83b1524ffe50ac60cd7d6edda849ca35a5641fcf1c39",
+      "bytes": 8014
+    },
+    {
+      "path": "artifacts/api/funding/refunds.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/funding/refunds.js.map",
+      "sha256": "78d31d3b4601cb04b321d42bf5e9a482a845d32ff77670572b1e8e34b791052d",
+      "bytes": 8485
+    },
+    {
+      "path": "artifacts/api/generated/prisma/browser.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/browser.d.ts",
+      "sha256": "494da1c3b70cd22491b057d96ed305a71f6612d11ad90bd1c606abd25157c26c",
+      "bytes": 4724
+    },
+    {
+      "path": "artifacts/api/generated/prisma/browser.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/browser.js",
+      "sha256": "a245fdcaef5a91ae641449dd64ffe60821c275ff1feab93a6bf798e79cf1788f",
+      "bytes": 724
+    },
+    {
+      "path": "artifacts/api/generated/prisma/browser.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/browser.js.map",
+      "sha256": "2cf52e55c4a0f2d6eab3cf98e1c82380ecd08afcfab8bd678912ec66f957c96f",
+      "bytes": 319
+    },
+    {
+      "path": "artifacts/api/generated/prisma/client.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/client.d.ts",
+      "sha256": "8d7deab17a02280e2b3bfe6bf2a4a95c08cca53a351a9dc514c1abf673f46d70",
+      "bytes": 5543
+    },
+    {
+      "path": "artifacts/api/generated/prisma/client.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/client.js",
+      "sha256": "dbfdf4e859e7ca7427b92b8a20f57064962478f2e1551f581e83fb4996d50165",
+      "bytes": 1246
+    },
+    {
+      "path": "artifacts/api/generated/prisma/client.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/client.js.map",
+      "sha256": "e20cfc33e3af7e830973f7671e00f5ed887c65e40edaa9d73ac1a6817c8d6202",
+      "bytes": 611
+    },
+    {
+      "path": "artifacts/api/generated/prisma/commonInputTypes.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/commonInputTypes.d.ts",
+      "sha256": "46c8c0b84d77439e01b6f5219d36b26716251578057babace662a26cc609cf53",
+      "bytes": 63364
+    },
+    {
+      "path": "artifacts/api/generated/prisma/commonInputTypes.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/commonInputTypes.js",
+      "sha256": "8e12c9f640fb596faadb9d788b616fa80402b58cdef9fe77760a2deed65b99c9",
+      "bytes": 371
+    },
+    {
+      "path": "artifacts/api/generated/prisma/commonInputTypes.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/commonInputTypes.js.map",
+      "sha256": "d4fd412fcf40302fa367350acdc3eaa3f8e302592c77205ac54dc8246986f758",
+      "bytes": 208
+    },
+    {
+      "path": "artifacts/api/generated/prisma/enums.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/enums.d.ts",
+      "sha256": "30e8e8199f24e1df9ba892966aa53a464eb1208fe67337dfc831e147bf7dc98a",
+      "bytes": 2950
+    },
+    {
+      "path": "artifacts/api/generated/prisma/enums.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/enums.js",
+      "sha256": "5616cbc976366befadba27b70b81bd6f73bea93745606b75b19a2674e66e532f",
+      "bytes": 1944
+    },
+    {
+      "path": "artifacts/api/generated/prisma/enums.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/enums.js.map",
+      "sha256": "442a7eb0986142a582eb52660b0e03e031b6fabd57e611858d17ce83f89467c1",
+      "bytes": 1584
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/class.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/class.d.ts",
+      "sha256": "93433e3ab2bafe6d14532c70b5dee9e84f0a6c881b0c43888874f04ef65eaae0",
+      "bytes": 24113
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/class.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/class.js",
+      "sha256": "0e7e4fcacd4e93b234207f95a545fec5f2642290ed1061e1c9a44fde2610f983",
+      "bytes": 373977
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/class.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/class.js.map",
+      "sha256": "d751dfc920c86e288bf8da921b34e577571da6fc3f76e12f0ab42a07a9290529",
+      "bytes": 1302
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespace.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespace.d.ts",
+      "sha256": "7faec553c2257ea6f8995ea5b75fcf9733fd319bf4b4c2fc4a3a6e02f0afd9f5",
+      "bytes": 246402
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespace.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespace.js",
+      "sha256": "b709b7c03f5c9eb27543ad13ac1af6cc667fc5fd02b32d2f0d6ad7bb77a667e2",
+      "bytes": 22108
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespace.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespace.js.map",
+      "sha256": "307d2fc8a8e88603c65de15decf25954c4d100d01919718a51f896089496c352",
+      "bytes": 16375
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespaceBrowser.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespaceBrowser.d.ts",
+      "sha256": "516c5f9ec574c8fa7a7c2b328aac2f7902240ef1ede0d714ebc415cca4ac4b46",
+      "bytes": 33738
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespaceBrowser.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespaceBrowser.js",
+      "sha256": "d1caae28bc36c61c6b7c942d371da7e75f850ba06c06e147ebadf609085552b9",
+      "bytes": 21086
+    },
+    {
+      "path": "artifacts/api/generated/prisma/internal/prismaNamespaceBrowser.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/internal/prismaNamespaceBrowser.js.map",
+      "sha256": "839bf57256f4b77906e424ac91ccb82f1abe726e00bcfc6ab64b7ac5312ee349",
+      "bytes": 15599
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Activity.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Activity.d.ts",
+      "sha256": "95b7f28efd7ce84853c17b7d1b5d0516ee66c9ff893cc1961929ad26862cac2f",
+      "bytes": 152099
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Activity.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Activity.js",
+      "sha256": "8a1bb0a0a012c6ed4c30c8be1fcf900d1be64ee778065d523439a767f4e8838c",
+      "bytes": 47
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Activity.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Activity.js.map",
+      "sha256": "a714d4b5989f8d52b6dbfd88aab9df691306e9419ab27294a8084aff40192e20",
+      "bytes": 141
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AdminUser.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AdminUser.d.ts",
+      "sha256": "7ae6f11dfe3287af118e30cb1506cd0ceecbbe8631f4ff74b104069d1f538df5",
+      "bytes": 48914
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AdminUser.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AdminUser.js",
+      "sha256": "b9d928046b2e772fb1fb8d4e0d936bde5548471b8e1d5d5af8a56ba9bd13c38f",
+      "bytes": 48
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AdminUser.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AdminUser.js.map",
+      "sha256": "f3d1d2be90dc70c67792aef9d1efb30cb054c6cd4e9e96db96243e40e318f9ba",
+      "bytes": 143
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AgreementPolicy.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AgreementPolicy.d.ts",
+      "sha256": "d0fcc496f96e7b7b5b7f02876b37b6bb70d7bfb258fa8ec5ccdbb1f44aed517f",
+      "bytes": 46243
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AgreementPolicy.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AgreementPolicy.js",
+      "sha256": "ae8eb448801339d686a0dd0156f434f9f2adfe2be8ec746cef1883e2623ada29",
+      "bytes": 54
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AgreementPolicy.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AgreementPolicy.js.map",
+      "sha256": "f910993280f653f7175fd4c36b85768b715b03de1c1ed91f99d666236b3ca81e",
+      "bytes": 155
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AuditLog.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AuditLog.d.ts",
+      "sha256": "f3581262dd1b21cc2eef6abd29b61ac559b450c0fac2a007f4b2c14000f047c5",
+      "bytes": 57890
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AuditLog.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AuditLog.js",
+      "sha256": "b245eb98300019bd18f722809c005a671eaa0b87c6bc714fd3f34b3e17678860",
+      "bytes": 47
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/AuditLog.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/AuditLog.js.map",
+      "sha256": "90d369555379a10789ce199fd9d9e7d33cacfb7cdcd53751758b426c763f4712",
+      "bytes": 141
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Blacklist.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Blacklist.d.ts",
+      "sha256": "f790c9a58c225f4fcac24539b89aeda1717994a877e432c40d26dfdd9d885651",
+      "bytes": 46284
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Blacklist.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Blacklist.js",
+      "sha256": "5190c451b991fee6dae4804bbe6e3c212786732b4d9ef6ce3d6856e5a2455991",
+      "bytes": 48
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Blacklist.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Blacklist.js.map",
+      "sha256": "971c06f4c616f5df528e16e3f34e4d17e0a0e29d2b2cd0b94bb0e08a55a50741",
+      "bytes": 143
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ChannelReceipt.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ChannelReceipt.d.ts",
+      "sha256": "5fbab73cbb0ef8488de30e0b810d7a8392333a3ceb74a99c4a2e1ccd96a2d098",
+      "bytes": 129102
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ChannelReceipt.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ChannelReceipt.js",
+      "sha256": "80b069471de8947d538652bac8cb6368249c54519bd6b713dc4dd71437c49e31",
+      "bytes": 53
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ChannelReceipt.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ChannelReceipt.js.map",
+      "sha256": "e0d04f3cf092eef5bc4495cf7c0e57300d2193a70dcc85f8cff41d625c100eda",
+      "bytes": 153
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ConsentRecord.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ConsentRecord.d.ts",
+      "sha256": "e8fdae541dbe9466d502437b22882f9cca72f7f264b9f5d2c3f9b5fd9dca8329",
+      "bytes": 55124
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ConsentRecord.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ConsentRecord.js",
+      "sha256": "ed6d0845caa0e6a73caae0c7fa66158a667ef405c1b414890c72fa876cd28a00",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ConsentRecord.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ConsentRecord.js.map",
+      "sha256": "73b508ef9134d95b315abefb75c7fbb6971c2274d221bfc5b4eeb4cb121ff7ea",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/DurableJob.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/DurableJob.d.ts",
+      "sha256": "4ac1f470f1844c9748c7209319cda86d5785d003d4b02491bc4f617384f02043",
+      "bytes": 53568
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/DurableJob.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/DurableJob.js",
+      "sha256": "45d00aeca8f41d92697b4a39199e9f81c101afb2ad083996918d5e2eebaf26af",
+      "bytes": 49
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/DurableJob.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/DurableJob.js.map",
+      "sha256": "59dd93926991de9e1858a82e31c59967ff2f0ac0d92166e32274ce64470dd82e",
+      "bytes": 145
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/FinancialCase.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/FinancialCase.d.ts",
+      "sha256": "8f5b088364c72ff80b2dbcc417685ebd90b9494408ecfee4b37f04d07048297e",
+      "bytes": 51175
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/FinancialCase.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/FinancialCase.js",
+      "sha256": "e788c9a1fe628fdb38e788c845754483bbc20c2a4f039f80c36b8555f8371dc6",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/FinancialCase.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/FinancialCase.js.map",
+      "sha256": "860089893bed348f117778d8ea291df4d47a118f58d967cab975161e4382ddc3",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/MockChannelTransaction.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/MockChannelTransaction.d.ts",
+      "sha256": "a4597ba71a2e3a5846448228abea3ab80a199b0f2cee8d4535af29a18e8eb1c8",
+      "bytes": 53349
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/MockChannelTransaction.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/MockChannelTransaction.js",
+      "sha256": "83864d62e495089a2b3c2a3769ff1983be448e967d23fefc4456717a2110c7d9",
+      "bytes": 61
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/MockChannelTransaction.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/MockChannelTransaction.js.map",
+      "sha256": "4b1063d925b7b8f9cb95ae0e53c83b78cabbb5460576375d78d53458d54cfbb6",
+      "bytes": 169
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Notification.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Notification.d.ts",
+      "sha256": "d956894d583b96f77d48638a294ad91bde3feb7a717f078eea5a62ae097c9d02",
+      "bytes": 84011
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Notification.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Notification.js",
+      "sha256": "6777c2f47105f8494e23dfb485e43198e02f95975eb9d5406eb1c0dfcb732e92",
+      "bytes": 51
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Notification.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Notification.js.map",
+      "sha256": "3bd020f6ec6345b2fc24c2eff421febbdcf0278f1833d27dfa7f97243e027e9d",
+      "bytes": 149
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Order.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Order.d.ts",
+      "sha256": "e4e03fd24ce237ed8a919ad99114f8d90dbb81c6b1d21dc91e5cd55f54b3624a",
+      "bytes": 153455
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Order.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Order.js",
+      "sha256": "beaa7b5392d7cbb42b70cfd0703914a4a9568d99dfd362880b9de9900cbc1dfb",
+      "bytes": 44
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Order.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Order.js.map",
+      "sha256": "ca455f46148f3e578db1906c73599343d864430d19b7f6ca453e61b991c5b970",
+      "bytes": 135
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Payment.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Payment.d.ts",
+      "sha256": "4bc02c1425fce58f1bd5b8067b2e718023d886420f88c98d6734bb37c9eb63f5",
+      "bytes": 87714
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Payment.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Payment.js",
+      "sha256": "1f9a3888b5a8f2ffa71f43a247db9550d1250f55d7f2c118784a7dfe0fb05e22",
+      "bytes": 46
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Payment.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Payment.js.map",
+      "sha256": "702b6cd1633514452f4bb88c41e040f0988e333b0eb107819d91aeb698a2978c",
+      "bytes": 139
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReceivedEvent.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReceivedEvent.d.ts",
+      "sha256": "bbdb9af1f3d73e51b884f73c87ad72ed1ab57696c4ae916beceb9d758d6e658e",
+      "bytes": 49330
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReceivedEvent.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReceivedEvent.js",
+      "sha256": "06b24ad758e8467bf3746a24463b332400164b3bbe6cb9933b0831b43842d517",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReceivedEvent.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReceivedEvent.js.map",
+      "sha256": "e0e8ffdd7661bbb2b42cc90cebf6fd15d76ff9cd1701c964d3d345e3060838e0",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReconciliationBatch.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReconciliationBatch.d.ts",
+      "sha256": "1a1a9e1f32810d83f2e52181d353c4ddb1a16d65d37a28504a2fd083af137d0c",
+      "bytes": 50470
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReconciliationBatch.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReconciliationBatch.js",
+      "sha256": "8f68fc166f378a019ab10970daaf39b73a083d008115c0b4812698a9779d4ece",
+      "bytes": 58
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/ReconciliationBatch.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/ReconciliationBatch.js.map",
+      "sha256": "4e6957d7db8ec170b270d10395e54893985a760c4ab45f466a2f92b7204157e0",
+      "bytes": 163
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Refund.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Refund.d.ts",
+      "sha256": "49755031267ff13b0d299a6d3cf6746f967166e34ac4aa8756b80efa2698957c",
+      "bytes": 105793
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Refund.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Refund.js",
+      "sha256": "df99511c0b056e7b0f027370392022e0f47a29abf5f371e73b712490439f48ad",
+      "bytes": 45
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Refund.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Refund.js.map",
+      "sha256": "b9719f0aad2e266673e1f6f226f46070cb5c7a3c5e8e521b1927c23365204212",
+      "bytes": 137
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/RefundObligation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/RefundObligation.d.ts",
+      "sha256": "fbf2b398d24eeb4d7422174a45a1a207cac9beda1a8b067c129439cf2a2504eb",
+      "bytes": 84488
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/RefundObligation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/RefundObligation.js",
+      "sha256": "c984b311ddfadd9b5d82acd06f0db1cd11c7bb572a1182d527e8fafc6d1d130d",
+      "bytes": 55
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/RefundObligation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/RefundObligation.js.map",
+      "sha256": "ebb28a416f33010eaab8ed8509a7ae6e493541254439d6fd6f2bbb713b198c4e",
+      "bytes": 157
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Report.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Report.d.ts",
+      "sha256": "6f69dd70f31d7d3ceb86820e303dadd45634d61ca6887e9c201900f520aa9663",
+      "bytes": 61412
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Report.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Report.js",
+      "sha256": "7f92176ec887d03ef1259a484508c0dabe171adf42c94ce7cdf7a75ab917d801",
+      "bytes": 45
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Report.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Report.js.map",
+      "sha256": "ac3fbdf0469e6ff94df436bab37a4f33cf66c7d1c6c417d5a6615009d38c0317",
+      "bytes": 137
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Restaurant.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Restaurant.d.ts",
+      "sha256": "66d3e36e02fd3d7c60abb3efbc2d9df8203b1328f8befab5f61ff88968b1e1c1",
+      "bytes": 79173
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Restaurant.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Restaurant.js",
+      "sha256": "d35a104f5b274e5751192cfd157e216cd4accfa92e11e50f849138c6a47a672f",
+      "bytes": 49
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Restaurant.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Restaurant.js.map",
+      "sha256": "9d43a5ab5c865a6ef8ec4a0e4d820226e1d11102aaee8eb93992a036f07d3d31",
+      "bytes": 145
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Review.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Review.d.ts",
+      "sha256": "97825b87f91c07c57248399f8697bbc557e506ac78cb4a896a69db6085bce44e",
+      "bytes": 59749
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Review.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Review.js",
+      "sha256": "3581cf5412e2640969d021f8185339c1d2d36e63e8b262ba60fb59a5be70f2a9",
+      "bytes": 45
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/Review.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/Review.js.map",
+      "sha256": "46c71f51cdc016e3027811632d08e296b0a37d4d35b5ee1aeebf3202995d8607",
+      "bytes": 137
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableGroup.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableGroup.d.ts",
+      "sha256": "de8ae12351bf20cb76296175466a380cd32690515883f50b1e251cbb4f43d38f",
+      "bytes": 66453
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableGroup.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableGroup.js",
+      "sha256": "4f71780017d036c95c5b8bc914d4754fcfd57a46a23a7d25306ef1afee602069",
+      "bytes": 49
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableGroup.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableGroup.js.map",
+      "sha256": "c9a44f3c0a35142e51de5a9677c503369eef398dace4a2b7261ca8ba8c275713",
+      "bytes": 145
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableMember.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableMember.d.ts",
+      "sha256": "f77c50be74f1b8f583835e7995ca6dd62c4da8080abc43af7c8283417e2d3925",
+      "bytes": 58779
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableMember.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableMember.js",
+      "sha256": "79a81db14a179571e08528f85409b74f509c199f3348af659d81959c6bdd2f9b",
+      "bytes": 50
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/TableMember.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/TableMember.js.map",
+      "sha256": "6a102bc79fd2ca353338eadd5bc91f851ea9581a99b2d3cc69ee1469586307b1",
+      "bytes": 147
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/User.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/User.d.ts",
+      "sha256": "1b70a004f0a91fbd851bcea883d412db54fff2d4e839247c2fd46b0db7feb438",
+      "bytes": 163834
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/User.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/User.js",
+      "sha256": "d793861ce1d402885a5985de7f96f31d9b9ad309fed0ebeff606f3199259e36c",
+      "bytes": 43
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/User.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/User.js.map",
+      "sha256": "4eca40039ea6b09c1b4b97ce61ac523b639811476362284c4dcd058b5bdff31b",
+      "bytes": 133
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/UserProfile.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/UserProfile.d.ts",
+      "sha256": "0777810763c2b5bd718b42e8c38c4a087a895b0b52bed1b35183c30e4b26690f",
+      "bytes": 62466
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/UserProfile.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/UserProfile.js",
+      "sha256": "714566fe7924c825cc1bcf057777178579dd1747597314808166ce6a7b3d2dec",
+      "bytes": 50
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/UserProfile.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/UserProfile.js.map",
+      "sha256": "c0e7d27a1e41f2001b9617e60954700c7c0a7e93494b67aec762100e88dc75f9",
+      "bytes": 147
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Actor.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Actor.d.ts",
+      "sha256": "0666eb16f69204debab1166d292ebc35ec9e858a5a01c695b3b6a7aa57927521",
+      "bytes": 103398
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Actor.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Actor.js",
+      "sha256": "99f58e5f699e42f09f9fc231495aa5eb5fb55a77918ba650ab8e6ee5ad3d4f98",
+      "bytes": 47
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Actor.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Actor.js.map",
+      "sha256": "a1c060022a64e94f16ee0137c4dc6396423aa848da98fa53a27ad04ff600f6f3",
+      "bytes": 141
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Attendance.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Attendance.d.ts",
+      "sha256": "3067328f2869c67be5e189b705804d0ceab186dd27d948d2e7575fe0feabcefd",
+      "bytes": 69005
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Attendance.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Attendance.js",
+      "sha256": "f93e8026996d24369a5dfe48e1e8d663b0b5f12eb01fb6a58844afd3351741f6",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Attendance.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Attendance.js.map",
+      "sha256": "61d28ddb56b2b50e7aeb591a2636989ceb4dff0d0c3ff440876556bdce9d9fdc",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonPage.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonPage.d.ts",
+      "sha256": "6eea067c0b3a129eb95b4f172482e4cbb31bacea22f98be5a41c662e332bdfb1",
+      "bytes": 71058
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonPage.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonPage.js",
+      "sha256": "c3ae5d1d086b15926dbf886be07a36d59599387585163250ec2abc36fd3186a8",
+      "bytes": 60
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonPage.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonPage.js.map",
+      "sha256": "afb7c712179a273b13ab766e652fe513e44d6b7a36e71e3e466796000a655568",
+      "bytes": 167
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonSnapshot.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonSnapshot.d.ts",
+      "sha256": "76b7b28b21182e369310f686a4619a753b5c0945044bc7ecbf1e7e3168c3e5db",
+      "bytes": 69989
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonSnapshot.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonSnapshot.js",
+      "sha256": "e1a9e89b9044b730cf1c412920e7950d76b09cdc7b6c63523747997f0bc53543",
+      "bytes": 64
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BillComparisonSnapshot.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BillComparisonSnapshot.js.map",
+      "sha256": "ca68668b3ceeb30cfe9d489c3fd3ec990514e68f1dc348b4ef71bfe5f7289ae0",
+      "bytes": 175
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BundleConsent.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BundleConsent.d.ts",
+      "sha256": "c934cbcb36357076868dc88653742de71d3123b55f9cc8d00c61a74cb7d3ddcb",
+      "bytes": 76182
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BundleConsent.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BundleConsent.js",
+      "sha256": "f24c8d886d82321a0ca5f364955b04ef6c27f237c9de515c5da5d29ccab83ed7",
+      "bytes": 55
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11BundleConsent.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11BundleConsent.js.map",
+      "sha256": "fcdbd3e921f6f001ee5352defba03e3b7ea216395c28f9b685b1ed7bca1c3757",
+      "bytes": 157
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ChangeChoice.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ChangeChoice.d.ts",
+      "sha256": "1bbe5f3ca55c183a4b9b01b624d3e93572e4010d69bc2299309ecadf606f26f7",
+      "bytes": 63811
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ChangeChoice.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ChangeChoice.js",
+      "sha256": "72072a8d95e457094f67e7b25704d2fa5ce6e2366c18d9cae6cd2cd2ddd03f3d",
+      "bytes": 54
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ChangeChoice.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ChangeChoice.js.map",
+      "sha256": "8c09c01e29743a7b268ab39e9d1b750f775deb58b85f35b88225f7d16bf28fe9",
+      "bytes": 155
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11CoreChange.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11CoreChange.d.ts",
+      "sha256": "f9af0798733532ea46b8dc750bce26088b68e41d3291db06329271f22547329f",
+      "bytes": 84002
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11CoreChange.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11CoreChange.js",
+      "sha256": "8e76edb489c1f6c87c8e1e4bff7ba423b0e2dc33bc7583b1872e8950b48bc86e",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11CoreChange.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11CoreChange.js.map",
+      "sha256": "c43a9a882ab1e158c7e85729df6c4523f82f674de4deefdcc1828e7f12b9abfb",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Decision.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Decision.d.ts",
+      "sha256": "1517ae0f77c786ae656bc52a24eebaa2fd28b2a112de3cb08a334c9d803544e4",
+      "bytes": 63279
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Decision.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Decision.js",
+      "sha256": "724edc7bf34ae7e6af846324ed80de234fe74fe359e1b3af0a733e195f398e59",
+      "bytes": 50
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Decision.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Decision.js.map",
+      "sha256": "ecbdfe5a49a75c67f96250a93a2a72d11ff5d11315a183edebb0880f35a60eaa",
+      "bytes": 147
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11DeliveryProof.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11DeliveryProof.d.ts",
+      "sha256": "d584d7093c2d173e667c1a5186fac6cf844c8028c959e5a1074e8eafd38f567b",
+      "bytes": 75159
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11DeliveryProof.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11DeliveryProof.js",
+      "sha256": "5770ea7506a4725f7066c9297419cb08947b3241d508332e1aac356c7a96039d",
+      "bytes": 55
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11DeliveryProof.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11DeliveryProof.js.map",
+      "sha256": "232584835181b1def17f1ecfc977f272407f483d52e254aab9c82af77f450c3e",
+      "bytes": 157
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Disposition.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Disposition.d.ts",
+      "sha256": "5a8498015316ea98a6b6c4c7d554b1f3510e59f4b3c37be2c00c4114c3ddd4a3",
+      "bytes": 61581
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Disposition.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Disposition.js",
+      "sha256": "a3a70a6920a9ac83657a4c3b2346dc6fb5c5d23fa1130014dca4d37b5e8ac2bd",
+      "bytes": 53
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Disposition.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Disposition.js.map",
+      "sha256": "82b7f73e1798323f052060045f89718cc426755c7c82946bfd63934cd125fe52",
+      "bytes": 153
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11FundComponent.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11FundComponent.d.ts",
+      "sha256": "eab76f7371c711dee247472ba23b9479467d40c8a1c411d5883c74a1df4fe5d9",
+      "bytes": 72652
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11FundComponent.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11FundComponent.js",
+      "sha256": "2514735be6c2e108b5a3f87a57a754567c37fe313eeb4fce275913610df9e389",
+      "bytes": 55
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11FundComponent.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11FundComponent.js.map",
+      "sha256": "c61ad2eee253482749a26d580bd5e9cf1f82916b0299726297077a69ce99ef20",
+      "bytes": 157
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Membership.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Membership.d.ts",
+      "sha256": "67e2f0bc247b9d95e0a747886e40464d54a4987f4e55e0ab559bc5fa68e9bfc5",
+      "bytes": 60984
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Membership.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Membership.js",
+      "sha256": "d16800f3bc10ef210afe5b5f17dd9593413605461bfaa71dbd57ebf29bde7123",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Membership.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Membership.js.map",
+      "sha256": "fd20d2d7fed043b1e83d2c021ee6b505141873c9f5086f96debddb5030425df5",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PaymentIntent.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PaymentIntent.d.ts",
+      "sha256": "e65e1177cb82b276f7986c5ed43e6f797659dffc45c59532f1a895d921454c09",
+      "bytes": 83068
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PaymentIntent.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PaymentIntent.js",
+      "sha256": "91f8359125b7ce3778e973c5c5b86dfaa819c0170864da648dddbbc126a712f7",
+      "bytes": 55
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PaymentIntent.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PaymentIntent.js.map",
+      "sha256": "96aafaa468038df28d145b01421495adc3eef93d1f8e6f02c6281a7c5ad7b3e1",
+      "bytes": 157
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicyMaterialArchive.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicyMaterialArchive.d.ts",
+      "sha256": "b957c90f0ca298f2fb48799f56646dbed86595884d9308a3601a94fde4fa5f5a",
+      "bytes": 68217
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicyMaterialArchive.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicyMaterialArchive.js",
+      "sha256": "c2d6efad3cb5eff16b6166e98e69dbbdb70e873c3d023074b2c2154784a10e7a",
+      "bytes": 63
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicyMaterialArchive.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicyMaterialArchive.js.map",
+      "sha256": "3611f8eddc61d45bf356dedb88cb96e682c1f30895a03175ee1b24ea47a45547",
+      "bytes": 173
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicySnapshot.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicySnapshot.d.ts",
+      "sha256": "fa6640dfc2d8d0c22470bc3b610e9bcf8b13e9ca91f2b464ddd6ff66fb87332f",
+      "bytes": 74095
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicySnapshot.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicySnapshot.js",
+      "sha256": "42e57373907400b406f4dab464616d7df3ec69a1ee0c6359ef99b0416b957c24",
+      "bytes": 56
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PolicySnapshot.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PolicySnapshot.js.map",
+      "sha256": "52d65ea8b0a2c1a5e41798478be3e31b99dd42b56a50920333b29510e2461223",
+      "bytes": 159
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PrivacyDisposition.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PrivacyDisposition.d.ts",
+      "sha256": "d228018492f688e9e363c10f7f553737e8f636f74a006d8836a7a32a6a9c52c7",
+      "bytes": 72681
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PrivacyDisposition.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PrivacyDisposition.js",
+      "sha256": "3e1046a3c9ec6751f3c16d5c1b14b9d0e52dc1f5cf97919b8316de13ce86b7b4",
+      "bytes": 60
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11PrivacyDisposition.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11PrivacyDisposition.js.map",
+      "sha256": "208fc40031381483c8a6e143bf072f25aa6e859bb877171db7af25595fdcc2dc",
+      "bytes": 167
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Profile.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Profile.d.ts",
+      "sha256": "6d6043538bc41bea94346a377d214d780f8f9b933e45bc4891aa736e2c90f93c",
+      "bytes": 54175
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Profile.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Profile.js",
+      "sha256": "c56b3ff5868a6fbd5b311d3aeb8a087153e1241e553bcdd07a2e060388eb6685",
+      "bytes": 49
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Profile.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Profile.js.map",
+      "sha256": "1b8f48a98809ede9885a5dc6c84af047b409860532038323560bdd5f12f88d1b",
+      "bytes": 145
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ReceiptBinding.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ReceiptBinding.d.ts",
+      "sha256": "d5835532e5e3066714728bb8bb71736ecd4f904d7002bcbab190459ee13218cc",
+      "bytes": 74758
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ReceiptBinding.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ReceiptBinding.js",
+      "sha256": "240c1c278acab41871a6af156b42620f6f34cdacc3e5b23642796fba28233a67",
+      "bytes": 56
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11ReceiptBinding.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11ReceiptBinding.js.map",
+      "sha256": "cef0c75146417497315686470d31793e34003d484ef6c20c1a23237f2af742f6",
+      "bytes": 159
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11RefundInstruction.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11RefundInstruction.d.ts",
+      "sha256": "0d71a23de48fa2782445e68952eec813b128a0506e3a4bb6b0e4cd0282fe55ef",
+      "bytes": 98220
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11RefundInstruction.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11RefundInstruction.js",
+      "sha256": "87c7ec19f3623ece9c82c019b1875da77fc597d6c7a816656f4bd9d01434a1a9",
+      "bytes": 59
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11RefundInstruction.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11RefundInstruction.js.map",
+      "sha256": "bfafe7b4b41832d5d7ef5636a0f6cb199b40a4aa05eb7e5b8946a48c068313ef",
+      "bytes": 165
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Registration.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Registration.d.ts",
+      "sha256": "07ef984eaa260084ed30872b8705905037ce4aaaf15d3aa5b837970a8d5ae5b7",
+      "bytes": 282915
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Registration.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Registration.js",
+      "sha256": "98477d57f7e6bc5c5c533d7bd4382a7b7c1537e285c4ffbd1aedc33220d3fdc7",
+      "bytes": 54
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Registration.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Registration.js.map",
+      "sha256": "7d141390ff8283afbd631ab62d48edfded6f2e7be90cf8069130a84ca5a8eb41",
+      "bytes": 155
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Request.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Request.d.ts",
+      "sha256": "7813cdc73cbc11b0757566c0ceb20037f889326cab5a93b042b6a5af0627efb0",
+      "bytes": 118207
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Request.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Request.js",
+      "sha256": "d4badf655dcbe6e59c96fc144241fbcf83d8c36150c4be777c30d3f79ca44938",
+      "bytes": 49
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Request.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Request.js.map",
+      "sha256": "2a24b4bdc7e4f9007a4e932aa3d0d1830e1cdffd1e0b2c5d3b92b369b1ee76cd",
+      "bytes": 145
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SeatHold.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SeatHold.d.ts",
+      "sha256": "e32c0024e94b96731d180d2803af4592bc2119ed36a52b717e22429a3db74632",
+      "bytes": 52246
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SeatHold.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SeatHold.js",
+      "sha256": "13c257abfb4ce72037f8c98d069c06f3a30f12015985e993d1fc7b538a40e06d",
+      "bytes": 50
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SeatHold.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SeatHold.js.map",
+      "sha256": "9a7c0add0f217314f627babc5eb79f90d7e753bc73d3dc851bd6d0398bb02db7",
+      "bytes": 147
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SettlementObligation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SettlementObligation.d.ts",
+      "sha256": "9eed2e6ff802e0e68fcde7c426d858bad1d5820d40f37ab007c0700920442e94",
+      "bytes": 82308
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SettlementObligation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SettlementObligation.js",
+      "sha256": "de3fc46d7138545e3d7a2ab1460887bc43dee386151105a2082910b606673ca1",
+      "bytes": 62
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SettlementObligation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SettlementObligation.js.map",
+      "sha256": "153a8f602713c0ccde999ec1e7052f9aeddf05b552348d9b0e1b3cba32b22266",
+      "bytes": 171
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SupplyRevision.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SupplyRevision.d.ts",
+      "sha256": "75e826714a1dd4058f20d1159b45ebae33e0ed920c6ff246148ef5bae7b4f0c3",
+      "bytes": 140620
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SupplyRevision.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SupplyRevision.js",
+      "sha256": "d6fd8e606a58d56fdb2bac36b0a2fbf462ce545d055e583be98fa33fdc0c724b",
+      "bytes": 56
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11SupplyRevision.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11SupplyRevision.js.map",
+      "sha256": "aef98fea8448041a04dfc4fe0a0bcacd4040d049b0a75726efc944f6a66d28ae",
+      "bytes": 159
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Table.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Table.d.ts",
+      "sha256": "42bfb9dad145a338a370a61c8d0dbcef1151f8a7de0aa0454bf2ad3c5f70c128",
+      "bytes": 85418
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Table.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Table.js",
+      "sha256": "31cce1d88fac3ee17ed2385a0a1a2fc80b03b759e1988b72bbbb51d6c5f2d041",
+      "bytes": 47
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11Table.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11Table.js.map",
+      "sha256": "cd07e08a8d83be96708d75c898d4304cd7115fd4743096143cf40f278b3ab5e4",
+      "bytes": 141
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11TableEvent.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11TableEvent.d.ts",
+      "sha256": "1d2f6b4359daf077b5efe8740b8a4f41646d62463f31915b81511da100fd8db0",
+      "bytes": 57473
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11TableEvent.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11TableEvent.js",
+      "sha256": "a87a4ebef883c869ca0c95842c04354423c8ad2703be6616171f72706f3b7b17",
+      "bytes": 52
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/V11TableEvent.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/V11TableEvent.js.map",
+      "sha256": "bacf0ee1b13160519bc6cef648c3ffadc668418b5ee30996310c2c0ea71028df",
+      "bytes": 151
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/WorkerHeartbeat.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/WorkerHeartbeat.d.ts",
+      "sha256": "e915a8da394ae5a84b367a680dd58bfd605a1282dc19c85ea344e6544cdadf10",
+      "bytes": 44067
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/WorkerHeartbeat.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/WorkerHeartbeat.js",
+      "sha256": "873787dc286594b65584ef1ba4f8aa6a38e5fb0cba8614d2d2bc8ba344d1af68",
+      "bytes": 54
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models/WorkerHeartbeat.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models/WorkerHeartbeat.js.map",
+      "sha256": "f7e474d9c3a4b10410fae4da9e4b91c978a7c7d639b88efd1308284c8f3fae54",
+      "bytes": 155
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models.d.ts",
+      "sha256": "faa28bfcafa3e7af61777b418d614b76d17b63e00d738f54ae27ee2eefcf68f3",
+      "bytes": 2504
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models.js",
+      "sha256": "637113ce0dd08d4a61b12eba5fc661552ea29f6f18356eb1b70bc0e4a06990cc",
+      "bytes": 45
+    },
+    {
+      "path": "artifacts/api/generated/prisma/models.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/generated/prisma/models.js.map",
+      "sha256": "8ea7d16f689b72b0062250fce1d3cfaf996c6e5936d44c89d3f9baa8159ebc4b",
+      "bytes": 127
+    },
+    {
+      "path": "artifacts/api/inbox-audit-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/inbox-audit-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/inbox-audit-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/inbox-audit-cli.js",
+      "sha256": "487c31d76f524eb7844d3ed1288ad8a0950963db87c37556866ff4580d29eaca",
+      "bytes": 956
+    },
+    {
+      "path": "artifacts/api/inbox-audit-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/inbox-audit-cli.js.map",
+      "sha256": "990d6d4fb577f2ca17f007c3238a97da08e8b748a9cc5b422c1bb53abe403d4f",
+      "bytes": 1204
+    },
+    {
+      "path": "artifacts/api/jobs/heartbeat.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/heartbeat.d.ts",
+      "sha256": "c415a7dc9c4ae086303025845cad84e8250b42d5ca93ab8f5029a43f08b8f0c0",
+      "bytes": 602
+    },
+    {
+      "path": "artifacts/api/jobs/heartbeat.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/heartbeat.js",
+      "sha256": "06a8339c9216f27cbcfaf9720803593775a5cf0f6b10d8267ba97c4a06e9d7ed",
+      "bytes": 3182
+    },
+    {
+      "path": "artifacts/api/jobs/heartbeat.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/heartbeat.js.map",
+      "sha256": "045c18f8c0dcf5e68b5193dd583ea50f9c1c7aea54cfaa68a6c7daddb692155c",
+      "bytes": 2772
+    },
+    {
+      "path": "artifacts/api/jobs/queue.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/queue.d.ts",
+      "sha256": "d3e210ef51968756bd37f791e935ae49f1d7bceade5a7c5f37feceaa8a7eab43",
+      "bytes": 1796
+    },
+    {
+      "path": "artifacts/api/jobs/queue.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/queue.js",
+      "sha256": "6c8c229e119bdc8e5a2d39f560abe7d801d0386d53880d27ba1f0ba022f1d5a7",
+      "bytes": 5706
+    },
+    {
+      "path": "artifacts/api/jobs/queue.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/jobs/queue.js.map",
+      "sha256": "2f0f90f1427c2e2f5501c77e6881a2acaba57e83f3d195567a952d913f24e763",
+      "bytes": 3991
+    },
+    {
+      "path": "artifacts/api/local-funding-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/local-funding-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/local-funding-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/local-funding-cli.js",
+      "sha256": "6d714205a94199d58d2f0ff119347e852defce5bf6e1a56cb9ad4188b3442b30",
+      "bytes": 2105
+    },
+    {
+      "path": "artifacts/api/local-funding-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/local-funding-cli.js.map",
+      "sha256": "dcb1f06aa89f1a2af807a325b04e77172fd7c23c3adc103b254c11afc130c81b",
+      "bytes": 2526
+    },
+    {
+      "path": "artifacts/api/orders/agreement.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/agreement.d.ts",
+      "sha256": "680f4b649a8cab3ed1db0bd7f6f0a75dc3e2fad6c81112e0e44438bcba7a3057",
+      "bytes": 377
+    },
+    {
+      "path": "artifacts/api/orders/agreement.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/agreement.js",
+      "sha256": "58989cd4e5a21f7e9ade403b490439c774674a1bde73eb176f9fa8ee56bef495",
+      "bytes": 713
+    },
+    {
+      "path": "artifacts/api/orders/agreement.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/agreement.js.map",
+      "sha256": "9037afe830b305e32610365dd0d92e23ae5a16af72609dc3b319264f448b5471",
+      "bytes": 742
+    },
+    {
+      "path": "artifacts/api/orders/formation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/formation.d.ts",
+      "sha256": "a99ae4776869222721deae7f0a8c4733d3499a73449c730188a64a7cdac335d9",
+      "bytes": 4600
+    },
+    {
+      "path": "artifacts/api/orders/formation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/formation.js",
+      "sha256": "216e3c6ba409033d55526d4155aa4da2a269e19c52decf679396831a591c1832",
+      "bytes": 15524
+    },
+    {
+      "path": "artifacts/api/orders/formation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/formation.js.map",
+      "sha256": "bc95001084136752533e4cdffdee1bad8ddfe8ea437db028c634930609732679",
+      "bytes": 17394
+    },
+    {
+      "path": "artifacts/api/orders/inbox-recovery.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inbox-recovery.d.ts",
+      "sha256": "20a60d1ce6db6b821225d103f46611179979b9e1413b285d0b74dc81dbc50aa7",
+      "bytes": 392
+    },
+    {
+      "path": "artifacts/api/orders/inbox-recovery.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inbox-recovery.js",
+      "sha256": "21c570dcf8c8a81e075ead94d98ad5f04fc6091f70b2c9173c4140ffcc5f25cf",
+      "bytes": 2786
+    },
+    {
+      "path": "artifacts/api/orders/inbox-recovery.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inbox-recovery.js.map",
+      "sha256": "8c6f59d2e9d38bcad8319e34f37c81392e6b375ea6fce2b3645daa4a089ae48d",
+      "bytes": 3415
+    },
+    {
+      "path": "artifacts/api/orders/inventory.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inventory.d.ts",
+      "sha256": "0399af3442d87ec60f89c95b7ce77693e7754a40ae8c11e909a1d732a4759aee",
+      "bytes": 6771
+    },
+    {
+      "path": "artifacts/api/orders/inventory.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inventory.js",
+      "sha256": "dec47d30b447f3fe7106acd11450ea570a64c2c89991dcb12cc63469f22fbd55",
+      "bytes": 6016
+    },
+    {
+      "path": "artifacts/api/orders/inventory.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/orders/inventory.js.map",
+      "sha256": "c28012caa4dedec54e1a62dd6c5e8a4e7ca022625d750540d59fe077cc6518bf",
+      "bytes": 6495
+    },
+    {
+      "path": "artifacts/api/prelaunch/aftersales.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/aftersales.d.ts",
+      "sha256": "262a5b77c4913b88d70546359c35e762a8b239c91ddfced9298970e908750059",
+      "bytes": 4922
+    },
+    {
+      "path": "artifacts/api/prelaunch/aftersales.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/aftersales.js",
+      "sha256": "5a9613cfd16128f9bc9b39ac04fa82be8c55605d004fc735274f71692461f1f3",
+      "bytes": 43154
+    },
+    {
+      "path": "artifacts/api/prelaunch/aftersales.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/aftersales.js.map",
+      "sha256": "04e442fc2084b692a5f9b009d7f4852d8a49a11505fd3ceb3c99606a17497d87",
+      "bytes": 46992
+    },
+    {
+      "path": "artifacts/api/prelaunch/channel-worker-mode.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/channel-worker-mode.d.ts",
+      "sha256": "340480ea9c3557f804e6c7b620603bf6d0d982adcb7a0078eb1b9bb9cf8f53c9",
+      "bytes": 156
+    },
+    {
+      "path": "artifacts/api/prelaunch/channel-worker-mode.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/channel-worker-mode.js",
+      "sha256": "96fa275841de2f4f4e2d2293eb83365964de04fc90617bbf136731394b05a7f3",
+      "bytes": 574
+    },
+    {
+      "path": "artifacts/api/prelaunch/channel-worker-mode.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/channel-worker-mode.js.map",
+      "sha256": "8023cd38a03210a6e3e281a50197c15ee68986be63b403052e1ec72bf6664eca",
+      "bytes": 673
+    },
+    {
+      "path": "artifacts/api/prelaunch/consent-evidence.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/consent-evidence.d.ts",
+      "sha256": "18f69bac6a890cb578c881a9001e8d70d46c280cfaed00fbca4a7489a5e700b2",
+      "bytes": 204
+    },
+    {
+      "path": "artifacts/api/prelaunch/consent-evidence.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/consent-evidence.js",
+      "sha256": "6a93b55cc933bb6f5bd1fb8d7d7b4abc09c8e7a2f3329e5cdd39b3ea2af95a0d",
+      "bytes": 2260
+    },
+    {
+      "path": "artifacts/api/prelaunch/consent-evidence.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/consent-evidence.js.map",
+      "sha256": "6772a33d7554c3717f35ccacff41334bf8ef595c9cb04ff6e1ff2f324f74154f",
+      "bytes": 2556
+    },
+    {
+      "path": "artifacts/api/prelaunch/contracts.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/contracts.d.ts",
+      "sha256": "a9154288ca461a04ba17964fd1bcd3b4316dde7dba772336a84804db91478dae",
+      "bytes": 1962
+    },
+    {
+      "path": "artifacts/api/prelaunch/contracts.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/contracts.js",
+      "sha256": "0d46df5a901824d207330d4cb836d7533c13ffd2241f332213540dfbd3b28ee8",
+      "bytes": 3755
+    },
+    {
+      "path": "artifacts/api/prelaunch/contracts.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/contracts.js.map",
+      "sha256": "13c97e288aafb47463ee2318b247aa7f30768e1e5a6b1d275ddd33b695cc7a1b",
+      "bytes": 4324
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-identity.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-identity.d.ts",
+      "sha256": "bb9771bc0f5a973ae107220108395b4979360f8812cfe6ea5c297db8ad720ad9",
+      "bytes": 1326
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-identity.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-identity.js",
+      "sha256": "9bc25b93a4fc2c9b188da6648b8103e73e6188ae48e4d4f07a94b2ef6e19789b",
+      "bytes": 5920
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-identity.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-identity.js.map",
+      "sha256": "c4bcfe44a8b65b26d80526d1262e03de294123cfb603f09f86e3fa9e5bd75baa",
+      "bytes": 6495
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-refund-obligations.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-refund-obligations.d.ts",
+      "sha256": "39b1a12423b7ae7f17d256bb1ca770908e9ee923cc46a35cc3fb11629761a413",
+      "bytes": 915
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-refund-obligations.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-refund-obligations.js",
+      "sha256": "31bba68e017128853da79728bf59c43b2fddd124854cebe9f44221a539539693",
+      "bytes": 4186
+    },
+    {
+      "path": "artifacts/api/prelaunch/controlled-refund-obligations.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/controlled-refund-obligations.js.map",
+      "sha256": "bd1c3041ffd68f6ebfa2288ec688d488ef844e03c19854c7f9077e0d17d5d724",
+      "bytes": 4263
+    },
+    {
+      "path": "artifacts/api/prelaunch/domain.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/domain.d.ts",
+      "sha256": "6d6b08af4196dbf00e410354ff257f7da7aa95b01f60ca977421796f3fd1e7be",
+      "bytes": 11448
+    },
+    {
+      "path": "artifacts/api/prelaunch/domain.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/domain.js",
+      "sha256": "e24dd18b9adb1e52c4a4efad123209876346969598e935681c628c3c6f8b5295",
+      "bytes": 55653
+    },
+    {
+      "path": "artifacts/api/prelaunch/domain.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/domain.js.map",
+      "sha256": "2dd4b3bd9094b68bd5b8cf48b7bbeb81946bc3df9cbb339436b1dfc856f4d7e3",
+      "bytes": 62107
+    },
+    {
+      "path": "artifacts/api/prelaunch/finance.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/finance.d.ts",
+      "sha256": "21db465440fe8995a677c2f75f9610c4fdcc86c5b640c4849943a9d21885640b",
+      "bytes": 1373
+    },
+    {
+      "path": "artifacts/api/prelaunch/finance.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/finance.js",
+      "sha256": "c11575bf813ab0edc162d7cc940642a3e5aee8a9395bda31b4a9bfc2eb268ede",
+      "bytes": 7854
+    },
+    {
+      "path": "artifacts/api/prelaunch/finance.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/finance.js.map",
+      "sha256": "85dfd14be240566971c19be686c7ea2cf9ec76faa18868a92c9b87c054ee701a",
+      "bytes": 8140
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor-cli.js",
+      "sha256": "ba061c05b037f5b8c3f7e6d866b691e1b2a371a488cf1b4bec6a47815ea65431",
+      "bytes": 1496
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor-cli.js.map",
+      "sha256": "a0b7fb503154a7ffea7d69017ebed69240411314d6a40ce2725672c1396ba37d",
+      "bytes": 1621
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor.d.ts",
+      "sha256": "eda006b149f72c8a506d6b49950f911804636ffd6e35961e02c2c264749a6c1b",
+      "bytes": 1087
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor.js",
+      "sha256": "4247e229713854f37b515cd2a2212e1c20dcfa9d618b381bd3eb45bec9a610b0",
+      "bytes": 3847
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-monitor.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-monitor.js.map",
+      "sha256": "f784fdbc0448dd4f50a4dbee0b9ff84c297eabeea771035aab3d081bcd384baf",
+      "bytes": 3269
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-records.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-records.d.ts",
+      "sha256": "3a00361b8e5e0c41e3c35510963b646e7b7680f5ebdf628d6010749a8ba63117",
+      "bytes": 1023
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-records.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-records.js",
+      "sha256": "44bccd282c85f5502245b6e506a39cbba66d8cbdaf19e5803a9def7b84c26bfa",
+      "bytes": 5286
+    },
+    {
+      "path": "artifacts/api/prelaunch/financial-records.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/financial-records.js.map",
+      "sha256": "d1af70e24b7ec32118cc478bdafd17f9afde05d44ee00dee94db65a43ef27efc",
+      "bytes": 5746
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-authority.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-authority.d.ts",
+      "sha256": "b61398dd717b1175fcc2c4c5d58806b1dbf63036f6d67cf4bd17a506c7ccbf60",
+      "bytes": 256
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-authority.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-authority.js",
+      "sha256": "a63d6ef32abd2ff24f51a69fb2a5be3015d58d575e8ee67929623163225b09ca",
+      "bytes": 2304
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-authority.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-authority.js.map",
+      "sha256": "be62db7ae222527fc9bb02cf9b5419a3463a6983ed07c4a2f8fb7df4c03c0acb",
+      "bytes": 2627
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep-cli.js",
+      "sha256": "fa3d9edb95e0be0d2682438ebbae333680ac532ac711072db56bd99916aaa6c8",
+      "bytes": 1284
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep-cli.js.map",
+      "sha256": "fec374c69a03f7e977d9d073d84570f61c3a11882c79d666c2f25331ac583b69",
+      "bytes": 1387
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep.d.ts",
+      "sha256": "8114d8bf89cff4747d9a7f4a0e1eb45b43139cd571e52b078012be0dd663b450",
+      "bytes": 428
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep.js",
+      "sha256": "3355323be5e1a7dde4e8c09ee16e258108b557ef95de35b8c6b4becb45ee74ce",
+      "bytes": 2538
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-close-sweep.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-close-sweep.js.map",
+      "sha256": "b11d73893924fc12d3e107a551bb5050d64c41195dd4cd88a7f1fc636726efe8",
+      "bytes": 2733
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-runtime.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-runtime.d.ts",
+      "sha256": "6d817a32d2dfeb4d91688d1ccda3f2301432fbafb57b9440cded2d62baab54d2",
+      "bytes": 294
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-runtime.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-runtime.js",
+      "sha256": "0a6eeebc4732869ae1920163fb80d0fc672f5d3462cfe14408a690e547ef8e6a",
+      "bytes": 1788
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-runtime.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-runtime.js.map",
+      "sha256": "bd30fc8097f711c5ce0948863f2d1fa6a33c63a86b4a148e92b5bf7c22a20a8a",
+      "bytes": 1993
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-worker.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-worker.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-worker.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-worker.js",
+      "sha256": "4ac38761f3f538fa2f51aaff86a3ca181bb8cb9194818b76af5528567d4c7c22",
+      "bytes": 1233
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry-worker.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry-worker.js.map",
+      "sha256": "19ab14ea452b459ab4d24b95793d7154aad22c3fcc24e5eac08911b0e552dcfe",
+      "bytes": 1337
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry.d.ts",
+      "sha256": "ff197528bb658fde901c9c51a44d666cde1e5b2fedebd7924809817b96d94d1b",
+      "bytes": 870
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry.js",
+      "sha256": "c13a78ac509092c85b76255e5ba15b9a12cdb318009608eaa240a6e308f4344b",
+      "bytes": 4792
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-hold-expiry.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-hold-expiry.js.map",
+      "sha256": "d5e212f577b85656c3fccda470c0f654dc164a7454f3d207a2334dd28253aaa6",
+      "bytes": 5372
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-runtime.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-runtime.d.ts",
+      "sha256": "4cb11f3f15094507fa8d0dc5d0fd53e33ca64eaebf8a4af4661e16d9e87e95f0",
+      "bytes": 424
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-runtime.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-runtime.js",
+      "sha256": "8cad56b0ccf37f733853da591e855d5b2a6c66a8fcb4d325e1f3837438a12bba",
+      "bytes": 1601
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-runtime.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-runtime.js.map",
+      "sha256": "2f509dcd10e97a09bd0b8e7f61e2778e0d52ba99607a8aeb26f178b192e15a1d",
+      "bytes": 1742
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-worker.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-worker.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-worker.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-worker.js",
+      "sha256": "e442c63f8550fc545511f26fadebd72bc72e848f12e59bb99c5378e4a5607d10",
+      "bytes": 1502
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close-worker.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close-worker.js.map",
+      "sha256": "61a5e1e2bfbf445a7998de4ac93e62ad7e026f6d3ac23f37347ff6311439bc21",
+      "bytes": 1570
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close.d.ts",
+      "sha256": "7a8652d92da2332a231078d39a0a8b6b4a3d1ae4d9d54e41a7fd75a7551aa484",
+      "bytes": 329
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close.js",
+      "sha256": "f449e38e0eb9371d39e41da8ae4a87d6c0aad7bfdccb6dfd25dd8854c22b750d",
+      "bytes": 2765
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-payment-close.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-payment-close.js.map",
+      "sha256": "15f24de367ac0f9a1be1895a715c9e19880039ea9b397ece29279088e28e7048",
+      "bytes": 2551
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-archive.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-archive.d.ts",
+      "sha256": "54eb8c4d90b87ebeb6e6445d8d00971155c1fae6332166ed4cedf24eed0f077e",
+      "bytes": 1246
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-archive.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-archive.js",
+      "sha256": "066255ebef7741e47686b1038468c0ecc962e7d96ecee31b721d27a556e870fc",
+      "bytes": 3611
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-archive.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-archive.js.map",
+      "sha256": "46edbf8979129f421b597e937450099901e94f149eab32544e03d008fc002073",
+      "bytes": 3272
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-material.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-material.d.ts",
+      "sha256": "ed39ff470d308816ee295bf39eb2272b7e613b37e2768d11322e046cd7fe4775",
+      "bytes": 648
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-material.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-material.js",
+      "sha256": "fd7539525c1e1018c4dcd41a169275dab452ae2c72708ebb948f4cdd782bd2ab",
+      "bytes": 4049
+    },
+    {
+      "path": "artifacts/api/prelaunch/formal-policy-material.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/formal-policy-material.js.map",
+      "sha256": "08387e8987780f81043ef6865824fd13c2cc4bd3adb197698814997de33c9b31",
+      "bytes": 4869
+    },
+    {
+      "path": "artifacts/api/prelaunch/late-payment-refund-obligation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/late-payment-refund-obligation.d.ts",
+      "sha256": "7467cb9218515e08d227615c055d907a7e1514bca15a941a183871d221ca90d8",
+      "bytes": 543
+    },
+    {
+      "path": "artifacts/api/prelaunch/late-payment-refund-obligation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/late-payment-refund-obligation.js",
+      "sha256": "859aa30b1af4b8ea081f59adc02610f2b5c5d678af628cafd029dfd9c228b2f4",
+      "bytes": 5467
+    },
+    {
+      "path": "artifacts/api/prelaunch/late-payment-refund-obligation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/late-payment-refund-obligation.js.map",
+      "sha256": "45074cba34f1eb4649290b3807425ab4e1c2a4ce038327f89d47daad86f8f6b6",
+      "bytes": 5318
+    },
+    {
+      "path": "artifacts/api/prelaunch/ownership.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/ownership.d.ts",
+      "sha256": "13cdcbb52d654e152525476ac42745c77e3bd90eb459cbdfa605e4b891a5084d",
+      "bytes": 257
+    },
+    {
+      "path": "artifacts/api/prelaunch/ownership.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/ownership.js",
+      "sha256": "d73d20a31eb705e3804db3d5c94e78cbe4b09ff1c1dfc143bfb8f7ec0c6f30c5",
+      "bytes": 779
+    },
+    {
+      "path": "artifacts/api/prelaunch/ownership.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/ownership.js.map",
+      "sha256": "35ad3f64fca532431eaaa761f04c4232392a4ac33663573dbfeef6b5fe957fd2",
+      "bytes": 798
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-notification-trigger.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-notification-trigger.d.ts",
+      "sha256": "0288b8b0df1ec98b26ddd9217ea8e867e357f0dfde8e0f90340a706031fcdef9",
+      "bytes": 524
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-notification-trigger.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-notification-trigger.js",
+      "sha256": "78f1370accf1780f31ecc0ef798f601be531d1be83df1f8537a2ce3c064d636c",
+      "bytes": 3781
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-notification-trigger.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-notification-trigger.js.map",
+      "sha256": "480b50ac1635d85ab0bdc47e39810dee483679d295c75e00151dd4398bf72360",
+      "bytes": 3349
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-resume.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-resume.d.ts",
+      "sha256": "a244ab29fa9b298c452e4af25c538c698b8e0c84444b4f3601c20c5d46393bfc",
+      "bytes": 850
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-resume.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-resume.js",
+      "sha256": "e490fc28656d14c8f197ee9ba05c6d8fc309349104c6743ad4861fa890cbb230",
+      "bytes": 891
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-resume.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-resume.js.map",
+      "sha256": "85e83c27cc2f551498b2a13c715c41cfe483b74a2343ba98b626ad1fe8e437ef",
+      "bytes": 717
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-runner.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-runner.d.ts",
+      "sha256": "7bcf63b61aaa12fd1bf2c278bf2988818ffb26bea03daa661b5b82dd4757f622",
+      "bytes": 860
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-runner.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-runner.js",
+      "sha256": "5ae970b60fdb31f082cf9d82fa3b4c818f94693de5900abe300e52499c0ebebd",
+      "bytes": 1189
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation-runner.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation-runner.js.map",
+      "sha256": "9c882e8a999e302ab1e0e0b4ba0009cb3fe67f5c362f94c17bca5a2d531dd25e",
+      "bytes": 984
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation.d.ts",
+      "sha256": "b1b7e54f27bddb293acc93e0c301c96dfa22855316d770872e4867475297cbb7",
+      "bytes": 1657
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation.js",
+      "sha256": "01c52989cbc36076161985ef5e9e9240c00e876f845ead15e147f25a2e0d68e6",
+      "bytes": 5630
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-preparation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-preparation.js.map",
+      "sha256": "6f181746ab1b229181175218e7ce08e878396eb82923a58b49ed783895f70672",
+      "bytes": 4823
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-query-intake.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-query-intake.d.ts",
+      "sha256": "4e8832352fefa80f1502906fb09ead798c7a613386daeb88327dc5c89c86b52e",
+      "bytes": 799
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-query-intake.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-query-intake.js",
+      "sha256": "210372328e78b6faa8014504f1741db4d877f9c7a450528371c1aeb1e3f011cc",
+      "bytes": 10569
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-query-intake.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-query-intake.js.map",
+      "sha256": "a8173df7c2d4cb27bdc536de06c6f760957ddaa02a2f459cd89496da65c6ec48",
+      "bytes": 8922
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-receipt-ledger.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-receipt-ledger.d.ts",
+      "sha256": "3392dccde70c9023ee0362439b12cc2d0adda967f418a793ee0a5e9ea6c099b6",
+      "bytes": 370
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-receipt-ledger.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-receipt-ledger.js",
+      "sha256": "15a4639ae62619a7275450666de1838b7780ba6015de2642548b6d835e90835d",
+      "bytes": 3903
+    },
+    {
+      "path": "artifacts/api/prelaunch/payment-receipt-ledger.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/payment-receipt-ledger.js.map",
+      "sha256": "95d1a69d3495735601aee6252471e2efead5264badc2362ff0815cc691a418c3",
+      "bytes": 3984
+    },
+    {
+      "path": "artifacts/api/prelaunch/policy.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/policy.d.ts",
+      "sha256": "3eb1ac1bd3112e59b771a575a5c33d0a3aeb90c9988335d1108914e3d1cdc964",
+      "bytes": 875
+    },
+    {
+      "path": "artifacts/api/prelaunch/policy.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/policy.js",
+      "sha256": "d5b677d6079c539ccd88f58fae9f1844b90d6719bd9e4612056edeae08847bea",
+      "bytes": 5158
+    },
+    {
+      "path": "artifacts/api/prelaunch/policy.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/policy.js.map",
+      "sha256": "78245d503452573ad256196828931cdc56006db354050e0cd5aef97dc59187f2",
+      "bytes": 6003
+    },
+    {
+      "path": "artifacts/api/prelaunch/principal.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/principal.d.ts",
+      "sha256": "e00a3da07be802d88dfd0411e625be3cb184a41a8e10ef3b4c0cd75168ee3827",
+      "bytes": 943
+    },
+    {
+      "path": "artifacts/api/prelaunch/principal.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/principal.js",
+      "sha256": "03434279eea959388f8feac40ee869dcf3f725ab6d215af984a83c7fbbce4ef0",
+      "bytes": 3633
+    },
+    {
+      "path": "artifacts/api/prelaunch/principal.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/principal.js.map",
+      "sha256": "c9c761937bb23edb39f1eb84914628cd12f53533b22809a0c1d0ac16e2ab7378",
+      "bytes": 4103
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity-routes.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity-routes.d.ts",
+      "sha256": "e9e805deb273b0492d61f4649e9600eb68e1cb360915e6ae7dc81cfb184f66b9",
+      "bytes": 370
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity-routes.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity-routes.js",
+      "sha256": "318cb438423a3e116e4589e195d206fb7c2da37f4ec2650b76d755f6da4afc80",
+      "bytes": 5495
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity-routes.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity-routes.js.map",
+      "sha256": "07463a44299dd7d33ff812d694ece52527ec679ed93f3705a1579f4517515a5a",
+      "bytes": 5627
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity.d.ts",
+      "sha256": "e089d6993d9ab8c6d92da0a60468073783a9f3db91de86a2aadf095985895f9c",
+      "bytes": 295
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity.js",
+      "sha256": "24c17b6d91ea5c09ff4ce14351c34ff4bfea2ece26ea3858c8b2196fa0993429",
+      "bytes": 1284
+    },
+    {
+      "path": "artifacts/api/prelaunch/production-identity.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/production-identity.js.map",
+      "sha256": "dbd8679c4493c76eb8d57520e44dd2edbebf00fb3ac4d59ffb3b7240e761e0af",
+      "bytes": 1361
+    },
+    {
+      "path": "artifacts/api/prelaunch/receipt-allocation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/receipt-allocation.d.ts",
+      "sha256": "6aba8131d0c4b81f8c30dee9efbf05af29658c111bed3b20afdf2cd8de381885",
+      "bytes": 391
+    },
+    {
+      "path": "artifacts/api/prelaunch/receipt-allocation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/receipt-allocation.js",
+      "sha256": "cdbca34aee527ae8ae57dcea4502acdc5f013e170a23f587367174337372cd83",
+      "bytes": 3313
+    },
+    {
+      "path": "artifacts/api/prelaunch/receipt-allocation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/receipt-allocation.js.map",
+      "sha256": "54dc074e5367ea86d3fc23de17c59d74a00ab6e11c08fe69e9a3bb5bc0ddbad5",
+      "bytes": 3260
+    },
+    {
+      "path": "artifacts/api/prelaunch/reconciliation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/reconciliation.d.ts",
+      "sha256": "8fc6c973618f74667ef5e69efcc33a1765b957c7d896dd2f98d97ef29f73e65f",
+      "bytes": 693
+    },
+    {
+      "path": "artifacts/api/prelaunch/reconciliation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/reconciliation.js",
+      "sha256": "6cd0b33aa9a6e2b83429079215c152c077d96c465d35bb16e68c1df2a088b216",
+      "bytes": 10965
+    },
+    {
+      "path": "artifacts/api/prelaunch/reconciliation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/reconciliation.js.map",
+      "sha256": "87b1488d0cb5108ffe32efcb7909f489b5d1f885cd424c6b91b4918786fcb8ce",
+      "bytes": 10559
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-completion-time.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-completion-time.d.ts",
+      "sha256": "b0eef5032814a38a53754bfbd2a1822c232cb4a5b1155f4936a1d7b267c46d41",
+      "bytes": 850
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-completion-time.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-completion-time.js",
+      "sha256": "d09a2d22f9111ceabe9abc49f441718facd0bad12597fb25736e75627f7d5f88",
+      "bytes": 4764
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-completion-time.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-completion-time.js.map",
+      "sha256": "22b0f0e16caac9382b663462a67a08874f0fbafa2c9122c35307aff18bae83c2",
+      "bytes": 4737
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-dispatch.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-dispatch.d.ts",
+      "sha256": "41524dcde3d6ba3888cedd795f31aed57996a7a825d578fa2ee85bd1f22a5dff",
+      "bytes": 588
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-dispatch.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-dispatch.js",
+      "sha256": "1654cf4f4db809f4ca74e7ecf6eaff8533425701e8e5b4dc37f9ed9d96c32fee",
+      "bytes": 5889
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-dispatch.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-dispatch.js.map",
+      "sha256": "4e68c16ae192863d18ac7ed97cdf379c0bef21374819b422b9310c7529a0a347",
+      "bytes": 5687
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-notification-trigger.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-notification-trigger.d.ts",
+      "sha256": "d609a482dc297aeaf04cb7c4bf100f4ba6b186254b46a69640ea96039db8f096",
+      "bytes": 521
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-notification-trigger.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-notification-trigger.js",
+      "sha256": "30a66077f9fce3bf8204107cb2d368b2cde586e34c9bc4aaa1d77de7852c972e",
+      "bytes": 4703
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-notification-trigger.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-notification-trigger.js.map",
+      "sha256": "4834aa138b64d7ac2a959f8bf19ff77676af361870df89bb429afbcb38951dc6",
+      "bytes": 4147
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-obligation-view.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-obligation-view.d.ts",
+      "sha256": "4cbbbfc8aa396ce27f1f2b547253af2f8ceadfd4328e747fde206396fb410d48",
+      "bytes": 517
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-obligation-view.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-obligation-view.js",
+      "sha256": "2f3ab897d0704fb7b1fa7c1c9453afcd1662c68ae0f927b58006334242be30e8",
+      "bytes": 2692
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-obligation-view.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-obligation-view.js.map",
+      "sha256": "3529d1b3e297cfaac5bb336d95f7ad4a194fb5cb6d0c3e85e75612a5e9b22878",
+      "bytes": 3235
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-period-evidence.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-period-evidence.d.ts",
+      "sha256": "db39018434f1eccdf16d24ecaef0dd9ad0032ac70625d18e4cddec3e530eb480",
+      "bytes": 461
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-period-evidence.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-period-evidence.js",
+      "sha256": "b732af0420d2b24d1802ed4e3391ad6843f4cd594e8f5ee855ce6e8b65f44105",
+      "bytes": 3396
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-period-evidence.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-period-evidence.js.map",
+      "sha256": "1d454ae7f2ddcef0dc78a13ff0b374f378c0519bec120d02b48d691c67a8b501",
+      "bytes": 3959
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-query-confirmation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-query-confirmation.d.ts",
+      "sha256": "bd7a22b40d57bf57402ae9dfc9cfc948c4ba453061a4c059d6e1c8a68f540a0d",
+      "bytes": 457
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-query-confirmation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-query-confirmation.js",
+      "sha256": "ff1ac3530e2c7a35e3ef2c414c4627a88e59a96c9d7b91d67ade0957af3e22b7",
+      "bytes": 5565
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-query-confirmation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-query-confirmation.js.map",
+      "sha256": "542f8e48f5e414d96982989715fd56648f72787adfc9282e2bb404acf8458e07",
+      "bytes": 5539
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-request-intake.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-request-intake.d.ts",
+      "sha256": "fb7345e843310d8156bf093b970b1ea2e49607fe364d81787fcfee792f3e1a25",
+      "bytes": 1263
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-request-intake.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-request-intake.js",
+      "sha256": "84171879924370402e75f3d16f6a4c07950ae9734fcf925efebd0e085989f8b5",
+      "bytes": 3981
+    },
+    {
+      "path": "artifacts/api/prelaunch/refund-request-intake.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/refund-request-intake.js.map",
+      "sha256": "42bc5b76d8380a4002416b31515e59432e646fda0c51f214faab108b86d5e4e6",
+      "bytes": 4683
+    },
+    {
+      "path": "artifacts/api/prelaunch/routes.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/routes.d.ts",
+      "sha256": "f7ea56905f8a28b639fac49937773637a7b50105e2627ecbdffe88d295874703",
+      "bytes": 561
+    },
+    {
+      "path": "artifacts/api/prelaunch/routes.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/routes.js",
+      "sha256": "49cbd68cb64a0ccec48d56b27a1839d45981580aa635792b9ca95d1a4d67c08c",
+      "bytes": 34159
+    },
+    {
+      "path": "artifacts/api/prelaunch/routes.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/routes.js.map",
+      "sha256": "7844520a919dd8158faa4fb8649b062e2b6e0529f7b68e198090fd25975793cb",
+      "bytes": 46274
+    },
+    {
+      "path": "artifacts/api/prelaunch/server.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/server.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/server.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/server.js",
+      "sha256": "89fdc8edf8ad76ef169cf6c775d7a6a2c0cd0ca0a5fc9f9443ce0f586c997037",
+      "bytes": 1969
+    },
+    {
+      "path": "artifacts/api/prelaunch/server.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/server.js.map",
+      "sha256": "c920131539565d4806052c06ebaac6588246382950058157d35259c7681fe0cd",
+      "bytes": 2543
+    },
+    {
+      "path": "artifacts/api/prelaunch/time-preferences.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/time-preferences.d.ts",
+      "sha256": "f4cc25d5e5c7c1c12a57fc57d626bcbbb4e381c4499f8eebd28e1b5273a6b1a5",
+      "bytes": 1197
+    },
+    {
+      "path": "artifacts/api/prelaunch/time-preferences.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/time-preferences.js",
+      "sha256": "50d2f7c4aa739607d163ed6a5747cd6099242675f3394aa1a3d463f65d0d8eac",
+      "bytes": 1563
+    },
+    {
+      "path": "artifacts/api/prelaunch/time-preferences.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/time-preferences.js.map",
+      "sha256": "a62e6a651d092e19b44e0e31b9d8e4fd95fd5f35bc047270cd184399d652959d",
+      "bytes": 1896
+    },
+    {
+      "path": "artifacts/api/prelaunch/unsettled-payment.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/unsettled-payment.d.ts",
+      "sha256": "728bf70854ec4b7af91a4b93aa9bc3b38d2414830b69cbb6d4eada82dcc35c4d",
+      "bytes": 144
+    },
+    {
+      "path": "artifacts/api/prelaunch/unsettled-payment.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/unsettled-payment.js",
+      "sha256": "b29ab24f29a0005ecd8b617dadf274f7b3c6e8351b5058d05030886e97a91417",
+      "bytes": 499
+    },
+    {
+      "path": "artifacts/api/prelaunch/unsettled-payment.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/unsettled-payment.js.map",
+      "sha256": "8ace44e2fd2203a209532426aab231cf956c1e39bd6047e1e83ce4d6fb9d9328",
+      "bytes": 470
+    },
+    {
+      "path": "artifacts/api/prelaunch/user-identity-provisioning.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/user-identity-provisioning.d.ts",
+      "sha256": "2b63d11d04e24e145344969977770ba8ece497322d3831e7e6385a7ba36757c5",
+      "bytes": 297
+    },
+    {
+      "path": "artifacts/api/prelaunch/user-identity-provisioning.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/user-identity-provisioning.js",
+      "sha256": "e4f7ae3a843738d1e0960e6d0ade9b5bfa4b98f74249ee1475269e1d71970749",
+      "bytes": 2210
+    },
+    {
+      "path": "artifacts/api/prelaunch/user-identity-provisioning.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/user-identity-provisioning.js.map",
+      "sha256": "c5ce71d75ddb575d4a27d15b791df0e645fa48231cab8e727b0bccd649a872d0",
+      "bytes": 2218
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-cache.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-cache.d.ts",
+      "sha256": "817e8820b1d97afc5c00c1051c84ec5c0bb49a910e1937816034a671201083df",
+      "bytes": 279
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-cache.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-cache.js",
+      "sha256": "8f4d8c0cd036a1a84722ace767424f8ade3f574643873166aaa4faf565658b0c",
+      "bytes": 3401
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-cache.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-cache.js.map",
+      "sha256": "d00110ecad0db5c1678a705166a2fec336fb5c6a819942f5c0010d9c8ec1a0c5",
+      "bytes": 3716
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-comparison-core.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-comparison-core.d.ts",
+      "sha256": "4bf2fe1c9befa22fb7af9dba69bf90eae432bb4a37a25c6e37f01fbe6c3870a0",
+      "bytes": 7035
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-comparison-core.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-comparison-core.js",
+      "sha256": "6d988ca9e8a051f376f186127dc33f5b12d7ad78ceefef5b7fc6eb6765255f14",
+      "bytes": 23789
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-comparison-core.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-comparison-core.js.map",
+      "sha256": "dc49598e3d97fb11cb53f000eec90286413ec45fd40b65b386ce5ba77202d334",
+      "bytes": 25532
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-csv.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-csv.d.ts",
+      "sha256": "418faebcd11901fd2d59fffad970382db7287f6497d8ec8af63a822662800d7d",
+      "bytes": 641
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-csv.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-csv.js",
+      "sha256": "1f9bee5fb736e7fb8393fc4d6099937e1bba284fdb0270f4f608b6ead12d46db",
+      "bytes": 6501
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-csv.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-csv.js.map",
+      "sha256": "5fd8ab91da6e2b3968010d6fc55edb4efa1edba4473d8b0b8c3044af8f4e5cf1",
+      "bytes": 7715
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-checkpoint.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-checkpoint.d.ts",
+      "sha256": "02d8810ebdbf84c543af15cd53f28ab662587472500c0a1128fa20cb90e9927b",
+      "bytes": 2163
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-checkpoint.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-checkpoint.js",
+      "sha256": "6586b91bcd5328877c1684b174302ac0bdbb4a71a314a2402d5303ee8d6038e3",
+      "bytes": 17283
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-checkpoint.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-checkpoint.js.map",
+      "sha256": "d0735522f120993e983510f2163cc3172ae08402d021e03795acf3118f585295",
+      "bytes": 18579
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-evidence.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-evidence.d.ts",
+      "sha256": "de2bd88ae9ff66d614a8a76732ccd29d3eed46f499ecc979755109074fb30603",
+      "bytes": 266
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-evidence.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-evidence.js",
+      "sha256": "1322c19aabea5219ba318eda93cc362f498d79d1991fc462d0fb687af644a5d5",
+      "bytes": 8599
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-page-evidence.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-page-evidence.js.map",
+      "sha256": "c16c96eba0fb51ae989ce821224bc9a4960b3f3a837d57e19cdc4e7fff839907",
+      "bytes": 9923
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-cli.js",
+      "sha256": "0d2acfbad9662039fb9cf773449119d0e941e340530dff922d3ae8a0a70d47e1",
+      "bytes": 1096
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-cli.js.map",
+      "sha256": "7955e89e834102a0e809f952fbda2e311561fc900535384f1ca5d44a82815e76",
+      "bytes": 1256
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-journal.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-journal.d.ts",
+      "sha256": "2b95d1502773beb8d2b39b229c173e6ca68f99399ca8527652a048cb685d951b",
+      "bytes": 518
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-journal.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-journal.js",
+      "sha256": "f823e213117cdec8cf3640ffd3d5620a75cb7232cedf5a927d2dbcd5fd8fbe0f",
+      "bytes": 3553
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-journal.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-journal.js.map",
+      "sha256": "b3bd16ffb2180778246d67c41c2a3a22cc077e75cc45392e56450dce0894c3e8",
+      "bytes": 3870
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-run-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-run-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-run-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-run-cli.js",
+      "sha256": "a23cf15f56268e457797e6a087fb64d6a827bea378302664cddb83201bf51ac5",
+      "bytes": 2984
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-run-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-run-cli.js.map",
+      "sha256": "109fc1dd909ed3f7128c11563493e95a5ec6e0e86d3fa2378b0913a847528d20",
+      "bytes": 2883
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-runner.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-runner.d.ts",
+      "sha256": "cb1679bd71d3aba225ab8108d83d1edd788c789eee0f75defde4b95311a83ef1",
+      "bytes": 1420
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-runner.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-runner.js",
+      "sha256": "c9d72aa0c26a35f3b7bf6956af5fa53624d157f9552642c56aaab7c346a19943",
+      "bytes": 4615
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range-runner.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range-runner.js.map",
+      "sha256": "e16fd39c1ce97e375b90f54ee30234f4c9bdf0cf832070b132827aa1d88e1ad0",
+      "bytes": 4618
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range.d.ts",
+      "sha256": "39d6f1e039b2899a681ade225493e70eac420c0d9ade643ad9de8346e2b1cb51",
+      "bytes": 1264
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range.js",
+      "sha256": "3a4669ae0ef26d70b88d3539a129ee7b97199275f0e4c20551beb69acc7567ca",
+      "bytes": 6134
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-range.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-range.js.map",
+      "sha256": "729481fa6c2cb5fb716c569f8b68f5e921e7419103bd7189feddd14503552632",
+      "bytes": 6371
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconcile-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconcile-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconcile-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconcile-cli.js",
+      "sha256": "de5ef0cc3ea79cd003c532db810ee7f7ca3bff311962b818a8177021f9de31fa",
+      "bytes": 1345
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconcile-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconcile-cli.js.map",
+      "sha256": "fcc400d215d8ea44af6d3811052190015ef449c842bf9eb98fc67d25b2b88e9d",
+      "bytes": 1375
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconciliation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconciliation.d.ts",
+      "sha256": "2067440ba1958d4f6e9273dd046bd0d0e167c7f3412458799e2dee67bf106ce0",
+      "bytes": 1040
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconciliation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconciliation.js",
+      "sha256": "41e52ff95ea6a3590c8e432a7e1b204b9382b2b835fe1dd06d5ba30a6aa4fec4",
+      "bytes": 4471
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-reconciliation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-reconciliation.js.map",
+      "sha256": "979d8fe576f8c2c606ed9790dafe16268d518b201f3bb8810dcdd9c5a9999bd5",
+      "bytes": 4211
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-resumable.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-resumable.d.ts",
+      "sha256": "20a1af883364b4f3fb91299042e82ce73f0383e78a543abd9678c124f2a5c5c0",
+      "bytes": 1008
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-resumable.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-resumable.js",
+      "sha256": "7be66512d32c0f0a829c5450d5476a96c8c3021a34bb2a7d693bfcdda6ea19c1",
+      "bytes": 1627
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-bill-resumable.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-bill-resumable.js.map",
+      "sha256": "9a6df5d432060da9873ea4a9e2459ce1d2d006340157081c465a171a38ccaaa5",
+      "bytes": 1481
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-channel.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-channel.d.ts",
+      "sha256": "9f5a284fa783ee0443b25ac34564547fbcdae87fab6c19cfc77be793acdcbb3c",
+      "bytes": 2595
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-channel.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-channel.js",
+      "sha256": "03a717ba463fb9cf00dcba016a6e860441403a16233802d4f57d50071af78373",
+      "bytes": 6616
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-channel.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-channel.js.map",
+      "sha256": "604dc5b54aeeb7d3aea7471a00522410afa8651e9569319c0cea7f9a513c4776",
+      "bytes": 5948
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-handlers.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-handlers.d.ts",
+      "sha256": "a4abce3ae405533279ae5b62d49bc055c2075e6464dd1f1ebadf6df9093b0b14",
+      "bytes": 425
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-handlers.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-handlers.js",
+      "sha256": "18bb6ea58e63f8fbbf6f6afdf5648d7cc327ff34f4db69e15b10b8c79c2b2a66",
+      "bytes": 1994
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-handlers.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-handlers.js.map",
+      "sha256": "40ff8f0261c9c71fba5b07d92320da0c0b98bbf99b0a5f2fbd6757055b084754",
+      "bytes": 1790
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep-cli.js",
+      "sha256": "ab02e39ee56a8bfb80d685e02b073e7008dd7fc5d385f532208b309de36aa217",
+      "bytes": 1495
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep-cli.js.map",
+      "sha256": "7fc2e0216179b5c3bc33f7e5f98dee9215e688632bf31846aef0565c9544d059",
+      "bytes": 1503
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep.d.ts",
+      "sha256": "89e7ae25f3010f27e231d3417b64e00d95a1d58536e86ac49457dd1face8ae67",
+      "bytes": 517
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep.js",
+      "sha256": "c724a07386f76710522b6c9a66aacbd109ed213496f044ddaf464149fe11262c",
+      "bytes": 3609
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-sweep.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-sweep.js.map",
+      "sha256": "c482fc0e6f5a64fa2ce23603a8d3f52c471c3b342677b7eb4197c41bd690bfde",
+      "bytes": 2549
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-worker.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-worker.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-worker.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-worker.js",
+      "sha256": "9fc92ddfac1acb715387f90e134fe52ea79523e02d464468ab4ba6f59dbad77e",
+      "bytes": 2322
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-query-worker.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-query-worker.js.map",
+      "sha256": "bc331d62cf31bef296e92c69ccdebc26f55aed733741cb51a5aab50ad972e0fa",
+      "bytes": 2408
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-refund-reservation.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-refund-reservation.d.ts",
+      "sha256": "467f8ae5232708d90f5fcac63c0dd59c7d3b3c0bf43fbce1f073a0aee8219b7d",
+      "bytes": 971
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-refund-reservation.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-refund-reservation.js",
+      "sha256": "63118d5b9c483a1a416a8899c9309b502d3976404d9049986630210a6fca000c",
+      "bytes": 1396
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-refund-reservation.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-refund-reservation.js.map",
+      "sha256": "cbc38ad82e8c70185f17bc7d3e4652902b075ef92f7b8857d1abc00c44f57f5e",
+      "bytes": 1456
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill-cli.js",
+      "sha256": "65b56139b95ee2c85e2d5b5d4f6c4d5511ac6b9cfffcc83a624d48fa48d6ab70",
+      "bytes": 3141
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill-cli.js.map",
+      "sha256": "be7a0335691caf832b5d377e756f1be36aa32a7f9aa9af11a1e1d56954ef2b78",
+      "bytes": 3170
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill.d.ts",
+      "sha256": "32ecf254d3d739c99e4894791978287f626d63f47b61c0b14e0de7b3a9321ba1",
+      "bytes": 758
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill.js",
+      "sha256": "a2ea2bee307f349c09b282f51c3664a44c13fb051505f7b956a7c1e19dd2c669",
+      "bytes": 6231
+    },
+    {
+      "path": "artifacts/api/prelaunch/wechat-trade-bill.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/wechat-trade-bill.js.map",
+      "sha256": "5040633e16e03a98234a64df099f50e629a8094bf481142e2d8b44e8371d2b55",
+      "bytes": 6899
+    },
+    {
+      "path": "artifacts/api/prelaunch/worker.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/worker.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/prelaunch/worker.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/worker.js",
+      "sha256": "4a879a129c95f4272d45e45627a95c2b07f6a919e6026a23b5030ac34fac1870",
+      "bytes": 2960
+    },
+    {
+      "path": "artifacts/api/prelaunch/worker.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prelaunch/worker.js.map",
+      "sha256": "d0459f6aae44cf173fe99248d710c33a69a610898cace87fdd400da9d95addb4",
+      "bytes": 3257
+    },
+    {
+      "path": "artifacts/api/prisma.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prisma.d.ts",
+      "sha256": "37fe326426e52c9d6ac5d28ca5468be6b80a2904fdb4cadff7771ccfb2dd2033",
+      "bytes": 237
+    },
+    {
+      "path": "artifacts/api/prisma.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prisma.js",
+      "sha256": "9033fe731658335c921f370974e0a1138e561cd6511a7cf45afcd4f041a90363",
+      "bytes": 398
+    },
+    {
+      "path": "artifacts/api/prisma.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/prisma.js.map",
+      "sha256": "6e0f013d64cd6861b717f5f092d8d48c7f28676ed9f552f780a64cfa3eea6bad",
+      "bytes": 389
+    },
+    {
+      "path": "artifacts/api/probe-state-machine.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/probe-state-machine.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/probe-state-machine.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/probe-state-machine.js",
+      "sha256": "8d6e0e666bd838bba2c6be6330485e9562266b6a8947928a408ee7dc6be2f320",
+      "bytes": 17570
+    },
+    {
+      "path": "artifacts/api/probe-state-machine.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/probe-state-machine.js.map",
+      "sha256": "20d416197b988dcfef34fbd209c5035439ebf3475e1d23e0fc14e1ccca71f5d0",
+      "bytes": 18362
+    },
+    {
+      "path": "artifacts/api/providers.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/providers.d.ts",
+      "sha256": "9d34c8db68318014ef37880820b35fe6f22ed9cccb7899c30df323a17b4a0e0b",
+      "bytes": 4168
+    },
+    {
+      "path": "artifacts/api/providers.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/providers.js",
+      "sha256": "a05462b4d411156df117805d4fc42f9746240fcadb17bae5f6783a79cf207ce6",
+      "bytes": 21472
+    },
+    {
+      "path": "artifacts/api/providers.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/providers.js.map",
+      "sha256": "659763ecc0b56e511f148eb1b1a2c835f950f8dd3437b1774e85543f9968a5fc",
+      "bytes": 19603
+    },
+    {
+      "path": "artifacts/api/reconciliation/cases.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/cases.d.ts",
+      "sha256": "97cc0b2192fc49ecd4cbc557d8877c7ab985debec098a0989cdfe5886cf8282e",
+      "bytes": 493
+    },
+    {
+      "path": "artifacts/api/reconciliation/cases.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/cases.js",
+      "sha256": "c62bb3d8012d6d824416f51750019df9eb56a1eea94a77c9eeda9f8f6b9a02e2",
+      "bytes": 3354
+    },
+    {
+      "path": "artifacts/api/reconciliation/cases.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/cases.js.map",
+      "sha256": "4dd90bdfd274af80b972115b6da7c5848297fae950789a9354ef6c5d5ea738fb",
+      "bytes": 3416
+    },
+    {
+      "path": "artifacts/api/reconciliation/service.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/service.d.ts",
+      "sha256": "b4af44e68e16cfba6c256c81ea0d7cb89bf18d576d0ea76fc8e41578fd76d0d2",
+      "bytes": 903
+    },
+    {
+      "path": "artifacts/api/reconciliation/service.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/service.js",
+      "sha256": "f6954c2d52a8a571be46613d6425d2cfe62ac1b02f40ecdc9adeeed54e990327",
+      "bytes": 7407
+    },
+    {
+      "path": "artifacts/api/reconciliation/service.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation/service.js.map",
+      "sha256": "3ca2b303da53439508b8c43aa8bc76128a47c54c1374bb6bf0ed45ad1e385564",
+      "bytes": 7001
+    },
+    {
+      "path": "artifacts/api/reconciliation-cli.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation-cli.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/reconciliation-cli.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation-cli.js",
+      "sha256": "73da648a9dced465321c2a4d610603196dfe608bb6cc492054fcb5de890ea44a",
+      "bytes": 1334
+    },
+    {
+      "path": "artifacts/api/reconciliation-cli.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/reconciliation-cli.js.map",
+      "sha256": "945342b8cf0ca398b89f0d3eedc8e914f692edb0fe29b0c4e5400cea776cac95",
+      "bytes": 1550
+    },
+    {
+      "path": "artifacts/api/server.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/server.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/server.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/server.js",
+      "sha256": "ad9725bdaebfe04f55bf6643371095719af5909361895249dae2cae3447f2223",
+      "bytes": 1084
+    },
+    {
+      "path": "artifacts/api/server.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/server.js.map",
+      "sha256": "839feab2c2d1621777ca2e0bb66e87f1a480bcf58031f6cd47cb17ee59782596",
+      "bytes": 1370
+    },
+    {
+      "path": "artifacts/api/shutdown.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/shutdown.d.ts",
+      "sha256": "42369b1dd27b39eafc9b4280a401b627706a41e1cb25f6b531c4369561edd4bc",
+      "bytes": 261
+    },
+    {
+      "path": "artifacts/api/shutdown.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/shutdown.js",
+      "sha256": "9e2359f2c57258caf3035596cec2a68e77439bd862ce979bbc5fa3f98dc07bae",
+      "bytes": 424
+    },
+    {
+      "path": "artifacts/api/shutdown.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/shutdown.js.map",
+      "sha256": "cd45be6d39c1f9937f54921a3a3517222cbb0c09a2d70f69006cf5ea59a2729c",
+      "bytes": 544
+    },
+    {
+      "path": "artifacts/api/wechat-pay.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-pay.d.ts",
+      "sha256": "301c581bd23ad5f144a682425153e061f59cb023ed7f847879f8829eb658769e",
+      "bytes": 1319
+    },
+    {
+      "path": "artifacts/api/wechat-pay.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-pay.js",
+      "sha256": "23b404a11ee8600c86a53d41efc9492c53c0cbd35d71d0f78345618681a6fd2e",
+      "bytes": 7099
+    },
+    {
+      "path": "artifacts/api/wechat-pay.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-pay.js.map",
+      "sha256": "8326321dae40929284942991db2189f663409f6d9a46f46058d7df03703e4a85",
+      "bytes": 6119
+    },
+    {
+      "path": "artifacts/api/wechat-response.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-response.d.ts",
+      "sha256": "3709924d227325fc315e4bcdd9a1015bc6e07ef597cafb253d4b8c9c9450baac",
+      "bytes": 297
+    },
+    {
+      "path": "artifacts/api/wechat-response.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-response.js",
+      "sha256": "3a87753cfd6fd409ee8420b90580ba0730cf67e1ae7c1ce6a0c81c3b70567cb8",
+      "bytes": 1669
+    },
+    {
+      "path": "artifacts/api/wechat-response.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/wechat-response.js.map",
+      "sha256": "826e3affcefa311cbce96fb6a99617cf7499da4047a037c985b6b9eafb2fc533",
+      "bytes": 1812
+    },
+    {
+      "path": "artifacts/api/worker.d.ts",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/worker.d.ts",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "artifacts/api/worker.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/worker.js",
+      "sha256": "ed8d43c81c9dc6abba018a3d5a94ecb2483b35ce8f2a94f146f57d8c82f83d8a",
+      "bytes": 4190
+    },
+    {
+      "path": "artifacts/api/worker.js.map",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/services/api/dist/worker.js.map",
+      "sha256": "ca4844e1e0d47faa8fe7becadc0ad66c74be4a0df7fca1f3e7f524c9b93a56d5",
+      "bytes": 4247
+    },
+    {
+      "path": "artifacts/ops/assets/index-0dddf6a4.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/ops/dist/assets/index-0dddf6a4.js",
+      "sha256": "a7a8c6af93af6e10cc6ea36e582879d7e94c46aac9fd0c364aa014a5e8d40894",
+      "bytes": 213401
+    },
+    {
+      "path": "artifacts/ops/assets/index-7690c07d.css",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/ops/dist/assets/index-7690c07d.css",
+      "sha256": "7690c07d6df4c332f42c21898fbb01937e06fce94722b7c4f857fd8c06bd14dd",
+      "bytes": 6770
+    },
+    {
+      "path": "artifacts/ops/index.html",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/ops/dist/index.html",
+      "sha256": "ede5f143feb03d5d803aba975a0b1ff0a29725842f4d0e0e18b8cadd68ac4cff",
+      "bytes": 408
+    },
+    {
+      "path": "artifacts/weapp/app.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/app.js",
+      "sha256": "c7ab76ffc2f6a09db9a24d8e60466e7d853c01bc1b64d929913c3594bb35e651",
+      "bytes": 96499
+    },
+    {
+      "path": "artifacts/weapp/app.js.LICENSE.txt",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/app.js.LICENSE.txt",
+      "sha256": "08604636b38ae83699d7a95fc32255f871cbee504511ee89fdef4f98cdfcc356",
+      "bytes": 749
+    },
+    {
+      "path": "artifacts/weapp/app.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/app.json",
+      "sha256": "9ef443f94d7f903090e3c4d5d36fd9d3b41331e7c197c9b2c2e03958744f168c",
+      "bytes": 417
+    },
+    {
+      "path": "artifacts/weapp/app.wxss",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/app.wxss",
+      "sha256": "d575e19d52f4fca4df7b37c331737acaee3e11954b5712fd9a91da0393b6f7b0",
+      "bytes": 6024
+    },
+    {
+      "path": "artifacts/weapp/base.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/base.wxml",
+      "sha256": "f14c3c76c0b1555db0d35dc8ab17bc422189472dcb81a460aed1c87579409882",
+      "bytes": 60669
+    },
+    {
+      "path": "artifacts/weapp/common.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/common.js",
+      "sha256": "d2d158a0662ae8f44835c8a4fb65b7d4b56a0b17bed10c07da58c3731fb6abf9",
+      "bytes": 21603
+    },
+    {
+      "path": "artifacts/weapp/comp.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/comp.js",
+      "sha256": "5294f80d66c89d62a77a58b3f75b7e216481d2f5b7277a1efb239e8956c6ace2",
+      "bytes": 171
+    },
+    {
+      "path": "artifacts/weapp/comp.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/comp.json",
+      "sha256": "0ffa23661c3005b00e0167f3eb2b2cac516bd754223e8b0fa4d51e68e66d7dc0",
+      "bytes": 86
+    },
+    {
+      "path": "artifacts/weapp/comp.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/comp.wxml",
+      "sha256": "904495b6e07f81d74f23d713c7f42a7450189f56879e329e5353e18d08201165",
+      "bytes": 140
+    },
+    {
+      "path": "artifacts/weapp/pages/activity-detail/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/activity-detail/index.js",
+      "sha256": "0047d84501b18686678cb1ce50fb66a558b3fe77cdf6e645947e25ae0f01fab3",
+      "bytes": 7140
+    },
+    {
+      "path": "artifacts/weapp/pages/activity-detail/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/activity-detail/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/activity-detail/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/activity-detail/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/home/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/home/index.js",
+      "sha256": "c07f5aee749252617ae911c180edb7708fb6c404d54dd1fdc2fe782704041443",
+      "bytes": 4618
+    },
+    {
+      "path": "artifacts/weapp/pages/home/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/home/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/home/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/home/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/inbox/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/inbox/index.js",
+      "sha256": "8ea0e166dc34480231fc1f6d85d110f6fba4406e0b3f5f661ef16666ff68f419",
+      "bytes": 3628
+    },
+    {
+      "path": "artifacts/weapp/pages/inbox/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/inbox/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/inbox/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/inbox/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/mock-auth/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/mock-auth/index.js",
+      "sha256": "319c70fbbf4ad79e08cb2b7a0aeee69028112513a7717e73af8f9ab9441faa4e",
+      "bytes": 3255
+    },
+    {
+      "path": "artifacts/weapp/pages/mock-auth/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/mock-auth/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/mock-auth/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/mock-auth/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/money-records/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/money-records/index.js",
+      "sha256": "b84a1d8d7ee5fc2ee46dd138459cf6f9fb4239f536ec7c6a563d0af26c143448",
+      "bytes": 7855
+    },
+    {
+      "path": "artifacts/weapp/pages/money-records/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/money-records/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/money-records/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/money-records/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/order-detail/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-detail/index.js",
+      "sha256": "5d6f453dfc52300efb7f61ecd8152d855be6e0b40bdcc4bb5845739916272349",
+      "bytes": 13313
+    },
+    {
+      "path": "artifacts/weapp/pages/order-detail/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-detail/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/order-detail/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-detail/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/order-list/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-list/index.js",
+      "sha256": "dd1057770d119728ef8556bf777cfafcc6284dc6d2e023ec280deab2ffd2d902",
+      "bytes": 2942
+    },
+    {
+      "path": "artifacts/weapp/pages/order-list/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-list/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/order-list/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/order-list/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/prelaunch/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/prelaunch/index.js",
+      "sha256": "8950ac580788f0056e2d8d9cb273b282990bef6328192fb24a8e7673e2247eb3",
+      "bytes": 26868
+    },
+    {
+      "path": "artifacts/weapp/pages/prelaunch/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/prelaunch/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/prelaunch/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/prelaunch/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/pages/profile/index.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/profile/index.js",
+      "sha256": "4eb7e0731d58a9366e12d66cc5faba8b57bea129cdf98e2a1b2fd80bb5f4f7a0",
+      "bytes": 8416
+    },
+    {
+      "path": "artifacts/weapp/pages/profile/index.json",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/profile/index.json",
+      "sha256": "9989a3ee5e867ca0e691668b4447fa5212f4cb766aa22f009b1ac55b23aa4229",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/weapp/pages/profile/index.wxml",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/pages/profile/index.wxml",
+      "sha256": "38b0088b8c33e0f5dd9b2a934df461c91ad48cc818bb5dce849a336fae6e7ff6",
+      "bytes": 80
+    },
+    {
+      "path": "artifacts/weapp/runtime.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/runtime.js",
+      "sha256": "da74dc43680305e5e6fe1200c33121811d27fbdffe5a5f6285c8d1d69733c728",
+      "bytes": 2187
+    },
+    {
+      "path": "artifacts/weapp/taro.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/taro.js",
+      "sha256": "324521a06105868aecce1cdf4476383b563e737d4cb341c09099fc435815b279",
+      "bytes": 133025
+    },
+    {
+      "path": "artifacts/weapp/utils.wxs",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/utils.wxs",
+      "sha256": "e4ebe8c13a8ed5d58ae32d378f1f1947d51d796a620987d43bfc438631372728",
+      "bytes": 997
+    },
+    {
+      "path": "artifacts/weapp/vendors.js",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/vendors.js",
+      "sha256": "103bcdba276289c805cdd85b8ff173be5d86c8952da22e79a935e9951731e5cd",
+      "bytes": 18921
+    },
+    {
+      "path": "artifacts/weapp/vendors.js.LICENSE.txt",
+      "build_path": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T08-14-03-841Z/apps/miniapp/dist/vendors.js.LICENSE.txt",
+      "sha256": "784f801887c62e7fca78a248e53a4d12adaa07e92a30941269d1f6408e95584f",
+      "bytes": 651
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:23:24.980557+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/aftersales.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/closure-obligations/aftersales.ts",
+      "before": "2bdb9c5f2d23f92ada378c9bc1197dfb09b91c6b03d69325cb3ce84f303e92e6",
+      "after": "1d1058a0a325047cacf899eaf16f3e7f54e8b4f672f81d8d0adf17aa53adb570"
+    },
+    {
+      "path": "tests/prelaunch/closure-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/closure-obligations/closure-native.test.mjs",
+      "before": null,
+      "after": "2c1bdb316b21aae11427bec98fa9e4d2de1505d819cc2a6eeb126c2dc0489680"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_CLOSURE_06/before",
+  "protected_unchanged": 33
+}

@@ -1,0 +1,22 @@
+{
+  "pack_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "source_snapshot_sha256": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "base_head": "003200820922d11b374b84a9e756d4d763bea3f2",
+  "delivery_status": "REVIEW_PACKAGE_WITH_BLOCKERS",
+  "policy_status": "REBASED_DRAFT",
+  "policy_bundle_sha256": "1fcd70ea51b9776f819c9c9ada9e1611408a57b79ced56325226f8d5ae58f1a0",
+  "production_authorized": false,
+  "real_money_executed": false,
+  "production_deployed": false,
+  "git_committed_in_task": false,
+  "git_pushed": false,
+  "self_review_rounds": [
+    "R1",
+    "R2",
+    "R3",
+    "R4"
+  ],
+  "self_review_note": "R4 documented as final candidate/evidence review; final completion status appears in SELF_REVIEW_AND_REMEDIATION.md. Inclusion is not a claim of successful runtime or independent approval.",
+  "critical_high_engineering_findings": []
+}

@@ -1,0 +1,40 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops[39m
+
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mallows scoped restaurant binding without client role escalation[32m 42[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22maccepts activity cancellation with a persistent business key[32m 18[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mexposes real rights processing rather than a static privacy notice[32m 14[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mpreserves all disclosed fixed fees when creating a new revision[32m 14[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mrenders server component buckets independently of first-page counts[32m 8[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mclaims a server-authorized financial case with no invented channel result[32m 10[2mms[22m[39m
+ [32m✓[39m src/PrelaunchWorkspace.test.tsx[2m > [22mcontrolled prelaunch ops DOM[2m > [22mdoes not blanket approve requests without a reason[32m 8[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mverifies identity before accepting login and exposes no session token[32m 1[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"USER","userId":null,"restaurantId":null,"version":1}[32m 1[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"OPS","userId":"user-test","restaurantId":null,"version":1}[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"OPS","userId":null,"restaurantId":"restaurant-test","version":1}[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"RESTAURANT","userId":null,"restaurantId":null,"version":1}[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"OPS","userId":null,"restaurantId":null,"version":-1}[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects malformed or elevated identity {"id":"actor-test","personId":"person-test","role":"OPS","userId":null,"restaurantId":null,"version":1.5}[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mrejects changed binding during login[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mdiscards pending login after logout[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mclears failed current verification without retry[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mpreserves a new login when an old verification returns 401[32m 0[2mms[22m[39m
+ [32m✓[39m src/controlled-identity-api.test.ts[2m > [22mformal controlled identity client[2m > [22mprojects away credential-bearing extras[32m 0[2mms[22m[39m
+ [32m✓[39m src/ControlledIdentityWorkspace.test.tsx[2m > [22mrenders only the verified restaurant identity and clears login fields[32m 18[2mms[22m[39m
+ [32m✓[39m src/ControlledIdentityWorkspace.test.tsx[2m > [22mreturns to login on failed identity revalidation[32m 5[2mms[22m[39m
+ [32m✓[39m src/ControlledIdentityWorkspace.test.tsx[2m > [22mlogout wins over a pending successful login[32m 2[2mms[22m[39m
+ [32m✓[39m src/session.test.ts[2m > [22masync operations across session changes[2m > [22mdoes not let an old mutation trigger private-data refresh after logout[32m 1[2mms[22m[39m
+ [32m✓[39m src/session.test.ts[2m > [22masync operations across session changes[2m > [22mrejects old responses after relogin even when a token string is reused[32m 0[2mms[22m[39m
+ [32m✓[39m src/candidate-profile.test.ts[2m > [22mformatCandidateProfile[2m > [22monly formats table-planning preferences and includes budget and table sizes[32m 1[2mms[22m[39m
+ [32m✓[39m src/prelaunch-time.test.ts[2m > [22mlabelled Shanghai activity time[2m > [22mpreserves midnight and date across the UTC boundary[32m 1[2mms[22m[39m
+ [32m✓[39m src/prelaunch-time.test.ts[2m > [22mlabelled Shanghai activity time[2m > [22mrejects invalid or ambiguous input 2026-02-30T12:00[32m 0[2mms[22m[39m
+ [32m✓[39m src/prelaunch-time.test.ts[2m > [22mlabelled Shanghai activity time[2m > [22mrejects invalid or ambiguous input 2026-10-02T24:30[32m 0[2mms[22m[39m
+ [32m✓[39m src/prelaunch-time.test.ts[2m > [22mlabelled Shanghai activity time[2m > [22mrejects invalid or ambiguous input 2026-10-02[32m 0[2mms[22m[39m
+ [32m✓[39m src/prelaunch-time.test.ts[2m > [22mlabelled Shanghai activity time[2m > [22mrejects invalid or ambiguous input 2026-10-02T12:00Z[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[32m30 passed[39m[22m[90m (30)[39m
+[2m   Start at [22m 12:01:23
+[2m   Duration [22m 1.20s[2m (transform 74ms, setup 0ms, import 144ms, tests 150ms, environment 306ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T04-00-42-000Z/ops-tests.json

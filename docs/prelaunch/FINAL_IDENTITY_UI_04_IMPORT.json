@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-01T01:20:29.357066+00:00",
+  "files": [
+    {
+      "path": "scripts/prelaunch-start-guard.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/start-guard/prelaunch-start-guard.mjs",
+      "before": null,
+      "after": "b388534ce501ab29d6e3f6f9c7583c728a950e9b7dbc98ebac02544b8a82d132"
+    },
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/start-guard/prelaunch-final-verify.mjs",
+      "before": "584ed8b3937ecbbac46ce1fa5e21901d7ff01d0b4eba2fa8effffeec64b65e07",
+      "after": "836ee6483bced75fd4128942d435e8c0846182fe30a4b84286cdba6b0d70ca2e"
+    },
+    {
+      "path": "tests/prelaunch/identity-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/start-guard/identity-native.test.mjs",
+      "before": null,
+      "after": "81ad9f0c25b8217ef87ead9cddb8d932acc6ebc45eec72b166bccbb14dedb42f"
+    },
+    {
+      "path": "tests/prelaunch/p2-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/p2-id-oracle-correction/p2-native.test.mjs",
+      "before": "3241a55f132c3fd0a9888c8ce42169b5577b5572d0540a48843e974845f2e7f7",
+      "after": "abacc74585b8c4bbed340a03665e740991a9ea2315d6c51e017e1e5d7c0e2465"
+    },
+    {
+      "path": "tests/ui/prelaunch-http-dom.test.tsx",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-http-proof/tests/ui/prelaunch-http-dom.test.tsx",
+      "before": null,
+      "after": "f24d1aabbdd6359f0d9e5ec1ca919d18d963fea2117425ada62072538e067074"
+    },
+    {
+      "path": "tests/ui/http-dom-server.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-http-proof/tests/ui/http-dom-server.mjs",
+      "before": null,
+      "after": "18201d7f20216329318018963aecba4d20d79632e1f98660f70ff12504a4b99a"
+    },
+    {
+      "path": "tests/ui/vitest.http-dom.config.mts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-http-proof/tests/ui/vitest.http-dom.config.mts",
+      "before": null,
+      "after": "6288a5ea87c7687aa3b295849ab3a174236557615e23ac67e24cce49537a01e1"
+    },
+    {
+      "path": "tests/prelaunch/http-dom-joint.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-http-proof/tests/prelaunch/http-dom-joint.test.mjs",
+      "before": null,
+      "after": "18365ebaf32a3a294ad33113a6cfc77881c95f830a7a4f3f818dbff226381730"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_IDENTITY_UI_04/before",
+  "protected_unchanged": 33
+}

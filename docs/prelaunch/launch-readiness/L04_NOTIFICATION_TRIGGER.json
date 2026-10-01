@@ -1,0 +1,25 @@
+{
+  "candidate": "ca1215d065166e38c676ac98cc6396ccb46f50ecf6456973e36a213e8077ba39",
+  "validation": {
+    "native_tests_including_wrapper": 18,
+    "signature_and_startup_tests": 9,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Existing exact-raw-body signature/decryption precedes V1.1 notification handling",
+    "Explicit feature flag with real provider and explicit financial case owner required",
+    "Verified callback and query task commit atomically before acknowledgement",
+    "Concurrent duplicate event creates one trigger/job; conflict preserves original and opens case",
+    "Canceled/CLOSED intent still retains signed receipt trigger",
+    "Separate callback job key recovers despite completed prior query job"
+  ],
+  "evidence": "evidence/L04-notification-trigger",
+  "limits": [
+    "Native intake receives synthetic verified objects; combined signed HTTP to PostgreSQL test still pending",
+    "Money proof processing remains trusted query/ledger; trigger alone not APPLIED or eligibility grant",
+    "Real channel acceptance and current candidate full regression pending; previous complete regression belongs to earlier candidate"
+  ],
+  "rollback": "Remove new trigger/startup test, restore app.ts and native test from backups/L04-notification-trigger after checking later edits. Existing recorded event/funds must be retained after deployment."
+}

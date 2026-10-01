@@ -1,0 +1,25 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-39-57-235Z/RUNS.json",
+  "owned_database_tests_including_parent": 17,
+  "new_migration": "20261001060000_v11_bill_comparison_snapshot",
+  "migration_applied": "OWNED_SCRATCH_ONLY",
+  "consistent_capture": "Serializable transaction with fixed scope, derived refund times, immutable minimal projection",
+  "cross_process_load_verified": true,
+  "database_update_forbidden": true,
+  "snapshot_does_not_finalize_bill": true,
+  "legacy_uuid_overlap_rejected": true,
+  "releaseAuthorized": false,
+  "production_activated": false,
+  "remaining": [
+    "Atomic result/checkpoint batches",
+    "Final aggregate and range compatibility",
+    "Crash/restart page recovery",
+    "Current-candidate high-volume capacity",
+    "Bounded necessary legacy reference capture",
+    "Streamed file processing and real acceptance"
+  ],
+  "candidate": "6d2187371d5a58f43e571947500cf9042e130b5ea4bf37a3555f3a5e12850ef0",
+  "full_steps": 29,
+  "migration_rehearsal": "L04_BILL_SNAPSHOT_MIGRATION.json"
+}

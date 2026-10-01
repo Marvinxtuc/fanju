@@ -1,0 +1,6 @@
+generate clean build: PASS
+shared clean build: PASS
+api clean build: PASS
+ops clean build: PASS
+weapp clean build: PASS
+Clean build root: /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-54-56-268Z

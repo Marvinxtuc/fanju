@@ -1,0 +1,21 @@
+{
+  "candidate": "324ad332584a51db86975e58780c5039a6d5d87de4034d70caf3f9bb94791033",
+  "validation": {
+    "native_tests_including_wrapper": 20,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Actual SIGKILL retains durable refund state",
+    "Production claimJob SQL selects expired target lease and increments generation/attempts",
+    "Automatic claimant cannot resend existing SUBMITTING obligation",
+    "Trusted synthetic query completes retained budget"
+  ],
+  "evidence": "evidence/L04-automatic-takeover",
+  "limits": [
+    "Target expiry/runAt controlled within owned test fixture; no wall-clock production failover measurement",
+    "Successor dispatcher executed by parent test, not independent production worker",
+    "Channel and policy authorization synthetic; real dispatcher authority/operation still pending"
+  ],
+  "rollback": "Restore native test from backups/L04-automatic-takeover after checking subsequent edits; no production/schema change."
+}

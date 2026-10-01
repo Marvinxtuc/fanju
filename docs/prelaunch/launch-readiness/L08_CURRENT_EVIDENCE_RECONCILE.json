@@ -1,0 +1,31 @@
+{
+  "status": "CURRENT_EVIDENCE_RECONCILED",
+  "date": "2026-10-01",
+  "candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "full_regression": {
+    "path": "docs/prelaunch/evidence/final-2026-10-01T08-13-04-225Z/RUNS.json",
+    "sha256": "23682f2659368ee1894b1b0bb3c9557d4ee0890cfb17d4d9e24aa07602da30fa",
+    "steps": 29,
+    "exit_codes_verified": true
+  },
+  "evidence": {
+    "L04_BILL_MATCHED_CAPACITY.json": "e121c48ce94829b2b89c5f3dd5ce7815ff258132a042104fa36d1fb6ffa8362f",
+    "L04_BILL_LEGACY_SCOPE.json": "5f2b721555d5aad8817c3498245f85a0c69f0ddac5c40403dc15dd215b978748",
+    "L04_BILL_CLI_PAGES.json": "39a09c90f22e2bacc8bf8029219925a1c8e95a072d01e557feef36bd675df53c",
+    "L07_DEVTOOLS_RUNTIME.json": "6bd50900d19bbc989e73fde8fa0b6d305d6e0ba17c3e7015de1d4bc1b8c96cb5"
+  },
+  "historical_remaining_items_superseded": {
+    "L04_BILL_CLI_PAGES.json": [
+      "Matched capacity: L04_BILL_MATCHED_CAPACITY.json",
+      "Legacy scope: L04_BILL_LEGACY_SCOPE.json"
+    ],
+    "L04_BILL_LEGACY_SCOPE.json": [
+      "Matched capacity: L04_BILL_MATCHED_CAPACITY.json"
+    ]
+  },
+  "remaining_authority_dependency": "Refund dispatcher requires formal authorizer supplied by production assembly; current production policy material/authority and business inputs incomplete. No synthetic authorizer substituted.",
+  "release_authorized": false,
+  "production_activated": false,
+  "open_gates": 29,
+  "rollback": "Restore READINESS_STATE.json from backups/L08-current-evidence-reconcile after reviewing any later edits; remove only this reconciliation report."
+}

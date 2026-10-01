@@ -1,0 +1,28 @@
+{
+  "candidate": "b279e437d537659f636ab4a3f5a20b652e9a115db4d249f5c8c55148e6b3a210",
+  "status": "PASS_ENGINEERING_ONLY",
+  "targeted_postgres_api_tests_initial": 5,
+  "identity_startup_tests": 11,
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-27-30-343Z/RUNS.json",
+  "scope": "AUTHENTICATED_OWN_RECORDED_MONEY_ONLY",
+  "default_enabled": false,
+  "policy_activation_assessed": false,
+  "eligibility_granted": false,
+  "confirmed": [
+    "Inactive/draft registration does not hide trusted recorded late payment",
+    "Unallocated receipts shown before ledger allocation",
+    "Foreign/unsigned/OPS session denied and userId query grants rejected",
+    "Mock facts excluded",
+    "Original refund conflict yields explicit 503 without ledger writes",
+    "Misassigned receipt binding rejects original owner view and does not reveal money to foreign registration"
+  ],
+  "limits": [
+    "Synthetic JWT session and owned PostgreSQL evidence; no live channel acceptance",
+    "Recorded-only zero is not complete merchant reconciliation",
+    "Formal money/refund-intake UI mounted with synthetic evidence; live device and formal operational review remain pending."
+  ],
+  "rollback": "Disable financial-records flag; restore production-identity-routes source/test backups and remove new financial-records module/native test",
+  "final_steps": 28,
+  "cross_process_tests": 155,
+  "financial_records_native_tests_including_wrapper": 6
+}

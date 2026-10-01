@@ -1,0 +1,110 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "source_verified": true,
+  "git_required": false,
+  "dependency_provenance": "Explicit existing dependencies reused with identical lockfile; no fresh install or cross-machine verification",
+  "fresh_dependency_install_verified": false,
+  "database_runtime_reproduced": false,
+  "test_scope": "Shared pure tests, miniapp and ops unit tests, React DOM tests; API DB/HTTP/worker behavior is separately proven by final owned candidate",
+  "network_guard": "All child TCP/TLS/HTTP/fetch sockets forbidden",
+  "runs": [
+    {
+      "name": "generate",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/generate.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/generate.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "exec",
+        "prisma",
+        "generate"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-01T01:44:03.542Z",
+      "finished_at": "2026-10-01T01:44:04.393Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "d88f475d189f14754939f72df1542066b937e66cf6c17723be5631d73ad5c4b8",
+      "stderr_sha256": "e40df379b3ca806791529144da53b048cf1a232201fdfc817692665ba9ad0093"
+    },
+    {
+      "name": "shared",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/shared.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/shared.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "packages/shared",
+      "started_at": "2026-10-01T01:44:04.394Z",
+      "finished_at": "2026-10-01T01:44:05.099Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "9a4d8a682854587081d2e2e8d32ba19ccf6bc032a7cb0eaa3bc73e9884ca8870",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/api.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/api.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "services/api",
+      "started_at": "2026-10-01T01:44:05.099Z",
+      "finished_at": "2026-10-01T01:44:07.713Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "5869bd3a27d1944d53abde808c4966ef7d38de28c68f501c811dc128d8cf4700",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ops",
+      "tests": null,
+      "test_validation_error": null,
+      "toolchain": {
+        "node": "v22.23.1",
+        "package_manager": "Explicit existing pnpm in PATH; identical lockfile dependency reuse"
+      },
+      "artifact_paths": [
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/ops.stdout.log",
+        "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/zip-proof-20261001T014402974145Z/reproduced/ops.stderr.log"
+      ],
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "cwd": "apps/ops",
+      "started_at": "2026-10-01T01:44:07.713Z",
+      "finished_at": "2026-10-01T01:44:09.504Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout_sha256": "45422f0ef0309a2b72a5bda541cfbd0c0e3cd2c07e052b9d8c5752a61e055048",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

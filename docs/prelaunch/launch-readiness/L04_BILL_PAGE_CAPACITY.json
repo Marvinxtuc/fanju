@@ -1,0 +1,28 @@
+{
+  "candidate": "bbe811caa4194af75ae338cc3917ef9c0f6de502f8d50694d3f3b59c7d0b1821",
+  "status": "MEASURED_ENGINEERING_ONLY",
+  "environment": "OWNED_SYNTHETIC_POSTGRES",
+  "workload": "ALL_APPLICATION_PAYMENT_ROWS_WITHOUT_LOCAL_INTENTS",
+  "rows": [
+    {
+      "rows": 30000,
+      "bytes": 8198359,
+      "elapsedMs": 63428,
+      "errorCode": null,
+      "status": "COMMITTED",
+      "events": 30000,
+      "cases": 30000,
+      "audits": 1,
+      "pageCount": 60,
+      "pageAtomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    }
+  ],
+  "releaseAuthorized": false,
+  "limits": [
+    "Local measurements only; not production capacity or merchant acceptance",
+    "No local intent/refund matching workload measured",
+    "Existing file/row and per-page transaction limits retained"
+  ],
+  "scriptSha256": "48eb5bf4dcda9008b2a0c001866b60ba74648e9dea1c3e7088a360a534c4e025"
+}

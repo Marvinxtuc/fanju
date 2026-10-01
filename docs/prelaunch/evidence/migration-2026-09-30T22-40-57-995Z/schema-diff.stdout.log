@@ -1,0 +1,6 @@
+-- DropIndex
+DROP INDEX "Order_consentRecordId_idx";
+
+-- DropIndex
+DROP INDEX "ReconciliationBatch_scope_period_decisionOrdinal_idx";
+

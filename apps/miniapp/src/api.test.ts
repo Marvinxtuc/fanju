@@ -167,3 +167,19 @@ it("discards an already loaded order if the parallel notification request expire
   finish({ statusCode: 401, data: {} });
   await expect(pending).rejects.toThrow("登录状态已改变");
 });
+
+describe('formal money client',()=>{
+ it('refuses disabled capabilities without initialization or money requests',async()=>{
+  mock.storage.set('fanju_session_v2','formal-session');mock.request.mockResolvedValue({statusCode:200,data:{version:'v11-identity-1',identityEnabled:true,financialRecordsEnabled:false,refundIntakeEnabled:false}});
+  const api=await import('./api');await expect(api.openMoneySession()).rejects.toThrow('暂不可用');expect(mock.request).toHaveBeenCalledOnce();
+ });
+ it('uses the current session for formal routes and never sends refund amount or user hints',async()=>{
+  mock.storage.set('fanju_session_v2','formal-session');mock.request.mockResolvedValue({statusCode:200,data:{}});const api=await import('./api');
+  await api.listMoneyRegistrations('formal-session','cursor-a');await api.submitFormalRefund('formal-session','reg-a','stable-key');await api.getFormalRefund('formal-session','request-a');
+  expect(mock.request.mock.calls.map(call=>new URL(call[0].url).pathname)).toEqual(['/api/v11/money-registrations','/api/v11/registrations/reg-a/refund-requests','/api/v11/refund-requests/request-a']);
+  expect(mock.request.mock.calls[1]![0].data).toEqual({idempotencyKey:'stable-key'});expect(mock.request.mock.calls.every(call=>call[0].header.authorization==='Bearer formal-session')).toBe(true);expect(mock.requestPayment).not.toHaveBeenCalled();
+ });
+ it('formats structured financial conflicts without rendering internal objects',async()=>{
+  mock.storage.set('fanju_session_v2','formal-session');mock.request.mockResolvedValue({statusCode:503,data:{error:{code:'FUNDS_DATA_CONFLICT'}}});const api=await import('./api');await expect(api.getFormalFunds('formal-session','reg-a')).rejects.toThrow('记录正在核对');
+ });
+});

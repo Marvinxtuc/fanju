@@ -1,0 +1,181 @@
+{
+  "at": "2026-10-01T01:43:18.179749+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/API_ACCEPTANCE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/API_ACCEPTANCE.md",
+      "before": null,
+      "after": "f42ff1eab1700d59d718c64a3cea01863d9d7069f87d8d4f16f83d58b99001a0"
+    },
+    {
+      "path": "docs/prelaunch/ARCHITECTURE_FINAL.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/ARCHITECTURE_FINAL.md",
+      "before": null,
+      "after": "b07f1a5387f9974d9796e02c5cb3dfe6968f378988994d081f9547b43508fbc7"
+    },
+    {
+      "path": "docs/prelaunch/BASELINE_CAPTURE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/BASELINE_CAPTURE.md",
+      "before": "ce7f11aae7dd5d053df87b8c331c6e82352237688f69be55e545cb49b24c20da",
+      "after": "2eb764af9bc1004e980a8ae9a147c0043d9d3598fb461997931cd0cbf10b0231"
+    },
+    {
+      "path": "docs/prelaunch/BLOCKER_REGISTER.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/BLOCKER_REGISTER.json",
+      "before": null,
+      "after": "48f64071c045f0f03a02332229118c83403fc59213e87828c7ad3a53314aea27"
+    },
+    {
+      "path": "docs/prelaunch/BUILD_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/BUILD_REPORT.md",
+      "before": null,
+      "after": "7cdb4170aded216f14104681e2ac7a2307edfb3f12ba76264873845e498ed616"
+    },
+    {
+      "path": "docs/prelaunch/CONCURRENCY_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/CONCURRENCY_REVIEW.md",
+      "before": null,
+      "after": "0cb0c916632e2ceaa68bc70157b29337843a4ac3d818384f06dfbbce85c1ea96"
+    },
+    {
+      "path": "docs/prelaunch/COVERAGE_LEDGER.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/COVERAGE_LEDGER.json",
+      "before": null,
+      "after": "53090dc5d1018f6f31e445f280c3ff2c9ced56a2246b69abf7899948a6647b85"
+    },
+    {
+      "path": "docs/prelaunch/DATABASE_FINAL.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/DATABASE_FINAL.md",
+      "before": null,
+      "after": "4c86c17b7e58aa0cf7a9efbe8b66b3f7545b3940328004cd0d38216b6fc1003c"
+    },
+    {
+      "path": "docs/prelaunch/EVIDENCE_INDEX.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/EVIDENCE_INDEX.json",
+      "before": null,
+      "after": "b6ae125516b00c508acc000be64eaa48b67095be1755135e32bcfe3f93f105f6"
+    },
+    {
+      "path": "docs/prelaunch/EXECUTION_STATE.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/EXECUTION_STATE.json",
+      "before": "adfb7b255b679d56c86c27bf69cc541c85d2740cf2b1c21c4355c3d7ddec65a9",
+      "after": "bf5b97f13e231e16d73367fea62c6897cb1562db89bc60b01f8d9433b8ff7abd"
+    },
+    {
+      "path": "docs/prelaunch/EXTERNAL_DEPENDENCIES.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/EXTERNAL_DEPENDENCIES.md",
+      "before": null,
+      "after": "f9b286053545d0c895004b3a5853ffce98e9610a133bb9882f8b59c789e81b25"
+    },
+    {
+      "path": "docs/prelaunch/FAILURE_INJECTION_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/FAILURE_INJECTION_REPORT.md",
+      "before": null,
+      "after": "65c6644fbdba4a42151fbe358bce66f788b7bf2d044e1c1ee7e1a0d168b7b71d"
+    },
+    {
+      "path": "docs/prelaunch/FINANCIAL_LEDGER_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/FINANCIAL_LEDGER_REVIEW.md",
+      "before": null,
+      "after": "e997bd16085205ed7dae0eef4622f149ae123461707591b001a59de7f6fae91e"
+    },
+    {
+      "path": "docs/prelaunch/KNOWN_LIMITATIONS.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/KNOWN_LIMITATIONS.md",
+      "before": null,
+      "after": "bf87fb711a67a59b2c41c9e15c6978c8d44ef8fe360760a3dea7f26eb2027cc6"
+    },
+    {
+      "path": "docs/prelaunch/MIGRATION_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/MIGRATION_REPORT.md",
+      "before": "a0d6ad7116daf325f6ee12a750306958e4999f93f565ca6f83954fbdfaafb809",
+      "after": "11380bf4da64677450b550e0cda71fb54e2630e71a344a4e847266c2a789fa4b"
+    },
+    {
+      "path": "docs/prelaunch/MINIAPP_ACCEPTANCE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/MINIAPP_ACCEPTANCE.md",
+      "before": null,
+      "after": "0b4a9e7b6a57a55413611e59a2764e91993ad3652b079494967ebb6fc6cc9a30"
+    },
+    {
+      "path": "docs/prelaunch/OPS_ACCEPTANCE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/OPS_ACCEPTANCE.md",
+      "before": null,
+      "after": "b02ce67254fecf76a2f3291d2d27aade241a4e355ee5109fb29096a0ed6f26b8"
+    },
+    {
+      "path": "docs/prelaunch/PRELAUNCH_EXECUTIVE_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/PRELAUNCH_EXECUTIVE_REPORT.md",
+      "before": null,
+      "after": "1796ab268441ec585a028219e8ef4b87fac95c3e572bcafdac48a7655db47650"
+    },
+    {
+      "path": "docs/prelaunch/PRIVACY_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/PRIVACY_REVIEW.md",
+      "before": null,
+      "after": "3ade33b15d3b91ef477b9e8089de7ae676e11e2c956a348dde011560086a69be"
+    },
+    {
+      "path": "docs/prelaunch/RECOVERY_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/RECOVERY_REVIEW.md",
+      "before": null,
+      "after": "3e4176d72a2c993c975a4881cea8317e708cf55823929b1e8226fbf92f69c098"
+    },
+    {
+      "path": "docs/prelaunch/RELEASE_CANDIDATE_MANIFEST.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/RELEASE_CANDIDATE_MANIFEST.json",
+      "before": null,
+      "after": "a50f9e3073ed2595fd4169aabc752dc5f83c3547af8e0a4f3a58e39a0fdcdc7c"
+    },
+    {
+      "path": "docs/prelaunch/RELEASE_CHECKLIST.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/RELEASE_CHECKLIST.md",
+      "before": null,
+      "after": "109a9d5c238871c1444334587c543ad92cd89f1c3f4b10a9364faf63fee5d773"
+    },
+    {
+      "path": "docs/prelaunch/REPRODUCE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/REPRODUCE.md",
+      "before": null,
+      "after": "c3c23b25fe9831d3738a55b15d0e6feb78985d19b981e6628c2c9b79d786f260"
+    },
+    {
+      "path": "docs/prelaunch/RESTAURANT_ACCEPTANCE.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/RESTAURANT_ACCEPTANCE.md",
+      "before": null,
+      "after": "9ac7accf317f8ecf8a8ebfb0a7cc57f0287e8554383172775027cc8bbff9f600"
+    },
+    {
+      "path": "docs/prelaunch/SECURITY_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/SECURITY_REVIEW.md",
+      "before": null,
+      "after": "d1068d0786972d62109d2b816608ce7678c78bc2652c815bee07a22982302be8"
+    },
+    {
+      "path": "docs/prelaunch/SELF_REVIEW_AND_REMEDIATION.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/SELF_REVIEW_AND_REMEDIATION.md",
+      "before": null,
+      "after": "56bfdf06defdbfb8e9648bc9666e0ece61df07d12e9b5dcb93b0ac58756bc17b"
+    },
+    {
+      "path": "docs/prelaunch/STATE_MACHINE_REVIEW.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/STATE_MACHINE_REVIEW.md",
+      "before": null,
+      "after": "6438dffa2d786d7fce25c050ae66529cd73841d25b04b78430c19dae3685396e"
+    },
+    {
+      "path": "docs/prelaunch/TASK_STATUS.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/TASK_STATUS.json",
+      "before": "f57e73fe720ef6fa7437d6d15e34dcdf190e37c5b8d2b54d47c26841646317e2",
+      "after": "9bcb5323404b24dbc9fd4717c563bcec57e8bd2f905b979e111d13c85c58a23c"
+    },
+    {
+      "path": "docs/prelaunch/TEST_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/first-package-reports/docs/prelaunch/TEST_REPORT.md",
+      "before": null,
+      "after": "92ec73819b9886fe696408466f98339836169d10174f457c8fb21a452a659afc"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FIRST_PACKAGE_REPORTS_22/before",
+  "protected_unchanged": 33
+}

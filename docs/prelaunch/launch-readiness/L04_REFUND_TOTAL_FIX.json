@@ -1,0 +1,23 @@
+{
+  "candidate": "dcbccea9654104bb3e093ebe8ee5f2d21d7871ddedf4e82823d7e87184fc1dc7",
+  "issue": "WechatRefundProvider used refund amount as original total, invalid for partial refunds",
+  "implementation": "Verify original payment through signed identity-checked query; require SUCCEEDED; reject excess amount; use original total in request",
+  "changed_files": [
+    "services/api/src/providers.ts",
+    "services/api/src/providers.test.ts"
+  ],
+  "validation": {
+    "provider_tests": 19,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy_scan": "PASS",
+    "secret_scan": "PASS"
+  },
+  "evidence": "evidence/L04-refund-total",
+  "rollback": "Restore these two files from backups/L04_refund_total, preserving unrelated changes.",
+  "limits": [
+    "Fake provider transport tests only; no real refund sent",
+    "No V1.1 real-channel activation",
+    "Local cumulative F/D reservation remains required and is not replaced by per-request amount checking"
+  ]
+}

@@ -1,0 +1,9 @@
+file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-clean-build.mjs:25
+ writeFileSync(resolve(logs,'RUNS.json'),JSON.stringify({candidate_id:candidate.candidate_id,environment:evidence,runs},null,2)+'\n');console.log(`${name} clean build: ${row.status}`);if(row.status!=='PASS')throw Error(`Clean build failed: ${name}`);
+                                                                                                                                                                                                                     ^
+
+Error: Clean build failed: api
+    at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/scripts/prelaunch-clean-build.mjs:25:214
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+Node.js v22.23.1

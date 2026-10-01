@@ -1,0 +1,24 @@
+{
+  "candidate": "c761113628eed4aec0168e411e403ccf4e5768775d91e43d57be0b93c0ef9674",
+  "changed_files": [
+    "services/api/src/prelaunch/payment-preparation.ts",
+    "tests/prelaunch/payment-preparation-native.test.mjs"
+  ],
+  "validation": {
+    "native_cases": 9,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-preparation-authorization",
+  "scope": "Mandatory authorizer inside registration lock, active pending registration, held unexpired seat, authoritative F+D total checked before SUBMITTING claim. Synthetic authorizer only in native test; no production authorizer wired.",
+  "limitations": [
+    "Does not prove formal policy acceptance or current real account authorization",
+    "Cancellation after claim still needs close/query and receipt-refund handling",
+    "No real channel network call",
+    "No production server route or worker activation"
+  ],
+  "rollback": "Restore the two files from backups/L04_preparation_authorization; preserve unrelated changes."
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:33:58.552184+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/admission-policy-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/admission-policy-native.test.mjs",
+      "before": null,
+      "after": "3c3b157fce13acf3049c113f522b581e03d2b5109a675f672a3a5141a0a44fd2"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_ADMISSION_15/before",
+  "protected_unchanged": 33
+}

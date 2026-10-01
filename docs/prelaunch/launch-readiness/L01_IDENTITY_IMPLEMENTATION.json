@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-01",
+  "candidate_id": "e3181c20fc205d209889bd727dec203f0077db3adb4d180865cc93fc5e31dcb8",
+  "baseline_candidate": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "changed_existing_source_files": [
+    "services/api/src/prelaunch/routes.ts"
+  ],
+  "added_source_files": [
+    "services/api/src/prelaunch/principal.ts",
+    "services/api/src/prelaunch/principal.test.ts",
+    "services/api/src/prelaunch/production-identity.ts",
+    "services/api/src/prelaunch/production-identity.test.ts"
+  ],
+  "verified": {
+    "identity_suites": {
+      "tests": 30,
+      "failed": 0,
+      "scope": "Vitest principal, production JWT mapping, existing auth"
+    },
+    "postgres_http": {
+      "tests": 8,
+      "failed": 0,
+      "scope": "aftersales-process.test.mjs actual owned DB/HTTP against refactored simulation routes"
+    },
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "check_secrets": "PASS",
+    "check_copy": "PASS",
+    "diff_check": "PASS"
+  },
+  "earlier_failed_attempt": {
+    "tests": 2,
+    "reason": "403 JWT denial did not map into V1.1 error response; corrected adapter normalization; ambiguous-case test fixture shape corrected",
+    "retest": "30 tests PASS"
+  },
+  "limits": [
+    "Formal identity adapter is not mounted in production app yet",
+    "Actor provisioning/OPS/REVIEWER/RESTAURANT formal bindings remain incomplete",
+    "No real network or money operation",
+    "Old104/139full evidence applies to baseline candidate, not automatically to new candidate"
+  ],
+  "hashes": {
+    "services/api/src/prelaunch/routes.ts": "64f83d0ea1dda627ce05f6c99c6528251ff931faf3fa2619e4d7c81601420429",
+    "services/api/src/prelaunch/principal.ts": "70442bce93e7e74dc71bf3e6e0d8e1d7750ac9dc1882228d68a1bf7c2f058f09",
+    "services/api/src/prelaunch/principal.test.ts": "96ecb4e523f93200349866102c00f5ad0566e873c8e2942a59fc5c10b57bddc6",
+    "services/api/src/prelaunch/production-identity.ts": "9b523b12ff8f18a392dd17b9d0400b6b2af494efea13ca65d7e065ad3c62d026",
+    "services/api/src/prelaunch/production-identity.test.ts": "0f873d9b63e0173693cae151072a674b1d6a58b8c9ec058eebee1e59c2383caf"
+  },
+  "rollback": "Restore only routes.ts from docs/prelaunch/launch-readiness/backups/L01_identity/routes.ts and remove only the four listed new files if rollback is requested; do not reset unrelated dirty files"
+}

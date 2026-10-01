@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "6d2187371d5a58f43e571947500cf9042e130b5ea4bf37a3555f3a5e12850ef0",
+  "environment": "FRESH_OWNED_RESTORE_GENERATION",
+  "migration": "20261001060000_v11_bill_comparison_snapshot",
+  "up": true,
+  "down": true,
+  "rebuild": true,
+  "existing_synthetic_user_preserved": true,
+  "production_changed": false,
+  "releaseAuthorized": false,
+  "scriptSha256": "74fb8c90e3d63d35397a249aa6756013b0f7b19a95301f7c1c314364d21899d4",
+  "script_path": "docs/prelaunch/evidence/bill-snapshot-migration-2026-10-01/snapshot-migration-rehearsal.mjs"
+}

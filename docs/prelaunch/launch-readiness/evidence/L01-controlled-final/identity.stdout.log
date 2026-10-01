@@ -1,0 +1,12 @@
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api
+
+{"level":30,"time":1790822815471,"pid":45649,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/api/v11/identity","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790822815472,"pid":45649,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","msg":"Route GET:/api/v11/identity not found"}
+{"level":30,"time":1790822815473,"pid":45649,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":404},"responseTime":1.975583791732788,"msg":"request completed"}
+
+ Test Files  5 passed (5)
+      Tests  62 passed (62)
+   Start at  10:46:54
+   Duration  881ms (transform 334ms, setup 0ms, import 899ms, tests 1.20s, environment 0ms)
+

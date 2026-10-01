@@ -1,0 +1,46 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp[39m
+
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22msends a JSON object for bodyless payment confirmation and notification-read actions[32m 9[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22mkeeps a new session when an older request returns a late 401[32m 1[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22muses WeChat login on cold start and never silently binds a mock phone[32m 1[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22mdoes not manufacture an identity when WeChat authorization fails[32m 1[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22mkeeps the created order but never simulates payment when real params are absent[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mclient identity and payment boundaries[2m > [22mclears a rejected session but retains pending order context without replay[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mfinds a server order after local order cache is cleared and honors an explicit ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mrejects a late successful private response after account change[32m 53[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mdoes not invoke a cashier or simulate success when blocked: { requiresReview: true }[32m 1[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mdoes not invoke a cashier or simulate success when blocked: { processing: true }[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mdoes not invoke a cashier or simulate success when blocked: { payable: false }[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22morder recovery[2m > [22mpreserves the pending order when the cashier is canceled and can retry that order[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mshares one login between parallel order and notification requests[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mnever simulates a WeChat payment even in a demo build[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mkeeps order details available during a notification outage[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mdiscards an already loaded order if the parallel notification request expires the session[32m 51[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mformal money client[2m > [22mrefuses disabled capabilities without initialization or money requests[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mformal money client[2m > [22muses the current session for formal routes and never sends refund amount or user hints[32m 0[2mms[22m[39m
+ [32m✓[39m src/api.test.ts[2m > [22mformal money client[2m > [22mformats structured financial conflicts without rendering internal objects[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22minitializes only using current WeChat token and projects user fields without caching credentials[32m 3[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mdoes not mutate when server explicitly disables V1.1 identity[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects an obsolete token before making a request[32m 1[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mstops initialization when account changes during capability discovery[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mdoes not accept late successful initialization after account change[32m 52[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mretains a newer session on an older initialization 401[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects backend errors without simulating account creation or replaying[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects incompatible user identity {"role":"OPS"}[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects incompatible user identity {"userId":""}[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects incompatible user identity {"restaurantId":"foreign"}[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrejects incompatible user identity {"version":-1}[32m 0[2mms[22m[39m
+ [32m✓[39m src/v11-identity.test.ts[2m > [22mformal V1.1 account initialization client[2m > [22mrefuses missing capability contract without mutation[32m 0[2mms[22m[39m
+ [32m✓[39m src/pages/profile/profile-form.test.ts[2m > [22mprofile form submission[2m > [22mreturns field errors for an incomplete form[32m 1[2mms[22m[39m
+ [32m✓[39m src/pages/profile/profile-form.test.ts[2m > [22mprofile form submission[2m > [22maccepts the form defaults and normalizes list fields[32m 0[2mms[22m[39m
+ [32m✓[39m src/pages/mock-auth/client-error.test.ts[2m > [22mformatClientError[2m > [22mshows a Taro-style errMsg so client-side request failures are actionable[32m 1[2mms[22m[39m
+ [32m✓[39m src/pages/mock-auth/client-error.test.ts[2m > [22mformatClientError[2m > [22mredacts sensitive values before showing a client error[32m 0[2mms[22m[39m
+ [32m✓[39m src/pages/mock-auth/client-error.test.ts[2m > [22mformatClientError[2m > [22mkeeps the fallback for unknown error shapes[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m36 passed[39m[22m[90m (36)[39m
+[2m   Start at [22m 13:28:16
+[2m   Duration [22m 658ms[2m (transform 44ms, setup 0ms, import 62ms, tests 182ms, environment 0ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T05-27-35-774Z/miniapp-tests.json

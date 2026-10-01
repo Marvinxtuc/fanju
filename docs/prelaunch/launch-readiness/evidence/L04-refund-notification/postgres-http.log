@@ -1,0 +1,138 @@
+TAP version 13
+# Subtest: preparation persists and serializes on owned PostgreSQL
+    # Subtest: twenty concurrent claims produce one durable submitting attempt
+    ok 1 - twenty concurrent claims produce one durable submitting attempt
+      ---
+      duration_ms: 154.006959
+      type: 'test'
+      ...
+    # Subtest: prepayment save does not confirm money and stale failures cannot undo it
+    ok 2 - prepayment save does not confirm money and stale failures cannot undo it
+      ---
+      duration_ms: 10.650375
+      type: 'test'
+      ...
+    # Subtest: resume signs only persisted pending prepayment and rejects cancellation during query
+    ok 3 - resume signs only persisted pending prepayment and rejects cancellation during query
+      ---
+      duration_ms: 64.909708
+      type: 'test'
+      ...
+    # Subtest: unknown outcome cannot be claimed for another submission
+    ok 4 - unknown outcome cannot be claimed for another submission
+      ---
+      duration_ms: 16.114667
+      type: 'test'
+      ...
+    # Subtest: cancellation during channel query blocks prepayment send and retains recovery
+    ok 5 - cancellation during channel query blocks prepayment send and retains recovery
+      ---
+      duration_ms: 18.6075
+      type: 'test'
+      ...
+    # Subtest: wrong binding and inactive intents reject without writes
+    ok 6 - wrong binding and inactive intents reject without writes
+      ---
+      duration_ms: 12.427333
+      type: 'test'
+      ...
+    # Subtest: database constraint rejects prepared state without a reference
+    ok 7 - database constraint rejects prepared state without a reference
+      ---
+      duration_ms: 5.163417
+      type: 'test'
+      ...
+    # Subtest: runner persists submitting before network and prepay before returning
+    ok 8 - runner persists submitting before network and prepay before returning
+      ---
+      duration_ms: 18.229875
+      type: 'test'
+      ...
+    # Subtest: runner timeout leaves unknown and cannot resend
+    ok 9 - runner timeout leaves unknown and cannot resend
+      ---
+      duration_ms: 15.839
+      type: 'test'
+      ...
+    # Subtest: authorization rejection rolls back before a durable claim
+    ok 10 - authorization rejection rolls back before a durable claim
+      ---
+      duration_ms: 7.906959
+      type: 'test'
+      ...
+    # Subtest: canceled registration and expired hold cannot prepare a payment
+    ok 11 - canceled registration and expired hold cannot prepare a payment
+      ---
+      duration_ms: 15.830792
+      type: 'test'
+      ...
+    # Subtest: verified notification triggers query once even for canceled intent and preserves conflict
+    ok 12 - verified notification triggers query once even for canceled intent and preserves conflict
+      ---
+      duration_ms: 129.057834
+      type: 'test'
+      ...
+# {"level":30,"time":1790826103440,"pid":69733,"hostname":"Marvins-Mac-mini.local","msg":"Server listening at http://127.0.0.1:59333"}
+# {"level":30,"time":1790826103446,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59334},"msg":"incoming request"}
+# {"level":30,"time":1790826103448,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":400},"responseTime":1.8255419731140137,"msg":"request completed"}
+# {"level":30,"time":1790826103453,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59334},"msg":"incoming request"}
+# {"level":30,"time":1790826103465,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":12.525791883468628,"msg":"request completed"}
+# {"level":30,"time":1790826103467,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59335},"msg":"incoming request"}
+# {"level":30,"time":1790826103474,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":6.960792064666748,"msg":"request completed"}
+# {"level":30,"time":1790826103485,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59334},"msg":"incoming request"}
+# {"level":30,"time":1790826103493,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":8.412458181381226,"msg":"request completed"}
+# {"level":30,"time":1790826103496,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59335},"msg":"incoming request"}
+# {"level":30,"time":1790826103502,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":5.5156660079956055,"msg":"request completed"}
+# {"level":30,"time":1790826103506,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"127.0.0.1:59333","remoteAddress":"127.0.0.1","remotePort":59334},"msg":"incoming request"}
+# {"level":30,"time":1790826103513,"pid":69733,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":7.795291900634766,"msg":"request completed"}
+    # Subtest: signed raw HTTP callback commits V11 trigger and query while tampering writes nothing
+    ok 13 - signed raw HTTP callback commits V11 trigger and query while tampering writes nothing
+      ---
+      duration_ms: 147.034083
+      type: 'test'
+      ...
+    # Subtest: late trusted payment query survives cancellation and concurrent duplicate intake
+    ok 14 - late trusted payment query survives cancellation and concurrent duplicate intake
+      ---
+      duration_ms: 448.823875
+      type: 'test'
+      ...
+    # Subtest: expired lease cannot query and lease loss during query cannot persist
+    ok 15 - expired lease cannot query and lease loss during query cannot persist
+      ---
+      duration_ms: 11.965833
+      type: 'test'
+      ...
+    # Subtest: query handler persists success and escalates conflict under a live lease
+    ok 16 - query handler persists success and escalates conflict under a live lease
+      ---
+      duration_ms: 39.291125
+      type: 'test'
+      ...
+    # Subtest: recovery job identity conflict rolls back the submission claim
+    ok 17 - recovery job identity conflict rolls back the submission claim
+      ---
+      duration_ms: 10.949625
+      type: 'test'
+      ...
+    # Subtest: refund budget rejects invalid components and cross-receipt business key reuse
+    ok 18 - refund budget rejects invalid components and cross-receipt business key reuse
+      ---
+      duration_ms: 31.390208
+      type: 'test'
+      ...
+    1..18
+ok 1 - preparation persists and serializes on owned PostgreSQL
+  ---
+  duration_ms: 1334.317667
+  type: 'test'
+  ...
+1..1
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1512.929833

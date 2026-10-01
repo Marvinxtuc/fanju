@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:05:29.631126+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/legacy-worker.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-compat-receipt/tests/prelaunch/legacy-worker.test.mjs",
+      "before": "4dd00cbcc30007f938ad02953cd563ac4df69fc8d841f79bd6138266c0cc85eb",
+      "after": "280b240fb982445582cb5e555348b1c8ba8c3cbc2b84215c85c077523286d667"
+    },
+    {
+      "path": "tests/prelaunch/supply-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/supply-native.test.mjs",
+      "before": null,
+      "after": "19c895600cd8c75c3f8e7b0f527ad68e4b55f66d89973c25f87c5847f4bf6c4f"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/SUPPLY_COMPAT_PLAN/before",
+  "protected_unchanged": 33
+}

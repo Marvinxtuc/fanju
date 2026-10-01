@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-01T00:59:03.182277+00:00",
+  "files": [
+    {
+      "path": "scripts/check-secrets.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fixes/scripts/check-secrets.ts",
+      "before": "804801b50c12476ce86a8e521609198aa4d785515ddb392b689997a5c63452f6",
+      "after": "69bf17288639473d06fd96f052b4fabe6168653a7af04ca803613549f4e456a8"
+    },
+    {
+      "path": "scripts/prelaunch-recovery.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fixes/scripts/prelaunch-recovery.mjs",
+      "before": "e4cc3c187e4dab93665ea521f6cb7ca42bc3d2f3d80c229d77991d49864d2fda",
+      "after": "b10436b509e6700ffb1af1b5cad4de325a8660bf188d71507c68349911086c1b"
+    },
+    {
+      "path": "scripts/secret-scan-digest.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fixes/scripts/secret-scan-digest.mjs",
+      "before": null,
+      "after": "b674b49c2933490e26d59a18ab47e1c1062d84a195a359dee960f4a2b72c3735"
+    },
+    {
+      "path": "tests/prelaunch/secret-scan.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-fixes/tests/prelaunch/secret-scan.test.mjs",
+      "before": null,
+      "after": "82fd6f38667a5f1c8a57dd3d9a2cd3a24b24eb186b63a2ef3a584d830d25bb64"
+    },
+    {
+      "path": "tests/prelaunch/concurrency-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/concurrency-native.test.mjs",
+      "before": null,
+      "after": "00df0c9fc808684b9e74477a5b378a9786f770d1e594eabedfbc90acd967bd74"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/QA_CONCURRENCY_FIXES_PLAN/before",
+  "protected_unchanged": 33
+}

@@ -1,0 +1,628 @@
+{
+  "pack_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+  "pack_manifest_sha256": "79dd350f3ede187c7873514c944dd98d66ea67be00ec049f8e64b53754dcb512",
+  "source_policy_hash": "1fcd70ea51b9776f819c9c9ada9e1611408a57b79ced56325226f8d5ae58f1a0",
+  "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+  "branch": "codex/fanju-stage0-baseline",
+  "base_head": "003200820922d11b374b84a9e756d4d763bea3f2",
+  "baseline_dirty_snapshot_hash": "bd74d14e339a1b07f74a9f97bb74cd2c2ce0936ca808ed355dc9adc6df69f731",
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "phase": "COMPLETED_LOCAL_ENGINEERING",
+  "completed_tasks": [
+    "E00",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E18",
+    "E19",
+    "E20",
+    "E21",
+    "E22",
+    "E23"
+  ],
+  "active_tasks": [],
+  "blocked_tasks": [],
+  "open_findings": [
+    {
+      "id": "OP-03",
+      "kind": "POLICY",
+      "description": "实际金额、收费主体、账户和票据未定；真实收费关闭"
+    },
+    {
+      "id": "OP-04",
+      "kind": "POLICY",
+      "description": "成员减少生效时点未定；保留申请时刻与待处理效果，不依据退款状态推断移除"
+    },
+    {
+      "id": "OP-05",
+      "kind": "POLICY",
+      "description": "FIFO时钟、截止支付与新客类别残余参数未定；不得作为生产默认"
+    },
+    {
+      "id": "OP-07",
+      "kind": "POLICY",
+      "description": "最低继续人数、失联及反复退人条件未定；相关收费准入关闭"
+    },
+    {
+      "id": "OP-08",
+      "kind": "POLICY",
+      "description": "在途支付、重复资格与敞口交集未定；不得无限付费候补"
+    },
+    {
+      "id": "OP-09",
+      "kind": "POLICY",
+      "description": "新旧T、其他变更超时和补偿范围未定；不得代替用户选择"
+    },
+    {
+      "id": "OP-10",
+      "kind": "POLICY",
+      "description": "真实采集字段、材料和保留范围未获批准；不引入健康档案"
+    },
+    {
+      "id": "OP-11",
+      "kind": "POLICY",
+      "description": "正式批次、补证、审核SLA与自动义务审批未定"
+    },
+    {
+      "id": "OP-12",
+      "kind": "POLICY",
+      "description": "当晚跨日、最长失联和补录标准未定"
+    },
+    {
+      "id": "OP-13",
+      "kind": "POLICY",
+      "description": "正式送达含义、默认违约前提、通知字段与客服受理未批"
+    },
+    {
+      "id": "OP-14",
+      "kind": "POLICY",
+      "description": "真实账户、渠道、周期和翻案垫付主体未定；不得支付真实餐厅"
+    },
+    {
+      "id": "OP-15",
+      "kind": "POLICY",
+      "description": "注销中新报名、撤回、终态地址与保留期限未决；不默认改变权益"
+    },
+    {
+      "id": "RV-01",
+      "kind": "POLICY",
+      "description": "保证金性质与成团扣留专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-02",
+      "kind": "POLICY",
+      "description": "默认违约与送达专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-03",
+      "kind": "POLICY",
+      "description": "低人数例外专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-04",
+      "kind": "POLICY",
+      "description": "性别与成年信息最小化专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-05",
+      "kind": "POLICY",
+      "description": "敏感材料专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-06",
+      "kind": "POLICY",
+      "description": "收付与结算专项真实角色签收尚未提供"
+    },
+    {
+      "id": "RV-07",
+      "kind": "POLICY",
+      "description": "披露与保障专项真实角色签收尚未提供"
+    }
+  ],
+  "last_verified_runs": [
+    "final-2026-10-01T01-37-23-796Z",
+    "source-reproduction-2026-10-01T01-39-27-139Z",
+    "zip-proof-20261001T020213632529Z-zip-verification",
+    "zip-proof-20261001T020213632529Z-source-reproduction"
+  ],
+  "owned_environments": [
+    {
+      "path": "/tmp/fanju-prelaunch-20261001-b48140fda0c1",
+      "kind": "task_owned_scratch",
+      "database_created": false
+    },
+    {
+      "kind": "postgresql",
+      "evidence": "environment/OWNED_ENVIRONMENT.json",
+      "host": "127.0.0.1",
+      "port": 32772,
+      "database": "fanju_prelaunch_a755def387dc",
+      "identity_verified": true
+    }
+  ],
+  "next_action": "Stop local implementation. Final ZIP validation sidecar records exported bytes; no production activation authorized.",
+  "authorization": {
+    "production": false,
+    "real_money": false,
+    "git_commit": false,
+    "git_push": false
+  },
+  "resume_notes": [
+    "Current active task is all 24 E tasks through prelaunch engineering handoff. Historical WP10-A1 is frozen reference, not current stopping point.",
+    "Do not rewrite frozen policies, validator or A1 assertions; preserve initial dirty bytes.",
+    "Human delegated planning-to-execution authorization verified in parent thread 01a0f00a-3e0d-7611-8a4f-217c87a9002d user message 01a0f456-eb3c-70d8-8fd8-0108b5e40ef7; later human allows per-step engineering decisions.",
+    "No real channels, production, policy activation, Git stage/commit/push/destructive operations.",
+    "2026-10-01 dedicated continuation: complete E00-E23 remains active; old A1 stopping condition is superseded by current user authorization. Wave1 imported after original byte checks. Frozen paths verified unchanged."
+  ],
+  "pack_zip_sha256": "738c8c9c5a2aad24c996d4020feeff06167f53325bed4a01b55f8064e11e3f3e",
+  "input_path": "/Users/marvin.x/Documents/Codex/2026-10-01/task/handoff-input/FANJU_PRELAUNCH_MASTER_V1_1_20261001",
+  "task_targets": [
+    {
+      "id": "E00",
+      "title": "基线核验与安全启动",
+      "dependencies": [],
+      "legacy_work_packages": [
+        "WP10-A1",
+        "全项目"
+      ],
+      "source_refs": "WP10_A1_REVIEW.md；V1.1 manifest；业务基线0节",
+      "status": "NOT_STARTED",
+      "file": "tasks/E00_基线核验与安全启动.md"
+    },
+    {
+      "id": "E01",
+      "title": "跨领域架构与契约",
+      "dependencies": [
+        "E00"
+      ],
+      "legacy_work_packages": [
+        "WP02",
+        "WP03",
+        "WP04",
+        "WP05",
+        "WP06",
+        "WP10"
+      ],
+      "source_refs": "V1.1技术设计1—8、13—17节；104规则、91场景、15决定",
+      "status": "NOT_STARTED",
+      "file": "tasks/E01_跨领域架构与契约.md"
+    },
+    {
+      "id": "E02",
+      "title": "Schema迁移与兼容恢复",
+      "dependencies": [
+        "E01"
+      ],
+      "legacy_work_packages": [
+        "WP03",
+        "WP04",
+        "WP05",
+        "WP07",
+        "WP09",
+        "WP10"
+      ],
+      "source_refs": "技术设计15—16；冻结原资金/同意；OP-03/04/05/14/15",
+      "status": "NOT_STARTED",
+      "file": "tasks/E02_Schema迁移与兼容恢复.md"
+    },
+    {
+      "id": "E03",
+      "title": "政策版本与启用隔离",
+      "dependencies": [
+        "E01"
+      ],
+      "legacy_work_packages": [
+        "WP10"
+      ],
+      "source_refs": "USR-05、INFO、历史同意；V1.1 manifest；WP10-A/A1",
+      "status": "NOT_STARTED",
+      "file": "tasks/E03_政策版本与启用隔离.md"
+    },
+    {
+      "id": "E04",
+      "title": "身份准入与最小资料",
+      "dependencies": [
+        "E01",
+        "E03"
+      ],
+      "legacy_work_packages": [
+        "WP01",
+        "WP09"
+      ],
+      "source_refs": "BAS-01—03、USR-01—10、VEN-07/08；OP-10/15，RV-04/05/07",
+      "status": "NOT_STARTED",
+      "file": "tasks/E04_身份准入与最小资料.md"
+    },
+    {
+      "id": "E05",
+      "title": "餐厅供给容量定价",
+      "dependencies": [
+        "E01",
+        "E03"
+      ],
+      "legacy_work_packages": [
+        "WP02"
+      ],
+      "source_refs": "VEN-01—08、FEE-01—04、DR01-05—08、DR02-05/06",
+      "status": "NOT_STARTED",
+      "file": "tasks/E05_餐厅供给容量定价.md"
+    },
+    {
+      "id": "E06",
+      "title": "F_D资金与渠道适配",
+      "dependencies": [
+        "E01",
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "legacy_work_packages": [
+        "WP03"
+      ],
+      "source_refs": "FEE/REF、DR01-01/02/04/09；技术设计2—3/9/17；RV-01/06",
+      "status": "NOT_STARTED",
+      "file": "tasks/E06_F_D资金与渠道适配.md"
+    },
+    {
+      "id": "E07",
+      "title": "资格席位与十分钟时钟",
+      "dependencies": [
+        "E01",
+        "E02",
+        "E05",
+        "E06"
+      ],
+      "legacy_work_packages": [
+        "WP03",
+        "WP05"
+      ],
+      "source_refs": "DR01-02—04、FORM/REF-01；OP-04/05残余",
+      "status": "NOT_STARTED",
+      "file": "tasks/E07_资格席位与十分钟时钟.md"
+    },
+    {
+      "id": "E08",
+      "title": "付费候补与FIFO",
+      "dependencies": [
+        "E01",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "legacy_work_packages": [
+        "WP04"
+      ],
+      "source_refs": "WL-01—10、DR02-04/06；OP-05/08/11",
+      "status": "NOT_STARTED",
+      "file": "tasks/E08_付费候补与FIFO.md"
+    },
+    {
+      "id": "E09",
+      "title": "自动可逆成团与地址",
+      "dependencies": [
+        "E01",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "legacy_work_packages": [
+        "WP05"
+      ],
+      "source_refs": "FORM-01—16、INFO-01—03、DR02-01/02/05；OP-05/07/15",
+      "status": "NOT_STARTED",
+      "file": "tasks/E09_自动可逆成团与地址.md"
+    },
+    {
+      "id": "E10",
+      "title": "取消退款矩阵与批次",
+      "dependencies": [
+        "E01",
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "legacy_work_packages": [
+        "WP06"
+      ],
+      "source_refs": "REF/FUL/EXC/OPS；RF-M02—09；DR02-02/03；OP-04/05/09/11/14",
+      "status": "NOT_STARTED",
+      "file": "tasks/E10_取消退款矩阵与批次.md"
+    },
+    {
+      "id": "E11",
+      "title": "扫码签到与餐厅履约",
+      "dependencies": [
+        "E01",
+        "E05",
+        "E07",
+        "E10"
+      ],
+      "legacy_work_packages": [
+        "WP07"
+      ],
+      "source_refs": "FUL-01—09、VEN、OP-12/15；BR-AT37—40",
+      "status": "NOT_STARTED",
+      "file": "tasks/E11_扫码签到与餐厅履约.md"
+    },
+    {
+      "id": "E12",
+      "title": "两轮争议通知与复核",
+      "dependencies": [
+        "E01",
+        "E06",
+        "E10",
+        "E11",
+        "E19"
+      ],
+      "legacy_work_packages": [
+        "WP07"
+      ],
+      "source_refs": "DISP-01—15、OP-11/13/14、RV-02/05/06",
+      "status": "NOT_STARTED",
+      "file": "tasks/E12_两轮争议通知与复核.md"
+    },
+    {
+      "id": "E13",
+      "title": "核心变更与额外补偿",
+      "dependencies": [
+        "E01",
+        "E05",
+        "E09",
+        "E10",
+        "E19"
+      ],
+      "legacy_work_packages": [
+        "WP08"
+      ],
+      "source_refs": "CHG-01—07、REF-04/05；OP-07/09/13、RV-03",
+      "status": "NOT_STARTED",
+      "file": "tasks/E13_核心变更与额外补偿.md"
+    },
+    {
+      "id": "E14",
+      "title": "对账餐厅结算与纠正",
+      "dependencies": [
+        "E01",
+        "E06",
+        "E10",
+        "E12",
+        "E13"
+      ],
+      "legacy_work_packages": [
+        "WP03",
+        "WP07",
+        "WP08"
+      ],
+      "source_refs": "REF-06—08、DISP-13—15、OP-14、RV-01/06",
+      "status": "NOT_STARTED",
+      "file": "tasks/E14_对账餐厅结算与纠正.md"
+    },
+    {
+      "id": "E15",
+      "title": "隐私权利材料与注销",
+      "dependencies": [
+        "E01",
+        "E03",
+        "E04",
+        "E06",
+        "E12"
+      ],
+      "legacy_work_packages": [
+        "WP09"
+      ],
+      "source_refs": "PRI-01—04、PN全文、OP-10/15、RV-04/05",
+      "status": "NOT_STARTED",
+      "file": "tasks/E15_隐私权利材料与注销.md"
+    },
+    {
+      "id": "E16",
+      "title": "API契约与权限闭环",
+      "dependencies": [
+        "E01",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "legacy_work_packages": [
+        "全部业务WP"
+      ],
+      "source_refs": "全部规则和E域API定位；OP/RV接口边界",
+      "status": "NOT_STARTED",
+      "file": "tasks/E16_API契约与权限闭环.md"
+    },
+    {
+      "id": "E17",
+      "title": "小程序完整用户流程",
+      "dependencies": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E15",
+        "E16"
+      ],
+      "legacy_work_packages": [
+        "WP01—10前端"
+      ],
+      "source_refs": "六主文档付款前/状态/用户权利条款；91原验收目标",
+      "status": "NOT_STARTED",
+      "file": "tasks/E17_小程序完整用户流程.md"
+    },
+    {
+      "id": "E18",
+      "title": "运营与餐厅端完整流程",
+      "dependencies": [
+        "E04",
+        "E05",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16"
+      ],
+      "legacy_work_packages": [
+        "WP02",
+        "WP06—09"
+      ],
+      "source_refs": "RS-V1全文；角色权限/餐厅签收/资金待办；OPS、PRI、DISP",
+      "status": "NOT_STARTED",
+      "file": "tasks/E18_运营与餐厅端完整流程.md"
+    },
+    {
+      "id": "E19",
+      "title": "持久任务通知与恢复",
+      "dependencies": [
+        "E01",
+        "E02"
+      ],
+      "legacy_work_packages": [
+        "WP03—10"
+      ],
+      "source_refs": "技术设计9/11/12/17；资金恢复基础；OP-11/12/13",
+      "status": "NOT_STARTED",
+      "file": "tasks/E19_持久任务通知与恢复.md"
+    },
+    {
+      "id": "E20",
+      "title": "安全运维构建与发布准备",
+      "dependencies": [
+        "E01",
+        "E02",
+        "E03",
+        "E16",
+        "E19"
+      ],
+      "legacy_work_packages": [
+        "全部工程"
+      ],
+      "source_refs": "既有审计P0安全门禁；V1.1 G0—G4；API/隐私/资金不变量",
+      "status": "NOT_STARTED",
+      "file": "tasks/E20_安全运维构建与发布准备.md"
+    },
+    {
+      "id": "E21",
+      "title": "全量测试并发故障验证",
+      "dependencies": [
+        "E00",
+        "E01"
+      ],
+      "legacy_work_packages": [
+        "所有WP的QA"
+      ],
+      "source_refs": "原104规则/91场景；acceptance全目录；既有52回归与资金安全测试",
+      "status": "NOT_STARTED",
+      "file": "tasks/E21_全量测试并发故障验证.md"
+    },
+    {
+      "id": "E22",
+      "title": "团队自审整改与最终回归",
+      "dependencies": [
+        "E01",
+        "E21"
+      ],
+      "legacy_work_packages": [
+        "所有WP"
+      ],
+      "source_refs": "master/03；安全/资金/状态/隐私验收要求",
+      "status": "NOT_STARTED",
+      "file": "tasks/E22_团队自审整改与最终回归.md"
+    },
+    {
+      "id": "E23",
+      "title": "集中验收包与停止",
+      "dependencies": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21",
+        "E22"
+      ],
+      "legacy_work_packages": [
+        "全部WP"
+      ],
+      "source_refs": "master/05_FINAL_HANDOFF.md；acceptance/FINAL_CRITERIA.md",
+      "status": "NOT_STARTED",
+      "file": "tasks/E23_集中验收包与停止.md"
+    }
+  ],
+  "frozen_paths": [
+    "docs/policy/BUSINESS_RULES_BASELINE.md",
+    "docs/policy/CODEX_NEXT_TASK.md",
+    "docs/policy/CONSISTENCY_REPORT.md",
+    "docs/policy/OPEN_DECISION_REVIEW.md",
+    "docs/policy/POLICY_DECISION_PROPOSALS.md",
+    "docs/policy/POLICY_GAP_ANALYSIS.md",
+    "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+    "docs/policy/POLICY_REBASE_CHANGELOG.md",
+    "docs/policy/POLICY_REBASE_V1_1_CHANGELOG.md",
+    "docs/policy/POLICY_TECH_DESIGN.md",
+    "docs/policy/POLICY_V1_1_BUNDLE_MANIFEST.json",
+    "docs/policy/POLICY_V1_1_CONSISTENCY_REPORT.md",
+    "docs/policy/POLICY_WORK_PACKAGES.md",
+    "docs/policy/PRIVACY_NOTICE.md",
+    "docs/policy/README.md",
+    "docs/policy/REFUND_POLICY.md",
+    "docs/policy/RESTAURANT_SERVICE_STANDARD.md",
+    "docs/policy/SHA256SUMS_V1_1.txt",
+    "docs/policy/TRACEABILITY_INDEX.json",
+    "docs/policy/USER_AGREEMENT.md",
+    "docs/policy/WP10_A1_REVIEW.md",
+    "docs/policy/WP10_A_REVIEW.md",
+    "docs/policy/sources/FJ_DR01_DR02_DECISION_FREEZE_V1_1_INPUT.md",
+    "docs/policy/sources/REFERENCE_NOTES.md",
+    "docs/policy/sources/fanju_policy_cto_checklist_2026-09-30.md",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/BUSINESS_RULES_BASELINE.md",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/PRIVACY_NOTICE.md",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/REFUND_POLICY.md",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/SHA256SUMS",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/TRACEABILITY_INDEX.json",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/USER_AGREEMENT.md",
+    "packages/shared/src/rules/policyBundle.test.ts",
+    "packages/shared/src/rules/policyBundle.ts"
+  ],
+  "updated_at": "2026-10-01T00:32:28.533889+00:00",
+  "delivery_status": "REVIEW_PACKAGE_WITH_BLOCKERS",
+  "note": "All24 local tasks completed against candidate c7;104 rules and139 scenarios local PASS.19 formal OP/RV residual gates remain open; real channels, production, true-device verification and fresh cross-machine dependency install remain unverified. Initial sandbox weapp timeout retained as historical failed attempt; elevated extracted source retry passed without source change."
+}

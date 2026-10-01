@@ -1,0 +1,13 @@
+# 分批比较共享核心
+
+2026-10-01。工程第一步，尚未实现持久化分批任务。
+
+现有完整比较入口已调用共享核心，原v3最终审计、幂等和Serializable事务保持。核心支持FORWARD、REVERSE_RECEIPTS、REVERSE_REFUNDS的严格整数区间；区间越界、未知阶段、复制的plan/facts和异绑定在写入前拒绝。plan只能来自可信下载对象与匹配绑定的完整CSV校验，观察投影及数组冻结；原始账单hash在执行前继续检查。facts只能来自内部数据库捕获，同一scope/config关联保留在进程内，不能接受上传JSON作为facts。核心仅写观察、case、query-only任务，无资金、资格、成员或case关闭操作。
+
+反向扫描与整份已验证账单比较，不与当前正向页比较。事实读取和结果写入已拆开；调用者必须在一致事务内捕获facts。定向16项数据库测试含父包装通过，覆盖阶段隔离、整份账单反向匹配、捕获后新增收款不会混入旧facts、计划/事实复制拒绝、scope变化和坏页边界无写入。原完整比较的并发幂等、时间冲突、双向差异及原子回滚矩阵继续通过。
+
+阶段返回值中的totalBillRows/outsideApplicationRows及未知/冲突时间计数属于整份输入或事实快照，不能按页重复累加；跨页query任务计数必须按固定businessKey全局去重。最终守恒聚合及checkpoint提交尚未实现。
+
+尚无跨进程facts恢复、数据库checkpoint、分批最终计数或新ready证据。进程内facts不能被称为已持久化不可变快照。当前读取仍有商户scope整体事实和legacy引用枚举；正式分批实现需限制非必要引用、验证容量和重启。旧候选3万条超时测量不直接代表改动后的容量，需对当前候选重新测量。未增加CLI或新feature flag，正式入口仍走原完整事务，文件/行/事务上限未改变。无新schema、依赖、渠道POST或部署。
+
+回滚：按backups/L04-bill-comparison-core/wechat-bill-reconciliation.ts局部差异恢复入口，移除新增core及本次测试段，保留其他修改及已记录资金证据。完整回归见L04_BILL_COMPARISON_CORE.json。

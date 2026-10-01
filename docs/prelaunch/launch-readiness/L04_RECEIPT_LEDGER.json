@@ -1,0 +1,27 @@
+{
+  "candidate": "58a9b6b27dc500a1b48d77ce1920e988a4e2856a444e303affd2acc0eff10b4a",
+  "validation": {
+    "postgres_cases": 13,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-receipt-ledger",
+  "confirmed": [
+    "Query worker handler records a unique monetary receipt",
+    "Ten duplicate posts create one receipt and audit",
+    "Canceled registration remains canceled after receipt recording",
+    "MANUAL conflicting evidence cannot post a receipt",
+    "Exact intake projection rehash avoids JSONB key-order changes"
+  ],
+  "migration": "20261001020000_v11_receipt_recorded_state applied only to owned isolated PostgreSQL; expands event states without relabeling existing events.",
+  "limits": [
+    "RECEIPT_RECORDED does not mean policy/qualification/refund obligations applied",
+    "No F/D allocation or actual refund submitted",
+    "Synthetic channel results; no current merchant or production deployment proof",
+    "Full deployment migration rehearsal still pending"
+  ],
+  "rollback": "Remove new ledger/handler invocation/test assertions before deployment. State migration rollback requires no RECEIPT_RECORDED events; preserve recorded money facts and never relabel to APPLIED to force rollback."
+}

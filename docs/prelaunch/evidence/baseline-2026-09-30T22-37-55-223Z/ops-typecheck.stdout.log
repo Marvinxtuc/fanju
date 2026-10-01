@@ -1,0 +1,4 @@
+
+> @timeleft-shanghai/ops@0.0.0 typecheck /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/baseline-run/apps/ops
+> tsc -p tsconfig.json --noEmit
+

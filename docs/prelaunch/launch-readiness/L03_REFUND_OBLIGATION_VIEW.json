@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "010951f0ec02ff9f3a580e4ed3763914e80d917fb03903e45a4eb55bbebdac56",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-54-32-223Z/RUNS.json",
+  "final_steps": 29,
+  "view_unit_tests": 2,
+  "money_DOM_tests": 6,
+  "owned_financial_tests_including_parent": 9,
+  "api_tests": 305,
+  "cross_process_tests": 185,
+  "DOM_joint_tests": 18,
+  "releaseAuthorized": false,
+  "refund_sent": false,
+  "real_device_verified": false,
+  "setup": "REFUND_OBLIGATION_USER_VIEW_SETUP.md",
+  "remaining": [
+    "Formal refund dispatch and hold/qualification assembly",
+    "Controlled operational closeout",
+    "Real channel/device acceptance"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:25:16.254171+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/cancellation-matrix-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/cancellation-matrix-native.test.mjs",
+      "before": null,
+      "after": "31f7c360dd7eb5720461a6b287213982c97371c07933302add9852532fd3231a"
+    },
+    {
+      "path": "tests/prelaunch/lifecycle-matrix-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/lifecycle-matrix-native.test.mjs",
+      "before": null,
+      "after": "558d3aa0e86f28218a14f15eecf4bcc4a8b94208e29cee7b58edcdee74e65913"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_LIFECYCLE_07/before",
+  "protected_unchanged": 33
+}

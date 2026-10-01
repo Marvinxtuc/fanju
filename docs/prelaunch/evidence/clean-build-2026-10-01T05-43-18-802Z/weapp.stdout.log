@@ -1,0 +1,10 @@
+
+> @timeleft-shanghai/miniapp@0.0.0 build /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T05-43-18-802Z/apps/miniapp
+> NODE_ENV=production taro build --type weapp
+
+👽 Taro v4.2.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+

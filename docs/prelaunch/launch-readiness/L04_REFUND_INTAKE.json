@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "default_enabled": false,
+  "scope": "REQUEST_INTAKE_ONLY",
+  "targeted_tests_including_parent": 7,
+  "formal_policy_activated": false,
+  "refund_approved": false,
+  "real_channel_verified": false,
+  "setup": "docs/prelaunch/launch-readiness/REFUND_REQUEST_INTAKE_SETUP.md",
+  "candidate": "f6c7423096bf1390c690dbcf41fbb92571259a0706dc5c626c019cabb83defc4",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-32-22-363Z/RUNS.json",
+  "final_steps": 28,
+  "cross_process_tests": 156
+}

@@ -1,0 +1,19 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api[39m
+
+{"level":30,"time":1790826463465,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/health","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826463466,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":1.211,"msg":"request completed"}
+{"level":30,"time":1790826463467,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/ready","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826463476,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":503},"responseTime":9.29,"msg":"request completed"}
+{"level":30,"time":1790826463478,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/ready","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826463484,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":5.234,"msg":"request completed"}
+{"level":30,"time":1790826463487,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"GET","url":"/ready","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826463492,"pid":71897,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":503},"responseTime":4.842,"msg":"request completed"}
+ [32m✓[39m src/app.test.ts [2m([22m[2m59 tests[22m[2m | [22m[33m58 skipped[39m[2m)[22m[33m 306[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[2m | [22m[33m58 skipped[39m[90m (59)[39m
+[2m   Start at [22m 11:47:42
+[2m   Duration [22m 742ms[2m (transform 207ms, setup 0ms, import 336ms, tests 306ms, environment 0ms)[22m
+
+

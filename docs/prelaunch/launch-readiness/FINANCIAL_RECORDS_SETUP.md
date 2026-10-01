@@ -1,0 +1,13 @@
+# 本人已记录资金查询
+
+2026-10-01：新增 GET /api/v11/registrations/:id/funds，默认不挂载。需要显式FEATURE_V11_FINANCIAL_RECORDS=true、FEATURE_V11_IDENTITY=true、真实微信身份provider及demo关闭；不需要为了查看旧资金事实提供新的支付授权。已有正式JWT与V11 principal边界负责身份验证，用户不能从query指定userId/role。
+
+先按registrationId/userId核对归属，其他用户或缺失记录统一404。查询在RepeatableRead事务中读取本人真实微信intent、receipt和refund，不读政策激活状态或要求报名仍active。已落账未分配receipt显示UNALLOCATED，避免ledger/allocator两次事务间把已到账显示为空；新资格固定eligibilityGranted=false。
+
+仅返回已记录金额、到账时间、退款状态及内部记录ID；不暴露商户范围、原交易号、支付签名参数、openid、手机号、问卷或地址。mock数据不计入真实金额。原交易、金额、绑定或累计退款冲突返回503 FUNDS_DATA_CONFLICT；不自动纠正账本。
+
+paidCents/confirmedRefundCents及数组仅反映现有已记录证据，observation=RECORDED_ONLY；零记录不证明商户渠道零交易，也不代表完整对账通过。NEW/SUBMITTING/UNKNOWN退款行仅为现有指令状态，不承诺新的退款金额或完成时间。
+
+此入口仅查询，无报名/退款决定/收费/资金写入，不绕过正式政策。尚未接通正式小程序资金页面或运行当前真实用户验收。无需迁移或新增依赖；未来退款申请受理、正式执行授权及完整商户账单仍另行推进。
+
+回滚先关闭FEATURE_V11_FINANCIAL_RECORDS；如移除代码，恢复backups/L04-financial-records中的identity routes源/测试，移除financial-records源文件及对应新增native测试。既有财务记录和原有业务文件保留。

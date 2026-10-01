@@ -1,0 +1,28 @@
+{
+  "candidate": "babb2bb4a500512432de7a8aeedb519c50a553cd743e4f219f47567ade8d89e1",
+  "status": "MEASURED_ENGINEERING_ONLY",
+  "environment": "OWNED_SYNTHETIC_POSTGRES",
+  "workload": "ALL_APPLICATION_PAYMENT_ROWS_WITHOUT_LOCAL_INTENTS",
+  "rows": [
+    {
+      "rows": 30000,
+      "bytes": 8198359,
+      "elapsedMs": 30248,
+      "errorCode": "P2028",
+      "status": "REJECTED",
+      "events": 0,
+      "cases": 0,
+      "audits": 0,
+      "atomicityVerified": true,
+      "coverageState": "INCOMPLETE"
+    }
+  ],
+  "releaseAuthorized": false,
+  "limits": [
+    "Local measurements only; not production capacity or merchant acceptance",
+    "No local intent/refund matching workload measured",
+    "Existing file/row and transaction limits retained"
+  ],
+  "scriptSha256": "3c4046bf7443fe7fc4719b387badd03785d4e64c1fdc780b0e7633bad009d9a2",
+  "script_path": "docs/prelaunch/evidence/bill-capacity-2026-10-01/bill-core-capacity.mjs"
+}

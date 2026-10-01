@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-01T01:40:10.673754+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/reviews/UI_R1.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-review/R1_UI_REVIEW.md",
+      "before": null,
+      "after": "ad704eec9512a46b8c25e8ff9c0b1967d5f2781f5f70f4058d5d3cea0fb875bd"
+    },
+    {
+      "path": "docs/prelaunch/reviews/API_R2_FINAL.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/API_R2_FINAL_DRAFT.md",
+      "before": null,
+      "after": "f60edd779c3fb9225ce82b7bd89784d087ec6e6f8c54c1112afa3c559068ee3b"
+    },
+    {
+      "path": "docs/prelaunch/reviews/QA_R3.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/QA_R3_REVIEW.md",
+      "before": null,
+      "after": "696ebe1cc5a44abbc2be097d16519fc48766d233a955631d8042d077f3d8b983"
+    },
+    {
+      "path": "docs/prelaunch/reviews/ROOT_R4.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/R4_AUDIT.md",
+      "before": null,
+      "after": "095d78a7fb5466236f182b1d018dbdf549af63c40fe0dc3bddcc023691fb543f"
+    },
+    {
+      "path": "docs/prelaunch/analysis/API_RULE_SOURCE_REVIEW_CURRENT.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/API_RULE_SOURCE_REVIEW_CURRENT.json",
+      "before": null,
+      "after": "cda390319ac06fe1ffa0a90ac04b26ea389646c60eca83bc0b1e5903f701b012"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_REVIEWS_19/before",
+  "protected_unchanged": 33
+}

@@ -25,11 +25,16 @@ describe("WeChat Pay v3 notifications", () => {
 
   it("verifies a refund notification with the official amount shape and no currency", () => {
     const fixture = signedNotification({ transaction_id: "original-trade", out_refund_no: "refund_local_001", refund_id: "wechat_refund_001", refund_status: "SUCCESS", amount: { total: 9900, refund: 9900, payer_total: 9900, payer_refund: 9900 } });
-    expect(verifyRefundNotification(fixture.body, fixture.headers, config())).toEqual({ originalTradeNo: "original-trade", merchantRefundNo: "refund_local_001", channelRefundNo: "wechat_refund_001", amountCents: 9900, callbackNonce: "notification-nonce", eventId: "fixture-event" });
+    expect(verifyRefundNotification(fixture.body, fixture.headers, config())).toEqual({ refundedAt: "2026-09-29T00:00:00.000Z", originalTradeNo: "original-trade", merchantRefundNo: "refund_local_001", channelRefundNo: "wechat_refund_001", amountCents: 9900, callbackNonce: "notification-nonce", eventId: "fixture-event" });
   });
   it.each([undefined, "USD"])("rejects payment currency %s", currency => {
     const fixture = signedNotification({ out_trade_no: "pay_local_001", transaction_id: "wechat_transaction_001", trade_state: "SUCCESS", amount: { total: 9900, currency } });
     expect(() => verifyPaymentNotification(fixture.body, fixture.headers, config())).toThrow("currency");
+  });
+  it('preserves missing refund time and rejects a malformed signed time',()=>{
+    const base={transaction_id:'original-trade',out_refund_no:'refund_local_001',refund_id:'wechat_refund_001',refund_status:'SUCCESS',amount:{refund:9900}};
+    const missing=signedNotification({...base,success_time:undefined});expect(verifyRefundNotification(missing.body,missing.headers,config()).refundedAt).toBeUndefined();
+    const invalid=signedNotification({...base,success_time:'invalid'});expect(()=>verifyRefundNotification(invalid.body,invalid.headers,config())).toThrow('payment time');
   });
   it("rejects an explicitly conflicting currency in a refund extension", () => {
     const fixture = signedNotification({ transaction_id: "original-trade", out_refund_no: "refund_local_001", refund_id: "wechat_refund_001", refund_status: "SUCCESS", amount: { refund: 9900, currency: "USD" } });

@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "bc25bc6a150f7b54cf81175ce00bccd1b184c8c56414588e101649283a59bd8d",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-10-16-069Z/RUNS.json",
+  "final_steps": 29,
+  "cross_process_tests": 194,
+  "targeted_tests": 33,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "channel_close_sent": false,
+  "confirmed": [
+    "Trusted CLOSED plus formal committed expiry evidence can converge UNKNOWN observation",
+    "Missing audit remains unconfirmed; success evidence remains conflict",
+    "Intent money state and registration rights remain unchanged"
+  ],
+  "remaining": [
+    "Active channel-close worker assembly",
+    "Formal business and refund dispatch authority",
+    "Real merchant acceptance"
+  ],
+  "backup": "backups/L04-expired-closure/payment-query-intake.ts"
+}

@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-01T00:58:49.639909+00:00",
+  "files": [
+    {
+      "path": "services/api/src/app.test.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/app.test.ts",
+      "before": "11d114c73588dc8879462bc234163fb7dc3366f649ddce54c78734a8ebd72ed2",
+      "after": "27fbda97d2f2728b93ae00494be90768d704b056f5f75fce0709fd64cd0c0eb5"
+    },
+    {
+      "path": "tests/prelaunch/money-state.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/money-state.test.mjs",
+      "before": "f0d88d9a7cdfe1d524d62634767db830f5d78f7f99fcad1788b653e8e1724375",
+      "after": "6c6bca213c9fedfa671f182bf55e6bd943f2ff336499d9eef375a80e4ba5360c"
+    },
+    {
+      "path": "services/api/src/prelaunch/contracts.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/contracts.ts",
+      "before": "652d14d597176038e6331adcaf8eebc82ac6c341f5d6c5cce24a6bf81780cb4e",
+      "after": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+    },
+    {
+      "path": "services/api/src/prelaunch/policy.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/policy.ts",
+      "before": "bae8f1a7976107f44970bab77fbbd0d774178e97404a92db363d00d4472aced4",
+      "after": "80b936f3eb3f03b72cf0a2834131b807c39af25d3830243f38fd6e6923b37360"
+    },
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/domain.ts",
+      "before": "9531cbb51cbaea4689cbc11a73f9a1731faeecedd5434a4421b643666cac9034",
+      "after": "6f6f3f8ec2fface31f308b1540d4bf439ffc6bbd9e3528fe3be9e91135084233"
+    },
+    {
+      "path": "services/api/src/prelaunch/aftersales.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/aftersales.ts",
+      "before": "1431e9961718ea19f70547df20d99d5116a07304109a7e324ec87af12e0c8492",
+      "after": "2bdb9c5f2d23f92ada378c9bc1197dfb09b91c6b03d69325cb3ce84f303e92e6"
+    },
+    {
+      "path": "services/api/src/prelaunch/reconciliation.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/reconciliation.ts",
+      "before": "0d3bd283a804a6eae5211ef45bc87d4adf682a2f036f063465f908f48a26bff9",
+      "after": "fa4e618c8b1d5b967c5ebed3a9943e92d900fe870fbd014ee260672d9ac95a0b"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/API_REVIEW_FIXES_PLAN/before",
+  "protected_unchanged": 33
+}

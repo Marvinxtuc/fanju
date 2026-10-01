@@ -1,0 +1,22 @@
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/PrelaunchWorkspace.test.tsx[2m [ src/PrelaunchWorkspace.test.tsx ][22m
+[31m[1mError[22m: Failed to resolve import "@timeleft-shanghai/shared" from "src/PrelaunchWorkspace.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops/src/PrelaunchWorkspace.tsx[39m:2:51
+[33m  1  |  import { useEffect, useRef, useState } from "react";
+  2  |  import { fundingLabel } from "@timeleft-shanghai/shared";
+     |                                ^
+  3  |  import { prelaunchClient as api } from "./prelaunch-api.js";
+  4  |  import "./app.css";[39m
+[90m [2m❯[22m TransformPluginContext._formatLog ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m29914:39[22m[39m
+[90m [2m❯[22m TransformPluginContext.error ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m29911:14[22m[39m
+[90m [2m❯[22m normalizeUrl ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m26975:18[22m[39m
+[90m [2m❯[22m ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m27038:30[22m[39m
+[90m [2m❯[22m TransformPluginContext.transform ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m27006:4[22m[39m
+[90m [2m❯[22m EnvironmentPluginContainer.transform ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m29699:14[22m[39m
+[90m [2m❯[22m loadAndTransform ../../../%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@8.1.0_@types+node@26.0.0_esbuild@0.28.1_jiti@2.7.0_less@4.6.7_sass@1.101.0_stylus@0.64.0_terser@5.48.0_tsx@4.22.4/node_modules/vite/dist/node/chunks/node.js:[2m19725:26[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+

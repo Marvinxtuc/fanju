@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "60f724984c6f23b535f808733df7af1b53ce6c4de01f9005dd493452bec01b65",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-48-24-224Z/RUNS.json",
+  "final_steps": 29,
+  "owned_database_tests_including_parent": 5,
+  "api_tests": 303,
+  "cross_process_tests": 184,
+  "releaseAuthorized": false,
+  "refund_sent": false,
+  "real_channel_verified": false,
+  "setup": "LATE_PAYMENT_REFUND_OBLIGATION_SETUP.md",
+  "remaining": [
+    "Formal refund dispatch authority/batch assembly",
+    "Broader formal hold expiry and qualification assembly",
+    "Own user obligation visibility and controlled operational closeout",
+    "Real channel acceptance"
+  ]
+}

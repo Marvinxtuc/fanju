@@ -1,0 +1,26 @@
+{
+  "candidate": "66f2a9fc526d503badca3a9ec03633c66147a23bca9bb0ba710e3d2c1828a1a8",
+  "validation": {
+    "native_tests_including_wrapper": 19,
+    "signed_legacy_callback_tests": 2,
+    "legacy_selection_not_run": 57,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Actual ephemeral loopback HTTP with whitespace-preserving signed encrypted notification reaches owned PostgreSQL",
+    "Tampered body rejected with generic 400 and zero event write",
+    "Valid signed callback acknowledges after trigger/recovery job persistence",
+    "Duplicate raw callback creates one task and returns idempotent response",
+    "Canceled intent stays CLOSED; callback never grants eligibility or directly creates receipt",
+    "Invalid notification errors no longer logged as 500 stack traces"
+  ],
+  "evidence": "evidence/L04-signed-http",
+  "limits": [
+    "Synthetic RSA keys/merchant identities and isolated owned database; not real channel acceptance",
+    "Legacy callback tests deliberately select two cases, other 57 unexecuted in this run",
+    "Current candidate complete regression still pending"
+  ],
+  "rollback": "Restore app.ts and native test from backups/L04-signed-http after inspecting later edits; no schema or production data modified."
+}

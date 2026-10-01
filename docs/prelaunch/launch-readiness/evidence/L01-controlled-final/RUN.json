@@ -1,0 +1,23 @@
+{
+  "command": [
+    "pnpm",
+    "--filter",
+    "@timeleft-shanghai/api",
+    "exec",
+    "vitest",
+    "run",
+    "src/prelaunch/controlled-identity.test.ts",
+    "src/prelaunch/production-identity-routes.test.ts",
+    "src/prelaunch/production-identity.test.ts",
+    "src/prelaunch/principal.test.ts",
+    "src/auth.test.ts"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "observed_at": "2026-10-01T02:46:55.868694+00:00",
+  "scope": "Native Vitest/Fastify JWT boundaries; no real provider calls",
+  "artifacts": {
+    "identity.stdout.log": "ceca71543b76a9c683f1b90c6dd73b146d135c18fd1f5b12c6d4a887e2b55b6a",
+    "identity.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T02:14:36.166028+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/TEST_REPORT.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/document-correction-v11/TEST_REPORT.md",
+      "before": "92ec73819b9886fe696408466f98339836169d10174f457c8fb21a452a659afc",
+      "after": "a7de2204777fb4e970db9fc84de2b1765e75776d59bc0f3e9c4c61490afdd990"
+    },
+    {
+      "path": "docs/prelaunch/RESUME_20261001.md",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/document-correction-v11/RESUME_20261001.md",
+      "before": "94368560d4cb75579da642ffec427b1a8f596e30ec9e68f0355b2ca724d89249",
+      "after": "44f29c7d36f86290e610c87261cc8a77400afca3bc68c234693d39e47f8e8947"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/document-correction-v11/DOCUMENT_CORRECTION_V11_26/before",
+  "protected_unchanged": 33
+}

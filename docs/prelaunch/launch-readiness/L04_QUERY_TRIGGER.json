@@ -1,0 +1,25 @@
+{
+  "candidate": "40033ff1085fc339e9155e890e0c1637a283cb20c1a80d0872c2f4315c0e6e8d",
+  "validation": {
+    "postgres_cases": 13,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-query-trigger",
+  "confirmed": [
+    "Submission ownership and recovery job commit in one transaction before I/O",
+    "20 concurrent claims create one READY recovery job",
+    "Successful handler evidence allows finishJob",
+    "Conflict handler transitions lease to MANUAL with DATA_CONFLICT and financial case",
+    "Mismatched recovery business key rolls back SUBMITTING change"
+  ],
+  "limits": [
+    "30-second scheduling is engineering recovery timing, not official business SLA",
+    "Synthetic channel with owned PostgreSQL; production worker process not executed",
+    "Formal route policy authorization, receipt allocation and refund chain still pending"
+  ],
+  "rollback": "Remove enqueue addition from payment-preparation.ts and only corresponding added native imports/assertions/cases. Preserve prior persistence/lease protections."
+}

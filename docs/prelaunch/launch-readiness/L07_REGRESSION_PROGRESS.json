@@ -1,0 +1,27 @@
+{
+  "candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "status": "PASS_ENGINEERING_ONLY",
+  "steps": 29,
+  "unit_test_counts": {
+    "shared": 226,
+    "api": 317,
+    "miniapp": 36,
+    "ops": 33
+  },
+  "cross_process_tests": 216,
+  "DOM_joint_tests": 18,
+  "confirmed": [
+    "All recorded steps PASS with no candidate drift",
+    "Migration/schema/typecheck/build/copy/secrets pass",
+    "Clean source artifacts built without copying dist/cache",
+    "Legacy worker compatibility passes"
+  ],
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T08-13-04-225Z/RUNS.json",
+  "limits": [
+    "All environments owned synthetic only; no production deployment or current merchant acceptance",
+    "Professional signoff and formal business assembly remain unverified",
+    "Engineering evidence cannot satisfy real-channel/device/environment or formal-policy gates"
+  ],
+  "previous_failures": "Original failed/drifted runs retained separately; not counted as pass",
+  "current_test_expansion": "Legacy references narrowed to observed in-application rows without V11 counterpart,500 parameters per query; exact-plan facts branding and pinned legacy recovery pass alongside actual CLI and SIGKILL matrix."
+}

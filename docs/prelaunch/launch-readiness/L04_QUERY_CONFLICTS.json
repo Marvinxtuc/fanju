@@ -1,0 +1,23 @@
+{
+  "candidate": "72c4b71ef8c59e34ac8c44bf50e1278c64585259cad010bc1cc700ade72c02e9",
+  "validation": {
+    "native_cases": 10,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-query-conflicts",
+  "confirmed": [
+    "Original payment evidence immutable across conflicting paidAt query",
+    "10 concurrent same conflicts produce one MANUAL event and one conflict audit",
+    "Canceled local payment state stays CLOSED; no premature receipt or eligibility grant"
+  ],
+  "limits": [
+    "Synthetic channel responses with real owned PostgreSQL",
+    "MANUAL event still needs formal financial-case UI/processing integration",
+    "No real channel network or production activation"
+  ],
+  "rollback": "Revert only conflict branch and conflict assertions in payment-query-intake.ts and payment-preparation-native.test.mjs."
+}

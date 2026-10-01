@@ -1,0 +1,23 @@
+{
+  "candidate": "de213e5fa6d5ea7f377a84b0a24c271ccefb6e03ab89b55781c2fa66fe620e3c",
+  "validation": {
+    "native_tests_including_parent_wrappers": 23,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-budget",
+  "confirmed": [
+    "Negative, fractional, NaN and infinite refund components reject before reservation",
+    "Idempotency key cannot refer to another receipt or registration",
+    "Existing component budget overrun rejection verified",
+    "Existing aftersales PostgreSQL matrix still passes"
+  ],
+  "limits": [
+    "Same-key desired amount change still requires persisted requested cumulative amounts for precise comparison",
+    "Original mock-only refund guard preserved; real channel not enabled",
+    "No actual refunds or production deploy"
+  ],
+  "rollback": "Restore domain.ts from backups/L04_refund_budget/domain.ts and remove only corresponding added native refund-budget import/case."
+}

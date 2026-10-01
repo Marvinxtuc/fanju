@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:27:38.259999+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/bill-policy-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-bill-policy/tests/prelaunch/bill-policy-native.test.mjs",
+      "before": null,
+      "after": "fafffe49c2706f285ada7dc85849493daabdb2a351908a0c7be118f7450fb539"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_BILL_POLICY_09/before",
+  "protected_unchanged": 33
+}

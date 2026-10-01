@@ -1,0 +1,15 @@
+# 正式渠道任务领取隔离
+
+2026-10-01。claimJob/runOne新增可选ChannelJobScope，SQL领取事务同时约束wechat、merchantScope、providerConfigId及任务引用表。范围只支持V11_CLOSE_EXPIRED_PAYMENT、V11_QUERY_PAYMENT和V11_QUERY_REFUND；缺少显式任务种类或不兼容种类直接拒绝，不能把scope当通用任务过滤器。
+
+关单runtime要求显式binding且由channel.assertBinding复验；生产入口传bindingFor(env,wechat)。独立wechat-query-worker也传相同固定binding。领取前付款/关单关联V11PaymentIntent，退款关联V11RefundInstruction；不匹配或引用不存在的记录不被该worker领取。发送前的binding/租约/业务依据复验继续保留，SQL范围不能代替它。
+
+未传scope的旧worker保持原调用语义，继续由各自kind allowlist控制；不得用未传scope的runOne装配正式关单或查询worker。租约30秒、generation递增、8次预算、SKIP LOCKED并发和MANUAL历史不变。
+
+owned定向14项通过，含并发只领取本商户记录，异商户已过期RUNNING租约的state/owner/until/generation/attempts不变，异配置未消耗预算，付款与退款查询均隔离，非法scope种类拒绝。强杀/SIGTERM矩阵继续通过。无真实商户网络验收。
+
+旧配置版本任务保持原scope/config，不自动迁移或重置；轮换必须保留对应的可信历史配置处理路径或显式核对，不把配置改名当凭据迁移。悬空引用和旧版本积压仍需监控与业务核对，隔离本身不证明这些责任已清偿。
+
+回滚停止正式workers，按backups/L04-close-claim-scope/恢复queue、关单runtime/入口、查询入口对应差异；不要恢复成无限范围领取后直接启动真实worker。保留队列和资金证据，无schema迁移，无生产调用。
+
+兼容性修复：首次完整回归7项旧队列测试失败，因为SQL即使无scope仍解析V1.1表。现改用Prisma.sql/Prisma.empty仅在显式scope时加入关联表条件；旧测试继续只创建DurableJob/FinancialCase，不新增表或弱化隔离。失败证据保留在final-2026-10-01T06-34-04-901Z。

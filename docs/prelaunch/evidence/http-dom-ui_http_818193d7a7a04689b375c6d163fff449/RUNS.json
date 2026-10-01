@@ -1,0 +1,42 @@
+{
+  "candidate_id": "9a4ff7973515d90d4d2db6469af05e864228609dfb27271d4bd52d62a758cd64",
+  "runs": [
+    {
+      "id": "ui_http_818193d7a7a04689b375c6d163fff449-owned-http-react-dom",
+      "category": "FINAL_CANDIDATE",
+      "candidate_id": "9a4ff7973515d90d4d2db6469af05e864228609dfb27271d4bd52d62a758cd64",
+      "source_snapshot_after": "9a4ff7973515d90d4d2db6469af05e864228609dfb27271d4bd52d62a758cd64",
+      "runner": "native",
+      "toolchain": {
+        "node": "v22.23.1",
+        "packageManager": "pnpm@9.15.9"
+      },
+      "command": "[\"pnpm\",\"exec\",\"vitest\",\"run\",\"--config\",\"/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-35-02-058Z/tests/ui/vitest.http-dom.config.mts\",\"--configLoader\",\"native\",\"--no-cache\",\"--reporter=json\",\"--outputFile=/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/http-dom-evidence/ui_http_818193d7a7a04689b375c6d163fff449/vitest.json\"]",
+      "cwd": "/private/tmp/fanju-prelaunch-20261001-b48140fda0c1/clean-build-2026-10-01T06-35-02-058Z",
+      "started_at": "2026-10-01T06:35:49.982Z",
+      "finished_at": "2026-10-01T06:35:51.142Z",
+      "exit_code": 0,
+      "status": "PASS",
+      "source_drift_during_run": false,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0,
+      "artifact_paths": [
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.stdout.log",
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.stderr.log",
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.json"
+      ],
+      "artifact_sha256": {
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.stdout.log": "7a9bba6578cffa7e1942e9779a9c64fd83bd545e80636299b2ec0c1e629ca116",
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "docs/prelaunch/evidence/http-dom-ui_http_818193d7a7a04689b375c6d163fff449/vitest.json": "f45bf1c8fac860091a061ba91daad9324439970a3119cc2d1cdae334bdb6227c"
+      },
+      "stdout_sha256": "7a9bba6578cffa7e1942e9779a9c64fd83bd545e80636299b2ec0c1e629ca116",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "counting_scope": "NESTED_DOM_PROOF_NOT_ADDITIVE_TO_PARENT_NODE_WRAPPER",
+      "counts_toward_final_total": false,
+      "scope": "Owned real HTTP with React DOM/native surface adapters; no native device or actual payment popup"
+    }
+  ]
+}

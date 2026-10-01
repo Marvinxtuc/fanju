@@ -16,7 +16,8 @@
     "@tarojs/runtime": "4.2.0",
     "@tarojs/shared": "4.2.0",
     "@tarojs/taro": "4.2.0",
-    "react": "18.3.1"
+    "react": "18.3.1",
+    "@timeleft-shanghai/shared": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "7.29.7",

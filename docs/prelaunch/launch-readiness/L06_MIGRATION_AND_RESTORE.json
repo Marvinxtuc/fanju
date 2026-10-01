@@ -1,0 +1,27 @@
+{
+  "candidate": "82f12f1fd93ec191e6d63958919d4b2ca8e6ebcc7c12a4126c623feb33e991f8",
+  "scope": "Owned isolated synthetic PostgreSQL only",
+  "validation": {
+    "fresh_deploy": 18,
+    "migration_status": "PASS",
+    "schema_diff": "NO_DIFFERENCE",
+    "backup_restore_tables": 49,
+    "restore_content": "EXACT_COUNTS_AND_ROW_DIGESTS",
+    "restored_schema_diff": "NO_DIFFERENCE",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "migration_evidence": "evidence/migration-2026-10-01T03-24-15-026Z",
+  "restore_evidence": "../evidence/restore-2026-10-01T03-24-20-187Z/RESTORE.json",
+  "restore_schema_evidence": "evidence/L06-full-migration/restored-schema.log",
+  "reproduce": [
+    "node scripts/prelaunch-migration-rehearsal.mjs <owned-scratch>",
+    "node scripts/prelaunch-recovery.mjs <owned-scratch>"
+  ],
+  "limits": [
+    "Fresh install and synthetic backup restore only; populated historical upgrade preservation still requires rehearsal",
+    "No production deployment, credential access, minimum-privilege permission test or capacity evidence",
+    "Business/channel reconciliation and privacy recovery require separate acceptance"
+  ],
+  "rollback": "Remove new rehearsal script before deployment if required. All fresh owned database generations and prior databases preserved; no production schema/data altered."
+}

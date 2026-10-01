@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:07:47.629644+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/finance-fault-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/finance-fault-native.test.mjs",
+      "before": null,
+      "after": "24fd1031d3474ff5c34f45f023a3cbde9a71a84f3413a0748d34e5cd10cc703b"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINANCE_FAULT_PLAN/before",
+  "protected_unchanged": 33
+}

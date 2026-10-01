@@ -1,0 +1,20 @@
+{
+  "candidate": "c08a3b13fbb138c9023ac00276e1aee66fa27241c7a11587923407c94a15924f",
+  "status": "PASS_ENGINEERING_ONLY",
+  "targeted_tests_including_wrapper": 24,
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-03-47-415Z/RUNS.json",
+  "confirmed": [
+    "Changed closure payload is persisted as a separate MANUAL event linked to original",
+    "Original payload/hash/state unchanged when independent changed payload arrives",
+    "Ten concurrent duplicate observations share one conflict event and audit",
+    "Returning to original value cannot clear unresolved MANUAL conflict"
+  ],
+  "limits": [
+    "Owned PostgreSQL and synthetic channel only",
+    "No merchant or production deployment",
+    "No policy activation or formal business-authority result"
+  ],
+  "rollback": "Restore payment-query-intake.ts and native test from backups/L04-closure-conflict; retain financial evidence and query jobs",
+  "final_steps": 28,
+  "cross_process_tests": 141
+}

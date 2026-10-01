@@ -1,0 +1,25 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "owned_database_tests_including_parent": 19,
+  "atomic_page_size": 500,
+  "commit_and_resume_concurrency_verified": true,
+  "fresh_process_resume_verified": true,
+  "immutable_update_rejected": true,
+  "corrupt_checkpoint_event_and_missing_query_rejected": true,
+  "checkpoint_insert_failure_rolls_back_all_page_writes": true,
+  "transaction_retry": "At most three attempts; P2034/P2002 or P2010 with PostgreSQL 40001/40P01 only, including adapter cause originalCode",
+  "migration_rehearsal": "L04_BILL_PAGE_MIGRATION.json",
+  "releaseAuthorized": false,
+  "production_activated": false,
+  "remaining": [
+    "Complete page driver and final conservation aggregation",
+    "Continuous-range compatibility",
+    "SIGKILL recovery and current-candidate 30000-row capacity",
+    "Bounded legacy capture and streamed file processing",
+    "Real merchant acceptance and business decisions"
+  ],
+  "candidate": "53441580e59095c2419afea439aab49e67d02c059d658c76685191041a0f0df9",
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-53-31-358Z/RUNS.json",
+  "full_steps": 29,
+  "cross_process_tests": 210
+}

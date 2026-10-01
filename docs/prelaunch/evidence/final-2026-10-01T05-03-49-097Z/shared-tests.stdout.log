@@ -1,0 +1,236 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/packages/shared[39m
+
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mseparates F/D in one quote and keeps restaurant meal collection direct[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"min":5,"target":4}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"max":9}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"maxTables":0}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"D":900}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"D_MIN":9100,"D_MAX":9000}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrejects invalid supply {"allocationStrategy":"UNLIMITED"}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mdoes not invent missing D_MIN[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mdoes not invent missing D_MAX[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mdoes not invent missing WAITLIST_MAX[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mrequires each party's attestation and never derives restaurant consent from ops[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mnever supplies a missing default F[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: F/D snapshots and supply[2m > [22mvalidates integer cents rather than floats or unsafe totals[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mgrants qualification only for complete F+D before expiry[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mUNKNOWN never counts toward min[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mFAILED never counts toward min[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mPENDING never counts toward min[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mtrusted success at 600000 releases and refunds without reviving[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mtrusted success at 600001 releases and refunds without reviving[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mUNKNOWN releases at the logical deadline while retaining recovery[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mrecords mismatched actual receipts for a full obligation instead of qualification[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mblocks payment crossing T8 before its ten-minute timer expires[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: absolute ten-minute qualification[2m > [22mrejects reverse time or unsafe amounts[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=86400001[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=86400000[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=86399999[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=28800001[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=28800000[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent unformed Δ=28799999[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent formed Δ=86400001 preserves business disposition, no revenue recognition[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent formed Δ=86400000 preserves business disposition, no revenue recognition[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcurrent formed Δ=86399999 preserves business disposition, no revenue recognition[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mexplicit late-formed Δ=28800001[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mexplicit late-formed Δ=28800000[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mexplicit late-formed Δ=28799999[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mthe original acceptedAt controls a delayed review[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mPLATFORM_CANCEL preserves full refunds and distinct compensation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mRESTAURANT_CANCEL preserves full refunds and distinct compensation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mCORE_CHANGE_REJECTED preserves full refunds and distinct compensation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mWAITLIST_EXPIRED establishes full obligation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mFORMATION_FAILED establishes full obligation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mLATE_RECEIPT establishes full obligation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mwaitlist exits refund irrespective of hours or other tables' state[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mnormal restaurant-confirmed fulfillment refunds only D[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mexception D_ONLY permits no invented percentage[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mexception F_AND_D permits no invented percentage[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mmissing category blocks money disposition without losing the request[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mpost-start self cancellation cannot be silently treated as no-show[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22munsafe funding or negative times are rejected[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mcomponent budgets deduct successful and unknown/in-flight refunds[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: cancellation event/time/component matrix[2m > [22mnext-day batches follow Shanghai natural day across UTC midnight[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mreaching min forms immediately below target[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mbelow min invalidates formed history without deleting it[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mT24 still below min finally fails[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22ma T24-failed table never revives even after an apparent later min[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22monly formed-at-T24 history allows direct middle-window recovery[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mT8 stops recruiting and preserves the restaurant decision carrier[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mown formed table reveals name and address immediately before T24[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22minvalidated keeps name, hides address; restore reopens[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mother tables/waitlist/invalid members get no address: {"ownTable":false}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mother tables/waitlist/invalid members get no address: {"membership":"WAITLIST"}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mother tables/waitlist/invalid members get no address: {"memberValid":false}[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mterminal address matrix remains unresolved[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mfinite strategies allocate new FIFO members, preserving already committed tables[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: formation history, own-table access and supply strategy[2m > [22mtarget preference yields to max/maxTables and never loses members[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mexit-first establishes one refund, rejects later promotion[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mpromotion-first grants exactly one seat and later exit is formal cancellation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mstale transaction replay produces no second effect[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mT24 expires remaining qualification and establishes obligation independently of payout[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mpromotion never continues into the post-T24 window[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22munpaid waitlist never gains eligibility[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22madmission limit=null[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22madmission limit=0[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22madmission limit=2[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22madmission limit=3[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: paid waitlist race and limits[2m > [22mconcurrent exposure and unsettled prior refunds stay OP08[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22mminimal synthetic eligibility has no time-preference requirement[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22mspecial accommodation is refused before charging without sensitive details[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22munresolved adult/adaptation/new registration during closure are isolated[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22maccount closure accepts requests while preserving unsettled responsibilities[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22ma restaurant change refusal preserves full obligation and unspecified extra compensation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22mreal delivery definition never becomes approved merely by a timestamp[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business scaffolding with explicit unresolved operational gates[2m > [22ma final reviewer must be a different person, not just another account[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only[2m > [22mINITIAL_EXPLANATION has its own 48h clock[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only[2m > [22mFINAL_REVIEW_APPLICATION has its own 48h clock[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: explicit synthetic delivery/deadline inputs only[2m > [22monly synthetic configured restaurant deadline turns no response into a refund[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mscan and missing confirmation do not create refund or user violation[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mnormal confirmation creates only D next Shanghai day, not completed refund[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mrestaurant abnormal marker creates review without immediate deductions[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22ma restaurant result lacking confirmation cannot be forged from the scan[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mspecial denial restores original cancellation rights without moving its time[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mmember-removal timing stays explicitly OP04[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mapproved business: confirmation, rejection and preserved request[2m > [22mexact T24 payment cannot invent its joining classification[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: queue authority remains explicit[2m > [22ma lawful new request goes to the new tail and never regains old priority[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: queue authority remains explicit[2m > [22mreal ordering clock remains blocked[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: queue authority remains explicit[2m > [22mexpired queue rebooking remains OP08 and does not revive the queue[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchBusiness.test.ts[2m > [22mPROPOSAL_HARNESS: queue authority remains explicit[2m > [22mnew reentry sequence cannot claim an old sequence[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22maccepts the complete imported bundle as valid integrity, with all 104 rules, 15 OP and 7 RV[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: USER_AGREEMENT[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: PRIVACY_NOTICE[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing user body: REFUND_POLICY[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a declared body hash inconsistent with its full text[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects changed full text even when the original declared hash is retained[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects edited text with a newly recomputed candidate hash instead of trusting candidate expectations[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not normalize full text or line endings before hashing[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a baseline hash inconsistent with the pinned approved input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects edited baseline bytes with a candidate-supplied matching hash[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mismatched baseline document ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing Rule ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicate Rule IDs even with exactly 104 entries[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects unknown Rule IDs even with exactly 104 entries[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22maccepts reordered complete identities without sorting or changing input[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing OP[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a missing RV[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects an OP forged as Approved[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects an RV forged as Approved[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicated and unknown OP identities[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicated and unknown RV identities[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed top-level bundle version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed top-level bundle ID[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a user body from a different bundle[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed user-body bundle version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed document version[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a mixed document ID despite correct body bytes[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects duplicate and unknown user-body identities[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mkeeps REBASED_DRAFT not activatable even when every text/hash is correct[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a forged non-draft bundle status[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects a forged non-draft body status[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mcannot forge approval by passing approved=true or approvalEvidence[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects nested approval claims instead of accepting a new trust source[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not inherit a legacy Gate PASS[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not inherit a legacy single AgreementPolicy[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not let candidates supply their own trusted manifest[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mreturns only fixed codes, fields, indexes and pinned missing IDs, never secret or user data[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mis deterministic and does not mutate deeply frozen valid input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mdoes not mutate deeply frozen invalid input[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #0[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #1[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #2[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #3[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #4[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed top-level input #5[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects malformed or oversized collections and invalid text types[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects candidate getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects ruleIds array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects documents array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects openDecisions array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects specialReviews array index getters without invoking them[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/policyBundle.test.ts[2m > [22mWP10-A pinned local policy bundle validator[2m > [22mrejects sparse arrays and non-JSON array properties[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mverifies frozen complete source and exact public bodies, always NOT_ACTIVATABLE[32m 4[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects malformed outer input without echoing it[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects malformed outer input without echoing it[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects malformed outer input without echoing it[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects malformed outer input without echoing it[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects missing body[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects duplicate body[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects source tamper[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects source hash[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects public hash[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects baseline bytes[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects baseline ID[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects baseline digest[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects manifest bytes[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects missing rule[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects duplicate rule[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects unknown rule[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects missing OP[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects duplicate OP[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects missing RV[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects duplicate RV[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects OP forged approval[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects RV forged approval[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects document version mixing[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects document ID mixing[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects document bundle mixing[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects bundle version mixing[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects approved true[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects old Gate PASS[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects old AgreementPolicy[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mrejects pretend activated[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mnever returns the candidate body, unknown ID, exception text or fake secret[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mV1.1 integrity, separate from business/legal/release authority[2m > [22mno Node crypto, DB, environment or fetch dependency is browser-exported[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mextracts only literal public slice and retains exact newlines[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mrejects malformed/internal region[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchPolicy.test.ts[2m > [22mpublic-body extraction and acceptance evidence[2m > [22mcaptured three-text explicit confirmation is draft evidence, never approval[32m 2[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrequires explicit login and makes no request without a session[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mlogs in without accepting a client-provided role[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrejects a legacy response[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mclears only the matching expired session[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrejects an old response after the account changes without clearing the new session[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mretains recoverable context after network interruption[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22maccepts 202 as pending rather than inventing channel success[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mreports policy blockers without reflecting untrusted private fields[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrejects invalid paths //outside before network access[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrejects invalid paths /../secret before network access[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mrejects invalid paths /orders#secret before network access[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mformats both components without calling retained deposit accounting income[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mprelaunch versioned client[2m > [22mnever echoes unknown error text[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mcomplete cursor recovery[2m > [22mkeeps financial rows beyond the first 100 without depending on UI counts[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mcomplete cursor recovery[2m > [22mrejects a repeating cursor rather than hanging or silently truncating[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mshows order clocks in the Shanghai calendar rather than the browser timezone[32m 9[2mms[22m[39m
+ [32m✓[39m src/rules/prelaunchClient.test.ts[2m > [22mnever combines paginated personal rows when login changes between page promises[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mforbidden visible copy[2m > [22mallows restaurant-experience copy[32m 1[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mforbidden visible copy[2m > [22mfinds forbidden positioning words[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity status[2m > [22mallows publish flow and hides drafts[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity status[2m > [22mrejects terminal transitions[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22morder status[2m > [22mallows payment success once[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22morder status[2m > [22mrejects paying closed orders[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mtable formation[2m > [22mforms a standard six-person table[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mtable formation[2m > [22msplits nine people into two valid tables[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mtable formation[2m > [22mdoes not form with three people[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity info visibility[2m > [22mshows only basic info before grouping[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity info visibility[2m > [22mshows restaurant after grouping before T-24[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity info visibility[2m > [22mshows address at T-24 for valid grouped users[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mactivity info visibility[2m > [22mdoes not show info to refunded users[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mrefund decisions[2m > [22mauto-refunds group failures[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mrefund decisions[2m > [22mrequires ops review before T-24[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mrefund decisions[2m > [22mrequires ops review within T-24[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mpricing[2m > [22muses service fee as the order amount[32m 0[2mms[22m[39m
+ [32m✓[39m src/rules/shared.test.ts[2m > [22mpricing[2m > [22mrejects invalid service fee amounts[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[32m226 passed[39m[22m[90m (226)[39m
+[2m   Start at [22m 13:03:57
+[2m   Duration [22m 706ms[2m (transform 66ms, setup 0ms, import 107ms, tests 102ms, environment 0ms)[22m
+
+JSON report written to /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/docs/prelaunch/evidence/final-2026-10-01T05-03-49-097Z/shared-tests.json

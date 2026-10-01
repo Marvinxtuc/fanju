@@ -1,0 +1,6 @@
+
+> @timeleft-shanghai/miniapp@0.0.0 typecheck /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/miniapp
+> tsc -p tsconfig.json --noEmit
+
+src/app.config.ts(14,9): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+ ELIFECYCLE  Command failed with exit code 2.

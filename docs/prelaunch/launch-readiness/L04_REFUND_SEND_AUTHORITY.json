@@ -1,0 +1,21 @@
+{
+  "candidate": "20ffe4a54d8f6154e1477cf1503139e467f7d0c6808d548249d6a4a175d21841",
+  "validation": {
+    "native_tests_including_wrapper": 15,
+    "api_build_typecheck": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-send-authority",
+  "confirmed": [
+    "Formal dispatch authorizer reruns immediately before refund submission",
+    "Current SUBMITTING state/version and original instruction identity rechecked before send",
+    "Synthetic mid-flight authority revocation prevents network send; reservation and query recovery retained"
+  ],
+  "limits": [
+    "Synthetic authorizer and transport; production authority and merchant acceptance remain pending",
+    "Guard defines final authorization boundary; it cannot revoke a network request already sent"
+  ],
+  "backups": "backups/L04-refund-send-authority",
+  "rollback": "Restore only refund-dispatch.ts and payment-preparation-native.test.mjs from listed backups after inspecting later edits; no schema or production data modified."
+}

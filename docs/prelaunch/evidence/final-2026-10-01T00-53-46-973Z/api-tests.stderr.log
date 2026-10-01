@@ -1,0 +1,22 @@
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/app.test.ts[2m > [22mapi mock MVP flow[2m > [22mpaginates more than one hundred mixed-state orders and activities without truncating seat totals
+[31m[1mAssertionError[22m: expected 156 to be 151 // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 151[39m
+[31m+ 156[39m
+
+[36m [2m❯[22m src/app.test.ts:[2m1138:39[22m[39m
+    [90m1136|[39m         const response = await app.inject({ method: "GET", url: `${pat…
+    [90m1137|[39m         expect(response.statusCode).toBe(200);
+    [90m1138|[39m         expect(response.json().total).toBe(151);
+    [90m   |[39m                                       [31m^[39m
+    [90m1139|[39m         rows.push(...response.json()[field]); after = response.json().…
+    [90m1140|[39m       } while (after);
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+

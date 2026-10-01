@@ -1,0 +1,29 @@
+{
+  "candidate": "770a964031ba30bdd2913625db74ce89930524d0674acc7f9ecb4dfc099a0b6b",
+  "files": [
+    "services/api/src/prelaunch/payment-query-intake.ts",
+    "tests/prelaunch/payment-preparation-native.test.mjs"
+  ],
+  "validation": {
+    "postgres_cases": 10,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-query-intake",
+  "confirmed": [
+    "Canceled registration and CLOSED local intent do not discard trusted SUCCEEDED query",
+    "10 concurrent queries create one RECEIVED event and one audit",
+    "Channel paidAt is distinct from verifiedAt",
+    "Intake does not confirm eligibility or create ChannelReceipt before application"
+  ],
+  "limits": [
+    "Synthetic channel response plus actual owned PostgreSQL; no real channel call",
+    "Query verification provenance currently stores provider config ID, not archived raw signed response",
+    "Event conflict durability and financial exception processing pending",
+    "No formal receipt application or production worker integration"
+  ],
+  "rollback": "Remove new intake module and only its native test import/case; preserve all earlier test cases and unrelated changes."
+}

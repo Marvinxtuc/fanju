@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:42:53.613044+00:00",
+  "files": [
+    {
+      "path": "docs/prelaunch/analysis/API_SCENARIO_SOURCE_REVIEW_CURRENT.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/API_SCENARIO_SOURCE_REVIEW_CURRENT.json",
+      "before": null,
+      "after": "5e2fa5728d3e0f4cd3644f045240b51899707fe699959d805379621e73e7ef29"
+    },
+    {
+      "path": "docs/prelaunch/analysis/UI_RULE_SEMANTIC_COVERAGE.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-review/UI_RULE_SEMANTIC_COVERAGE.json",
+      "before": null,
+      "after": "4004cd9d3b9ba73d3e9b16737251702abde4a3774bfba0d6f56ddc7cec160b04"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_SEMANTIC_REVIEW_21/before",
+  "protected_unchanged": 33
+}

@@ -1,0 +1,278 @@
+{
+  "goal": "满足上线条件",
+  "status": "ACTIVE",
+  "baseline_candidate": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "user_inputs": {
+    "2026-10-01": "用户最新纠正：主体、商户之前均已准备好。覆盖此前合并问题的“尚未准备”回复；部署平台/域名当前状态单独待核。"
+  },
+  "gates": [
+    {
+      "id": "OP-03",
+      "status": "OPEN",
+      "description": "实际金额、收费主体、账户和票据未定；真实收费关闭",
+      "evidence": null
+    },
+    {
+      "id": "OP-04",
+      "status": "OPEN",
+      "description": "成员减少生效时点未定；保留申请时刻与待处理效果，不依据退款状态推断移除",
+      "evidence": null
+    },
+    {
+      "id": "OP-05",
+      "status": "OPEN",
+      "description": "FIFO时钟、截止支付与新客类别残余参数未定；不得作为生产默认",
+      "evidence": null
+    },
+    {
+      "id": "OP-07",
+      "status": "OPEN",
+      "description": "最低继续人数、失联及反复退人条件未定；相关收费准入关闭",
+      "evidence": null
+    },
+    {
+      "id": "OP-08",
+      "status": "OPEN",
+      "description": "在途支付、重复资格与敞口交集未定；不得无限付费候补",
+      "evidence": null
+    },
+    {
+      "id": "OP-09",
+      "status": "OPEN",
+      "description": "新旧T、其他变更超时和补偿范围未定；不得代替用户选择",
+      "evidence": null
+    },
+    {
+      "id": "OP-10",
+      "status": "OPEN",
+      "description": "真实采集字段、材料和保留范围尚未定案；不引入健康档案",
+      "evidence": null
+    },
+    {
+      "id": "OP-11",
+      "status": "OPEN",
+      "description": "正式批次、补证、审核SLA与自动义务审批未定",
+      "evidence": null
+    },
+    {
+      "id": "OP-12",
+      "status": "OPEN",
+      "description": "当晚跨日、最长失联和补录标准未定",
+      "evidence": null
+    },
+    {
+      "id": "OP-13",
+      "status": "OPEN",
+      "description": "正式送达含义、默认违约前提、通知字段与客服受理尚未定案",
+      "evidence": null
+    },
+    {
+      "id": "OP-14",
+      "status": "OPEN",
+      "description": "真实账户、渠道、周期和翻案垫付主体未定；不得支付真实餐厅",
+      "evidence": null
+    },
+    {
+      "id": "OP-15",
+      "status": "OPEN",
+      "description": "注销中新报名、撤回、终态地址与保留期限未决；不默认改变权益",
+      "evidence": null
+    },
+    {
+      "id": "RV-01",
+      "status": "OPEN",
+      "description": "保证金性质与成团扣留专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-02",
+      "status": "OPEN",
+      "description": "默认违约与送达专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-03",
+      "status": "OPEN",
+      "description": "低人数例外专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-04",
+      "status": "OPEN",
+      "description": "性别与成年信息最小化专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-05",
+      "status": "OPEN",
+      "description": "敏感材料专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-06",
+      "status": "OPEN",
+      "description": "收付与结算专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "RV-07",
+      "status": "OPEN",
+      "description": "披露与保障专项真实角色签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "EXT-01",
+      "status": "USER_CONFIRMED_PREPARED_PENDING_CAPABILITY_CHECK",
+      "description": "用户确认小程序主体已准备；认证/类目/隐私及能力状态待当前核验，不再列为主体未准备",
+      "evidence": null
+    },
+    {
+      "id": "EXT-02",
+      "status": "USER_CONFIRMED_PREPARED_PENDING_CAPABILITY_CHECK",
+      "description": "用户确认商户已准备；现有账号支付/退款权限、凭据注入和账户绑定待当前核验，不再列为商户未准备",
+      "evidence": null
+    },
+    {
+      "id": "EXT-03",
+      "status": "OPEN",
+      "description": "部署平台/域名/备案/TLS/数据库当前状态待核，不依据之前合并回答推断未准备",
+      "evidence": null
+    },
+    {
+      "id": "ENG-01",
+      "status": "OPEN",
+      "description": "正式USER及受控OPS/REVIEWER/RESTAURANT身份适配已实现并有工程验证；正式业务授权与业务入口尚未全部装配",
+      "evidence": null
+    },
+    {
+      "id": "ENG-02",
+      "status": "OPEN",
+      "description": "真实预下单、可信通知/查询、收款组件、退款恢复及本地义务查询枚举已实现并通过工程回归；完整商户账单反向核对和正式退款执行进程仍未完成",
+      "evidence": null
+    },
+    {
+      "id": "ENG-03",
+      "status": "OPEN",
+      "description": "政策材料完整性校验与独立不可变归档、草稿同意证据复验已实现；正式运行快照/同意来源/授权、真实通知和客户端业务入口尚未完成",
+      "evidence": null
+    },
+    {
+      "id": "QA-01",
+      "status": "OPEN",
+      "description": "历史WECHAT_INTEGRATION_PLAN记录M3.1.1-B真实身份联调通过；当前V1.1适配后真实身份及真机链路仍需验证",
+      "evidence": null
+    },
+    {
+      "id": "QA-02",
+      "status": "OPEN",
+      "description": "受限真实支付退款及渠道对账未运行",
+      "evidence": null
+    },
+    {
+      "id": "OPS-01",
+      "status": "OPEN",
+      "description": "真实餐厅确认/客服渠道/专项签收尚未提供",
+      "evidence": null
+    },
+    {
+      "id": "REL-01",
+      "status": "OPEN",
+      "description": "生产备份恢复、告警、灰度回滚与最终环境验收未运行",
+      "evidence": null
+    }
+  ],
+  "next_task": "L04_CHANNEL_ADAPTER_AND_FORMAL_BUSINESS_ASSEMBLY",
+  "production_ready": false,
+  "deployed": false,
+  "confirmed_business_operator": "上海闻演信息技术服务有限公司（冻结业务基线Q01）",
+  "historical_capability_record": "docs/prelaunch/launch-readiness/HISTORICAL_CAPABILITIES.md",
+  "working_candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "implementation_progress": {
+    "L01": "PARTIAL: formal identity routes, user binding, dedicated controlled role sessions implemented and tested; client/business production adapter pending",
+    "L03": "PARTIAL: formal own money/accepted refund page mounted with session fencing, unknown-response idempotent retry and latest application recovery; formal registration/payment business UI still pending.",
+    "L04": "IN_PROGRESS: internal authorized refund dispatcher queries immutable number, commits SUBMITTING+recovery before I/O, verifies original payment and fences immediately before POST; UNKNOWN never resends. 23 native tests incl wrappers +40 provider/channel tests PASS. Formal dispatcher process/authority and real acceptance pending.",
+    "L07_ENGINEERING_REGRESSION": "29 synthetic engineering steps PASS without source drift; shared226, API317, miniapp36, ops33, cross-process208, DOM18. Persistent minimal financial snapshot, cross-process restore and new migration included. Dedicated owned up/down/rebuild rehearsal also PASS. Real acceptance pending.",
+    "L04_BILL": "PARTIAL: trusted ALL bill acquisition, strict CSV/summary, bidirectional recorded funds comparison, trusted refund-period comparison and explicit contiguous range inspection implemented. Durable daily range recovery supports bounded new-day runs and SIGTERM/SIGINT drain. Differences retain cases and queries without funds writes. Single-day 32MiB/100000-row limit, large-file processing/recovery, legacy coverage, difference closure, production readiness assembly and real merchant acceptance remain incomplete.",
+    "L04_REFUND_TIME": "PARTIAL: trusted query and independently verified notification completion times retained without monetary hash changes. Shared lock, cross-source conflict cases and exact corroboration checks implemented; bill period consumes consistent evidence. Real merchant acceptance pending.",
+    "L04_REFUND_PERIOD": "PARTIAL: exact trusted-query time evidence verified and consumed by bill snapshots; local confirmed refunds absent/conflicting in correct CN day detected, missing/conflicting time stays unresolved; midnight upper boundary excluded. Overall coverage remains INCOMPLETE; consecutive periods, large-file resume, legacy domain, case closeout and real acceptance pending.",
+    "L04_BILL_RANGE": "PARTIAL: contiguous range inspection plus sequential trusted acquisition implemented. Durable range identity fixes dates/binding/owner/release, retains failed-day audit, and resumes committed snapshots. Overall INCOMPLETE; large-file resume, discrepancy closure and production readiness integration pending.",
+    "L06_FINANCIAL_MONITOR": "PARTIAL: readonly DB-global V11 counts, explicit thresholds, exact-release query heartbeat and unavailable-vs-alert CLI implemented. Native no-write/count/scope checks pass. Production scheduler, routing, recipients and alert rehearsal pending.",
+    "L06_FORMAL_CLIENT_BUILD": "PARTIAL: separate clean formal client artifacts pin HTTPS origin and disable demo/preview. Generated ops branch and absence of miniapp preview route verified without network using synthetic origin. Actual domain and formal business/device/deployment acceptance pending.",
+    "L04_LATE_REFUND_OBLIGATION": "PARTIAL: frozen DR01-04 formal late full F+D obligation independently recorded from exact trusted payment evidence, preserving receipts and qualification. Released-expired hold followed by later confirmation is covered even with earlier paidAt. Cases/audit idempotent; no monetary dispatch. Formal execution and broader qualification/expiry assembly pending.",
+    "L03_REFUND_OBLIGATION_VIEW": "PARTIAL: formal owned funds read validates recorded late-refund evidence and exposes original due/confirmed/remainder plus separate execution stages. Evidence conflicts do not hide recorded money. Existing session fences preserved. Controlled ops closeout, formal execution and real device acceptance pending.",
+    "L01_FORMAL_HOLD_EXPIRY": "PARTIAL: formal bound unpaid holds expire atomically using DB clock, preserving UNKNOWN and rights conflicts; original payment query and audit persisted. Eight owned tests pass. Real channel closure and production readiness assembly pending.",
+    "L04_EXPIRED_CLOSURE": "PARTIAL: trusted CLOSED observation converges for formally expired UNKNOWN intents only with matching committed expiry, audit and query task, without qualification or money conflict. No channel close I/O or money state mutation. Active close worker pending.",
+    "L04_CLOSE_SEND_FENCE": "PARTIAL: formal channel requires closure send authority, rechecks after pending query and forwards it to provider for final signed HTTP check. Missing/revoked authority blocks POST. Durable active closure worker remains pending.",
+    "L04_FORMAL_PAYMENT_CLOSE": "PARTIAL: durable close/query assembly and 12-state coverage implemented; historical task sweep implemented with shared authority. Child-process fault matrix, production readiness/alerts and real merchant acceptance pending.",
+    "L04_CLOSE_SWEEP": "PARTIAL: explicit bound historical close-task sweep uses shared expiry authority, atomic pages of 50, stable task identities and review cases for missing evidence. Repeated scan preserves DONE/MANUAL retry history. No channel I/O. Production scheduling and acceptance pending.",
+    "L04_CLOSE_PROCESS": "PARTIAL: shared runtime child-process recovery, SIGTERM and retry-cap checks pass with explicit bound claims. Production readiness/alerts and real acceptance pending.",
+    "L04_CHANNEL_CLAIM_SCOPE": "PARTIAL: explicit bound close and payment/refund query claims match referenced channel/scope/config before consuming attempts. Foreign/other-config expired leases preserved, concurrent scope claim tested, legacy no-scope queue SQL excludes V11 tables. Production acceptance pending.",
+    "L06_BOUND_HEARTBEATS": "PARTIAL: exact channel/scope/config mode and same release/fresh nonfuture DB clock required. Enabled close/expiry flags add mandatory bound heartbeat modes despite custom list. Generic/wrong-config/missing/stale/future/wrong-release HTTP503 and matching200 verified. Production routing/process acceptance pending.",
+    "L03_CONTROLLED_OBLIGATIONS": "PARTIAL: controlled read-only bound case endpoint and evidence-conflict observation implemented. Prior 29-step regression PASS; expanded dedicated-login HTTP matrix 16 targeted PASS including ordinary token denial, caller scope/oversized cursor denial, version mismatch403 and disabled account401. Expanded full regression running. Ops UI and real acceptance pending.",
+    "L04_BILL_DOWNLOAD_RECOVERY": "PARTIAL: optional repository-external 0700/0600 complete-file cache, atomic durable save, fresh signed metadata and exact hash verification on recovery implemented and tested across fresh processes. Default off, no tokens persisted. Single-day size/row limits, streamed parsing and resumable comparison, retention policy and real acceptance remain unresolved.",
+    "L04_BILL_CAPACITY": "Historical pre-page core rejected30000 rows with P2028. Paged candidate bbe811caa4194af75ae338cc3917ef9c0f6de502f8d50694d3f3b59c7d0b1821 completed30000 rows/8198359 bytes in63428ms with60 pages and one final audit. Current CLI candidate has not repeated this workload; previous measured evidence retained. Not production capacity.",
+    "L04_BILL_COMPARISON_CORE": "PARTIAL: shared core and verified persistent facts now support atomic page checkpoints. Full batch driver and final aggregate/range completeness remain pending.",
+    "L04_BILL_FACT_SNAPSHOT": "PARTIAL: immutable database snapshot fixes task identity/source/scope/config/owner/release and stores minimal facts with derived refund times. Concurrent capture and fresh-process recovery tested; later records do not enter snapshot; legacy/new UUID overlap denied. Migration up/down/rebuild tested in fresh owned database. Atomic page checkpoints/final aggregation not implemented.",
+    "L04_BILL_PAGE_CHECKPOINT": "PARTIAL: atomic immutable 500-row comparison pages commit observations/cases/query-only jobs with checksum and evidence references. Concurrent and fresh-process resume, corruption rejection and insert-failure rollback pass. Full 29-step regression passes with 210 process tests. Full page driver/final aggregation/range compatibility/SIGKILL and high-volume capacity remain pending.",
+    "L04_BILL_PAGE_FINAL": "PARTIAL: full pinned-page driver, conservation aggregate, v4 final audit and actual persistent evidence validation in day/range recovery pass29-step regression with212 process tests. Current30000-row unmatched-payment workload commits60 pages in63428ms. Production CLI assembly, SIGKILL matrix, matched payment/refund capacity and real acceptance remain pending.",
+    "L04_BILL_CLI_PAGES": "PARTIAL: actual daily/range CLI now defaults new runs to pinned atomic pages; only committed v3 may replay legacy. Unknown/ambiguous versions and paged errors never fall back. Real SIGKILL before insert rolls back page; after commit preserves page; fresh processes complete both. 24 targeted and29 full regression steps with215 process tests PASS. Matched payment/refund capacity, bounded legacy references, streamed processing, real channel/business acceptance remain pending.",
+    "L04_BILL_LEGACY_SCOPE": "PARTIAL: Payment/Refund legacy capture now queries only current in-app observed unmatched V11 numbers in batches500, excluding unrelated and other-app history. Facts bind to exact verified plan; stored snapshot retains necessary legacy matches after later DB changes. 25 targeted and29 full regression steps with216 process tests PASS. Complete V11 facts retained for reverse/time-unknown coverage; streaming and matched workload capacity remain open.",
+    "L04_BILL_MATCHED_CAPACITY": "Engineering measurement: current candidate10000 matched payments plus1000 confirmed refunds with trusted completion time;11000 bill rows/3516923 bytes,9702582-byte fact snapshot,44 pages complete in26741ms,248ms actual persistent recovery check. Zero differences,11000 unique query jobs,one final audit. Individual payment/receipt/refund field fingerprints unchanged (amounts,states,IDs,times,bindings). Owned synthetic only, not merchant acceptance."
+  },
+  "incremental_evidence": {
+    "L06_migration_restore": "L06_MIGRATION_AND_RESTORE.json",
+    "L06_populated_upgrade": "L06_POPULATED_UPGRADE.json",
+    "L08_gate_evidence": "L08_GATE_EVIDENCE.json",
+    "L04_payment_send_qualification": "L04_PAYMENT_SEND_QUALIFICATION.json",
+    "L04_prepay_resume": "L04_PREPAY_RESUME.json",
+    "L07_regression": "L07_REGRESSION_PROGRESS.json",
+    "L04_notification_trigger": "L04_NOTIFICATION_TRIGGER.json",
+    "L04_signed_http": "L04_SIGNED_HTTP.json",
+    "L04_refund_notification": "L04_REFUND_NOTIFICATION.json",
+    "L04_notification_recovery": "L04_NOTIFICATION_RECOVERY.json",
+    "L04_refund_process_crash": "L04_REFUND_PROCESS_CRASH.json",
+    "L04_automatic_takeover": "L04_AUTOMATIC_TAKEOVER.json",
+    "L06_query_readiness": "L06_QUERY_READINESS.json",
+    "L04_refund_intake": "L04_REFUND_INTAKE.json",
+    "L03_money_ui": "L03_MONEY_UI.json",
+    "L04_trade_bill_download": "L04_TRADE_BILL_DOWNLOAD.json",
+    "L04_bill_comparison": "L04_BILL_COMPARISON.json",
+    "L04_refund_time": "L04_REFUND_TIME.json",
+    "L04_refund_period": "L04_REFUND_PERIOD.json",
+    "L04_bill_range": "L04_BILL_RANGE.json",
+    "L04_bill_range_run": "L04_BILL_RANGE_RUN.json",
+    "L04_refund_notification_time": "L04_REFUND_NOTIFICATION_TIME.json",
+    "L06_financial_monitor": "L06_FINANCIAL_MONITOR.json",
+    "L06_formal_client_build": "L06_FORMAL_CLIENT_BUILD.json",
+    "L04_late_refund_obligation": "L04_LATE_REFUND_OBLIGATION.json",
+    "L03_refund_obligation_view": "L03_REFUND_OBLIGATION_VIEW.json",
+    "L01_formal_hold_expiry": "L01_FORMAL_HOLD_EXPIRY.json",
+    "L04_expired_closure": "L04_EXPIRED_CLOSURE.json",
+    "L04_close_send_fence": "L04_CLOSE_SEND_FENCE.json",
+    "L04_formal_payment_close": "L04_FORMAL_PAYMENT_CLOSE.json",
+    "L04_close_state_coverage": "L04_CLOSE_STATE_COVERAGE.json",
+    "L04_close_sweep": "L04_CLOSE_SWEEP.json",
+    "L04_close_process": "L04_CLOSE_PROCESS.json",
+    "L04_channel_claim_scope": "L04_CHANNEL_CLAIM_SCOPE.json",
+    "L06_bound_heartbeats": "L06_BOUND_HEARTBEATS.json",
+    "L03_controlled_obligations": "L03_CONTROLLED_OBLIGATIONS.json",
+    "controlled_obligations_ui": "docs/prelaunch/evidence/final-2026-10-01T06-58-50-483Z/RUNS.json",
+    "bill_range_paging": "docs/prelaunch/evidence/final-2026-10-01T07-03-05-465Z/RUNS.json",
+    "L04_bill_range_drain": "L04_BILL_RANGE_DRAIN.json",
+    "L04_bill_download_recovery": "L04_BILL_DOWNLOAD_RECOVERY.json",
+    "L04_bill_capacity": "L04_BILL_CAPACITY_MEASUREMENT.json",
+    "L04_bill_capacity_boundary": "L04_BILL_CAPACITY_BOUNDARY.json",
+    "L04_bill_comparison_core": "L04_BILL_COMPARISON_CORE.json",
+    "L04_bill_core_capacity": "L04_BILL_CORE_CAPACITY.json",
+    "L04_bill_fact_snapshot": "L04_BILL_FACT_SNAPSHOT.json",
+    "L04_bill_snapshot_migration": "L04_BILL_SNAPSHOT_MIGRATION.json",
+    "L04_bill_page_checkpoint": "L04_BILL_PAGE_CHECKPOINT.json",
+    "L04_bill_page_migration": "L04_BILL_PAGE_MIGRATION.json",
+    "L04_bill_page_final": "L04_BILL_PAGE_FINAL.json",
+    "L04_bill_page_capacity": "L04_BILL_PAGE_CAPACITY.json",
+    "L04_bill_cli_pages": "L04_BILL_CLI_PAGES.json",
+    "L04_bill_legacy_scope": "L04_BILL_LEGACY_SCOPE.json",
+    "L04_bill_matched_capacity": "L04_BILL_MATCHED_CAPACITY.json"
+  },
+  "current_policy_input_audit": "docs/prelaunch/launch-readiness/CURRENT_POLICY_INPUT_AUDIT.md"
+}

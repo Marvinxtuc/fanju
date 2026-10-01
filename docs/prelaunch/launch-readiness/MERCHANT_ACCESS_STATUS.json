@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-01",
+  "subject_merchant_status": "USER_CONFIRMED_PREPARED",
+  "browser_inventory": "No existing WeChat merchant tab in current Chrome inventory",
+  "attempted_url": "https://pay.weixin.qq.com/",
+  "outcome": "BROWSER_SITE_SAFETY_BLOCK",
+  "details": "Site-safety policy prohibited browser access. No login, merchant read, permission prompt, or auto-review attempted. No workaround attempted.",
+  "remaining": "Current merchant binding, payment/refund capabilities and credential injection unverified",
+  "engineering_progress": "L04_REFUND_SEND_AUTHORITY.json",
+  "local_configuration_inventory": {
+    "date": "2026-10-01",
+    "scope": "Key names only; no values output or copied",
+    "identity_file_exists": true,
+    "permissions": "0600",
+    "payment_key_names_in_identity_file": false,
+    "conclusion": "Identity configuration located; merchant payment credential location remains unverified. Does not contradict user-confirmed prepared merchant."
+  },
+  "historical_path_search": {
+    "date": "2026-10-01",
+    "scope": "Codex session history path references; configuration values were not printed",
+    "candidate_paths": [
+      "/Users/marvin.x/.config/fanju/wechat-pay.env",
+      "/Users/marvin.x/.config/fanju/wechat-payment.env"
+    ],
+    "references_months": [
+      "2026-07",
+      "2026-08",
+      "2026-09"
+    ],
+    "current_files_found": false,
+    "conclusion": "Historical path references do not prove current credential placement. Subject and merchant remain USER_CONFIRMED_PREPARED."
+  },
+  "historical_note_recheck": {
+    "source": "Obsidian 项目/饭局.md:167",
+    "result": "Historical recommended wechat-pay.env path confirmed; current file absent. This is not evidence merchant is unprepared.",
+    "credentials_exposed": false
+  },
+  "platform_preparation_history_recheck": {
+    "date": "2026-10-01",
+    "privacy_notice": "HISTORICAL_USER_CONFIRMED_UPDATED",
+    "source": "2026-07-20 session:4767",
+    "subject_documents": "File names located; contents not extracted",
+    "current_certification_category_merchant_binding": "UNVERIFIED",
+    "miniapp_backend_access": "BROWSER_SITE_SAFETY_BLOCK",
+    "subject_merchant_status": "USER_CONFIRMED_PREPARED"
+  }
+}

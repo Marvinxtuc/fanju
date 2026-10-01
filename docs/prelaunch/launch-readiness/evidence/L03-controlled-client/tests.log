@@ -1,0 +1,13 @@
+
+> @timeleft-shanghai/ops@0.0.0 test /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops
+> vitest run src/ControlledIdentityWorkspace.test.tsx src/controlled-identity-api.test.ts
+
+
+ RUN  v4.1.9 /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops
+
+
+ Test Files  2 passed (2)
+      Tests  15 passed (15)
+   Start at  10:53:18
+   Duration  317ms (transform 33ms, setup 0ms, import 63ms, tests 28ms, environment 167ms)
+

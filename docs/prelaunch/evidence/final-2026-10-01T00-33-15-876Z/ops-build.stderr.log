@@ -1,0 +1,17 @@
+[31m[vite]: Rollup failed to resolve import "@timeleft-shanghai/shared" from "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops/src/prelaunch-api.ts".
+This is most likely unintended because it can break your application at runtime.
+If you do want to externalize this module explicitly add it to
+`build.rollupOptions.external`[39m
+[31merror during build:
+Error: [vite]: Rollup failed to resolve import "@timeleft-shanghai/shared" from "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops/src/prelaunch-api.ts".
+This is most likely unintended because it can break your application at runtime.
+If you do want to externalize this module explicitly add it to
+`build.rollupOptions.external`
+    at viteWarn (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@4.5.14_@types+node@26.0.0_less@4.6.7_lightningcss@1.32.0_sass@1.101.0_stylus@0.64.0_terser@5.48.0/node_modules/vite/dist/node/chunks/dep-827b23df.js:48272:27)
+    at onRollupWarning (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@4.5.14_@types+node@26.0.0_less@4.6.7_lightningcss@1.32.0_sass@1.101.0_stylus@0.64.0_terser@5.48.0/node_modules/vite/dist/node/chunks/dep-827b23df.js:48304:9)
+    at onwarn (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/vite@4.5.14_@types+node@26.0.0_less@4.6.7_lightningcss@1.32.0_sass@1.101.0_stylus@0.64.0_terser@5.48.0/node_modules/vite/dist/node/chunks/dep-827b23df.js:48032:13)
+    at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/rollup@3.30.0/node_modules/rollup/dist/es/shared/node-entry.js:24305:13
+    at Object.logger [as onLog] (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/rollup@3.30.0/node_modules/rollup/dist/es/shared/node-entry.js:25979:9)
+    at ModuleLoader.handleInvalidResolvedId (file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/rollup@3.30.0/node_modules/rollup/dist/es/shared/node-entry.js:24891:26)
+    at file:///Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/%E9%A5%AD%E5%B1%80/node_modules/.pnpm/rollup@3.30.0/node_modules/rollup/dist/es/shared/node-entry.js:24851:26
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)[39m

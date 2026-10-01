@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T01:03:45.476538+00:00",
+  "files": [
+    {
+      "path": "scripts/prelaunch-generate-reports.py",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-report/scripts/prelaunch-generate-reports.py",
+      "before": null,
+      "after": "395a16c59a808524bf77b60a2d57236f5dd53944212b7bd376f5f8ddf4f8319c"
+    },
+    {
+      "path": "scripts/prelaunch-report-content.json",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-report/scripts/prelaunch-report-content.json",
+      "before": null,
+      "after": "3f72daaf146c13949fa289833872910cdf3aa0e4c0785b31210812ff1c4012aa"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/REPORT_TOOLS_PLAN/before",
+  "protected_unchanged": 33
+}

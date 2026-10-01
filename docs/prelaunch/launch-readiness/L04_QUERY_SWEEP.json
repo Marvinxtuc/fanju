@@ -1,0 +1,30 @@
+{
+  "candidate": "8bfca0be6540faf66e7e8352d9034c2f3e53e0895d7d611f877fcfd5f9739080",
+  "status": "PASS_ENGINEERING_ONLY",
+  "entry": "node services/api/dist/prelaunch/wechat-query-sweep-cli.js <run UUID>",
+  "confirmed": [
+    "Owned PostgreSQL targeted test: transactionally queues both bound inventories",
+    "Includes inactive/CLOSED payments and CONFIRMED refunds",
+    "Ten concurrent same-run calls create one audit and one query per obligation",
+    "Replay rejects changed binding, owner and release",
+    "Audit failure rolls back newly inserted jobs",
+    "Zero-record inventory remains INCOMPLETE"
+  ],
+  "latest_regression_evidence": "docs/prelaunch/evidence/final-2026-10-01T03-57-09-970Z/RUNS.json",
+  "limits": [
+    "No real merchant execution",
+    "Scheduling counts are not channel reconciliation success",
+    "Complete channel statement reverse coverage remains absent",
+    "Existing unconfirmed queries continue retry/manual escalation"
+  ],
+  "rollback": "Remove two newly added sweep modules; restore native test from backups/L04-query-sweep/payment-preparation-native.test.mjs. Preserve existing query jobs and financial records.",
+  "validation": {
+    "final_steps": 28,
+    "cross_process_tests": 139,
+    "native_preparation_tests_including_wrapper": 22,
+    "api_typecheck": "PASS",
+    "build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  }
+}

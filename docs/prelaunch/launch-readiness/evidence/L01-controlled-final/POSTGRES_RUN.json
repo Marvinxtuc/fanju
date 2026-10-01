@@ -1,0 +1,15 @@
+{
+  "command": [
+    "node",
+    "/tmp/fanju-prelaunch-resume-drafts/targeted-native.mjs",
+    "tests/prelaunch/production-identity-native.test.mjs",
+    "tests/prelaunch/aftersales-process.test.mjs"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "Owned synthetic PostgreSQL; identity uses Fastify injection; aftersales uses native HTTP; no real WeChat/channel calls",
+  "artifacts": {
+    "postgres.stdout.log": "44025e102782932e79e65a1cb4bea8b4b00e19b779af6beddf687e2d8eeae712",
+    "postgres.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

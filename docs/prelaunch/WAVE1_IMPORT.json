@@ -1,0 +1,168 @@
+{
+  "at": "2026-10-01T00:32:28.533889+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/domain.ts",
+      "expectedOriginalSha256": "b1f40aa62b528ca8d85e4a967430c82113eec137d780fc9d1609f947f31eb923",
+      "draftSha256": "d5536f766792aa15c37330800a44cdb328129ed6a7c148f323fb9c2972c7d27b"
+    },
+    {
+      "path": "services/api/src/prelaunch/policy.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/policy.ts",
+      "expectedOriginalSha256": "122ca113de882e14cef6affd4c5e58237d66f1cab64d028e775e8db8c1337f58",
+      "draftSha256": "bae8f1a7976107f44970bab77fbbd0d774178e97404a92db363d00d4472aced4"
+    },
+    {
+      "path": "services/api/src/prelaunch/routes.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/routes.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "b6ea29dc4685ce9ebac5294428cb4d626682050fae503300095bd93a128a2107"
+    },
+    {
+      "path": "services/api/src/prelaunch/server.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/server.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "34c5fceb441bef9941a8e96e27b6cfb5082c7a67831a49f789dc9708b30794da"
+    },
+    {
+      "path": "services/api/src/prelaunch/worker.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/worker.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "dae906d823709de55338e79bf5fc9222bad43d3b6e93f168305220e4ce30777d"
+    },
+    {
+      "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+      "draft": "wave1-files/apps/miniapp/src/pages/prelaunch/index.tsx",
+      "expectedOriginalSha256": "231fd66650657754300f355c4d6237fb7ffc4035c526ad4494a69d15e820dc63",
+      "draftSha256": "3645d4bc07b42db18b442d53f7451d2f30a76130229f7a23a5bdca744be990f9"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.tsx",
+      "draft": "wave1-files/apps/ops/src/PrelaunchWorkspace.tsx",
+      "expectedOriginalSha256": "399d770d0645d0ccf8c14edd084f250ffc405e1aaf26fda623403c863a411cab",
+      "draftSha256": "b9c56660719601e885a9a955bbc8dd50b5030712b0819cfbea5b5f9071cf2e8a"
+    },
+    {
+      "path": "apps/ops/src/prelaunch-time.ts",
+      "draft": "wave1-files/apps/ops/src/prelaunch-time.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "59f840123f298b0b1abf2d9a95699423f581ecf437604f7dd65131438d9af6e8"
+    },
+    {
+      "path": "apps/ops/src/prelaunch-time.test.ts",
+      "draft": "wave1-files/apps/ops/src/prelaunch-time.test.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "dca533503497cd34bfed9c4eaedb1bc239d86b02f2a161d9d2d7633e12bef6a7"
+    },
+    {
+      "path": "apps/ops/src/PrelaunchWorkspace.test.tsx",
+      "draft": "wave1-files/apps/ops/src/PrelaunchWorkspace.test.tsx",
+      "expectedOriginalSha256": null,
+      "draftSha256": "f163027aa1352287e9ce37971a916dc3df6c5b35893c2d21b8bfbf9ded65bc2f"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.ts",
+      "draft": "wave1-files/packages/shared/src/rules/prelaunchClient.ts",
+      "expectedOriginalSha256": "2c2cbcb5c0705abd83a4e751343c055788c44bd06b838515c2a45701c73b4ffe",
+      "draftSha256": "852b0b1b99af1437d441c578ae5b5459bf1c4a46731560758acb55383f7b7b82"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.test.ts",
+      "draft": "wave1-files/packages/shared/src/rules/prelaunchClient.test.ts",
+      "expectedOriginalSha256": "583a16c4966db8f43055a583d2f5c8f18e1fb65ee7056fe07338f26c205105b8",
+      "draftSha256": "d1a8c1bef77edf4c66b48d5ada0fa02acf171a55d6656d95649d32cfc5c9b093"
+    },
+    {
+      "path": "tests/ui/miniapp-prelaunch.test.tsx",
+      "draft": "wave1-files/tests/ui/miniapp-prelaunch.test.tsx",
+      "expectedOriginalSha256": null,
+      "draftSha256": "0ba20b4b60a4999199a3164b364aebb0a1103e49cdd793f6a4739907f8f9d54c"
+    },
+    {
+      "path": "services/api/src/prelaunch/aftersales.ts",
+      "draft": "wave1-files/services/api/src/prelaunch/aftersales.ts",
+      "expectedOriginalSha256": null,
+      "draftSha256": "1431e9961718ea19f70547df20d99d5116a07304109a7e324ec87af12e0c8492"
+    },
+    {
+      "path": "scripts/prelaunch-clean-build.mjs",
+      "draft": "wave1-files/scripts/prelaunch-clean-build.mjs",
+      "expectedOriginalSha256": null,
+      "draftSha256": "bacbce4b423a2531d9d4a8ebc3250fc6127fcaa797976cebd96e44f586dfbf2d"
+    },
+    {
+      "path": "scripts/prelaunch-candidate-hash.mjs",
+      "draft": "wave1-files/scripts/prelaunch-candidate-hash.mjs",
+      "expectedOriginalSha256": "b1c9e4d76605c331d7a95ecc247dddaa804b1182f530824289dfb41c2730255b",
+      "draftSha256": "e2986b048088d7f624d7ee740f99f5a7f3892dac8518972b588e18de3382236f"
+    },
+    {
+      "path": "scripts/prelaunch-recovery.mjs",
+      "draft": "wave1-files/scripts/prelaunch-recovery.mjs",
+      "expectedOriginalSha256": null,
+      "draftSha256": "f784d54533bbcad9fbf5a6766963df0fb2a2283759e5d19d503ae2db5395d7b8"
+    },
+    {
+      "path": "scripts/prelaunch-owned-env.mjs",
+      "draft": "wave1-files/scripts/prelaunch-owned-env.mjs",
+      "expectedOriginalSha256": "1c709933560fb47fbaec41df40be49dbd7cf595f8a0d8ee218d8f85cda93c414",
+      "draftSha256": "546b5131ab33cb8394fc0863cc69415eb0492eb940c57689f4ef035c8a4bee64"
+    },
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "draft": "wave1-files/scripts/prelaunch-final-verify.mjs",
+      "expectedOriginalSha256": null,
+      "draftSha256": "caed695c3b7fbbe5932a6426eadbe986845ba202d4377cfa07c85a8f05b775c4"
+    },
+    {
+      "path": "scripts/prelaunch-package.py",
+      "draft": "wave1-files/scripts/prelaunch-package.py",
+      "expectedOriginalSha256": null,
+      "draftSha256": "2b8add9bf8f4f9af8a54d45a07d9554714885e8a485f057c217bff9ab1273b05"
+    },
+    {
+      "path": "tests/prelaunch/aftersales-process.test.mjs",
+      "draft": "wave1-files/tests/prelaunch/aftersales-process.test.mjs",
+      "expectedOriginalSha256": null,
+      "draftSha256": "c11038a08ec7104b51423d406459eb333c56bbdceeb175b69748c4d7865b8b41"
+    }
+  ],
+  "protected_hashes": {
+    "docs/policy/BUSINESS_RULES_BASELINE.md": "38f06f87684d2aee70dd8853391085af22da399cbdd5e2771b26ba54925376ec",
+    "docs/policy/CODEX_NEXT_TASK.md": "68973dcfc9946633a0b5fcc0769ece3e8c00067be1a12878d3c3035861bdbaad",
+    "docs/policy/CONSISTENCY_REPORT.md": "0a3f7aeb862154e9f4a701f12744df1bff53dce5b4325bf8855ec57cc6bb0d9e",
+    "docs/policy/OPEN_DECISION_REVIEW.md": "7e1b177698826d117a64c8d2de7552db287e79bde32f998150786d648a422965",
+    "docs/policy/POLICY_DECISION_PROPOSALS.md": "80d398e572d2821088589f467a76ec1b6d1d0180b73b79fd41b1a15be5b47dde",
+    "docs/policy/POLICY_GAP_ANALYSIS.md": "dab681614df0f91201b6cbedba631eab894b9b3614220e2351897b4598f528b6",
+    "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md": "41ca1f220f61ec8ddbb83ce8809be088a8944787e0276c6742f6044f1b654505",
+    "docs/policy/POLICY_REBASE_CHANGELOG.md": "540b4b407f5d239edd9823a053bd780f8b81f97d4046665f21a44ffcd34f5ae5",
+    "docs/policy/POLICY_REBASE_V1_1_CHANGELOG.md": "0548ac0a7d9472326e475990e75de64ecaf5423b09672f9764a5c73044f1d7aa",
+    "docs/policy/POLICY_TECH_DESIGN.md": "899b43dcae7d519810c1f73520c49df311aec82dc533ff5339c941f29ce0e002",
+    "docs/policy/POLICY_V1_1_BUNDLE_MANIFEST.json": "64b0f33a18ee98095b838dab0271b6974e93a29f065fba8d356c9de164f0c8c9",
+    "docs/policy/POLICY_V1_1_CONSISTENCY_REPORT.md": "9f0e0a0b57c23676ffa34433e13bd327132d7bd096f0e4670ad427c68346c058",
+    "docs/policy/POLICY_WORK_PACKAGES.md": "fb5ec4dde5b44c89a3c0cccc40002508e03955296ee8270ba15c36194c854b09",
+    "docs/policy/PRIVACY_NOTICE.md": "2d7a4b00404a07fed3b27f2526718224b58c3ec5e4027146ee4e8e8847ec7b40",
+    "docs/policy/README.md": "f85c36facadfeb527661fd22b1be03013a0237f81355facc321204979d7e4516",
+    "docs/policy/REFUND_POLICY.md": "c5b1207fde76a3d853df4eaac56b58ca8bdad5e2f20cb3f0d539071b7c4003d7",
+    "docs/policy/RESTAURANT_SERVICE_STANDARD.md": "9b7b679f0669e08cdcaa5a1b0a6ac882534592da17fca3e7136f3d1a3eec1761",
+    "docs/policy/SHA256SUMS_V1_1.txt": "c2982d2c7f0af730c544f8893da1e110d675b2652fff0ae540a22dfe36465435",
+    "docs/policy/TRACEABILITY_INDEX.json": "5b60aecc60afd049a48be1630726277bb25254741b7e1bb01d384450941073f0",
+    "docs/policy/USER_AGREEMENT.md": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+    "docs/policy/WP10_A1_REVIEW.md": "9e48adcc56b73a2a34ce3938a79cee49766dbdd86b02f4d77c04a356fbe0882d",
+    "docs/policy/WP10_A_REVIEW.md": "4c82799d332b824f20d92c725992b71639f6a84938cbb7f3bc4562d2b9e05810",
+    "docs/policy/sources/FJ_DR01_DR02_DECISION_FREEZE_V1_1_INPUT.md": "0268f125663f3a31f9ebb0c8c49870bb2f3df9d47776e2c54439f162b1508743",
+    "docs/policy/sources/REFERENCE_NOTES.md": "e1b0a6f5643f0b245257e8074301b72810de758d151bed36d0ad563495e8f129",
+    "docs/policy/sources/fanju_policy_cto_checklist_2026-09-30.md": "45d488d8f7a618a3df4924057e06250e6fa8d6b49af955008a7d2a9d9236200d",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/BUSINESS_RULES_BASELINE.md": "48357a92e9d84e816f84948149363834746c3cfd9d1936df228c7ae280f0c187",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/PRIVACY_NOTICE.md": "ecf1a9ffbe7a54b71c9291cacb36d12e0d6b47657cf6b9386789c9b1cb5fe912",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/REFUND_POLICY.md": "4fddec3eb1a3a74f1de94d49385ef8d1c5f1ea16c7f14293b5526fa1daf8e93e",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/SHA256SUMS": "56550ec2ce795315250fda8b9147781d45f5e7b6c78c4c7afb8a2210fad1e7f4",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/TRACEABILITY_INDEX.json": "f7792323105aad37b4f9fc20c7054657f7dbf458488d91c06dfaf6961be34dba",
+    "packages/shared/src/rules/__fixtures__/policy-v1.0/USER_AGREEMENT.md": "daa90ce2e21e5b421c7b1a5303fe5a2a0b7e0245e131d0d748ac990b9b935599",
+    "packages/shared/src/rules/policyBundle.test.ts": "5a9b4a327a02666cc912665950cc5b6be5b2064227044e2d3299af78fa44f58c",
+    "packages/shared/src/rules/policyBundle.ts": "ce5fa6c69555de62adba71c32efcfaf07a588358ec659fa2c695a8e034086ada"
+  },
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/wave1-before",
+  "production_authorized": false
+}

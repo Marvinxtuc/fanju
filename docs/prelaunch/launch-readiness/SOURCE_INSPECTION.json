@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-01",
+  "method": "read-only source/document inspection; no real network calls",
+  "facts": [
+    "运营主体已在冻结基线确认",
+    "用户确认主体和商户此前准备完成",
+    "项目文档记录真实身份历史主路径通过",
+    "当前V1.1仍是独立模拟入口",
+    "商户配置能力和部署状态待实时核验"
+  ],
+  "files": [
+    {
+      "path": "docs/WECHAT_INTEGRATION_PLAN.md",
+      "sha256": "0de09a68bcba8a11068a4450a7c4d8f4872502fcc961314e18afd1732a65fdab"
+    },
+    {
+      "path": "docs/PROJECT_CONTEXT.md",
+      "sha256": "734ddc064a42d1861d3aa44c5f8beae4840eac42344dcddc9245e69959cdc4b4"
+    },
+    {
+      "path": "docs/policy/BUSINESS_RULES_BASELINE.md",
+      "sha256": "38f06f87684d2aee70dd8853391085af22da399cbdd5e2771b26ba54925376ec"
+    },
+    {
+      "path": "services/api/src/prelaunch/contracts.ts",
+      "sha256": "9b3146ddc1e817e39b5d33856ac2cac1415f9a7c7f50991dcfa8ed85e7bed2ed"
+    },
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "sha256": "4b8fcead4610f2928e6bcc782acad1b75c4f84106d10146356a41a35208c4315"
+    },
+    {
+      "path": "services/api/src/prelaunch/routes.ts",
+      "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261"
+    },
+    {
+      "path": "apps/miniapp/src/prelaunch-api.ts",
+      "sha256": "7ff3a0c03da2946f89b0813be0abd0115cb4a2620c075bcff53698365c6f6c45"
+    }
+  ]
+}

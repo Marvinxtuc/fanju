@@ -1,0 +1,26 @@
+{
+  "candidate": "4758f08eb175a938ef1010bc48fcca6e2232a34705cc3f91453445fe09878cfb",
+  "validation": {
+    "postgres_cases": 13,
+    "parent_wrapper": 1,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-allocation",
+  "confirmed": [
+    "Unique receipt binding and exactly two F/D fund components under concurrent retries",
+    "F+D original amounts equal immutable receipt total",
+    "Conflicting amounts and orphan components refuse silent repair",
+    "Distinct extra trade recorded as EXTRA",
+    "Canceled registration remains canceled after ledger allocation",
+    "Query handler now calls allocator after receipt posting"
+  ],
+  "limits": [
+    "Monetary allocation does not apply policy, grant seats or submit refunds",
+    "No actual WeChat channel call",
+    "Formal qualification/refund obligation processor and deployment acceptance pending"
+  ],
+  "rollback": "Remove receipt-allocation.ts and handler allocator call; remove only corresponding native allocation assertions/import. Preserve recorded receipts and fund facts in any applied database."
+}

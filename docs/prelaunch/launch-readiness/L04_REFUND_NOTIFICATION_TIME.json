@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "43487d93f0bcbfc04db8c775dbaa563097e022e326f80a677174e3e823093d72",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-27-35-774Z/RUNS.json",
+  "final_steps": 28,
+  "unit_tests": 14,
+  "owned_time_tests_including_parent": 7,
+  "api_tests": 300,
+  "cross_process_tests": 177,
+  "coverageState": "INCOMPLETE",
+  "releaseAuthorized": false,
+  "real_merchant_verified": false,
+  "setup": "REFUND_NOTIFICATION_TIME_SETUP.md",
+  "confirmed": [
+    "Signed optional success_time parsed; missing remains unknown",
+    "Independent notification time does not confirm money",
+    "Query and notification share lock and retain cross-source conflicts",
+    "Bill period consumes notification fallback or exact corroboration"
+  ],
+  "rollback_backup": "backups/L04-refund-notification-time"
+}

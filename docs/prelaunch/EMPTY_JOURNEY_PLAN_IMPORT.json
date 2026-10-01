@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-01T01:09:57.554240+00:00",
+  "files": [
+    {
+      "path": "scripts/prelaunch-owned-env.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-empty/scripts/prelaunch-owned-env.mjs",
+      "before": "38950e93450ff1e49015e1e0d7cc32e47a3fcaaece5b168210054b606d3bfdb5",
+      "after": "7a74644c0d366450231452b43f2abf5dede59525e66e209f18ffbe49a09c17be"
+    },
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-empty/scripts/prelaunch-final-verify.mjs",
+      "before": "cc65c91e651b273848df35e3a7377f1289ce418016dbc10ed6b6e2b38fb9fd4a",
+      "after": "584ed8b3937ecbbac46ce1fa5e21901d7ff01d0b4eba2fa8effffeec64b65e07"
+    },
+    {
+      "path": "tests/prelaunch/http-journey-recovery.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-empty/tests/prelaunch/http-journey-recovery.test.mjs",
+      "before": "0ef67ce837ad33c57e680a63fe99f797b216a4aa1d3e29dccf14165c286387bb",
+      "after": "f364afe6b1295e45d436d82155ea94e9341d43954a0687e196991819f30dd754"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/EMPTY_JOURNEY_PLAN/before",
+  "protected_unchanged": 33
+}

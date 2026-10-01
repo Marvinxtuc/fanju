@@ -1,0 +1,27 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "scope": "REQUESTED_RANGE_AUDIT_INSPECTION_ONLY",
+  "page_size": 250,
+  "snapshot_isolation": "RepeatableRead",
+  "transaction_timeout_ms": 30000,
+  "retained_latest_rows_max": 366,
+  "unit_tests": 10,
+  "owned_database_tests_including_parent": 14,
+  "verified_database_page_sizes": [
+    250,
+    250,
+    1
+  ],
+  "coverageState": "INCOMPLETE",
+  "releaseAuthorized": false,
+  "funds_writes": false,
+  "current_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T07-03-05-465Z/RUNS.json",
+  "remaining": [
+    "Large-file download and comparison recovery",
+    "Difference closure authority and evidence",
+    "Production readiness assembly",
+    "Real merchant acceptance"
+  ],
+  "candidate": "0a9e107f19759c2705c6a45192b11675f618b9716e8fd1d86411bd0148fb2bec",
+  "full_steps": 29
+}

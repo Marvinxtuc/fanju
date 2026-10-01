@@ -1,0 +1,9 @@
+
+> @timeleft-shanghai/ops@0.0.0 build /Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/apps/ops
+> NODE_ENV=production vite build
+
+[36mvite v4.5.14 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 5 modules transformed.
+[32m✓ built in 476ms[39m
+ ELIFECYCLE  Command failed with exit code 1.

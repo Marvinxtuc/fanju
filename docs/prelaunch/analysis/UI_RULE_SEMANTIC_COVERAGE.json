@@ -1,0 +1,696 @@
+{
+  "candidate_id": "c7aac17812c1b7708f3397638451533f423898315f558e5a864b04475f08e699",
+  "reviewer": "ui_coverage",
+  "review_kind": "INDEPENDENT_SOURCE_SEMANTIC_REVIEW",
+  "rules": [
+    {
+      "id": "BAS-01",
+      "title": "产品定位",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "用户活动组织/报名/排桌/履约/售后展示，无关系匹配卖点",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 33,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "提供本地餐厅体验活动的组织",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "用户正文表达餐厅体验定位"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "申请正式席位",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "活动席位操作"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 1,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "同桌性别期待",
+          "assertion_kind": "ABSENT_IN_FILE",
+          "semantic_meaning": "没有同桌性别期待用户选项"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BAS-02",
+      "title": "地域",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "上海首发说明；并未实现或宣称完整多城市运营",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 33,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "首发服务区域为上海市",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "公共草案明确上海首发"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "USR-05",
+      "title": "政策告知",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "付款前显示全文/哈希版本/报价/锁位/候补条件并保存三文确认，订单报名引用policyId consentId",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "services/api/src/prelaunch/policy.ts",
+          "line": 21,
+          "sha256": "80b936f3eb3f03b72cf0a2834131b807c39af25d3830243f38fd6e6923b37360",
+          "assertion": "publicText: body.text",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "公共正文来自hash验证的当前冻结文本PUBLIC边界，不自行编造政策"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 86,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "documentHashes: Object.fromEntries",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "三文版本hash确认"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 66,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "policyId: policy.policyId, consentId",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "报名保存适用policy/consent"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 65,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "请先阅读并确认三份文本",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "用户确认前置"
+        }
+      ],
+      "exact_dom_titles": [
+        "retains blocked applications without fabricating a payable registration"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "USR-06",
+      "title": "时间偏好用途",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "保存偏好只做全页稳定优先展示和OPS内部匿名需求统计，其他活动保留、空偏好原序",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 46,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "rows.map((activity,index)",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "全部分页收集后稳定优先排序"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 82,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "不限制报名、付款或排桌",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "时间偏好非准入告知"
+        },
+        {
+          "path": "apps/ops/src/PrelaunchWorkspace.tsx",
+          "line": 78,
+          "sha256": "688416c1f751a062de640deb46399f3b0ee7469d6327132213d02c66f8365c06",
+          "assertion": "合成开局时间需求",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "内部匿名需求面板"
+        },
+        {
+          "path": "services/api/src/prelaunch/routes.ts",
+          "line": 53,
+          "sha256": "6741c5a7e7dc190cc6f0aed239eda07400be6da0d3fbfc22dbba319ab72a8261",
+          "assertion": "app.get(base+'/ops/time-demand'",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "仅OPS/REVIEWER的availableTimes聚合"
+        }
+      ],
+      "exact_dom_titles": [
+        "places preferred activities first across collected pages, preserving equal-priority order and every other activity",
+        "empty preferences retain server ordering and do not remove or disable activities"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "USR-10",
+      "title": "对外表达",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "没有同桌性别选项/比例承诺，不扩大排除法定救济",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 42,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "不承诺特定比例",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "公共正文明确软参考非比例承诺"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 1,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "同桌性别期待",
+          "assertion_kind": "ABSENT_IN_FILE",
+          "semantic_meaning": "用户组件无期待选项"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "VEN-02",
+      "title": "预计消费",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "活动展示已批准供给预计人均区间；正文说明仅参考、直接向餐厅结算非硬上限",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "预计到店餐费：",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "活动卡显示餐厅供给区间"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 53,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "该区间仅供参考，不是最终收费上限",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "预计区间语义"
+        },
+        {
+          "path": "packages/shared/src/rules/prelaunchClient.ts",
+          "line": 85,
+          "sha256": "23ba592e6beb2104fafdb28895a0da77b0a0b95daa4311a967d996b6097d991c",
+          "assertion": "餐费到店自理",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "平台F+D与餐费边界"
+        }
+      ],
+      "exact_dom_titles": [
+        "shows total F+D excluding estimated restaurant meal cost"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "VEN-03",
+      "title": "额外收费",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "已知fixedFees逐项付款前展示；正文禁止单方临时加费，核心变更明确同意",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "a.fixedFees?.map",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "逐项已确认固定费"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 55,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "餐厅或平台不得单方临时增加",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "额外收费边界"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 95,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "明确接受新安排",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "核心变更明确答复"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "WL-02",
+      "title": "付款前明确说明",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "付费候补与正式席位分按钮；全文含自动转正/T24/未转正退出全退；不把付款请求说成成团",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "申请付费候补",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "独立候补按钮"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 67,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "尚未形成成功收款事实",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "报名不伪装付款成功"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 88,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "T-24h前有合法席位时",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "FIFO自动转正说明"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 90,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "只要仍处候补状态",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "未转正退出/到期全退说明"
+        }
+      ],
+      "exact_dom_titles": [
+        "retains blocked applications without fabricating a payable registration"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "OPS-02",
+      "title": "退款语义区分",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "申请/审核/批次/未知/已确认分别显示服务端state；UNKNOWN及WAITING_BATCH不写到账",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 91,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "WAITING_BATCH 表示等待发起批次",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "明确退款进度语义"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/REFUND_POLICY.md",
+          "line": 89,
+          "sha256": "c5b1207fde76a3d853df4eaac56b58ca8bdad5e2f20cb3f0d539071b7c4003d7",
+          "assertion": "申请受理、审核通过、待批次",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "草案完整状态语义"
+        }
+      ],
+      "exact_dom_titles": [
+        "WAITING_BATCH and UNKNOWN remain distinct from refunded or money-arrived facts",
+        "shows component refund UNKNOWN instead of claiming arrival"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-06",
+      "title": "同桌性别期待",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "不提供期待选项，不公开内部均衡保证",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 42,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "不提供您对同桌性别的期待选项",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "公共正文无期待保证"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 1,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "同桌性别期待",
+          "assertion_kind": "ABSENT_IN_FILE",
+          "semantic_meaning": "用户组件无期待选项"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-09",
+      "title": "付费金额展示",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "F、D、F+D独立展示，预计M另列不纳入平台收款",
+      "source_refs": [
+        {
+          "path": "packages/shared/src/rules/prelaunchClient.ts",
+          "line": 85,
+          "sha256": "23ba592e6beb2104fafdb28895a0da77b0a0b95daa4311a967d996b6097d991c",
+          "assertion": "合计 ¥",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "F+D函数求和"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "预计到店餐费：",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "M独立另列"
+        },
+        {
+          "path": "tests/ui/miniapp-prelaunch.test.tsx",
+          "line": 46,
+          "sha256": "ce2114220971f60dbc24249e8610282ba6cd8cd1e140e97fe2aba2d265d9b54c",
+          "assertion": "shows total F+D excluding estimated restaurant meal cost",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "DOM精确金额断言"
+        }
+      ],
+      "exact_dom_titles": [
+        "shows total F+D excluding estimated restaurant meal cost"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-10",
+      "title": "自主点单超预计",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "公共正文明确参考区间非最终收费上限；无现场点单金额硬上限逻辑",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 53,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "该区间仅供参考，不是最终收费上限",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "参考消费边界"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-11",
+      "title": "餐厅新增固定费",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "用户可读核心变更条件，明确同意/拒绝全退按钮；仅展示边界，实际核心变更判断由独立API证据补",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 167,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "新增固定收费",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "核心条件需同意"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 95,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "拒绝新安排并申请全退",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "拒绝变更非普通取消"
+        }
+      ],
+      "exact_dom_titles": [
+        "sends strict change rejection without substituting ordinary cancellation"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-51",
+      "title": "自主点菜与新增固定费区分",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "公共正文明确两事件不同，额外费逐项与预计M分别展示",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 167,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "现场自主点菜超预计预算与餐厅主动变更不是同一事件",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "两种事件不能混用"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 87,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "a.fixedFees?.map",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "预计消费与固定费分别渲染"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-52",
+      "title": "客服",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "只显示小程序客服10-22/无固定首响/本地未接通，回复不改变受理时钟，无虚假電話或企微入口",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 78,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "客服说明",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "实际静态客服说明完整段"
+        },
+        {
+          "path": "docs/policy/USER_AGREEMENT.md",
+          "line": 37,
+          "sha256": "68c4823f2650ccd6afb7ad722c9235043c89d965aeadcd8f8218c04e451ddbc2",
+          "assertion": "首发客服为",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "公共草案客服条件"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-54",
+      "title": "退款展示",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "WAITING_BATCH/UNKNOWN服务端进度不声称退款成功或到账",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 91,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "均不代表退款已到账",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "退款进度明确语义"
+        },
+        {
+          "path": "tests/ui/miniapp-prelaunch.test.tsx",
+          "line": 47,
+          "sha256": "ce2114220971f60dbc24249e8610282ba6cd8cd1e140e97fe2aba2d265d9b54c",
+          "assertion": "WAITING_BATCH and UNKNOWN remain distinct",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "DOM非到账断言"
+        },
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        }
+      ],
+      "exact_dom_titles": [
+        "WAITING_BATCH and UNKNOWN remain distinct from refunded or money-arrived facts"
+      ],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    },
+    {
+      "id": "BR-AT-55",
+      "title": "退款渠道",
+      "semantic_coverage_status": "PASS_LOCAL_SOURCE_REVIEW",
+      "scope": "公共草案默认原路退/客观不可用人工异常/不以券余额替应退现金，组件无强行替代选项",
+      "source_refs": [
+        {
+          "path": "apps/miniapp/src/pages/prelaunch/index.tsx",
+          "line": 85,
+          "sha256": "769ffa48c43cc6c11d66821f64d3e08ee952d9581db00002c9d35b46eac2e92b",
+          "assertion": "<Text selectable>{doc.publicText}</Text>",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "完整逐字显示服务端版本化三份public draft正文，不能用API全suite代替展示检查"
+        },
+        {
+          "path": "docs/policy/REFUND_POLICY.md",
+          "line": 37,
+          "sha256": "c5b1207fde76a3d853df4eaac56b58ca8bdad5e2f20cb3f0d539071b7c4003d7",
+          "assertion": "原则上均原支付渠道原路退回",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "原渠道与人工异常处理"
+        },
+        {
+          "path": "docs/policy/REFUND_POLICY.md",
+          "line": 37,
+          "sha256": "c5b1207fde76a3d853df4eaac56b58ca8bdad5e2f20cb3f0d539071b7c4003d7",
+          "assertion": "不以券或平台余额替代应退现金",
+          "assertion_kind": "EXACT_SUBSTRING_AT_LINE",
+          "semantic_meaning": "拒绝强制替代"
+        }
+      ],
+      "exact_dom_titles": [],
+      "remaining_engineering_gap_in_reviewed_scope": null,
+      "external_or_policy_limits": [
+        "仅owned本地合成分支/草案展示；非正式政策批准、真实渠道或微信真机可用性证明"
+      ]
+    }
+  ],
+  "runtime_evidence_boundary": "Current final28 PASS / native109 / DOM12 / jointinner2 supplied by root; this JSON asserts source semantics and exact DOM title mapping, not new runtime execution.",
+  "source_drift_checked": true
+}

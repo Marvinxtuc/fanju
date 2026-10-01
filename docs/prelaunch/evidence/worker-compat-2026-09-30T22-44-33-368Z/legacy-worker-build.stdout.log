@@ -1,0 +1,4 @@
+
+> @timeleft-shanghai/api@0.0.0 build /private/tmp/fanju-prelaunch-20261001-b48140fda0c1/worker-compat-run/services/api
+> tsc -p tsconfig.json
+

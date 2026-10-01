@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "5ccdd9165012f0a66d123a8545c1ec67ee8e160a2f62980e846a3d284eb5c7b7",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-36-33-373Z/RUNS.json",
+  "final_steps": 29,
+  "targeted_tests": 14,
+  "cross_process_tests": 199,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "setup": "CHANNEL_JOB_CLAIM_SCOPE_SETUP.md",
+  "confirmed": [
+    "Close/payment-query/refund-query claims bind merchant and config before budget mutation",
+    "Foreign expired leases and other-config budgets retained",
+    "Concurrent claims serialize and child-process recovery remains valid",
+    "Unscoped legacy queue works with only its two tables"
+  ],
+  "first_failure": "7 legacy queue tests failed because unscoped SQL parsed V11 tables; repaired using conditional Prisma SQL fragment without changing tests/schema",
+  "failed_evidence": "docs/prelaunch/evidence/final-2026-10-01T06-34-04-901Z/RUNS.json",
+  "remaining": [
+    "Scoped production process readiness/alert verification",
+    "Real merchant and environment acceptance"
+  ],
+  "backup": "backups/L04-close-claim-scope/"
+}

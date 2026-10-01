@@ -27,7 +27,7 @@ describe("verified bounded channel responses", () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(raw)));
     await expect(fetchJson({ url: "https://example.invalid", verifyResponse: (body, headers) => verifyChannelResponse(body, headers, config) })).rejects.toThrow("verification");
   });
-  it("recognizes only a signed exact order-not-found error", async () => {
+  it("recognizes only signed exact order or refund absence errors", async () => {
     const raw = '{"code":"ORDER_NOT_EXIST","message":"not retained"}';
     const request = { url: "https://example.invalid", verifyResponse: (body: string, headers: Headers) => verifyChannelResponse(body, headers, config) };
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(raw, { status: 404, headers: signed(raw) })));
@@ -36,7 +36,12 @@ describe("verified bounded channel responses", () => {
     await expect(fetchJson(request)).rejects.toThrow("verification");
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(raw, { status: 404 })));
     await expect(fetchJson({ url: request.url })).rejects.not.toBeInstanceOf(VerifiedChannelError);
-    const other = '{"code":"RESOURCE_NOT_EXISTS"}';
+    const refundAbsent = '{"code":"RESOURCE_NOT_EXISTS"}';
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(refundAbsent, { status: 404, headers: signed(refundAbsent) })));
+    await expect(fetchJson(request)).rejects.toMatchObject({ status: 404, code: 'RESOURCE_NOT_EXISTS' });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(refundAbsent, { status: 404 })));
+    await expect(fetchJson(request)).rejects.toThrow('verification');
+    const other = '{"code":"MCH_NOT_EXISTS"}';
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(other, { status: 404, headers: signed(other) })));
     await expect(fetchJson(request)).rejects.not.toBeInstanceOf(VerifiedChannelError);
   });

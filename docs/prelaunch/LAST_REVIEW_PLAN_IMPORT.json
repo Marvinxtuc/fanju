@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-01T01:01:38.990566+00:00",
+  "files": [
+    {
+      "path": "services/api/src/prelaunch/domain.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/followup/domain.ts",
+      "before": "6f6f3f8ec2fface31f308b1540d4bf439ffc6bbd9e3528fe3be9e91135084233",
+      "after": "24956906ba5c0ce0b91c462c55272c0fc6134b21b13cb46d07a3a3e11e8775f3"
+    },
+    {
+      "path": "services/api/src/prelaunch/reconciliation.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/followup/reconciliation.ts",
+      "before": "fa4e618c8b1d5b967c5ebed3a9943e92d900fe870fbd014ee260672d9ac95a0b",
+      "after": "4535c2d09d0364e7b8afde8da4ac8fcfe4fb63e2c55a39cd450654966d9aca16"
+    },
+    {
+      "path": "tests/prelaunch/review-safety-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/review-safety-native.test.mjs",
+      "before": null,
+      "after": "adb521b1196ccc87272a85894e5385fe1683446d9e0be0c2b465f8da499a10dc"
+    },
+    {
+      "path": "scripts/prelaunch-final-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-wave4/scripts/prelaunch-final-verify.mjs",
+      "before": "e1c58bc6367939fb3f6b3af3359934cb978ed45eff2a29e75ecd1bbed00f5092",
+      "after": "cc65c91e651b273848df35e3a7377f1289ce418016dbc10ed6b6e2b38fb9fd4a"
+    },
+    {
+      "path": "scripts/prelaunch-source-reproduce.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-wave4/scripts/prelaunch-source-reproduce.mjs",
+      "before": null,
+      "after": "769d5e6bb8a7ca53471417eb5f79dc27fc08b921b51cc0822e32e56be6bb7f07"
+    },
+    {
+      "path": "scripts/prelaunch-verify.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-wave4/scripts/prelaunch-verify.mjs",
+      "before": "88b5dac835b69adb8104c24f85ade2e01da001fe1ba2d049cd0146c2c703ca24",
+      "after": "fe625c65fd51f25d995fbb40ba28d31f4fe7311fe0cdc12e5d3c772f50285656"
+    },
+    {
+      "path": "tests/prelaunch/legacy-worker.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/qa-wave4/tests/prelaunch/legacy-worker.test.mjs",
+      "before": "2371a1ee509e40fbdd7e3afe957b68f95353de707d0a4fc610f5eb40f786ea13",
+      "after": "4dd00cbcc30007f938ad02953cd563ac4df69fc8d841f79bd6138266c0cc85eb"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/LAST_REVIEW_PLAN/before",
+  "protected_unchanged": 33
+}

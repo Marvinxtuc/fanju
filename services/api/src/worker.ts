@@ -52,7 +52,10 @@ try {
         if (result.kind === "early" || result.kind === "unknown") throw new Error("Inventory expiry still requires recovery");
       },
       DELIVER_INBOX: async lease => { await db.$transaction(tx => deliverInbox(tx, lease.refId)); },
-    }, eventsOnly ? ["APPLY_EVENT"] : inboxOnly ? ["DELIVER_INBOX"] : undefined);
+    }, eventsOnly ? ["APPLY_EVENT"] : inboxOnly ? ["DELIVER_INBOX"] : [
+      // A legacy worker must not consume newer domain jobs or burn their retry budget.
+      ...Object.keys(recovery!), "APPLY_EVENT", "REFUND_OBLIGATION", "EXPIRE_ORDER", "DELIVER_INBOX",
+    ]);
     await recordWorkerPoll(db, mode, owner, process.env.RELEASE_VERSION?.trim() || "local-unversioned");
     if (process.argv.includes("--once")) break;
     if (!worked && !stopping) await delay(250);

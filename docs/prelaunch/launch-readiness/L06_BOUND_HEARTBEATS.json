@@ -1,0 +1,23 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "prior_full_evidence": "docs/prelaunch/evidence/final-2026-10-01T06-40-26-033Z/RUNS.json",
+  "prior_full_candidate": "fd27bbb9a9412e30ff3d26a15e62f8036d141276b009000ea0c003f5f2776929",
+  "prior_full_steps": 29,
+  "initial_targeted_tests": 38,
+  "expanded_http_targeted_tests": 24,
+  "releaseAuthorized": false,
+  "real_environment_verified": false,
+  "confirmed": [
+    "Generic or wrong-config heartbeat cannot satisfy ready",
+    "Explicit close/expiry flags enforce mandatory bound modes despite custom list",
+    "Missing, stale, future and wrong-release heartbeat produce HTTP503; matching produce200"
+  ],
+  "remaining": [
+    "Production alert routing, recipients and rehearsal",
+    "Actual process/environment and merchant acceptance"
+  ],
+  "candidate": "806eb7ea8afc1a8f0efaa8e3bfb0ade401f50000a49f52a2e7bd4d633d144312",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-43-39-097Z/RUNS.json",
+  "final_steps": 29,
+  "cross_process_tests": 199
+}

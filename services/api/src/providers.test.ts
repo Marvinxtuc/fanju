@@ -1,6 +1,6 @@
 import { generateKeyPairSync } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { createWechatProviders, ProviderConfigError, VerifiedChannelError } from "./providers.js";
+import { createWechatProviders, ProviderConfigError, VerifiedChannelError, type ProviderHttpRequest } from "./providers.js";
 
 describe("wechat provider configuration", () => {
   it("defaults to mock providers in local development", () => {
@@ -240,7 +240,7 @@ describe("wechat provider configuration", () => {
     expect(calls[0]?.headers?.authorization).not.toContain("test_api_v3_key");
   });
 
-  it("creates a signed refund request using local refund and payment references", async () => {
+  it("creates a signed partial refund with the verified original payment total", async () => {
     const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
     const calls: Array<{ url: string; method: string; body?: unknown; headers?: Record<string, string> }> = [];
     const providers = createWechatProviders(
@@ -249,6 +249,9 @@ describe("wechat provider configuration", () => {
         readFile: () => privateKey.export({ type: "pkcs8", format: "pem" }).toString(),
         httpClient: async (request) => {
           calls.push(request);
+          if (request.method === "GET") return { out_trade_no: "order_001", mchid: wechatPayEnv().WECHAT_PAY_MCH_ID,
+            appid: wechatPayEnv().WECHAT_MINIAPP_APP_ID, trade_state: "SUCCESS", transaction_id: "wx_trade_original",
+            success_time: "2026-07-20T10:00:00+08:00", amount: { total: 19900, currency: "CNY" } };
           return { refund_id: "wx_refund_001" };
         },
       },
@@ -261,16 +264,28 @@ describe("wechat provider configuration", () => {
     });
 
     expect(refund).toEqual({ channel: "wechat", channelRefundNo: "wx_refund_001" });
-    expect(calls[0]).toMatchObject({
+    expect(calls[0]?.method).toBe("GET");
+    expect(calls[1]).toMatchObject({
       url: "https://api.mch.weixin.qq.com/v3/refund/domestic/refunds",
       method: "POST",
       body: {
         out_refund_no: "refund_001",
         out_trade_no: "order_001",
-        amount: { refund: 9900, total: 9900, currency: "CNY" },
+        amount: { refund: 9900, total: 19900, currency: "CNY" },
       },
     });
-    expect(calls[0]?.headers?.authorization).toContain("WECHATPAY2-SHA256-RSA2048");
+    expect(calls[1]?.headers?.authorization).toContain("WECHATPAY2-SHA256-RSA2048");
+  });
+
+  it.each(["NOTPAY", "CLOSED", "SUCCESS"])("does not send a refund when original payment is %s or amount is excessive", async state => {
+    const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+    const calls: ProviderHttpRequest[] = [];
+    const providers = createWechatProviders(wechatPayEnv(), { readFile: () => privateKey.export({type:"pkcs8",format:"pem"}).toString(),
+      httpClient: async request => { calls.push(request); return { out_trade_no:"order_001",mchid:wechatPayEnv().WECHAT_PAY_MCH_ID,
+        appid:wechatPayEnv().WECHAT_MINIAPP_APP_ID,trade_state:state,transaction_id:"original-trade",
+        success_time:"2026-07-20T10:00:00+08:00",amount:{total:100,currency:"CNY"} }; } });
+    await expect(providers.refund.createRefund({merchantRefundNo:"refund_001",merchantOrderNo:"order_001",amountCents:101})).rejects.toThrow();
+    expect(calls).toHaveLength(1);expect(calls[0]?.method).toBe("GET");
   });
 
   it("does not silently succeed when wechat payment provider is configured without a channel response", async () => {
@@ -312,6 +327,35 @@ function wechatPayEnv() {
 }
 
 describe("offline funding recovery protocols", () => {
+  it('blocks signed closure HTTP when final send authority is revoked',async()=>{
+    const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});let reads=0;const calls:ProviderHttpRequest[]=[];
+    const provider=createWechatProviders(wechatPayEnv(),{readFile:()=>{reads++;return privateKey.export({type:'pkcs8',format:'pem'}).toString();},httpClient:async request=>{calls.push(request);return {};}});
+    await expect(provider.payment.closePayment!('synthetic-close',async()=>{expect(reads).toBeGreaterThan(0);throw Error('closure-authority-revoked');})).rejects.toThrow('authority-revoked');
+    expect(calls).toHaveLength(0);
+    await provider.payment.closePayment!('synthetic-close',async()=>{});expect(calls).toHaveLength(1);expect(calls[0]?.method).toBe('POST');
+  });
+
+  it('rechecks the send guard after original-payment query and refuses POST when lease is lost',async()=>{
+    const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});const calls:ProviderHttpRequest[]=[];
+    const provider=createWechatProviders(wechatPayEnv(),{readFile:()=>privateKey.export({type:'pkcs8',format:'pem'}).toString(),httpClient:async request=>{
+      calls.push(request);return {out_trade_no:'synthetic-order',mchid:'test_mch_id',appid:'wx_test_app_id',trade_state:'SUCCESS',transaction_id:'synthetic-trade',success_time:'2026-10-01T10:00:00+08:00',amount:{total:100,currency:'CNY'}};
+    }});
+    await expect(provider.refund.createRefund({merchantRefundNo:'synthetic-refund',merchantOrderNo:'synthetic-order',amountCents:40},async()=>{expect(calls).toHaveLength(1);throw Error('synthetic-lease-lost');})).rejects.toThrow('lease-lost');
+    expect(calls).toHaveLength(1);expect(calls[0]?.method).toBe('GET');
+  });
+  it("maps only verified official refund absence",async()=>{
+    const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});
+    const provider=createWechatProviders(wechatPayEnv(),{readFile:()=>privateKey.export({type:'pkcs8',format:'pem'}).toString(),
+      httpClient:async()=>{throw new VerifiedChannelError(404,'RESOURCE_NOT_EXISTS');}});
+    expect(await provider.refund.queryRefund!('synthetic-refund')).toEqual({merchantRefundNo:'synthetic-refund',status:'NOT_FOUND'});
+    await expect(provider.payment.queryPayment!('synthetic-order')).rejects.toThrow();
+  });
+  it.each([new Error('RESOURCE_NOT_EXISTS'),{status:404,code:'RESOURCE_NOT_EXISTS'},new VerifiedChannelError(500,'RESOURCE_NOT_EXISTS'),new VerifiedChannelError(404,'ORDER_NOT_EXIST')])
+    ('rejects untrusted or unrelated refund absence %j',async error=>{
+      const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});
+      const provider=createWechatProviders(wechatPayEnv(),{readFile:()=>privateKey.export({type:'pkcs8',format:'pem'}).toString(),httpClient:async()=>{throw error;}});
+      await expect(provider.refund.queryRefund!('synthetic-refund')).rejects.toBe(error);
+    });
   it("queries the same merchant payment number and signs GET without a request body", async () => {
     const { privateKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
     const calls: import("./providers.js").ProviderHttpRequest[] = [];
@@ -346,4 +390,10 @@ describe("offline funding recovery protocols", () => {
     expect(await providers.refund.queryRefund!("refund-one")).toMatchObject({ status: "SUCCEEDED", originalTradeNo: "original-trade", channelRefundNo: "channel-refund" });
     await expect(providers.refund.queryRefund!("other-refund")).rejects.toThrow("identity mismatch");
   });
+});
+
+it('normalizes successful refund completion time and rejects malformed supplied time',async()=>{
+ const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});let time:unknown=undefined;
+ const providers=createWechatProviders(wechatPayEnv(),{readFile:()=>privateKey.export({type:'pkcs8',format:'pem'}).toString(),httpClient:async()=>({out_refund_no:'refund-time',refund_id:'channel-time',transaction_id:'trade-time',status:'SUCCESS',amount:{refund:100,currency:'CNY'},...(time===undefined?{}:{success_time:time})})});
+ expect((await providers.refund.queryRefund!('refund-time'))).not.toHaveProperty('refundedAt');time='2026-09-30T10:00:00+08:00';expect(await providers.refund.queryRefund!('refund-time')).toHaveProperty('refundedAt','2026-09-30T02:00:00.000Z');time='invalid-time';await expect(providers.refund.queryRefund!('refund-time')).rejects.toThrow('time');
 });

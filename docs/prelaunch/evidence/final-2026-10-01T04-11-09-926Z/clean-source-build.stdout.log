@@ -1,0 +1,5 @@
+generate clean build: PASS
+shared clean build: PASS
+api clean build: PASS
+ops clean build: PASS
+weapp clean build: PASS

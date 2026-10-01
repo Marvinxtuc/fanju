@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "2ec91a36a28186fb78a08941c08f935461e1a59ea389c1e7233ac65e3357a4ce",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T06-29-17-212Z/RUNS.json",
+  "final_steps": 29,
+  "targeted_tests": 13,
+  "cross_process_tests": 198,
+  "releaseAuthorized": false,
+  "real_channel_verified": false,
+  "real_channel_called": false,
+  "setup": "FORMAL_CLOSE_PROCESS_QA.md",
+  "confirmed": [
+    "Shared production runtime before/after-send SIGKILL recovery on original number",
+    "Synthetic closed query avoids repeated send",
+    "SIGTERM drains to DONE with exit0",
+    "Ninth claim produces MANUAL without channel handler"
+  ],
+  "limits": [
+    "Mock environment and network guard preserved; synthetic injected providers only",
+    "Owned test leases explicitly expired to exercise recovery",
+    "Production task merchant isolation, readiness and acceptance pending"
+  ],
+  "backup": "backups/L04-close-process/"
+}

@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-01T01:36:52.332350+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/identity-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/final-failure-corrections/identity-native.test.mjs",
+      "before": "81ad9f0c25b8217ef87ead9cddb8d932acc6ebc45eec72b166bccbb14dedb42f",
+      "after": "3f4d5cf3bbca0139910fd169a44bda6cb2f7fa84dfd08468eabade8c8c21bcff"
+    },
+    {
+      "path": "tests/prelaunch/remaining-scenarios-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/final-failure-corrections/remaining-scenarios-native.test.mjs",
+      "before": "b552e8909ee08aabd666ad90d69b141eb52ae111589423004ef23cf71380f362",
+      "after": "dea5d5f507ec357675d3447281d6f9c39727f69212798b0a34c901a3355b6da9"
+    },
+    {
+      "path": "tests/prelaunch/settled-correction-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/api/review-fixes/final-failure-corrections/settled-correction-native.test.mjs",
+      "before": "1aa1233faafa53a8abad060f1ad18faed3ddcc080eabcaddeee86b890efa7c0a",
+      "after": "d2c3e7a0c7ba4460f27a47c6207d15edc7fa1f28f6fb05417e0e8a7f85dc8af0"
+    },
+    {
+      "path": "packages/shared/src/rules/prelaunchClient.test.ts",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-synthetic-token/packages/shared/src/rules/prelaunchClient.test.ts",
+      "before": "4889596e5d443004afd0e41daa00388b5cfe3ed7c48c71450674b269655239c5",
+      "after": "b31e1bb2bdd6340f36546ecac733cc492ad9cccbc178305d2826a6df0f101615"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_RUNTIME_CORRECTIONS_16/before",
+  "protected_unchanged": 33
+}

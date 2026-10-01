@@ -1,0 +1,5803 @@
+{
+  "pack_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+  "scope": "SHARED_ONLY",
+  "source_bundle": "FJ-POLICY-V1.1-20261001-REBASE-01",
+  "source_policy_frozen": true,
+  "formal_activation": "NOT_ACTIVATABLE",
+  "test_execution": {
+    "command": "pnpm --filter @timeleft-shanghai/shared exec vitest run src/rules/prelaunchBusiness.test.ts src/rules/prelaunchPolicy.test.ts --no-cache --reporter=dot --no-file-parallelism",
+    "passed": 139,
+    "failed": 0,
+    "skipped": 0,
+    "typecheck_exit": 0,
+    "positive_scope": "synthetic fixtures exercising approved branch decisions",
+    "proposal_scope": [
+      "48h receipt/deadline definition",
+      "waitlist FIFO authority, new-tail synthetic sequence"
+    ],
+    "real_channel": "NOT_RUN"
+  },
+  "rules": [
+    {
+      "rule_id": "BAS-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 136,
+        "title": "产品定位。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "BAS-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 138,
+        "title": "地域。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "BAS-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 140,
+        "title": "用户资格。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 166,
+        "title": "浏览。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 168,
+        "title": "报名付款。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 170,
+        "title": "性别。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 172,
+        "title": "成年资格。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 174,
+        "title": "政策告知。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 72,
+          "symbol": "function verifyPrelaunchPolicyBundle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 110,
+          "symbol": "function validatePolicyAcceptance("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.test.ts",
+          "line": 22,
+          "symbol": "verifies frozen complete source"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 201,
+        "title": "用途。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 203,
+        "title": "选填。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 209,
+        "title": "软目标。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-09",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 211,
+        "title": "不得覆盖其他条件。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "USR-10",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 213,
+        "title": "对外表达。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "RV-04",
+        "OP-10",
+        "OP-15"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FEE-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 226,
+        "title": "平台收费组成。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FEE-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 228,
+        "title": "餐费边界。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FEE-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 230,
+        "title": "默认价与活动覆盖。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FEE-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 232,
+        "title": "保证金审核及上下限。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 301,
+        "title": "真实供给。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 303,
+        "title": "预计消费。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 305,
+        "title": "额外收费。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 313,
+        "title": "逐场由餐厅确认四项容量："
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 324,
+        "title": "修改权限。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 326,
+        "title": "多桌标准策略。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 342,
+        "title": "首发不提供特殊饮食保障。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "VEN-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 344,
+        "title": "普通口味不采集。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-03",
+        "OP-10",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 395,
+        "title": "自动成团。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 399,
+        "title": "继续加人。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 401,
+        "title": "最低已达即可。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 405,
+        "title": "先候补后新报名。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 407,
+        "title": "自动转正不等于整桌必已成团。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 409,
+        "title": "可逆。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 413,
+        "title": "先补人。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 415,
+        "title": "恢复。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-09",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 417,
+        "title": "最终失败。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-10",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 423,
+        "title": "中间窗口直接补招。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-11",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 425,
+        "title": "晚报名用户退款例外。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-12",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 431,
+        "title": "停止补招。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-13",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 433,
+        "title": "人数仍达最低。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-14",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 435,
+        "title": "低于最低则由餐厅决定。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-15",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 444,
+        "title": "责任分别处理。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FORM-16",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 446,
+        "title": "例外边界。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-07",
+        "RV-03"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 473,
+        "title": "付费候补及上限。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 475,
+        "title": "付款前明确说明。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 479,
+        "title": "FIFO。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 299,
+          "symbol": "function evaluateWaitlistReentry("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 481,
+        "title": "自动转正。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 483,
+        "title": "排序定义仍须落地。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 299,
+          "symbol": "function evaluateWaitlistReentry("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 487,
+        "title": "主动退出全退。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 489,
+        "title": "T-24h 到期。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 491,
+        "title": "不向后续窗口延续。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-09",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 493,
+        "title": "与退款时效区分。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "WL-10",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 495,
+        "title": "退出与转正竞争。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-05",
+        "OP-08"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "INFO-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 513,
+        "title": "桌与用户归属。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 97,
+          "symbol": "own formed table"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "INFO-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 515,
+        "title": "已知信息不可消除。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 97,
+          "symbol": "own formed table"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "INFO-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 517,
+        "title": "核心替换。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 97,
+          "symbol": "own formed table"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-07"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 554,
+        "title": "不拿异常任务延迟制造扣费。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 566,
+        "title": "成团状态而非付款多少小时。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 568,
+        "title": "取消时当前状态。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 606,
+        "title": "原因优先。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 608,
+        "title": "不把补偿变成运营可不给。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 624,
+        "title": "原路优先。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 626,
+        "title": "真实收款及超时晚到。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "REF-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 628,
+        "title": "不重复使用同一保证金。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-04",
+        "OP-05",
+        "OP-09",
+        "OP-11",
+        "OP-14",
+        "RV-01",
+        "RV-06"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 635,
+        "title": "用户扫码。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 637,
+        "title": "扫码不是完整履约结果。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 643,
+        "title": "判断结果分两类。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 645,
+        "title": "当晚完成。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 647,
+        "title": "不采用自动迟到扣款。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 653,
+        "title": "次日批量。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 244,
+          "symbol": "function nextShanghaiNaturalDay("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 655,
+        "title": "不把发起等同到账。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 659,
+        "title": "暂行规则 B。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "FUL-09",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 661,
+        "title": "不是用户违约。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-12"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 683,
+        "title": "异常入口。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 685,
+        "title": "保证金暂缓。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 687,
+        "title": "平台决定。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 691,
+        "title": "须听取用户说明。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 693,
+        "title": "48 小时。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 699,
+        "title": "用户已选择的业务规则。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 701,
+        "title": "同时保留冲突提示。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-08",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 707,
+        "title": "结果。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-09",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 709,
+        "title": "通知是后续复核的起点。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-10",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 715,
+        "title": "一次。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-11",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 717,
+        "title": "异人处理。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-12",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 719,
+        "title": "48 小时申请期。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-13",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 721,
+        "title": "暂停结算。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-14",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 723,
+        "title": "复核结果。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "DISP-15",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 729,
+        "title": "自动进入餐厅补偿结算流程。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11",
+        "OP-13",
+        "OP-14",
+        "RV-02"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "EXC-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 761,
+        "title": "允许申诉。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 179,
+          "symbol": "special denial"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-10",
+        "OP-11",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "EXC-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 765,
+        "title": "合理证明。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-10",
+        "OP-11",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "EXC-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 777,
+        "title": "时间不重算。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 293,
+          "symbol": "function evaluateSpecialRejection("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 179,
+          "symbol": "special denial"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-10",
+        "OP-11",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "EXC-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 779,
+        "title": "例外审核可裁量的是批准范围。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 293,
+          "symbol": "function evaluateSpecialRejection("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 179,
+          "symbol": "special denial"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-10",
+        "OP-11",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 792,
+        "title": "先征求同意。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 796,
+        "title": "明确同意。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 798,
+        "title": "动态确认期限。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 802,
+        "title": "原餐厅补偿。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-05",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 806,
+        "title": "仍须同意。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-06",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 808,
+        "title": "预算仅参考与变更不混同。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "CHG-07",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 810,
+        "title": "没有回复不是同意。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-09",
+        "OP-13"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "OPS-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 836,
+        "title": "客服响应不是业务时钟。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 81,
+          "symbol": "next-day batches"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "OPS-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 855,
+        "title": "语义区分。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 244,
+          "symbol": "function nextShanghaiNaturalDay("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 81,
+          "symbol": "next-day batches"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "OPS-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 857,
+        "title": "24h 与 48h 的冲突。"
+      },
+      "shared_status": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-11"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "PRI-01",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 861,
+        "title": "可随时申请。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 276,
+          "symbol": "function evaluateAccountClosure("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 154,
+          "symbol": "account closure accepts"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-04",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "PRI-02",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 863,
+        "title": "先处理未结责任。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 276,
+          "symbol": "function evaluateAccountClosure("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 154,
+          "symbol": "account closure accepts"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-04",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "PRI-03",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 865,
+        "title": "不删除资金事实。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 276,
+          "symbol": "function evaluateAccountClosure("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 154,
+          "symbol": "account closure accepts"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-04",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    },
+    {
+      "rule_id": "PRI-04",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 867,
+        "title": "未选择的操作。"
+      },
+      "shared_status": "UNIT_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 154,
+          "symbol": "account closure accepts"
+        }
+      ],
+      "unit_evidence_scope": "定位仅证明所列纯分支，不能证明整条规则、DB/API/worker/前端、真实签收或运行时资金效果",
+      "real_blockers": [
+        "OP-15",
+        "RV-04",
+        "RV-05"
+      ],
+      "integration_status": "ROOT_MERGE_REQUIRED",
+      "formal_policy_status": "NOT_ACTIVATABLE"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "BR-AT-01",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1022
+      },
+      "scenario": "仅确认成年资格，不填具体年龄",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-02",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1023
+      },
+      "scenario": "用户浏览后尝试未授权手机号报名",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-03",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1024
+      },
+      "scenario": "报名未填性别",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-04",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1025
+      },
+      "scenario": "时间偏好空白或与所选活动时间不同",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-05",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1026
+      },
+      "scenario": "旧问卷的行业、口味、预算、氛围等未填",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-06",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1027
+      },
+      "scenario": "用户寻找同桌性别期待选项",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-07",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1028
+      },
+      "scenario": "候补队首不利于性别均衡",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-08",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1029
+      },
+      "scenario": "用户明确需要本场不支持的专门饮食保障",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 65,
+          "symbol": "function evaluateRegistrationEligibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 147,
+          "symbol": "minimal synthetic eligibility"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-09",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1030
+      },
+      "scenario": "用户准备付费",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-10",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1031
+      },
+      "scenario": "现场主动点单超过预计人均上限",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-11",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1032
+      },
+      "scenario": "餐厅临时增加固定包间费",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-12",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1033
+      },
+      "scenario": "餐厅参数不满足正常4≤min≤target≤max≤8",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-13",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1034
+      },
+      "scenario": "min=4/target=6/max=6，第4位完整可信成功且获正式席位成员加入",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-14",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1035
+      },
+      "scenario": "已4人成团，继续出现第5/6/7位用户",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-15",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1036
+      },
+      "scenario": "餐厅最大6人、最多2桌，正式席位已12个",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-16",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1037
+      },
+      "scenario": "餐厅逐场选择有限标准多桌策略",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-17",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1038
+      },
+      "scenario": "T-24h时min4/target6/max6，实际5人",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-18",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1039
+      },
+      "scenario": "同活动一桌成团、另一桌未成团",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-19",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1040
+      },
+      "scenario": "T-24h前4人成团后退1人，min4",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-20",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1041
+      },
+      "scenario": "上一场景补足至4人",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-21",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1042
+      },
+      "scenario": "到T-24h仍未补足最低人数",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-22",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1043
+      },
+      "scenario": "容量满且候补开放、未达本场上限，完整可信付F+D",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-23",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1044
+      },
+      "scenario": "T-24h前释放席位且有有效队列",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-24",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1045
+      },
+      "scenario": "仍未转正的用户主动退出",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-25",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1046
+      },
+      "scenario": "到T-24h仍未转正",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-26",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1047
+      },
+      "scenario": "T-24h后有临时空位",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-27",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1048
+      },
+      "scenario": "T-20h有效已成团桌有空位",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-28",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1049
+      },
+      "scenario": "T-8h有人想报名或T-5h有空位；待付后晚到款",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-29",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1050
+      },
+      "scenario": "尚未成团、距开始25h主动取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-30",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1051
+      },
+      "scenario": "普通当前有效成团、Δ=25h自退",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 293,
+          "symbol": "function evaluateSpecialRejection("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 62,
+          "symbol": "current formed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-31",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1052
+      },
+      "scenario": "普通成团用户恰好提前24h取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-32",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1053
+      },
+      "scenario": "T-20h加入已成团桌，T-10h主动取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-33",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1054
+      },
+      "scenario": "T-20h加入已成团桌，T-7h主动取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-34",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1055
+      },
+      "scenario": "已成团后平台或餐厅取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-35",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1056
+      },
+      "scenario": "T-5h有人退出使人数低于min，餐厅不接待",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-36",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1057
+      },
+      "scenario": "同上但餐厅愿意继续，另一用户因人数少退出",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-37",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1058
+      },
+      "scenario": "用户扫码成功但餐厅尚未确认",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-38",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1059
+      },
+      "scenario": "餐厅当晚确认正常履约",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-39",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1060
+      },
+      "scenario": "餐厅当晚未操作、次日有签到记录",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-40",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1061
+      },
+      "scenario": "餐厅先标异常没有当场完整证据",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 175,
+          "symbol": "scan and missing confirmation"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-41",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1062
+      },
+      "scenario": "用户已收到异常通知且仍在48h内",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-42",
+      "source_status_frozen": "BLOCKED_POLICY",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1063
+      },
+      "scenario": "已通知48h无回复，但餐厅证据缺失",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-43",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1064
+      },
+      "scenario": "首次违约后用户在48h内要求复核",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-44",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1065
+      },
+      "scenario": "首次违约通知后48h无最终复核申请",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-45",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1066
+      },
+      "scenario": "最终复核认为应退保证金",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-46",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1067
+      },
+      "scenario": "证明审核通过，运营选择退款方案",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 72,
+          "symbol": "exception"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-47",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1068
+      },
+      "scenario": "原普通成团取消发生在T-25h，审核在T-20h拒绝",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 293,
+          "symbol": "function evaluateSpecialRejection("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 62,
+          "symbol": "current formed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-48",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1069
+      },
+      "scenario": "特殊申诉要求证明",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-49",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1070
+      },
+      "scenario": "用户拒绝替换或动态期限届满未回复",
+      "shared_scope": "APPROVED_REJECT_BRANCH_ONLY",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-50",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1071
+      },
+      "scenario": "新增最低消费/明显改时间/包间改大厅",
+      "shared_scope": "APPROVED_REJECT_BRANCH_ONLY",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 250,
+          "symbol": "function evaluateCoreChange("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 158,
+          "symbol": "restaurant change refusal"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-51",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1072
+      },
+      "scenario": "现场自主点菜超预算与餐厅新增固定费两种场景",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-52",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1073
+      },
+      "scenario": "首发用户寻找渠道与首次响应承诺",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-53",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1074
+      },
+      "scenario": "普通退款申请收到后获批",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-54",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1075
+      },
+      "scenario": "退款仅审核通过或请求已发出",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-55",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1076
+      },
+      "scenario": "正常应退现金或原路不可用",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-56",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1077
+      },
+      "scenario": "申请时还有D、退款或申诉未结",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 276,
+          "symbol": "function evaluateAccountClosure("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 154,
+          "symbol": "account closure accepts"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-57",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1078
+      },
+      "scenario": "待付10分钟到期释放后确认成功或关闭后额外款",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-58",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1079
+      },
+      "scenario": "平台承诺该订单两项全退",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-59",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1080
+      },
+      "scenario": "新政策上线或餐厅条件更新",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-60",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1081
+      },
+      "scenario": "T-24h有效成团桌在T-15h退出后低于min",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 179,
+          "symbol": "function getOwnTableVisibility("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 87,
+          "symbol": "reaching min"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-61",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1082
+      },
+      "scenario": "曾成团、可信取消受理时当前已失效/重新待成团",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-62",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1083
+      },
+      "scenario": "普通未成团恰好Δ=24h/=8h；适用晚报名Δ=8h取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-63",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1084
+      },
+      "scenario": "候补退出与转正并发",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "BR-AT-64",
+      "source_status_frozen": "BLOCKED_POLICY",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1085
+      },
+      "scenario": "仅写入站内消息、用户是否收到未知",
+      "shared_scope": "BLOCKED_REAL_DELIVERY_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 264,
+          "symbol": "function evaluateDisputeWindow("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 271,
+          "symbol": "function evaluateFinalReview("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 159,
+          "symbol": "real delivery definition"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-01",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 287
+      },
+      "scenario": "新客报名金额为F+D，正常履约只退D",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 76,
+          "symbol": "component budgets"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-02",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 288
+      },
+      "scenario": "同一退D任务重复或并发，先退D后又批准F+D",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 76,
+          "symbol": "component budgets"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-03",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 289
+      },
+      "scenario": "F+D一笔合并支付后分项退款与处置",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 282,
+          "symbol": "function evaluateFulfillment("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 76,
+          "symbol": "component budgets"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-04",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 290
+      },
+      "scenario": "复核申请与48h期满结算任务同刻",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-05",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 291
+      },
+      "scenario": "餐厅A人员尝试确认B餐厅/他场/无权限用户",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-06",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 292
+      },
+      "scenario": "扫码重复、跨场、二维码外传或网络失败",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-07",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 293
+      },
+      "scenario": "只删旧问卷UI但后端仍要求budgetRange等",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-08",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 294
+      },
+      "scenario": "工作区只有旧单一服务费的Gate绿灯",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 72,
+          "symbol": "function verifyPrelaunchPolicyBundle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 110,
+          "symbol": "function validatePolicyAcceptance("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.test.ts",
+          "line": 22,
+          "symbol": "verifies frozen complete source"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-09",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 295
+      },
+      "scenario": "三份用户正文hash与订单记录不匹配、草案被启用",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 72,
+          "symbol": "function verifyPrelaunchPolicyBundle("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.ts",
+          "line": 110,
+          "symbol": "function validatePolicyAcceptance("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchPolicy.test.ts",
+          "line": 22,
+          "symbol": "verifies frozen complete source"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-10",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 296
+      },
+      "scenario": "已冻结OP-01/02后仍存在OP-04/05/07等未覆盖交集，尝试默认扣款",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 296,
+          "symbol": "function evaluateFormalMemberRemoval("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 180,
+          "symbol": "member-removal timing"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-11",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 297
+      },
+      "scenario": "上午饭局/跨午夜结束/退款在午夜前获批",
+      "shared_scope": "CALENDAR_ONLY_OP11_OP12_UNRESOLVED",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 244,
+          "symbol": "function nextShanghaiNaturalDay("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 81,
+          "symbol": "next-day batches"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "RB-AT-12",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/POLICY_IMPLEMENTATION_AND_ACCEPTANCE.md",
+        "line": 298
+      },
+      "scenario": "恢复备份后存在先前隐私处置、渠道新增款和D已结算",
+      "shared_scope": "NOT_IMPLEMENTED_IN_SHARED",
+      "code_refs": [],
+      "test_refs": [],
+      "shared_test_status": "NOT_RUN_IN_SHARED",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-01",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1095
+      },
+      "scenario": "F+D一笔支付及先退D后全退",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 146,
+          "symbol": "function allocateRefundBudget("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 76,
+          "symbol": "component budgets"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-02",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1096
+      },
+      "scenario": "未付、失败、UNKNOWN、待付锁位与完整可信成功",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 39,
+          "symbol": "grants qualification"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-03",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1097
+      },
+      "scenario": "创建需正式席位的待付订单",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 41,
+          "symbol": "trusted success at"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-04",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1098
+      },
+      "scenario": "10分钟到期仍UNKNOWN，释放后确认成功",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 89,
+          "symbol": "function evaluatePaymentQualification("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 45,
+          "symbol": "UNKNOWN releases"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-05",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1099
+      },
+      "scenario": "平台默认F与活动覆盖、后续改价",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 57,
+          "symbol": "function quoteFunding("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 19,
+          "symbol": "separates F/D"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-06",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1100
+      },
+      "scenario": "餐厅D提议未经批准或改价",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 27,
+          "symbol": "requires each party"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-07",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1101
+      },
+      "scenario": "正常活动D超统一区间",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 25,
+          "symbol": "rejects invalid supply"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-08",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1102
+      },
+      "scenario": "D_MIN/D_MAX尚无有权配置或签收",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 26,
+          "symbol": "does not invent missing"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-09",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1103
+      },
+      "scenario": "普通当前有效成团Δ>24h主动取消",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 62,
+          "symbol": "current formed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-10",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1104
+      },
+      "scenario": "T-24时已成团桌在中间窗口失效",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 167,
+          "symbol": "function evaluateTableLifecycle("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 91,
+          "symbol": "only formed-at-T24"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-11",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1105
+      },
+      "scenario": "历史曾成团、取消时实际失效/重新待成团",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 59,
+          "symbol": "current unformed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-12",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1106
+      },
+      "scenario": "普通未成团Δ=24h/8h与已确定晚报名Δ=8h",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 119,
+          "symbol": "function evaluateCancellation("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 63,
+          "symbol": "explicit late-formed"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-13",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1107
+      },
+      "scenario": "候补退出与转正并发",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 185,
+          "symbol": "function reduceWaitlist("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 127,
+          "symbol": "exit-first"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-14",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1108
+      },
+      "scenario": "多桌标准策略与未经餐厅确认的修改",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 205,
+          "symbol": "function allocateNewTableMembers("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 40,
+          "symbol": "function validateSupplyRevision("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 105,
+          "symbol": "finite strategies"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    },
+    {
+      "scenario_id": "DR-AT-15",
+      "source_status_frozen": "NOT_RUN",
+      "source": {
+        "file": "docs/policy/BUSINESS_RULES_BASELINE.md",
+        "line": 1109
+      },
+      "scenario": "WAITLIST_MAX未配置、达限、主动退出后重入",
+      "shared_scope": "APPROVED_BUSINESS_PARTIAL",
+      "code_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 196,
+          "symbol": "function evaluateWaitlistAdmission("
+        },
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.ts",
+          "line": 299,
+          "symbol": "function evaluateWaitlistReentry("
+        }
+      ],
+      "test_refs": [
+        {
+          "file": "packages/shared/src/rules/prelaunchBusiness.test.ts",
+          "line": 143,
+          "symbol": "concurrent exposure"
+        }
+      ],
+      "shared_test_status": "PASSED_PARTIAL_UNIT_ASSERTIONS",
+      "full_scenario_execution_status": "ROOT_MERGE_REQUIRED",
+      "notes": "纯函数金额/时间/状态断言不等于持久任务、并发锁、实际渠道或端到端验收；PROPOSAL_HARNESS单列，不继承业务PASS。"
+    }
+  ]
+}

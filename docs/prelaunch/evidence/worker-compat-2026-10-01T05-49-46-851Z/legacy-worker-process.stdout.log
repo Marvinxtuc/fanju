@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: legacy worker preserves a newer domain job and executes a legacy inbox job in the same durable queue
+ok 1 - legacy worker preserves a newer domain job and executes a legacy inbox job in the same durable queue
+  ---
+  duration_ms: 561.189958
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 641.830791

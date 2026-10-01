@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T01:15:44.171177+00:00",
+  "files": [
+    {
+      "path": "tests/prelaunch/review-safety-native.test.mjs",
+      "source": "/tmp/fanju-prelaunch-resume-drafts/ui-contract-combined/review-safety-native.test.mjs",
+      "before": "adb521b1196ccc87272a85894e5385fe1683446d9e0be0c2b465f8da499a10dc",
+      "after": "a73e588a5a597a0eb8119dcca41f2ae28432cfd502a7d2a99a55c62f5199aeb3"
+    }
+  ],
+  "backup": "/tmp/fanju-prelaunch-resume-drafts/FINAL_COMBINED_02/before",
+  "protected_unchanged": 33
+}

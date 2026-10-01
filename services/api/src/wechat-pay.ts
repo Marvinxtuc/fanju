@@ -28,6 +28,7 @@ export interface VerifiedPaymentNotification {
 }
 
 export interface VerifiedRefundNotification {
+  refundedAt?: string;
   originalTradeNo: string;
   merchantRefundNo: string;
   channelRefundNo: string;
@@ -66,6 +67,7 @@ export function verifyRefundNotification(rawBody: string, headers: HeaderValues,
     merchantRefundNo: requiredString(notification.out_refund_no, "out_refund_no"),
     channelRefundNo: requiredString(notification.refund_id, "refund_id"),
     amountCents: requiredAmount(notification.amount, "refund"),
+    ...(notification.success_time !== undefined ? {refundedAt: parseChannelPaymentTime(notification.success_time)} : {}),
     callbackNonce: requiredHeader(headers, "wechatpay-nonce"),
   };
 }

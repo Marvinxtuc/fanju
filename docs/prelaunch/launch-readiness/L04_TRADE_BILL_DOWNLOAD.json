@@ -1,0 +1,20 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "synthetic_crypto_tests": 8,
+  "scope": "VERIFIED_BILL_BYTES_ONLY",
+  "coverageState": "INCOMPLETE",
+  "real_merchant_api_called": false,
+  "csv_parser_complete": false,
+  "reverse_reconciliation_complete": false,
+  "no_config_cli_exit": 1,
+  "setup": "WECHAT_TRADE_BILL_SETUP.md",
+  "candidate": "465bf7a47f23483779ccbbb144b4e301cc787e5659153eafb4f1ed9d8c53e2de",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-48-21-032Z/RUNS.json",
+  "final_steps": 28,
+  "api_tests": 275,
+  "cross_process_tests": 157,
+  "prior_failure": "docs/prelaunch/evidence/final-2026-10-01T04-45-47-275Z/RUNS.json",
+  "prior_failure_reason": "Synthetic long literal URL token triggered unchanged secret scanner; replaced with shorter fixture literal and full rerun passed.",
+  "csv_format_support": "27-column direct-merchant ALL CSV with synthetic evidence; real V3 sample pending",
+  "comparison_slice": "L04_BILL_COMPARISON.json"
+}

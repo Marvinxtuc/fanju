@@ -1,0 +1,575 @@
+{
+  "id": "restore-2026-10-01T05-05-38-236Z",
+  "category": "BACKUP_RESTORE_FOUNDATION",
+  "candidate_id": "a1e452ea253e2183d0883d522add1ca2e1cd5be9584bf6024a58655a1ae3db7e",
+  "runner": "native",
+  "command": "node scripts/prelaunch-recovery.mjs <owned-scratch>",
+  "cwd": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+  "started_at": "2026-10-01T05:05:38.236Z",
+  "finished_at": "2026-10-01T05:05:39.293Z",
+  "exit_code": 0,
+  "toolchain": {
+    "node": "v22.23.1",
+    "postgres": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit"
+  },
+  "source_environment": {
+    "task_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+    "owner_id": "fanju-prelaunch-20261001-b48140fda0c1",
+    "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+    "context": "colima",
+    "container": "fj-prelaunch-a755def387dc-db",
+    "container_id": "b29cdc54fe324bdff7beb22755314e5ac78502fae6936fdf1cf912af2ea7e249",
+    "image_id": "sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb",
+    "volume": "fj-prelaunch-a755def387dc-data",
+    "network": "fj-prelaunch-a755def387dc-net",
+    "network_internal": false,
+    "network_outbound_masquerade": false,
+    "client_network_allowlist_required": true,
+    "host": "127.0.0.1",
+    "host_port": 32772,
+    "database": "fanju_prelaunch_340b2fedcc80",
+    "database_owner": "fj_a755def387dc",
+    "database_marker_verified": true,
+    "postgres_version": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "production_authorized": false,
+    "existing_database_connected": false,
+    "verified_at": "2026-10-01T05:05:38.203Z"
+  },
+  "restore_environment": {
+    "task_id": "FJ-PRELAUNCH-MASTER-V1.1-20261001-01",
+    "owner_id": "fanju-prelaunch-20261001-b48140fda0c1",
+    "root": "/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局",
+    "context": "colima",
+    "container": "fj-prelaunch-a755def387dc-db",
+    "container_id": "b29cdc54fe324bdff7beb22755314e5ac78502fae6936fdf1cf912af2ea7e249",
+    "image_id": "sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb",
+    "volume": "fj-prelaunch-a755def387dc-data",
+    "network": "fj-prelaunch-a755def387dc-net",
+    "network_internal": false,
+    "network_outbound_masquerade": false,
+    "client_network_allowlist_required": true,
+    "host": "127.0.0.1",
+    "host_port": 32772,
+    "database": "fanju_prelaunch_d906e9edbe75_restore",
+    "database_owner": "fj_a755def387dc",
+    "database_marker_verified": true,
+    "postgres_version": "PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "production_authorized": false,
+    "existing_database_connected": false,
+    "verified_at": "2026-10-01T05:05:38.602Z"
+  },
+  "backup_sha256": "bb87cde4c82f51c74e1ff365b65be39098efff7dc9c317089b7f346202c1ae68",
+  "backup_bytes": 482051,
+  "backup_location": "PRIVATE_OWNED_SCRATCH_NOT_DELIVERED",
+  "before": [
+    {
+      "table": "Activity",
+      "count": 95,
+      "sha256": "36f4c862bf4422e3b18d2a83c8e6fe97eb6b909eec8071311d72708a88535ce1"
+    },
+    {
+      "table": "AdminUser",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "AgreementPolicy",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "AuditLog",
+      "count": 801,
+      "sha256": "184ff711c637e5cf8f57e5ea630f201830cb69a0babd76ab1d64ed47f2077096"
+    },
+    {
+      "table": "Blacklist",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "ChannelReceipt",
+      "count": 205,
+      "sha256": "bf1a8689b51640f61fce2cbda3b08d797ba6ec3726655dde0d76bf45b148d820"
+    },
+    {
+      "table": "ConsentRecord",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "DurableJob",
+      "count": 1073,
+      "sha256": "2ffcf69ef7022ad575cbdcc0c564666e50614e5d0069231207378263f554cf8c"
+    },
+    {
+      "table": "FinancialCase",
+      "count": 19,
+      "sha256": "584aecb906ac95b75f437aa1e8eaf0c13921c9a029547b4f11be55eddd1c8c1b"
+    },
+    {
+      "table": "MockChannelTransaction",
+      "count": 1,
+      "sha256": "d634326434a00ec97abed891a90b0ad2c93ba6a16c5cf4f584df01110dd22dc5"
+    },
+    {
+      "table": "Notification",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Order",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Payment",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "ReceivedEvent",
+      "count": 224,
+      "sha256": "eb34f9cf2f502c69d230e9b60b299542c7fb4a7ed9cd43b0de80df27f001a444"
+    },
+    {
+      "table": "ReconciliationBatch",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Refund",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "RefundObligation",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Report",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Restaurant",
+      "count": 91,
+      "sha256": "ddd7fc402ae6d9d89d9330ef49c3bc69271933c23c26aa3e572fca10d7b947ff"
+    },
+    {
+      "table": "Review",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "TableGroup",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "TableMember",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "User",
+      "count": 281,
+      "sha256": "d8afe6a3c44c6f362496aafad13b24be1a750518b4a6afaf187e95a248c2d585"
+    },
+    {
+      "table": "UserProfile",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "V11Actor",
+      "count": 37,
+      "sha256": "39da7bb1f64163e88bdd6a4870a707914eb01f744e95d119e8291c24bb21076a"
+    },
+    {
+      "table": "V11Attendance",
+      "count": 8,
+      "sha256": "bfba858b2dc81166778dc8f177d8692becce384adb3b8abf78707c08fd19ae45"
+    },
+    {
+      "table": "V11BundleConsent",
+      "count": 280,
+      "sha256": "90bd96186081a2ad3bb37e52c6d084330d92582239e85ade746e35e9d20dc47f"
+    },
+    {
+      "table": "V11ChangeChoice",
+      "count": 5,
+      "sha256": "1935d09fc843ef1b75a351e12598a6e36e495e63309f0afb6aaf6980aa7a6aad"
+    },
+    {
+      "table": "V11CoreChange",
+      "count": 4,
+      "sha256": "d6f81c50d200d15149e254828923adfeb4799fdd77e11df1873165bdae5cbced"
+    },
+    {
+      "table": "V11Decision",
+      "count": 8,
+      "sha256": "1b97ff54957c36bb840e2f59ed615d79eb75268e70849671fc2e5a2e2e1dc9c8"
+    },
+    {
+      "table": "V11DeliveryProof",
+      "count": 202,
+      "sha256": "3307f4ec8533dad3dd1784aea7b961066c58fedfe05af2095662f4016651c56c"
+    },
+    {
+      "table": "V11Disposition",
+      "count": 89,
+      "sha256": "8ebbdfb82878bb25cf67c0bd8e5026a6e82582ef06f9a53ffaaac1b174a285d6"
+    },
+    {
+      "table": "V11FundComponent",
+      "count": 399,
+      "sha256": "c37506dded5229979d3208e083263fad53b34fb20e16d9eef47d7e19734fd7e0"
+    },
+    {
+      "table": "V11Membership",
+      "count": 169,
+      "sha256": "b5e4798790d27503fc25da84ccb297ec6e437f8146e4e37d8e2f7a46e9e1d661"
+    },
+    {
+      "table": "V11PaymentIntent",
+      "count": 219,
+      "sha256": "da703895314100dfd7315d43f48edaefc7e7c6b5f3e59ed190475960eebd0e0c"
+    },
+    {
+      "table": "V11PolicyMaterialArchive",
+      "count": 1,
+      "sha256": "032eb03e66bf7ec4224126bcf3c5ebd34181b183fd6b701498317a633a5737a1"
+    },
+    {
+      "table": "V11PolicySnapshot",
+      "count": 93,
+      "sha256": "e921e6cc0566cd3b348844e1ad4bb191a49c794d06ef87d771625d3cbeb9247d"
+    },
+    {
+      "table": "V11PrivacyDisposition",
+      "count": 2,
+      "sha256": "b0f777086631f502236f696cb9cbb338de210f89e887afb37808eb6c2f3007ea"
+    },
+    {
+      "table": "V11Profile",
+      "count": 254,
+      "sha256": "be20d8bd4de55271fa04b38862db0cb38171ab5e4489458413169aab792da9f6"
+    },
+    {
+      "table": "V11ReceiptBinding",
+      "count": 199,
+      "sha256": "d1adeae564380054cdb84b5f244755a22ec682453a09f0ee207ca2a2d0548459"
+    },
+    {
+      "table": "V11RefundInstruction",
+      "count": 55,
+      "sha256": "d976f02bd5f3263a00d90c2604b6930c1a972bd5cc818dfb431134706092a1fb"
+    },
+    {
+      "table": "V11Registration",
+      "count": 252,
+      "sha256": "8d1f9858ea865a8e8450a36fe487c3a4c66132464edaea4a95d8b13cf75d5415"
+    },
+    {
+      "table": "V11Request",
+      "count": 285,
+      "sha256": "f5310abb4c14054bac8114f7a33a61112d53282fb54be79ba8afeb14a2a7e3ea"
+    },
+    {
+      "table": "V11SeatHold",
+      "count": 224,
+      "sha256": "08c34c1b7342956d45e8dcb5e73ea9e0d783fd3abd39311aa7e48dc3ffdfbc02"
+    },
+    {
+      "table": "V11SettlementObligation",
+      "count": 2,
+      "sha256": "21d1e452446ff974fe01437e14dcd7601fe625969b66d138f621aa4cac174454"
+    },
+    {
+      "table": "V11SupplyRevision",
+      "count": 97,
+      "sha256": "30f4dc87f59759bcd32da284cd5a554fcbd504b2f3dbcc34cabc93df626a2a06"
+    },
+    {
+      "table": "V11Table",
+      "count": 71,
+      "sha256": "2db6e1965fdb43a35779ca1d7e781fc17724dcf0f3e25c1e7678b335ead1246d"
+    },
+    {
+      "table": "V11TableEvent",
+      "count": 48,
+      "sha256": "1deac8306457cd0172e710903efa77ff5e3e9582b1b48d5dc4ab5534270e7a9b"
+    },
+    {
+      "table": "WorkerHeartbeat",
+      "count": 2,
+      "sha256": "13db9f3fded9d7b59833ccfd582a8695c54d1a042caaf60280138bb83f7d2006"
+    },
+    {
+      "table": "_prisma_migrations",
+      "count": 19,
+      "sha256": "cdc1afc72ff20e4b05ff5ed5be1557903ac5d11ae991863dd19d2064f8addaac"
+    }
+  ],
+  "after": [
+    {
+      "table": "Activity",
+      "count": 95,
+      "sha256": "36f4c862bf4422e3b18d2a83c8e6fe97eb6b909eec8071311d72708a88535ce1"
+    },
+    {
+      "table": "AdminUser",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "AgreementPolicy",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "AuditLog",
+      "count": 801,
+      "sha256": "184ff711c637e5cf8f57e5ea630f201830cb69a0babd76ab1d64ed47f2077096"
+    },
+    {
+      "table": "Blacklist",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "ChannelReceipt",
+      "count": 205,
+      "sha256": "bf1a8689b51640f61fce2cbda3b08d797ba6ec3726655dde0d76bf45b148d820"
+    },
+    {
+      "table": "ConsentRecord",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "DurableJob",
+      "count": 1073,
+      "sha256": "2ffcf69ef7022ad575cbdcc0c564666e50614e5d0069231207378263f554cf8c"
+    },
+    {
+      "table": "FinancialCase",
+      "count": 19,
+      "sha256": "584aecb906ac95b75f437aa1e8eaf0c13921c9a029547b4f11be55eddd1c8c1b"
+    },
+    {
+      "table": "MockChannelTransaction",
+      "count": 1,
+      "sha256": "d634326434a00ec97abed891a90b0ad2c93ba6a16c5cf4f584df01110dd22dc5"
+    },
+    {
+      "table": "Notification",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Order",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Payment",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "ReceivedEvent",
+      "count": 224,
+      "sha256": "eb34f9cf2f502c69d230e9b60b299542c7fb4a7ed9cd43b0de80df27f001a444"
+    },
+    {
+      "table": "ReconciliationBatch",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Refund",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "RefundObligation",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Report",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Restaurant",
+      "count": 91,
+      "sha256": "ddd7fc402ae6d9d89d9330ef49c3bc69271933c23c26aa3e572fca10d7b947ff"
+    },
+    {
+      "table": "Review",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "TableGroup",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "TableMember",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "User",
+      "count": 281,
+      "sha256": "d8afe6a3c44c6f362496aafad13b24be1a750518b4a6afaf187e95a248c2d585"
+    },
+    {
+      "table": "UserProfile",
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "V11Actor",
+      "count": 37,
+      "sha256": "39da7bb1f64163e88bdd6a4870a707914eb01f744e95d119e8291c24bb21076a"
+    },
+    {
+      "table": "V11Attendance",
+      "count": 8,
+      "sha256": "bfba858b2dc81166778dc8f177d8692becce384adb3b8abf78707c08fd19ae45"
+    },
+    {
+      "table": "V11BundleConsent",
+      "count": 280,
+      "sha256": "90bd96186081a2ad3bb37e52c6d084330d92582239e85ade746e35e9d20dc47f"
+    },
+    {
+      "table": "V11ChangeChoice",
+      "count": 5,
+      "sha256": "1935d09fc843ef1b75a351e12598a6e36e495e63309f0afb6aaf6980aa7a6aad"
+    },
+    {
+      "table": "V11CoreChange",
+      "count": 4,
+      "sha256": "d6f81c50d200d15149e254828923adfeb4799fdd77e11df1873165bdae5cbced"
+    },
+    {
+      "table": "V11Decision",
+      "count": 8,
+      "sha256": "1b97ff54957c36bb840e2f59ed615d79eb75268e70849671fc2e5a2e2e1dc9c8"
+    },
+    {
+      "table": "V11DeliveryProof",
+      "count": 202,
+      "sha256": "3307f4ec8533dad3dd1784aea7b961066c58fedfe05af2095662f4016651c56c"
+    },
+    {
+      "table": "V11Disposition",
+      "count": 89,
+      "sha256": "8ebbdfb82878bb25cf67c0bd8e5026a6e82582ef06f9a53ffaaac1b174a285d6"
+    },
+    {
+      "table": "V11FundComponent",
+      "count": 399,
+      "sha256": "c37506dded5229979d3208e083263fad53b34fb20e16d9eef47d7e19734fd7e0"
+    },
+    {
+      "table": "V11Membership",
+      "count": 169,
+      "sha256": "b5e4798790d27503fc25da84ccb297ec6e437f8146e4e37d8e2f7a46e9e1d661"
+    },
+    {
+      "table": "V11PaymentIntent",
+      "count": 219,
+      "sha256": "da703895314100dfd7315d43f48edaefc7e7c6b5f3e59ed190475960eebd0e0c"
+    },
+    {
+      "table": "V11PolicyMaterialArchive",
+      "count": 1,
+      "sha256": "032eb03e66bf7ec4224126bcf3c5ebd34181b183fd6b701498317a633a5737a1"
+    },
+    {
+      "table": "V11PolicySnapshot",
+      "count": 93,
+      "sha256": "e921e6cc0566cd3b348844e1ad4bb191a49c794d06ef87d771625d3cbeb9247d"
+    },
+    {
+      "table": "V11PrivacyDisposition",
+      "count": 2,
+      "sha256": "b0f777086631f502236f696cb9cbb338de210f89e887afb37808eb6c2f3007ea"
+    },
+    {
+      "table": "V11Profile",
+      "count": 254,
+      "sha256": "be20d8bd4de55271fa04b38862db0cb38171ab5e4489458413169aab792da9f6"
+    },
+    {
+      "table": "V11ReceiptBinding",
+      "count": 199,
+      "sha256": "d1adeae564380054cdb84b5f244755a22ec682453a09f0ee207ca2a2d0548459"
+    },
+    {
+      "table": "V11RefundInstruction",
+      "count": 55,
+      "sha256": "d976f02bd5f3263a00d90c2604b6930c1a972bd5cc818dfb431134706092a1fb"
+    },
+    {
+      "table": "V11Registration",
+      "count": 252,
+      "sha256": "8d1f9858ea865a8e8450a36fe487c3a4c66132464edaea4a95d8b13cf75d5415"
+    },
+    {
+      "table": "V11Request",
+      "count": 285,
+      "sha256": "f5310abb4c14054bac8114f7a33a61112d53282fb54be79ba8afeb14a2a7e3ea"
+    },
+    {
+      "table": "V11SeatHold",
+      "count": 224,
+      "sha256": "08c34c1b7342956d45e8dcb5e73ea9e0d783fd3abd39311aa7e48dc3ffdfbc02"
+    },
+    {
+      "table": "V11SettlementObligation",
+      "count": 2,
+      "sha256": "21d1e452446ff974fe01437e14dcd7601fe625969b66d138f621aa4cac174454"
+    },
+    {
+      "table": "V11SupplyRevision",
+      "count": 97,
+      "sha256": "30f4dc87f59759bcd32da284cd5a554fcbd504b2f3dbcc34cabc93df626a2a06"
+    },
+    {
+      "table": "V11Table",
+      "count": 71,
+      "sha256": "2db6e1965fdb43a35779ca1d7e781fc17724dcf0f3e25c1e7678b335ead1246d"
+    },
+    {
+      "table": "V11TableEvent",
+      "count": 48,
+      "sha256": "1deac8306457cd0172e710903efa77ff5e3e9582b1b48d5dc4ab5534270e7a9b"
+    },
+    {
+      "table": "WorkerHeartbeat",
+      "count": 2,
+      "sha256": "13db9f3fded9d7b59833ccfd582a8695c54d1a042caaf60280138bb83f7d2006"
+    },
+    {
+      "table": "_prisma_migrations",
+      "count": 19,
+      "sha256": "cdc1afc72ff20e4b05ff5ed5be1557903ac5d11ae991863dd19d2064f8addaac"
+    }
+  ],
+  "source_drift_during_run": false,
+  "content_restored_exactly": true,
+  "qualification": "This verifies synthetic public-schema backup restoration. Channel-loss reconciliation and privacy replay require separate business tests; they are not PASS here.",
+  "artifact_paths": [
+    "docs/prelaunch/evidence/restore-2026-10-01T05-05-38-236Z/RESTORE.json",
+    "docs/prelaunch/evidence/restore-2026-10-01T05-05-38-236Z/restore-toc.list"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "candidate": "da7c3806b7cd13076ebef2ccb4a2f582b2cef7eb10f0996865d2fd90254bc48e",
+  "validation": {
+    "native_tests_including_wrapper": 19,
+    "signature_and_startup_tests": 11,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Existing raw refund signature/decryption before new trigger",
+    "Independent explicit real-refund flag and case owner required",
+    "Loopback signed encrypted refund HTTP creates persistent query recovery task atomically",
+    "Semantically duplicate notifications with different encryption nonces remain idempotent",
+    "Amount/original-trade conflict preserves original event and opens case",
+    "Acknowledgement leaves UNKNOWN instruction and F/D RESERVED dispositions untouched"
+  ],
+  "evidence": "evidence/L04-refund-notification",
+  "limits": [
+    "Synthetic RSA/merchant identities, isolated PostgreSQL; no real merchant acceptance",
+    "Receiver triggers trusted query; does not alone prove final refund settlement",
+    "Latest candidate full regression pending"
+  ],
+  "rollback": "Remove refund-notification-trigger.ts and restore app.ts/native/startup tests from backups/L04-refund-notification after inspecting later edits; preserve all existing financial records after any deployment."
+}

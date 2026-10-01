@@ -1,0 +1,70 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/Users/marvin.x/.codex/worktrees/fanju-stage0-baseline/饭局/services/api[39m
+
+{"level":30,"time":1790826006531,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006533,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":404},"responseTime":1.871,"msg":"request completed"}
+{"level":30,"time":1790826006533,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/mock/admin-login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006540,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":6.526,"msg":"request completed"}
+{"level":30,"time":1790826006540,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/mock/wechat-login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006549,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":8.807,"msg":"request completed"}
+{"level":30,"time":1790826006549,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/mock/phone","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006554,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":5.329,"msg":"request completed"}
+{"level":30,"time":1790826006554,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","req":{"method":"POST","url":"/api/ops/restaurants","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006565,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":10.534,"msg":"request completed"}
+{"level":30,"time":1790826006565,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","req":{"method":"POST","url":"/api/ops/activities","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006579,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":13.675,"msg":"request completed"}
+{"level":30,"time":1790826006579,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","req":{"method":"POST","url":"/api/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006594,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":14.153,"msg":"request completed"}
+{"level":30,"time":1790826006594,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","req":{"method":"GET","url":"/api/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006596,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":2.645,"msg":"request completed"}
+{"level":30,"time":1790826006597,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","req":{"method":"PUT","url":"/api/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006605,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":8.177,"msg":"request completed"}
+{"level":30,"time":1790826006605,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","req":{"method":"POST","url":"/api/orders","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006634,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":28.286,"msg":"request completed"}
+{"level":30,"time":1790826006634,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","req":{"method":"POST","url":"/api/mock/payments","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006677,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":42.846,"msg":"request completed"}
+{"level":30,"time":1790826006684,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/mock/payments","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006688,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":403},"responseTime":3.921,"msg":"request completed"}
+{"level":30,"time":1790826006691,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006705,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":14.181,"msg":"request completed"}
+{"level":30,"time":1790826006705,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006711,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":5.512,"msg":"request completed"}
+{"level":30,"time":1790826006711,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","req":{"method":"POST","url":"/api/wechat/pay/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006716,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":4.454,"msg":"request completed"}
+{"level":30,"time":1790826006830,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","req":{"method":"POST","url":"/api/mock/admin-login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006834,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":3.533,"msg":"request completed"}
+{"level":30,"time":1790826006834,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","req":{"method":"POST","url":"/api/mock/wechat-login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006840,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":6.026,"msg":"request completed"}
+{"level":30,"time":1790826006840,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","req":{"method":"POST","url":"/api/mock/phone","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006843,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":2.328,"msg":"request completed"}
+{"level":30,"time":1790826006843,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","req":{"method":"POST","url":"/api/ops/restaurants","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006848,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":5.73,"msg":"request completed"}
+{"level":30,"time":1790826006848,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","req":{"method":"POST","url":"/api/ops/activities","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006856,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":7.975,"msg":"request completed"}
+{"level":30,"time":1790826006857,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","req":{"method":"POST","url":"/api/consents","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006866,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":8.942,"msg":"request completed"}
+{"level":30,"time":1790826006866,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","req":{"method":"GET","url":"/api/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006868,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":1.879,"msg":"request completed"}
+{"level":30,"time":1790826006868,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","req":{"method":"PUT","url":"/api/profile","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006874,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":6.265,"msg":"request completed"}
+{"level":30,"time":1790826006874,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","req":{"method":"POST","url":"/api/orders","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006890,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":16.285,"msg":"request completed"}
+{"level":30,"time":1790826006890,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","req":{"method":"POST","url":"/api/mock/payments","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006920,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":29.689,"msg":"request completed"}
+{"level":30,"time":1790826006939,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","req":{"method":"POST","url":"/api/orders/cmuozkehv000re3nvesupgov1/cancel","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006954,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":15.039,"msg":"request completed"}
+{"level":30,"time":1790826006954,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","req":{"method":"POST","url":"/api/ops/refunds/cmuozkejo000xe3nv4qwg3epp/approve","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826006991,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":36.275,"msg":"request completed"}
+{"level":30,"time":1790826006996,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826007006,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":9.775,"msg":"request completed"}
+{"level":30,"time":1790826007006,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","req":{"method":"POST","url":"/api/wechat/refund/notify","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1790826007009,"pid":69195,"hostname":"Marvins-Mac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":3.307,"msg":"request completed"}
+ [32m✓[39m src/app.test.ts [2m([22m[2m59 tests[22m[2m | [22m[33m57 skipped[39m[2m)[22m[33m 744[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps signed callbacks active while new charges are stopped, and hides them for mock providers [33m 304[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m2 passed[39m[22m[2m | [22m[33m57 skipped[39m[90m (59)[39m
+[2m   Start at [22m 11:40:05
+[2m   Duration [22m 1.19s[2m (transform 210ms, setup 0ms, import 339ms, tests 744ms, environment 0ms)[22m
+
+

@@ -1,0 +1,26 @@
+{
+  "candidate": "d1a7f5e5152463cb2acb87b106e2eb8bf82a820a15b337fe1e52725a809346e5",
+  "validation": {
+    "native_tests_including_wrappers": 23,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-real-refund-reservation",
+  "confirmed": [
+    "Real reserver requires authorizer, receipt allocation, original order identity and expected config binding",
+    "Ten concurrent real reservations yield one instruction using original channel trade number",
+    "Over-budget and denied authorization roll back",
+    "Bound config projection cannot override refund amount or copy unrelated intent fields",
+    "Real refund tasks isolated from V11_REFUND mock worker"
+  ],
+  "migration": "20261001040000_v11_real_refund_binding applied to owned isolated PostgreSQL only; exact mock binding retained and wechat scope constrained.",
+  "limits": [
+    "Native authorizer is synthetic; no professional policy signoff implied",
+    "V11_WECHAT_REFUND dispatcher not implemented or running",
+    "No real refund request sent",
+    "Production and full migration rehearsal pending"
+  ],
+  "rollback": "Restore domain.ts backup in backups/L04_real_refund_reservation and remove added reserver/migration/test code before external deployment. Applied DB constraint rollback requires zero real obligations; preserve obligations."
+}

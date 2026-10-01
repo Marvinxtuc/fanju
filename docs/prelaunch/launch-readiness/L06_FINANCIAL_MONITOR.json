@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "candidate": "1a7d17cf37f70f71ba01097ced3d6054c47b14077e8729b95700758cb25a1a7c",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T05-35-05-971Z/RUNS.json",
+  "final_steps": 28,
+  "unit_tests": 3,
+  "owned_database_tests": 1,
+  "api_tests": 303,
+  "cross_process_tests": 178,
+  "releaseAuthorized": false,
+  "production_alert_route_verified": false,
+  "no_config_cli_exit": 1,
+  "setup": "FINANCIAL_MONITOR_SETUP.md",
+  "failed_run_retained": "docs/prelaunch/evidence/final-2026-10-01T05-32-38-311Z/RUNS.json",
+  "failure_resolution": "Synthetic test clock now derives from DB clock; original DB constraints preserved"
+}

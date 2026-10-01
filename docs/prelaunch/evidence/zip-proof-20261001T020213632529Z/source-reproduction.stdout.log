@@ -1,0 +1,10 @@
+generate: PASS
+shared: PASS
+api: PASS
+ops: PASS
+weapp: PASS
+shared-tests: PASS
+miniapp-tests: PASS
+ops-tests: PASS
+miniapp-dom-native: PASS
+Generated ops acceptance workspace render: PASS

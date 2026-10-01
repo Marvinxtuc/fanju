@@ -1,3 +1,4 @@
+import { sha256TokenRanges, phoneMatchInsideSha256 } from "./secret-scan-digest.mjs";
 import { readFileSync } from "node:fs";
 import { globSync } from "node:fs";
 import { relative } from "node:path";
@@ -72,9 +73,11 @@ for (const file of files) {
     continue;
   }
 
+  const digestRanges = sha256TokenRanges(text);
   for (const { name, pattern } of secretPatterns) {
     for (const match of text.matchAll(pattern)) {
     const value = match[1];
+    if (name === "phone" && phoneMatchInsideSha256(match, digestRanges)) continue;
     if (value && isAllowedLiteralMatch(name, value, match[0])) {
       continue;
     }

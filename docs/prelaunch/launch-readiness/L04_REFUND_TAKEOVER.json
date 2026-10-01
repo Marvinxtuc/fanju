@@ -1,0 +1,20 @@
+{
+  "candidate": "be6e44bb3f36a7d75933abc67f34d2b6cc066509199efbab6d412b0dda712e19",
+  "validation": {
+    "native_tests_including_wrapper": 15,
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-takeover",
+  "confirmed": [
+    "Lease successor prevents old dispatcher acknowledgement writeback",
+    "SUBMITTING and recovery obligation survive lease takeover",
+    "Successor dispatch queries without a second refund submission",
+    "Trusted synthetic query confirms the retained obligation"
+  ],
+  "limits": [
+    "Database lease takeover simulation only; process kill/crash recovery pending",
+    "Synthetic authorization and channel; no real merchant acceptance"
+  ],
+  "rollback": "Remove only the new lease-takeover assertions from payment-preparation-native.test.mjs; no production or schema change in this increment."
+}

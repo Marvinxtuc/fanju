@@ -1,0 +1,27 @@
+{
+  "candidate": "59deb6cd9f49ad4a5dccce88773523ca5fbd9770455bd487dc816f73561bf424",
+  "validation": {
+    "native_tests_including_wrappers": 23,
+    "provider_channel_tests": 40,
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-refund-dispatch",
+  "confirmed": [
+    "Verified NOT_FOUND and NEW required for first submission",
+    "Submitting state and query recovery task commit before dispatch",
+    "Original merchant order, trade identity and total verified before sending",
+    "Provider rechecks guard after original-payment query immediately before refund POST",
+    "Timeout persists UNKNOWN, retains reserved budget and never resends on retry",
+    "No channel acknowledgement is treated as successful refund"
+  ],
+  "limits": [
+    "Internal module only; no production dispatcher process enabled",
+    "Native authorizer/transport are synthetic",
+    "Process crash/lease takeover dispatch tests still pending",
+    "Formal policy authority, signed callback integration and real merchant acceptance pending"
+  ],
+  "rollback": "Remove refund-dispatch.ts and only submitRefund/send-guard additions/tests from channel/providers/native test; preserve existing verified-absence protocol and funding records."
+}

@@ -10,6 +10,10 @@ if (demoMode && process.env.NODE_ENV === "production") {
 }
 
 const apiBaseUrl = process.env.TARO_APP_API_BASE_URL ?? "http://127.0.0.1:3000";
+const prelaunchEnabled = process.env.TARO_APP_PRELAUNCH_ENABLED === "true";
+if (prelaunchEnabled && !/^https?:\/\/(?:127\.0\.0\.1|localhost|\[::1\])(?::\d+)?\/?$/.test(apiBaseUrl)) {
+  throw new Error("Prelaunch preview requires an explicit loopback API origin");
+}
 
 export default defineConfig({
   projectName: "timeleft-shanghai-miniapp",
@@ -26,7 +30,8 @@ export default defineConfig({
   compiler: "webpack5",
   defineConstants: {
     __FANJU_API_BASE_URL__: JSON.stringify(apiBaseUrl),
-    __FANJU_DEMO_MODE__: JSON.stringify(demoMode)
+    __FANJU_DEMO_MODE__: JSON.stringify(demoMode),
+    __FANJU_PRELAUNCH_ENABLED__: JSON.stringify(prelaunchEnabled)
   },
   mini: {},
   h5: {}

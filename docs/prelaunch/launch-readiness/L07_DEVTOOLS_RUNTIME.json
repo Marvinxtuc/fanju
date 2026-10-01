@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-01",
+  "candidate": "256b0053e9a68e1475e033a29de9d152a3dcca1250a56535c1f39559c0a081d6",
+  "project": "fanju-v11-local-256b0053",
+  "scope": "External owned preview; synthetic API; mock funds",
+  "page": "pages/prelaunch/index",
+  "observed": "Current page rendered; policy/activity requests failed",
+  "cause": "Developer tool legal request domain validation rejects http://127.0.0.1:3000",
+  "accepted_request_domain_observation": "Only Tencent cloud API domain listed in visible console",
+  "runtime_acceptance": "BLOCKED",
+  "real_identity_payment_acceptance": "UNVERIFIED",
+  "security_validation_disabled": false,
+  "release_authorized": false
+}

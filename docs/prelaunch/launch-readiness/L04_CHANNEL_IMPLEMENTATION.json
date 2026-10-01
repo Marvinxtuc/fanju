@@ -1,0 +1,35 @@
+{
+  "candidate": "3cac6a7a0ee259e172a68702689183e62f8537bfad1e63a4b750afbab75fb904",
+  "files": [
+    "services/api/src/prelaunch/wechat-channel.ts",
+    "services/api/src/prelaunch/wechat-channel.test.ts"
+  ],
+  "tests": {
+    "channel": 15,
+    "provider": 19,
+    "total": 34
+  },
+  "checks": {
+    "api_typecheck": "PASS",
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "evidence": "evidence/L04-channel",
+  "semantics": [
+    "No mock-style pay() returning SUCCEEDED",
+    "preparePayment only returns PREPARED or existing trusted fact",
+    "Binding, merchant number, amount and CNY checked before accepting facts",
+    "Close response never synthesizes CLOSED; race followed by trusted query",
+    "Absent order does not establish permanent closure",
+    "Refund query validates immutable original transaction"
+  ],
+  "pending": [
+    "Formal production routes and worker assembly",
+    "Durable prepayment storage and unknown-submission recovery",
+    "Real refund dispatch needs durable reservation and verified absence semantics",
+    "Formal signed callback event application and reconciliation",
+    "Current real-channel verification"
+  ],
+  "rollback": "Remove these two added files only; they are not yet imported by running server/worker."
+}

@@ -1,0 +1,17 @@
+{
+  "candidate": "9e7eaac4d61c4c5bfcfaf52f0b9171330448600fa8e70f02dc350ea418faec44",
+  "status": "PASS_ENGINEERING_ONLY",
+  "targeted_tests": 16,
+  "typecheck": "PASS",
+  "evidence": "docs/prelaunch/evidence/final-2026-10-01T04-07-52-579Z/RUNS.json",
+  "scope": "POLICY_MATERIAL_INTEGRITY_ONLY",
+  "activation": "NOT_ASSESSED",
+  "release_authorized": false,
+  "remaining": [
+    "Actual business conclusions and specialist evidence absent",
+    "Formal parameter schema, immutable runtime policy/consent, financial authority and business routes remain incomplete"
+  ],
+  "rollback": "Remove only two new formal-policy-material source/test files",
+  "final_steps": 28,
+  "cross_process_tests": 141
+}

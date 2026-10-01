@@ -1,0 +1,6 @@
+Datasource "db": PostgreSQL database "fanju_prelaunch_a755def387dc_channel", schema "public" at "127.0.0.1:32772"
+
+14 migrations found in prisma/migrations
+
+
+No pending migrations to apply.

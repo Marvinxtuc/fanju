@@ -1,0 +1,24 @@
+{
+  "candidate": "89eee93233fb7186803b680ff7714d79acccd6f565737c14b3114bb56f2da78a",
+  "validation": {
+    "native_tests_including_wrapper": 17,
+    "channel_tests": 17,
+    "api_build": "PASS",
+    "copy": "PASS",
+    "secrets": "PASS"
+  },
+  "confirmed": [
+    "Only persisted PREPARED intent may resume",
+    "Authorization/hold/amount/version checked before and after channel query",
+    "Pending saved prepayment re-signs same reference without channel creation",
+    "Paid/closed/not-found channel facts do not yield fresh payment parameters",
+    "Unknown acknowledgement never fabricates prepay reference or resubmits"
+  ],
+  "evidence": "evidence/L04-prepay-resume",
+  "limits": [
+    "Internal resumer only; formal API/client wiring and real merchant acceptance pending",
+    "Persisted prepay reference plus pending status does not establish validity duration; expired reference does not permit new order automatically",
+    "Last-check versus concurrent cancellation race still requires close/query and late receipt handling"
+  ],
+  "rollback": "Remove payment-preparation-resume.ts and restore only four affected files from backups/L04-prepay-resume after checking later edits; no schema/production data changes."
+}

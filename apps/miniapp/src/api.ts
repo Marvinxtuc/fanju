@@ -144,6 +144,26 @@ export async function loginWithWechatProvider(): Promise<string> {
   return loginWithWechatCode(login.code);
 }
 
+export interface V11UserIdentity {
+  id: string; userId: string; personId: string; role: "USER"; version: number;
+}
+
+// No second credential cache: all responses remain bound to the current WeChat session.
+export async function initializeAvailableV11Identity(authToken: string): Promise<V11UserIdentity | null> {
+  if (!isCurrentUserSession(authToken)) throw new Error("登录状态已改变，请重新加载");
+  const capability = await apiRequest<{ version: string; identityEnabled: boolean }>("/api/v11/identity/capabilities", { token: authToken });
+  if (capability.version !== "v11-identity-1" || typeof capability.identityEnabled !== "boolean") throw new Error("账号服务暂不可用，请稍后重试");
+  if (!capability.identityEnabled) return null;
+  const response = await apiRequest<{ version: string; principal: V11UserIdentity & { restaurantId: null } }>("/api/v11/identity/initialize", { method: "POST", token: authToken, data: {} });
+  const actor = response.principal;
+  if (response.version !== "v11-identity-1" || !actor || actor.role !== "USER" || actor.restaurantId !== null
+      || typeof actor.id !== "string" || !actor.id || typeof actor.userId !== "string" || !actor.userId
+      || typeof actor.personId !== "string" || !actor.personId || !Number.isInteger(actor.version) || actor.version < 0) {
+    throw new Error("账号初始化失败，请重新登录后重试");
+  }
+  return { id: actor.id, userId: actor.userId, personId: actor.personId, role: "USER", version: actor.version };
+}
+
 export async function bindPhoneWithWechatCode(code: string): Promise<void> {
   const token = Taro.getStorageSync<string>(TOKEN_KEY);
   if (!token) {
@@ -353,8 +373,39 @@ async function apiRequest<T>(path: string, options: RequestOptions = {}): Promis
     throw new Error("登录状态已改变，请重新加载");
   }
   if (response.statusCode < 200 || response.statusCode >= 300) {
-    const data = response.data as { error?: string };
-    throw new Error(data.error ?? `API 请求失败：${response.statusCode}`);
+    const data = response.data as { error?: string | {code?:string} };
+    const messages:Record<string,string>={RESOURCE_NOT_FOUND:'未找到本人的记录',FUNDS_DATA_CONFLICT:'收款与退款记录正在核对，请稍后重试',FORBIDDEN:'当前账号无法执行此操作',INVALID_INPUT:'提交内容有误，请重新加载后重试',REQUEST_IDEMPOTENCY_CONFLICT:'申请信息正在核对，请稍后重试'};
+    throw new Error(typeof data.error==='string'?data.error:messages[data.error?.code??'']??`请求未完成，请稍后重试（${response.statusCode}）`);
   }
   return response.data;
 }
+
+export interface FormalRefundRequest {
+  requestId:string; registrationId:string; acceptedAt:string; state:string;
+  scope:'REQUEST_INTAKE_ONLY'; refundApproved:false; policyActivation:'NOT_ASSESSED';
+}
+export interface FormalFunds {
+  version:'v11-funds-1'; scope:'MONETARY_RECORDS_ONLY'; observation:'RECORDED_ONLY';
+  registrationId:string; paidCents:number; confirmedRefundCents:number; unallocatedReceiptCount:number;
+  receipts:Array<{receiptId:string;amountCents:number;paidAt:string;classification:string}>;
+  refunds:Array<{refundId:string;amountCents:number;state:string}>;
+  refundObligations?:Array<{receiptId:string;amountCents:number;confirmedCents:number;remainingCents:number;recordedAt:string;state:'CONFIRMED'|'EXECUTION_RECORDED'|'AWAITING_EXECUTION'}>;
+  obligationEvidenceConflicts?:number;
+  refundObligationCoverage?:'RECORDED_ONLY';
+}
+export interface MoneyRegistration {registrationId:string;activityTitle:string;startsAt:string;refundRequests:FormalRefundRequest[]}
+export async function openMoneySession(){
+  const token=await ensureAuthenticatedUser();
+  const capabilities=await apiRequest<{version:string;identityEnabled:boolean;financialRecordsEnabled:boolean;refundIntakeEnabled:boolean}>("/api/v11/identity/capabilities",{token});
+  if(capabilities.version!=='v11-identity-1'||!capabilities.identityEnabled||(!capabilities.financialRecordsEnabled&&!capabilities.refundIntakeEnabled))throw Error('收款与退款记录服务暂不可用');
+  const actor=await initializeAvailableV11Identity(token);if(!actor)throw Error('请重新登录后重试');
+  return {token,userId:actor.userId,financialRecordsEnabled:capabilities.financialRecordsEnabled===true,refundIntakeEnabled:capabilities.refundIntakeEnabled===true};
+}
+export async function listMoneyRegistrations(token:string,cursor?:string){
+ return apiRequest<{registrations:MoneyRegistration[];nextCursor:string|null}>(`/api/v11/money-registrations${cursor?'?cursor='+encodeURIComponent(cursor):''}`,{token});
+}
+export async function getFormalFunds(token:string,id:string){return apiRequest<FormalFunds>(`/api/v11/registrations/${encodeURIComponent(id)}/funds`,{token});}
+export async function submitFormalRefund(token:string,id:string,idempotencyKey:string){
+ return apiRequest<FormalRefundRequest>(`/api/v11/registrations/${encodeURIComponent(id)}/refund-requests`,{method:'POST',token,data:{idempotencyKey}});
+}
+export async function getFormalRefund(token:string,id:string){return apiRequest<FormalRefundRequest>(`/api/v11/refund-requests/${encodeURIComponent(id)}`,{token});}
